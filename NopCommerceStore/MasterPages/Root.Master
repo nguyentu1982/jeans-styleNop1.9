@@ -1,0 +1,417 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Root.Master.cs" Inherits="NopSolutions.NopCommerce.Web.MasterPages.root" %>
+
+<%@ Register TagPrefix="nopCommerce" TagName="Header" Src="~/Modules/Header.ascx" %>
+<%@ Register TagPrefix="nopCommerce" TagName="HeaderLogin" Src="~/Modules/HeaderLogin.ascx" %>
+<%@ Register TagPrefix="nopCommerce" TagName="HeaderMenu" Src="~/Modules/HeaderMenu.ascx" %>
+<%@ Register TagPrefix="nopCommerce" TagName="Footer" Src="~/Modules/Footer.ascx" %>
+<%@ Register TagPrefix="nopCommerce" TagName="GoogleAdsense" Src="~/Modules/GoogleAdsense.ascx" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html itemscope="itemscope" itemtype="http://schema.org/WebPage" xmlns="http://www.w3.org/1999/xhtml" lang="vi-VN">
+<head id="Head1" runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title></title>
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />    
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <asp:PlaceHolder ID="SCRIPTS" runat="server" />
+    <asp:PlaceHolder ID="phAnalyticsHead" runat="server" />
+
+    <%--<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>--%>
+    <%--<script type="text/javascript" src="/Scripts/jquery-1.4.min.js"></script>--%>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../MegaDropdownMenu/jkmegamenu.css" />
+    <link rel="Stylesheet" type="text/css" href="../float-ads-fixed-position/ads.css" />
+
+    <script type="text/javascript" src="/MegaDropdownMenu/jkmegamenu.js">
+
+    <%--/***********************************************
+    * jQuery Mega Menu- by JavaScript Kit (www.javascriptkit.com)
+    * This notice must stay intact for usage
+    * Visit JavaScript Kit at http://www.javascriptkit.com/ for full source code
+    ***********************************************/--%>
+
+    </script>
+
+    
+
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-22789054-1', 'auto');
+        ga('send', 'pageview');
+
+    </script>
+
+    
+    <meta property="fb:app_id" content="531573176905803" />
+</head>
+<body>
+    <script type="text/javascript">
+        function displayImageNavigation(imgClientId) {
+            document.getElementById(imgClientId.id + 'picture-previous').style.display = 'block';
+            document.getElementById(imgClientId.id + 'picture-next').style.display = 'block';
+        }
+
+        function hideImageNavigation(imgClientId) {
+            document.getElementById(imgClientId.id + 'picture-previous').style.display = 'none';
+            document.getElementById(imgClientId.id + 'picture-next').style.display = 'none';
+        }
+
+        function getNextProductPicture(currentImageUrl, productimageUrls, imgId) {
+            var urls = productimageUrls.split(";");
+            var imgIndex = urls.indexOf(document.getElementById(imgId).firstChild.src);
+            
+            if (parseInt(imgIndex) == parseInt(urls.length - 1))
+            {
+                imgIndex = -1;
+            }
+
+            document.getElementById(imgId).firstChild.src = urls[imgIndex + 1];
+            document.getElementById(imgId).firstChild.width = 200;
+            document.getElementById(imgId).firstChild.height = 200;
+           
+        }
+
+        function getPreviosProductPicture(productimageUrls, imgId) {
+            var urls = productimageUrls.split(";");
+            var imgIndex = urls.indexOf(document.getElementById(imgId).firstChild.src);
+
+            if (parseInt(imgIndex) == 0) {
+                imgIndex = urls.length;
+            }
+
+            document.getElementById(imgId).firstChild.src = urls[imgIndex - 1];
+            document.getElementById(imgId).firstChild.width = 200;
+            document.getElementById(imgId).firstChild.height = 200;
+        }
+    </script>
+
+    <script>
+        window.fbAsyncInit = function () {
+            FB.init({
+                appId: '581973338578143',
+                xfbml: true,
+                version: 'v2.1'
+            });
+        };
+
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) { return; }
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+
+    <script>
+        // This is called with the results from from FB.getLoginStatus().
+        function statusChangeCallback(response) {
+            console.log('statusChangeCallback');
+            console.log(response);
+            // The response object is returned with a status field that lets the
+            // app know the current login status of the person.
+            // Full docs on the response object can be found in the documentation
+            // for FB.getLoginStatus().
+            if (response.status === 'connected') {
+                // Logged into your app and Facebook.
+                testAPI();
+            } else if (response.status === 'not_authorized') {
+                // The person is logged into Facebook, but not your app.
+                document.getElementById('status').innerHTML = 'Please log ' +
+                  'into this app.';
+            } else {
+                // The person is not logged into Facebook, so we're not sure if
+                // they are logged into this app or not.
+                document.getElementById('status').innerHTML = 'Please log ' +
+                  'into Facebook.';
+            }
+        }
+
+        // This function is called when someone finishes with the Login
+        // Button.  See the onlogin handler attached to it in the sample
+        // code below.
+        function checkLoginState() {
+            FB.getLoginStatus(function (response) {
+                statusChangeCallback(response);
+            });
+        }
+
+        window.fbAsyncInit = function () {
+            FB.init({
+                appId: '581973338578143',
+                cookie: true,  // enable cookies to allow the server to access 
+                // the session
+                xfbml: true,  // parse social plugins on this page
+                version: 'v2.1' // use version 2.1
+            });
+
+            // Now that we've initialized the JavaScript SDK, we call 
+            // FB.getLoginStatus().  This function gets the state of the
+            // person visiting this page and can return one of three states to
+            // the callback you provide.  They can be:
+            //
+            // 1. Logged into your app ('connected')
+            // 2. Logged into Facebook, but not your app ('not_authorized')
+            // 3. Not logged into Facebook and can't tell if they are logged into
+            //    your app or not.
+            //
+            // These three cases are handled in the callback function.
+
+            FB.getLoginStatus(function (response) {
+                statusChangeCallback(response);
+            });
+
+        };
+
+        // Load the SDK asynchronously
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+
+        // Here we run a very simple test of the Graph API after login is
+        // successful.  See statusChangeCallback() for when this call is made.
+        function testAPI() {
+            console.log('Welcome!  Fetching your information.... ');
+            var img = document.getElementById("f-image");
+            var a = document.getElementById("f-link");
+
+            FB.api('/me/picture', function (response) {
+                img.src = response.data.url
+                img.height = 25;
+                img.width = 25;
+            });
+
+            FB.api('/me', function (response) {
+                console.log('Successful login for: ' + response.name);
+                //document.getElementById('status').innerHTML =
+                //  'Thanks for logging in, ' + response.name + '!';
+                a.href = response.link;
+                document.getElementById('status').style.display = "block";
+                document.getElementById('f-login').style.display = "none";
+                document.getElementById('f-logout').style.display = "block";
+
+            });
+
+        }
+
+        function logoutFacebook() {
+            FB.logout(function (response) {
+                document.getElementById('f-logout').style.display = "none";
+                document.getElementById('f-login').style.display = "block";
+                document.getElementById('status').style.display = "none";
+            });
+        }
+    </script>
+
+    <!--Mega Menu Anchor-->
+
+    <!--Mega Drop Down Menu HTML. Retain given CSS classes-->
+    <div id="megamenu1" class="megamenu">
+
+        <div class="column">
+            <h3>Quần jean dài</h3>
+            <ul>
+                <li><a href="http://quanjeandep.com/danh-muc-jean/19/quan-jean-nu-cap-cao.aspx">Quần jean nữ cạp cao</a></li>
+                <li><a href="http://quanjeandep.com/danh-muc-jean/21/quan-jean-nu-cap-tre.aspx">Quần jean nữ cạp trễ</a></li>
+                <li><a href="http://quanjeandep.com/danh-muc-jean/22/quan-jean-nu-ong-con.aspx">Quần jean nữ ống côn</a></li>
+                <li><a href="http://quanjeandep.com/danh-muc-jean/23/quan-jean-nu-ong-dung.aspx">Quần jean nữ ống đứng</a></li>
+                <li><a href="http://quanjeandep.com/danh-muc-jean/24/quan-jean-nu-ong-vay.aspx">Quần jean nữ ống vẩy</a></li>
+                <li><a href="http://quanjeandep.com/danh-muc-jean/25/quan-jean-nu-rach.aspx">Quần jean nữ rách</a></li>
+                <li><a href="http://quanjeandep.com/danh-muc-jean/26/quan-jean-nu-ngoai-co.aspx">Quần jean nữ big size</a></li>
+            </ul>
+        </div>
+
+        <div class="column">
+            <h3>Quần jean ngố</h3>
+            <ul>
+                <li><a href="http://quanjeandep.com/danh-muc-jean/4/quan-jean-lung-ngo.aspx">Quần jean lửng, ngố</a></li>
+            </ul>
+        </div>
+
+        <div class="column">
+            <h3>Quần sooc</h3>
+            <ul>
+                <li><a href="http://quanjeandep.com/danh-muc-jean/5/quan-sooc-nu.aspx">Quần sooc jean</a></li>
+            </ul>
+        </div>
+
+        <br style="clear: left" />
+        <!--Break after 3rd column. Move this if desired-->
+    </div>
+
+    <div id="megamenu2" class="megamenu">
+
+        <div class="column">
+            <h3>Quần jean dài</h3>
+            <ul>
+                <li><a href="http://quanjeandep.com/danh-muc-jean/15/quan-jean-nam-dai.aspx">Quần jean nam dài</a></li>
+                <li><a href="http://quanjeandep.com/danh-muc-jean/17/quan-jean-nam-ong-dung.aspx">Quần jean nam ống đứng</a></li>
+                <li><a href="http://quanjeandep.com/danh-muc-jean/18/quan-jean-nam-ong-con.aspx">Quần jean nam ống côn</a></li>
+                <li><a href="http://quanjeandep.com/danh-muc-jean/30/quan-jean-nam-big-size.aspx">Quần jean nam big size</a></li>
+            </ul>
+        </div>
+
+        <div class="column">
+            <h3>Quần jean lửng, ngố</h3>
+            <ul>
+                <li><a href="http://quanjeandep.com/danh-muc-jean/16/quan-jean-nam-ngo.aspx">Quần jean nam lửng, ngố</a></li>
+            </ul>
+        </div>
+
+        <br style="clear: left" />
+        <!--Break after 3rd column. Move this if desired-->
+    </div>
+
+
+    <script type="text/javascript">
+
+        //jkmegamenu.definemenu("anchorid", "menuid", "mouseover|click")
+        jkmegamenu.definemenu("megaanchor", "megamenu1", "mouseover")
+        jkmegamenu.definemenu("megaanchor2", "megamenu2", "mouseover")
+    </script>
+
+    <div id="fb-root"></div>
+    <script>(function (d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1&appId=531573176905803";
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+    </script>
+
+    <script>
+        (function () {
+
+            // hide #back-top first
+            $("#back-top").hide();
+
+            // fade in #back-top
+            $(function () {
+                $(window).scroll(function () {
+                    if ($(this).scrollTop() > 100) {
+                        $('#back-top').fadeIn();
+                    } else {
+                        $('#back-top').fadeOut();
+                    }
+                });
+
+                // scroll body to 0px on click
+                $('#back-top a').click(function () {
+                    $('body,html').animate({
+                        scrollTop: 0
+                    }, 800);
+                    return false;
+                });
+            });
+
+        });
+    </script>
+
+    <div id="fl813691">
+        <div id="eb951855">
+            <div id="cob263512">
+                <div id="coh963846">
+                    <div id="call-to-buy" style="display: none; background: #575757; line-height: 20px; padding: 5px 5px 2px 5px; font-size: 12px; font-weight: bolder; color: whitesmoke;">Mua hàng gọi: (04) 3722 8396 / 0988 08 4657</div>
+                    <ul id="coc67178">
+                        <li id="pf204652hide" style="display: inline;"><a title="Hide" href="javascript:pf204652clickhide();" class="min">Hide</a></li>
+                        <li id="pf204652show" style="display: none;"><a title="Hiện lại" href="javascript:pf204652clickshow();" class="max">View</a></li>
+                        <li style="display: none;" id="pf204652close"><a title="Đóng lại" href="javascript:pf204652clickclose();" class="close">Close</a></li>
+                    </ul>
+                </div>
+                <div id="co453569">
+                    <a href="<%=Page.ResolveUrl("~/topic/11/huong-dan-mua-hang-tai-jeans-style.aspx")%>" target="_blank" title="Hướng dẫn đặt hàng online">
+                        <img src="/float-ads-fixed-position/images/online-support.jpg" width="290" alt=""></a>
+
+                    <a href="ymsgr:sendIM?quanjeandep.banle2" rel="nofollow">
+                        <img src="http://opi.yahoo.com/online?u=quanjeandep.banle2&amp;m=g&amp;t=2" alt="Jeans Style Long Biên">
+                    </a>
+                    <a href="ymsgr:sendIM?quanjeandep" rel="nofollow">
+                        <img src="http://opi.yahoo.com/online?u=quanjeandep&amp;m=g&amp;t=2" alt="Jeans Style Đội Cấn">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        pf204652bottomLayer = document.getElementById('fl813691');
+        var pf204652IntervalId = 0;
+        var pf204652maxHeight = 198;//Chieu cao khung quang cao
+        if (screen.width <= 768) {
+            pf204652maxHeight = 20;
+            document.getElementById('call-to-buy').style.display = 'inline';            
+        }
+        var pf204652minHeight = 20;
+        var pf204652curHeight = 0;
+        function pf204652show() {
+            pf204652curHeight += 2;
+            if (pf204652curHeight > pf204652maxHeight) {
+                clearInterval(pf204652IntervalId);
+            }
+            pf204652bottomLayer.style.height = pf204652curHeight + 'px';
+        }
+        function pf204652hide() {
+            pf204652curHeight -= 3;
+            if (pf204652curHeight < pf204652minHeight) {
+                clearInterval(pf204652IntervalId);
+            }
+            pf204652bottomLayer.style.height = pf204652curHeight + 'px';
+        }
+        pf204652IntervalId = setInterval('pf204652show()', 5);
+        function pf204652clickhide() {
+            document.getElementById('pf204652hide').style.display = 'none';
+            document.getElementById('pf204652show').style.display = 'inline';
+            document.getElementById('call-to-buy').style.display = 'inline';
+            pf204652IntervalId = setInterval('pf204652hide()', 5);
+        }
+        function pf204652clickshow() {
+            document.getElementById('pf204652hide').style.display = 'inline';
+            document.getElementById('pf204652show').style.display = 'none';
+            document.getElementById('call-to-buy').style.display = 'none';
+            pf204652IntervalId = setInterval('pf204652show()', 5);
+        }
+        function pf204652clickclose() {
+            document.body.style.marginBottom = '0px';
+            pf204652bottomLayer.style.display = 'none';
+        }
+    </script>
+    <form id="form1" runat="server">
+        
+        <div class="master-wrapper-page">
+
+            <div class="master-wrapper-content">
+
+                <%-- <div class="headerLogin-links">        
+            <nopCommerce:HeaderLogin ID="ctrHeaderLogin" runat="server" />             
+            </div>--%>
+
+                <nopCommerce:Header ID="ctrlHeader" runat="server" />
+                <nopCommerce:HeaderMenu ID="ctrlHeaderMenu" runat="server" />
+                <asp:ContentPlaceHolder ID="cph1" runat="server">
+                </asp:ContentPlaceHolder>
+                <div class="clear">
+                </div>
+            
+            <p id="back-top">
+                <a href="#top"><span></span></a>
+            </p>
+            <nopCommerce:GoogleAdsense runat="server" ID="ctrlGoogleAdsense" />
+            <nopCommerce:Footer ID="ctrlFooter" runat="server" />
+        </div>
+        </div>
+    </form>
+    <asp:PlaceHolder ID="phAnalyticsBody" runat="server" />
+</body>
+</html>

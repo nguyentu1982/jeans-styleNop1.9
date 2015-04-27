@@ -1,0 +1,76 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/MasterPages/Root.Master" AutoEventWireup="true" CodeBehind="TwoColumn.master.cs" Inherits="NopSolutions.NopCommerce.Web.MasterPages.TwoColumn" %>
+
+<%@ Register TagPrefix="nopCommerce" TagName="MiniShoppingCartBox" Src="~/Modules/MiniShoppingCartBox.ascx" %>
+<%@ Register TagPrefix="nopCommerce" TagName="CategoryNavigation" Src="~/Modules/CategoryNavigation.ascx" %>
+<%@ Register TagPrefix="nopCommerce" TagName="ManufacturerNavigation" Src="~/Modules/ManufacturerNavigation.ascx" %>
+<%@ Register TagPrefix="nopCommerce" TagName="LiveChatBlock" Src="~/Modules/LiveChatBlock.ascx" %>
+
+<%--<%@ Register TagPrefix="nopCommerce" TagName="HomePageNewsOnLefOrRightColumnControl" Src="~/Modules/HomePageNewsOnLeftOrRightColumn.ascx" %>--%>
+<%@ Register TagPrefix="nopCommerce" TagName="ContactInfoHotline" Src="~/Modules/ContactInfoHotline.ascx" %>
+
+
+
+
+<asp:Content ID="Content1" ContentPlaceHolderID="cph1" runat="server">
+    <div class="master-wrapper-center-1">
+        <div class="master-wrapper-cph-1">
+            <div class="master-wrapper-leftside-2">
+                <asp:ContentPlaceHolder ID="cph2" runat="server">
+                    <nopCommerce:LiveChatBlock ID="ctrlLiveChatBlock" runat="server" />
+                    <div class="clear">
+                    </div>
+
+                    <nopCommerce:MiniShoppingCartBox ID="ctrlMiniShoppingCartBox" runat="server" />
+                    <div class="clear">
+                    </div>
+                    <nopCommerce:CategoryNavigation ID="ctrlCategoryNavigation" runat="server" />
+                    <div class="clear">
+                    </div>
+                    <nopCommerce:ManufacturerNavigation ID="ctrlManufacturerNavigation" runat="server" />
+                    <div class="clear">
+                    </div>
+                    <nopCommerce:ContactInfoHotline ID="ctrlContactInfoHotline" runat="server" />
+                    <div class="clear">
+                    </div>
+
+                    <div class="block">
+                        <img src="/images/image/mien-phi-sua-quan-jean.jpg" alt="Miễn phí sửa quần jean bán tại Jeans Style 55 Đội Cấn" width="184px" />
+                    </div>
+                    <%--<nopCommerce:InfoBlock ID="ctrlInfoBlock" runat="server" />
+            <div class="clear">
+            </div> --%>
+
+
+
+                    <div class="block">
+                        <div class="title">CHẤP NHẬN THANH TOÁN</div>
+
+                        <div class="payment-availabe">
+                            <a target="_blank" href="http://help.nganluong.vn/quanjeandep.com.html" title="Hướng dẫn thanh toán qua NgânLượng.vn" rel="nofollow">
+
+                                <img src="https://www.nganluong.vn/data/images/merchant/logo/accepted-payment-help-yellow.png" border="0" />
+                            </a>
+                            <p></p>
+
+                            <a href=" https://www.baokim.vn/payment_guide/ quanjeandepcom.html" target="_blank" rel="nofollow">
+                                <img src="https://www.baokim.vn/application/uploads/integrate/baokim_integrate_5.jpg" alt="thanh toán qua Bảo Kim" width="152" border="0" />
+                            </a>
+
+                        </div>
+                    </div>
+                    <div class="clear">
+                    </div>
+
+                    <%--<nopCommerce:HomePageNewsOnLefOrRightColumnControl ID="ctrHomePageNewsOnLefOrRightColumnControl" runat="server" />--%>
+                </asp:ContentPlaceHolder>
+            </div>
+            <div class="master-wrapper-center-2">
+                <%--<div class="top-banner"> <a href="<%=CommonHelper.GetStoreLocation()%>"><img src="/images/quan-jean-nu-dep-banner.gif" alt="Quan jean dep"/> </a></div>--%>
+                <div class="master-wrapper-cph-2">
+                    <asp:ContentPlaceHolder ID="cph1" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
+            </div>
+        </div>
+    </div>
+</asp:Content>

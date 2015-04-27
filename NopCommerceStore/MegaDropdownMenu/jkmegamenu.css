@@ -1,0 +1,46 @@
+.megamenu{
+position: absolute;
+display: none;
+left: 0;
+top: 0;
+background-color: #fff;
+border: 1px solid #021841;
+padding: 10px;
+font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
+font-size:12px;
+z-index: 99999;
+
+}
+
+.megamenu .column{
+float: left;
+width: 180px; /*width of each menu column*/
+margin-right: 5px;
+}
+
+.megamenu .column ul{
+margin: 0;
+padding: 0;
+list-style-type: none;
+}
+
+.megamenu .column ul li{
+padding-bottom: 5px;
+}
+
+.megamenu .column h3{
+font: bold 13px Arial;
+margin: 0 0 5px 0;
+}
+
+.megamenu .column ul li a{
+text-decoration: none;
+}
+
+.megamenu .column ul li a:hover{
+text-decoration:underline;
+}
+
+.megamenu .column ul li a:visited{
+color:#3664A5;
+}
