@@ -156,7 +156,7 @@
                    }
                    if (warehouse.Count > 0)
                    {%>
-                <div style="border: dotted 1px #c0c0c0; padding: 5px; margin: 10px 0px 10px 0px; background-color: aqua;font-size:14px">
+                <div style="border: dotted 1px #c0c0c0; padding: 5px; margin: 10px 0px 10px 0px; background-color: aqua;font-size:14px;max-width:350px;">
                     <div style="font-weight: bold; color: #3664A5; font-size: 14px; font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;">
                         <%=GetLocaleResourceString("Products.Warehouse")%>
                     </div>

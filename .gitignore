@@ -1,0 +1,13 @@
+*.pdb
+*.dll
+*.jpeg
+*.cache
+*.config
+*.cache
+*.txt
+*.cache
+Libraries/Nop.BusinessLogic/obj/Debug/edmxResourcesToEmbed/Data/NopModel.csdl
+*.msl
+Libraries/Nop.BusinessLogic/obj/Debug/edmxResourcesToEmbed/Data/NopModel.ssdl
+*.cache
+*.cache
