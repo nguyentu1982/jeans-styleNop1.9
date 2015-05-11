@@ -144,10 +144,6 @@ img
 	border: none;
 }
 
-h1, h2, h3, h4, h5, h6
-{
-	
-}
 
 h2, h3
 {
@@ -478,11 +474,6 @@ a.right-logo
 	position: absolute;
 	left: 508px;
 	z-index: 1;
-}
-
-.headerLogin-links
-{
-	
 }
 
 .header-links
@@ -842,11 +833,6 @@ a.f-logout
 	background-color: inherit;
 }
 
-.footer-info a
-{
-	
-}
-
 .footer-info a:hover
 {
 	color:#FFF;
@@ -944,15 +930,6 @@ td.fieldname
     font-size: 12px;
 }
 
-.table-container
-{
-	
-}
-
-.table-container .row
-{
-}
-
 .table-container .row .item-name
 { 
 	padding: 3px 10px 0px 0px;
@@ -967,20 +944,6 @@ td.fieldname
 	vertical-align: middle;
 }
 
-.htmlcontent-title
-{
-	
-}
-
-.htmlcontent-header 
-{
-	
-}
-
-.htmlcontent-body
-{
-
-}
 
 .main-cate-navigate
 {
@@ -992,7 +955,6 @@ td.fieldname
 	padding: 10px;
 	border: 1px solid#c0c0c0;
 	margin-bottom:5px;
-	float:left;
 }
 
 .topicpage-title
@@ -1000,10 +962,6 @@ td.fieldname
 	border-bottom: 0 none;
 }
 
-.topicpage .topicpage-body
-{
-
-}
 
 .user-agreement-page
 {
@@ -1012,14 +970,6 @@ td.fieldname
 	padding-left: 0;
 }
 
-.user-agreement-page .page-title
-{
-}
-
-.user-agreement-page .page-body
-{
-
-}
 
 .clear
 {
@@ -1039,10 +989,6 @@ td.fieldname
 	font-weight: bold;
 }
 
-a.linkButton:hover
-{
-
-}
 
 .dropDownLists
 {
@@ -1058,10 +1004,6 @@ a.linkButton:hover
 	margin-right:auto;	
 }
 	
-.freeShipping
-{
-    
-}
 
 .freeShipping-cate-page
 {
@@ -2708,10 +2650,6 @@ textarea
 	text-decoration: line-through;
 }
 
-.product-list-search .product-item .buttons
-{
-
-}
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
 
@@ -4579,11 +4517,6 @@ textarea
 	font-size: 14px;
 }
 
-.related-product-grid .item-box .relatedproduct-item .product-title a, .recently-product-grid .item-box .recentlyproduct-item .product-title a 
-{
-
-}
-
 .related-product-grid .item-box .relatedproduct-item-on-news .product-title
 {
     text-align: center;
@@ -4595,16 +4528,6 @@ textarea
 	height: 48px;
     text-align: center;
     padding: 10px 10px 0px 10px;
-}
-
-.recently-added-products .recently-added-product-grid .item-box .recently-added-product-item, .relatedproduct-item-on-news
-{
-	margin-top: 10px;
-}
-
-.recently-added-products .recently-added-product-grid .item-box .recently-added-product-item .picture
-{
-	
 }
 
 .recently-product-grid .item-box 
@@ -4639,10 +4562,7 @@ textarea
       border: 1px solid #c0c0c0;
       margin: 4px;
 }
-.recently-product-grid .item-box .recentlyproduct-item .picture
-{
-	
-}
+
 .related-products-grid .item .picture, .also-purchased-products-grid .item .picture
 {
 	text-align: center;
