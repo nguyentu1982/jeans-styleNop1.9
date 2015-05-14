@@ -261,22 +261,22 @@ namespace NopSolutions.NopCommerce.Web.Templates.Products
 
         protected override void OnPreRender(EventArgs e)
         {
-            pnlProductReviews.Visible = ctrlProductReviews.Visible;
-            pnlProductSpecs.Visible = ctrlProductSpecs.Visible;
-            pnlProductTags.Visible = ctrlProductTags.Visible;
-            ProductsTabs.Visible = pnlProductReviews.Visible ||
-                pnlProductSpecs.Visible ||
-                pnlProductTags.Visible;
+           // pnlProductReviews.Visible = ctrlProductReviews.Visible;
+            //pnlProductSpecs.Visible = ctrlProductSpecs.Visible;
+           // pnlProductTags.Visible = ctrlProductTags.Visible;
+           // ProductsTabs.Visible = pnlProductReviews.Visible ||
+             //   pnlProductSpecs.Visible ||
+              //  pnlProductTags.Visible;
 
             //little hack here
-            if (pnlProductTags.Visible)
+         //   if (pnlProductTags.Visible)
                 ProductsTabs.ActiveTab = pnlProductTags;            
-            if (pnlProductReviews.Visible)
+           // if (pnlProductReviews.Visible)
                 ProductsTabs.ActiveTab = pnlProductReviews;
-            if (pnlProductSpecs.Visible)
+           // if (pnlProductSpecs.Visible)
                 ProductsTabs.ActiveTab = pnlProductSpecs;
-            if (pnlProductGuaranty.Visible)
-                ProductsTabs.ActiveTab = pnlProductGuaranty;
+           // if (pnlProductGuaranty.Visible)
+            //    ProductsTabs.ActiveTab = pnlProductGuaranty;
 
             BindJQuery();
 

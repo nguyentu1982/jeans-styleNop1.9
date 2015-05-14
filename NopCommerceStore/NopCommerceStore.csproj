@@ -417,6 +417,10 @@
     <Compile Include="Administration\BulkEditProducts.aspx.designer.cs">
       <DependentUpon>BulkEditProducts.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Administration\ProductWebService.asmx.cs">
+      <DependentUpon>ProductWebService.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Administration\TagsProductAdd.aspx.cs">
       <DependentUpon>TagsProductAdd.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -6361,6 +6365,7 @@
     <Content Include="Administration\CategoryTemplateAdd.aspx" />
     <Content Include="Administration\CategoryTemplateDetails.aspx" />
     <Content Include="Administration\CategoryTemplates.aspx" />
+    <Content Include="Administration\ProductWebService.asmx" />
     <Content Include="Administration\TagsProductAdd.aspx" />
     <Content Include="Administration\Modules\TagsProduct.ascx" />
     <Content Include="Administration\Modules\TagsProductAdd.ascx" />

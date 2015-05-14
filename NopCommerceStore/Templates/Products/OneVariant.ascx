@@ -218,7 +218,7 @@ thanh toán]</a></td>
 
         </div>
         <ajaxToolkit:TabContainer runat="server" ID="ProductsTabs" ActiveTabIndex="0" CssClass="grey">
-            <ajaxToolkit:TabPanel runat="server" ID="pnlStyleNote" HeaderText="<% $NopResources:Products.StyleNote %>">
+            <ajaxToolkit:TabPanel runat="server" ID="pnlStyleNote" HeaderText="<% $NopResources:Products.StyleNote %>" visible="false">
                 <ContentTemplate>
                     <nopCommerce:StyleNote ID="ctrlStyleNote" runat="server" />
                 </ContentTemplate>
@@ -228,7 +228,7 @@ thanh toán]</a></td>
                     <nopCommerce:ProductSpecs ID="ctrlProductSpecs" runat="server" Visible="true" />
                 </ContentTemplate>
             </ajaxToolkit:TabPanel>
-            <ajaxToolkit:TabPanel runat="server" ID="pnlProductGuaranty" HeaderText="<% $NopResources:Products.Guaranty %>">
+            <ajaxToolkit:TabPanel runat="server" ID="pnlProductGuaranty" HeaderText="<% $NopResources:Products.Guaranty %>" visible="true">
                 <ContentTemplate>
                     <nopCommerce:Topic ID="topicFreeShiping" runat="server" TopicName="FreeShipping" OverrideSEO="false"></nopCommerce:Topic>
                 </ContentTemplate>
@@ -245,10 +245,10 @@ thanh toán]</a></td>
             </ajaxToolkit:TabPanel>
             <ajaxToolkit:TabPanel runat="server" ID="pnlProductReviews" HeaderText="<% $NopResources:Products.ProductReviews %>">
                 <ContentTemplate>
-                    <nopCommerce:ProductReviews ID="ctrlProductReviews" runat="server" ShowWriteReview="true" Visible="true" />
+                    
                 </ContentTemplate>
             </ajaxToolkit:TabPanel>
-            <ajaxToolkit:TabPanel runat="server" ID="pnlProductTags" HeaderText="<% $NopResources:Products.ProductTags %>">
+            <ajaxToolkit:TabPanel runat="server" ID="pnlProductTags" HeaderText="<% $NopResources:Products.ProductTags %>" visible="false">
                 <ContentTemplate>
                     <nopCommerce:ProductTags ID="ctrlProductTags" runat="server" Visible="false" />
                 </ContentTemplate>
@@ -282,7 +282,34 @@ thanh toán]</a></td>
                         runat="server" />
                 </ItemTemplate>
             </asp:ListView>
+	
+	
         </div>
+
+	<ajaxToolkit:TabContainer runat="server" ID="ProductsTabs2" ActiveTabIndex="2" CssClass="grey">
+         
+            
+           
+            <ajaxToolkit:TabPanel runat="server" ID="pnlReturnPolicy2" HeaderText="<% $NopResources:Products.ReturnPolicy %>">
+                <ContentTemplate>
+                    <nopCommerce:Topic ID="topicReturnPolicy2" runat="server" TopicName="ReturnPolicy" OverrideSEO="false"></nopCommerce:Topic>
+                </ContentTemplate>
+            </ajaxToolkit:TabPanel>
+            <ajaxToolkit:TabPanel runat="server" ID="pnlSizeGuide2" HeaderText="<% $NopResources:Products.SizeGuide %>">
+                <ContentTemplate>
+                    <nopCommerce:Topic ID="SizeGuide2" runat="server" TopicName="SizeGuide" OverrideSEO="false"></nopCommerce:Topic>
+                </ContentTemplate>
+            </ajaxToolkit:TabPanel>
+            <ajaxToolkit:TabPanel runat="server" ID="pnlProductReviews2" HeaderText="<% $NopResources:Products.ProductReviews %>">
+                <ContentTemplate>
+                    <nopCommerce:ProductReviews ID="ctrlProductReviews2" runat="server" ShowWriteReview="true" Visible="true" />
+                </ContentTemplate>
+            </ajaxToolkit:TabPanel>
+        </ajaxToolkit:TabContainer>
+
+	<div style="border:1px solid #c0c0c0;float:left;">
+	<nopCommerce:Topic ID="topicFreeShiping2" runat="server" TopicName="FreeShipping" OverrideSEO="false"></nopCommerce:Topic>
+	</div>
         <div class="clear">
         </div>
 
@@ -311,3 +338,10 @@ thanh toán]</a></td>
     </div>
 
 </div>
+<script text="text/javascript">
+$("#__tab_ctl00_ctl00_cph1_cph1_ctl00_ProductsTabs_pnlProductReviews").click(function() {
+    $('html, body').animate({
+        scrollTop: $("#__tab_ctl00_ctl00_cph1_cph1_ctl00_ProductsTabs2_pnlProductReviews2").offset().top
+    }, 2000);
+});
+</script>
