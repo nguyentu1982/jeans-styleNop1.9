@@ -7,6 +7,7 @@
 <div class="product-item"  onmouseover="displayImageNavigation(<%=hlImageLink.ClientID %>)" onmouseout="hideImageNavigation(<%=hlImageLink.ClientID %>)" >
     <asp:HiddenField Id="hiddenProductImageUrls" runat="server" />
     <em class="picture-previous" style="display:none" id="<%=hlImageLink.ClientID +"picture-previous" %>" onclick="getPreviosProductPicture('<%=this.hiddenProductImageUrls.Value%>','<%=hlImageLink.ClientID %>')"></em>
+    <div class="discount-tag" runat="server" ID="divDiscount" visible="false"><asp:Label runat="server" ID="lbDiscount" Visible="false" /></div>
     <div class="picture" >
         <asp:HyperLink ID="hlImageLink" runat="server" />
     </div>

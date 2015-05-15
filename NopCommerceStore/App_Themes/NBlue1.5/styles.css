@@ -953,7 +953,6 @@ td.fieldname
 .topicpage, .htmlcontent
 {
 	padding: 10px;
-	border: 1px solid#c0c0c0;
 	margin-bottom:5px;
 }
 
@@ -4168,6 +4167,7 @@ textarea
 	padding: 5px;
 	border: solid 1px #C0C0C0;
     min-height:458px;
+    position:relative;
 }
 
 
@@ -6079,7 +6079,23 @@ textarea
 	BBCODES
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-
+.discount-tag {
+    position: absolute;
+    background: #ff6600;
+    width: 40px;
+    height: 40px;
+    color: #FFF;
+    text-align: center;
+    right: 8px;
+    top: 8px;
+    line-height: 40px;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    cursor: default;
+    z-index: 1;
+    border-radius: 100%;
+}
 
 pre {
  white-space: pre-wrap;       /* css-3 */

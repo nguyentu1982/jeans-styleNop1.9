@@ -67,6 +67,24 @@ namespace NopSolutions.NopCommerce.Web.Templates.Products {
         protected global::System.Web.UI.WebControls.ListView lvProductPictures;
         
         /// <summary>
+        /// divDiscount control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divDiscount;
+        
+        /// <summary>
+        /// lbDiscount control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbDiscount;
+        
+        /// <summary>
         /// phManufacturers control.
         /// </summary>
         /// <remarks>
@@ -436,15 +454,6 @@ namespace NopSolutions.NopCommerce.Web.Templates.Products {
         protected global::AjaxControlToolkit.TabPanel pnlProductReviews;
         
         /// <summary>
-        /// ctrlProductReviews control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::NopSolutions.NopCommerce.Web.Modules.ProductReviews ctrlProductReviews;
-        
-        /// <summary>
         /// pnlProductTags control.
         /// </summary>
         /// <remarks>
@@ -506,6 +515,78 @@ namespace NopSolutions.NopCommerce.Web.Templates.Products {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ListView dlProductPictureDesciption;
+        
+        /// <summary>
+        /// ProductsTabs2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.TabContainer ProductsTabs2;
+        
+        /// <summary>
+        /// pnlReturnPolicy2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.TabPanel pnlReturnPolicy2;
+        
+        /// <summary>
+        /// topicReturnPolicy2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::NopSolutions.NopCommerce.Web.Modules.TopicControl topicReturnPolicy2;
+        
+        /// <summary>
+        /// pnlSizeGuide2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.TabPanel pnlSizeGuide2;
+        
+        /// <summary>
+        /// SizeGuide2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::NopSolutions.NopCommerce.Web.Modules.TopicControl SizeGuide2;
+        
+        /// <summary>
+        /// pnlProductReviews2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.TabPanel pnlProductReviews2;
+        
+        /// <summary>
+        /// ctrlProductReviews2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::NopSolutions.NopCommerce.Web.Modules.ProductReviews ctrlProductReviews2;
+        
+        /// <summary>
+        /// topicFreeShiping2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::NopSolutions.NopCommerce.Web.Modules.TopicControl topicFreeShiping2;
         
         /// <summary>
         /// ProductTags1 control.

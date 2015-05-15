@@ -33,7 +33,7 @@
     <nopCommerce:ProductShareButton ID="ctrlProductShareButton" runat="server" />
 
     <div class="product-essential product-details-info">
-
+        
         <script lang="javascript" type="text/javascript">
             function UpdateMainImage(url) {
                 var imgMain = document.getElementById('<%=defaultImage.ClientID%>');
@@ -67,6 +67,7 @@
             </asp:ListView>
         </div>
         <div class="overview">
+            <div class="discount-tag" runat="server" ID="divDiscount" visible="false"><asp:Label runat="server" ID="lbDiscount" Visible="false" /></div>
             <asp:PlaceHolder runat="server" ID="phManufacturers">
                 <div class="manufacturers">
                     <asp:Literal ID="lManufacturersTitle" runat="server" Visible="false" />
@@ -82,7 +83,7 @@
 
             </asp:PlaceHolder>
 
-            <div class="product-info">
+            <div class="product-info">                
                 <h1 class="productname">
                     <asp:Literal ID="lProductName" runat="server" />
                 </h1>
@@ -107,6 +108,7 @@
             </asp:PlaceHolder>
 
             <div class="product-collateral">
+                
                 <nopCommerce:ProductRating ID="ctrlProductRating" runat="server" />
                 <br />
                 <div>

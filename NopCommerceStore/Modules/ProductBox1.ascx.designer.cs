@@ -22,6 +22,24 @@ namespace NopSolutions.NopCommerce.Web.Modules {
         protected global::System.Web.UI.WebControls.HiddenField hiddenProductImageUrls;
         
         /// <summary>
+        /// divDiscount control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divDiscount;
+        
+        /// <summary>
+        /// lbDiscount control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbDiscount;
+        
+        /// <summary>
         /// hlImageLink control.
         /// </summary>
         /// <remarks>

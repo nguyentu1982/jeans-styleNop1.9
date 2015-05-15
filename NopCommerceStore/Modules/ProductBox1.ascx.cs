@@ -93,29 +93,64 @@ namespace NopSolutions.NopCommerce.Web.Modules
 
                 
 
-                var productVariantCollection = product.ProductVariants;
-                if (productVariantCollection[0].IsFreeShipping)
-                {                    
-                    imgFreeShiping.Visible = true;
-                    imgFreeShiping.ImageUrl = string.Format("{0}{1}", CommonHelper.GetStoreLocation(), GetLocaleResourceString("FreeShippingUrl"));
-                    imgFreeShiping.AlternateText = GetLocaleResourceString("FreeShipping.Description");
-                    imgFreeShiping.Attributes.Add("title", GetLocaleResourceString("FreeShipping.Description"));
-                }
-
-                string stockMessage = productVariantCollection[0].FormatStockMessage();
-
-                
-                if (!String.IsNullOrEmpty(stockMessage))
-                {
-                    lblStockAvailablity.Text = stockMessage;
-                }
-                else
-                {
-                    pnlStockAvailablity.Visible = false;
-                }
+                var productVariantCollection = product.ProductVariants;                
 
                 if (productVariantCollection.Count > 0)
                 {
+                    if (productVariantCollection[0].IsFreeShipping)
+                    {
+                        imgFreeShiping.Visible = true;
+                        imgFreeShiping.ImageUrl = string.Format("{0}{1}", CommonHelper.GetStoreLocation(), GetLocaleResourceString("FreeShippingUrl"));
+                        imgFreeShiping.AlternateText = GetLocaleResourceString("FreeShipping.Description");
+                        imgFreeShiping.Attributes.Add("title", GetLocaleResourceString("FreeShipping.Description"));
+                    }
+
+                    //discount tag
+                    decimal taxRate = decimal.Zero;
+                    decimal oldPriceBase = this.TaxService.GetPrice(productVariantCollection[0], productVariantCollection[0].OldPrice, out taxRate);
+                    decimal finalPriceWithoutDiscountBase = this.TaxService.GetPrice(productVariantCollection[0], PriceHelper.GetFinalPrice(productVariantCollection[0], false), out taxRate);
+                    decimal finalPriceWithDiscountBase = this.TaxService.GetPrice(productVariantCollection[0], PriceHelper.GetFinalPrice(productVariantCollection[0], true), out taxRate);
+
+                    decimal oldPrice = this.CurrencyService.ConvertCurrency(oldPriceBase, this.CurrencyService.PrimaryStoreCurrency, NopContext.Current.WorkingCurrency);
+                    decimal finalPriceWithoutDiscount = this.CurrencyService.ConvertCurrency(finalPriceWithoutDiscountBase, this.CurrencyService.PrimaryStoreCurrency, NopContext.Current.WorkingCurrency);                    
+                    decimal finalPriceWithDiscount = this.CurrencyService.ConvertCurrency(finalPriceWithDiscountBase, this.CurrencyService.PrimaryStoreCurrency, NopContext.Current.WorkingCurrency);
+
+                    if (oldPrice > 0 && finalPriceWithDiscount == 0)
+                    {                        
+                        divDiscount.Visible = true;
+                        lbDiscount.Visible = true;
+                        lbDiscount.Text = string.Format("{0}%", Math.Round((((oldPrice - finalPriceWithoutDiscount) / oldPrice) * 100)));
+                    }
+
+                    if (oldPrice > 0 && finalPriceWithDiscount> 0)
+                    {
+                        divDiscount.Visible = true;
+                        lbDiscount.Visible = true;
+                        lbDiscount.Text = string.Format("{0}%", Math.Round((((oldPrice - finalPriceWithDiscount) / oldPrice) * 100)));
+                    }
+
+                    if (oldPrice == 0 && finalPriceWithDiscount > 0)
+                    {
+                        if (finalPriceWithDiscount < finalPriceWithoutDiscount)
+                        {
+                            divDiscount.Visible = true;
+                            lbDiscount.Visible = true;
+                            lbDiscount.Text = string.Format("{0}%", Math.Round((((finalPriceWithoutDiscount - finalPriceWithDiscount) / finalPriceWithoutDiscount) * 100)));
+                        }                        
+                    }
+
+                    string stockMessage = productVariantCollection[0].FormatStockMessage();
+
+
+                    if (!String.IsNullOrEmpty(stockMessage))
+                    {
+                        lblStockAvailablity.Text = stockMessage;
+                    }
+                    else
+                    {
+                        pnlStockAvailablity.Visible = false;
+                    }
+
                     if (!product.HasMultipleVariants)
                     {
                         var productVariant = productVariantCollection[0];
