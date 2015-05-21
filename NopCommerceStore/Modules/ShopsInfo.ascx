@@ -12,7 +12,7 @@
 		
 		<div  class="shop-info">				
 			<b>Jeans Style Bạch Mai </b><br/>
-				Số 186 - 188 Bạch Mai - Hai Bà Trưng - Hà Nội<br/>
+				Số 186 Bạch Mai - Hai Bà Trưng - Hà Nội<br/>
             <span><a href="https://www.google.com/maps/place/186+B%E1%BA%A1ch+Mai,+Thanh+Nh%C3%A0n,+Hai+B%C3%A0+Tr%C6%B0ng/@21.004935,105.8512759,17z/data=!3m1!4b1!4m2!3m1!1s0x3135ac7523c806c3:0x68beaa71f682f6c4" target="_blank" style="color:#fff;" rel="nofollow">Xem bản đồ</a>&nbsp;</span>
 		</div>
 		<div>

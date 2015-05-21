@@ -6,11 +6,12 @@
         <h4><%=GetLocaleResourceString("Products.RecentlyViewedProducts")%></h4>
     </div>
     <div class="recently-product-grid">
-        <asp:DataList ID="dlCatalog" runat="server" RepeatColumns="8" RepeatDirection="Horizontal"
-            RepeatLayout="Table" ItemStyle-CssClass="item-box">
+        <asp:ListView ID="dlCatalog" runat="server">
             <ItemTemplate>
-                <nopCommerce:ProductBoxRecentlyViewProduct ID="ctrlProductBox" Product='<%# Container.DataItem %>' runat="server" />
+                <div class="item-box">
+                    <nopCommerce:ProductBoxRecentlyViewProduct ID="ctrlProductBox" Product='<%# Container.DataItem %>' runat="server" />
+                </div>                
             </ItemTemplate>
-        </asp:DataList>
+        </asp:ListView>
     </div>
 </div>

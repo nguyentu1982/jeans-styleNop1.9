@@ -46,6 +46,7 @@
             <a runat="server" id="lnkMainLightbox" class="cloud-zoom" rel="position:'inside', showTitle: false, adjustX:-4, adjustY:-4">
                 <asp:Image ID="defaultImage" runat="server" Width="100%" />
             </a>
+            <div class="picture-guide"> <%=GetLocaleResourceString("Products.Picture.Zoom.Guide")%></div>
             <asp:ListView ID="lvProductPictures" runat="server" GroupItemCount="3">
                 <LayoutTemplate>
                     <%-- <table style="margin-top: 10px;">--%>
@@ -61,7 +62,7 @@
                     <%--<td align="left">--%>
                     <a href="<%#this.PictureService.GetPictureUrl((Picture)Container.DataItem,0, false, SEOHelper.GetSEName(this.ProductService.GetProductById(this.ProductId).LocalizedName))%>" class="cloud-zoom-gallery" rel="useZoom:'ctl00_ctl00_cph1_cph1_ctl00_lnkMainLightbox', smallImage:'<%#this.PictureService.GetPictureUrl((Picture)Container.DataItem,0, false, SEOHelper.GetSEName(this.ProductService.GetProductById(this.ProductId).LocalizedName))%>'"
                         title="<%= lProductName.Text%>">
-                        <img src="<%#this.PictureService.GetPictureUrl((Picture)Container.DataItem, 70)%>" alt="Product image" /></a>
+                        <img src="<%#this.PictureService.GetPictureUrl((Picture)Container.DataItem, 70)%>" alt="Product image" style="border:1px solid #C0C0C0" /></a>
                     <%--</td>--%>
                 </ItemTemplate>
             </asp:ListView>
@@ -346,4 +347,21 @@ $("#__tab_ctl00_ctl00_cph1_cph1_ctl00_ProductsTabs_pnlProductReviews").click(fun
         scrollTop: $("#__tab_ctl00_ctl00_cph1_cph1_ctl00_ProductsTabs2_pnlProductReviews2").offset().top
     }, 2000);
 });
+
+//$(document).scroll(function ()
+//{
+//    var offset = $(".buyer-guide").offset();
+    
+//    var w = $(window);
+//    if (offset.top - w.scrollTop() < 207) {
+//        $(".buyer-guide").css("position", "fixed");        
+//    }
+//    else {
+       
+//    }
+   
+    
+//    //alert("(x,y): (" + (offset.left - w.scrollLeft()) + "," + (offset.top - w.scrollTop()) + ")");
+//})
+ 
 </script>

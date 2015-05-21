@@ -3,7 +3,7 @@
 <%@ Register TagPrefix="nopCommerce" TagName="ProductPrice1" Src="~/Modules/ProductPrice1.ascx" %>
 <%@ Register TagPrefix="nopCommerce" TagName="ProductPrice2" Src="~/Modules/ProductPrice2.ascx" %>
 <%@ Register TagPrefix="nopCommerce" TagName="ProductAttributes1" Src="~/Modules/ProductAttributes1.ascx" %>
-<div class="relatedproduct-item">
+<div class="recentlyproduct-item">
     <div class="picture">
         <asp:HyperLink ID="hlImageLink" runat="server" />
     </div>

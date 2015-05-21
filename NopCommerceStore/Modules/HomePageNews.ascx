@@ -31,8 +31,8 @@
                             <img alt="<%#Server.HtmlEncode(Eval("Title").ToString())%>" src="<%#this.PictureService.GetPictureUrl(((NopSolutions.NopCommerce.BusinessLogic.Content.NewsManagement.News)Container.DataItem).PictureId, this.SettingManager.GetSettingValueInteger("Media.HomepageNews.ThumbnailImageSize", 100), true) %>" />
                         </a>
                         </div>
-                <h3 class="newstitle"><a href="<%#SEOHelper.GetNewsUrl((News)Container.DataItem)%>">
-                        <%#Server.HtmlEncode(Eval("Title").ToString())%></a></h3>
+               <a href="<%#SEOHelper.GetNewsUrl((News)Container.DataItem)%>">
+                        <%#Server.HtmlEncode(Eval("Title").ToString())%></a>
                      <%--<span class="newsdate">-
                             <%#DateTimeHelper.ConvertToUserTime((DateTime)Eval("CreatedOn"), DateTimeKind.Utc).ToString("D")%>
                         </span>--%>

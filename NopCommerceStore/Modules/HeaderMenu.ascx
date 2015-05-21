@@ -81,12 +81,11 @@
     </ul>   
 </div>
 <div class="clear"></div>
-<div class="header-bottom-seach">
-    <div style="text-align:center;font-weight: bold;font-style:italic;font-size:larger;">
-        <h1>
-            <a href="<%=CommonHelper.GetStoreLocation()%>"><%=GetLocaleResourceString("Homepage.SeoKeyWord")%></a>
-        </h1>
-    </div>
+
+    <div class="header-bottom-seach">
+        
+        <%=GetLocaleResourceString("Homepage.SeoKeyWord")%>
+        
 <%--<div class="searchbox">
     <nopCommerce:SearchBox runat="server" ID="ctrlSearchBox">
     </nopCommerce:SearchBox>

@@ -2,24 +2,26 @@
     CodeBehind="RelatedProductsOnHomePage.ascx.cs" %>
 <%@ Register TagPrefix="nopCommerce" TagName="ProductBoxRelatedProduct" Src="~/Modules/ProductBoxRelatedProduct.ascx" %>
 
-<div class="related-products-grid">
-    <div class="title">
-        <%=GetLocaleResourceString("Products.RelatedProductsOnHomePage")%>
+<div class="recently-viewed-products">
+    <div class="page-title">
+        <h4><%=GetLocaleResourceString("Products.RelatedProductsOnHomePage")%></h4>
     </div>
     <div class="clear">
     </div>
-    <div class="related-product-grid">
+    <div class="recently-product-grid">
         <ul id="flexiselDemo1">
-            <asp:Repeater ID="dlRelatedProducts" runat="server">
+            <asp:ListView ID="dlRelatedProducts" runat="server" >
                 <ItemTemplate>
+                    
                     <li>
                         <div class="item-box">
                             <nopCommerce:ProductBoxRelatedProduct ID="ctrlProductBox" Product='<%# Container.DataItem %>'
                                 runat="server" />
                         </div>
                     </li>
+                       
                 </ItemTemplate>
-            </asp:Repeater>
+            </asp:ListView>
         </ul>
         <%--<asp:DataList ID="dlRelatedProducts" runat="server" RepeatColumns="1" RepeatDirection="Horizontal"
             RepeatLayout="Table" OnItemDataBound="dlRelatedProducts_ItemDataBound" ItemStyle-CssClass="item-box">

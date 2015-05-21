@@ -320,7 +320,7 @@
         });
     </script>
 
-    <div id="fl813691">
+   <%-- <div id="fl813691">
         <div id="eb951855">
             <div id="cob263512">
                 <div id="coh963846">
@@ -387,6 +387,9 @@
             pf204652bottomLayer.style.display = 'none';
         }
     </script>
+    --%>
+        
+      
     <form id="form1" runat="server">
         
         <div class="master-wrapper-page">
@@ -413,5 +416,8 @@
         </div>
     </form>
     <asp:PlaceHolder ID="phAnalyticsBody" runat="server" />
+    <div id="spot-im-root"></div>
+    <%--<script type="text/javascript">!function (t, o, p) { function e() { var t = o.createElement("script"); t.type = "text/javascript", t.async = !0, t.src = ("https:" == o.location.protocol ? "https" : "http") + ":" + p, o.body.appendChild(t) } t.spotId = "129636a2cab9c0854eeb5ff13544959d", t.spotName = "", t.allowDesktop = !0, t.allowMobile = !1, t.containerId = "spot-im-root", e() }(window.SPOTIM = {}, document, "//www.spot.im/embed/scripts/launcher.js");</script>--%>
+    <%--<script>window.jQuery || document.write('<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"><\/script>')</script><script src="http://uhchat.net/admin/code.php?f=93118b"></script>--%>
 </body>
 </html>

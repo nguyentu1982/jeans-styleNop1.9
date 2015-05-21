@@ -7,8 +7,8 @@
         <table>
             <tr>
                 <td style="text-align: left;">
-                    <h2>
-                        <a href="<%=Page.ResolveUrl("~/recentlyaddedproducts.aspx") %>"><%=GetLocaleResourceString("Products.NewProducts")%></a></h2>
+                    <h1>
+                        <a href="<%=Page.ResolveUrl("~/recentlyaddedproducts.aspx") %>"><%=GetLocaleResourceString("Products.NewProducts")%></a></h1>
                 </td>
                 <td style="text-align: right;">
                     <a href="<%=Page.ResolveUrl("~/recentlyaddedproductsrss.aspx")%>">
