@@ -1,4 +1,5 @@
 ﻿<%@ Master Language="C#" MasterPageFile="~/MasterPages/Root.Master" AutoEventWireup="true" CodeBehind="TwoColumnProductPage.master.cs" Inherits="NopSolutions.NopCommerce.Web.MasterPages.TwoColumnProductPage" %>
+
 <%@ Register TagPrefix="nopCommerce" TagName="MiniShoppingCartBox" Src="~/Modules/MiniShoppingCartBox.ascx" %>
 <%@ Register TagPrefix="nopCommerce" TagName="CategoryNavigation" Src="~/Modules/CategoryNavigation.ascx" %>
 <%@ Register TagPrefix="nopCommerce" TagName="ManufacturerNavigation" Src="~/Modules/ManufacturerNavigation.ascx" %>
@@ -13,35 +14,78 @@
 <%@ Register TagPrefix="nopCommerce" TagName="Topic" Src="~/Modules/Topic.ascx" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="cph1" runat="server">
-    
-    <div class="product-master-wrapper-leftside-2" style="display:none">
+
+    <%--<div class="product-master-wrapper-leftside-2" style="display: none">
         <asp:ContentPlaceHolder ID="cph2" runat="server">
             <nopCommerce:LiveChatBlock ID="ctrlLiveChatBlock" runat="server" />
             <div class="clear">
             </div>
-              
+
             <nopCommerce:RelatedProducts ID="ctrlRelatedProducts" runat="server" />
         </asp:ContentPlaceHolder>
-        
-    </div>
-    <div class="master-wrapper-center-product-2">
-        <%--<div class="top-banner"> <a href="<%=CommonHelper.GetStoreLocation()%>"><img src="/images/quan-jean-nu-dep-banner.gif" alt="Quan jean dep"/> </a></div>--%>
-        <div class="master-wrapper-cph-2">
-            <asp:ContentPlaceHolder ID="cph1" runat="server">
-            </asp:ContentPlaceHolder>
+
+    </div>--%>
+
+    <div style="text-align: center">
+        <div class="master-wrapper-center-product-2">
+            <%--<div class="top-banner"> <a href="<%=CommonHelper.GetStoreLocation()%>"><img src="/images/quan-jean-nu-dep-banner.gif" alt="Quan jean dep"/> </a></div>--%>
+            <div class="master-wrapper-cph-3">
+                <asp:ContentPlaceHolder ID="cph1" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+
+
+            <div class="buyer-guide">
+                <nopCommerce:Topic ID="topicProductBuyGuide" runat="server" TopicName="ProductBuyGuide" OverrideSEO="false"></nopCommerce:Topic>
+            </div>
+            <div class="product-master-wrapper-right-side">
+                <nopCommerce:RecentlyViewedProducts ID="ctrlRecentlyViewedProducts" runat="server" />
+            </div>
         </div>
     </div>
-    <div class="buyer-guide">
-        <nopCommerce:Topic ID="topicProductBuyGuide" runat="server" TopicName="ProductBuyGuide" OverrideSEO="false"></nopCommerce:Topic>
-    </div>
-    <div class="product-master-wrapper-right-side">
-        <nopCommerce:RecentlyViewedProducts ID="ctrlRecentlyViewedProducts" runat="server" />
-    </div>
-    <%--<script type="text/javascript">
-        
-        var productWidth = screen.width*0.93- 195;
-        $(".master-wrapper-center-product-2").css("width", productWidth);
-       // alert($(".master-wrapper-center-product-2"));
-    </script>--%>
-</asp:Content>
 
+    <script>
+        jQuery(function () {
+            $(window).scroll(function () {
+                var offset = $(".buyer-guide").offset();
+                var offset2 = $(".product-master-wrapper-right-side").offset();
+                var w = $(window);
+                //alert(offset.top);
+                //alert(w.scrollTop());
+
+                if (offset.top - w.scrollTop() < offset.top) {
+                    if (w.scrollTop() > $(".master-wrapper-cph-3").height() - $(".buyer-guide").height()) {
+                        $(".buyer-guide").css("position", "static")
+                        $(".buyer-guide").css("top", offset.y + "px")
+
+                    }
+                    else {
+                        $(".buyer-guide").css("position", "fixed")
+                        $(".buyer-guide").css("top", "30px")
+                        $(".buyer-guide").css("left", offset.left + "px")
+                        $(".buyer-guide").css("z-index", "9999")
+
+                        $(".product-master-wrapper-right-side").css("position", "fixed")
+                        $(".product-master-wrapper-right-side").css("top", "30px")
+                        $(".product-master-wrapper-right-side").css("left", offset2.left + "px")
+                        $(".product-master-wrapper-right-side").css("z-index", "9999")
+                    }
+                }
+                else {
+                    $(".buyer-guide").css("position", "static")
+                    $(".buyer-guide").css("top", offset.y + "px")
+
+                    $(".product-master-wrapper-right-side").css("position", "static")
+                    $(".product-master-wrapper-right-side").css("top", offset2.y + "px")
+                }
+                //alert("(x,y): ("+(offset.left-w.scrollLeft())+","+(offset.top-w.scrollTop())+")")
+            })
+        })
+
+        //jQuery(function () {
+        //    //alert($(".master-wrapper-cph-2").outerHeight())
+        //    $(".master-wrapper-center-product-2").css("min-height", $(".master-wrapper-cph-2").outerHeight(true)+125 + "px");
+        //})
+
+    </script>
+</asp:Content>

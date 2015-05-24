@@ -156,10 +156,9 @@ img
 
 .master-wrapper-content
 {
-    width:94%;
 	margin: 0 auto;
 	text-align: left;
-	background: #FFF;
+	
 }
 
 /* two column master page */
@@ -196,6 +195,8 @@ img
 {	
 	background: #FFF;
     padding:0px 5px 0px 5px;
+    max-width:1160px;
+    margin:auto;
 }
 
 .master-wrapper-cph-1
@@ -226,6 +227,7 @@ img
     float: right;
 	display: inline;
     width:165px;
+    background-color:#fff;
 }
 
 .product-master-wrapper-right-side .page-title
@@ -235,27 +237,36 @@ img
 
 .buyer-guide 
 {
-    width: 200px;
+    width: 191px;
     border: 1px solid #C0C0C0;
     min-height: 600px;
     float: left;
-    padding: 10px;
+    padding: 5px;
+    background-color:#fff;
+    margin-top:5px;
 }
 .master-wrapper-center-2
 {
-  float: left;
   margin: 0px 0px 0 5px;
   background: #FFF;
   display: inline;
 }
 
+.master-wrapper-cph-3 {
+    float:left;
+    max-width:792px;
+    background-color:#fff;
+    padding:5px;
+}
 .master-wrapper-center-product-2
 {
-    float: left;
-	margin: 0px 0 0 5px;
-	background: #FFF;
-	max-width:792px;
-	
+	max-width:1170px;
+    margin:auto;
+    text-align:left;
+    background-color: #fff;	
+    /*display:inline-block;*/
+    overflow: hidden;
+
 }
 
 /* three column master page */
@@ -281,17 +292,6 @@ img
 {
     max-width:100%;
     height:auto;
-}
-
-.master-wrapper-cph-3
-{
-    float: left;
-	background: #FFF;
-	color: #000;
-	min-height: 400px;
-	padding: 5px 5px 5px 5px;
-	border: 1px solid #C0C0C0;
-	margin-left:15px;
 }
 
 .master-wrapper-rightside-3
@@ -330,13 +330,15 @@ img
 	/*background:url("images/top-head-background.gif");*/
 	height:30px;
 	margin-left: 3px;
+    background-color:#fff;
 }
 .header
 {
 	padding:0px 5px 0px 5px;
 	height: 108px;
 	background:url("images/header-background.gif") repeat;
-	margin: 0px 5px;
+	margin: auto;
+    max-width:1160px;
     
 }
 
@@ -554,9 +556,16 @@ a.f-logout
   height:auto;
   list-style:none outside none;
   float:left;
-  margin-top:5px;
   width:100%;
 }
+
+#mob-menu-button {
+    display:none;
+}
+ .mob-top-menu {
+    display:none;
+}
+
 
 .headermenu a 
 {
@@ -600,7 +609,7 @@ a.f-logout
 
 .header-bottom-seach
 {	
-	text-align:center;font-weight: bold;font-style:italic;font-size:larger;color:blue;padding:10px;
+	text-align:center;font-weight: bold;font-style:italic;font-size:larger;color:blue;padding:10px;background-color:#fff;max-width:1150px; margin:auto;
 }
 
 .basic-search .title, .adv-search .title
@@ -633,6 +642,7 @@ a.f-logout
     padding-top:5px;
     position:relative;
 	color:#FFF;
+    max-width:1170px;
 }
 
 .shop-info {
@@ -900,6 +910,8 @@ a.f-logo {
     width: 100%;
     color:#3A4045;
     text-transform:uppercase;
+    padding:10px 0px;
+    border-top:1px solid #c0c0c0;
 }
 
 .page-title h1, .page-title h2 
@@ -2778,6 +2790,7 @@ textarea
 	padding: 5px;
 	margin-bottom:5px;
     float:left;
+    background-color:#fff;
 }
 
 
@@ -3274,8 +3287,8 @@ textarea
 
 .contact-form
 {
-	border:1px solid #C0C0C0;
-	margin-top:10px;
+	border-top:1px solid #C0C0C0;
+    padding:5px;
 }
 
 .contact-form .button
@@ -3939,11 +3952,9 @@ textarea
 	margin: auto;	
 }
 
-h4 
-{
-    margin:5px;
+h1, h2, h3, h4, h5, h6 {
+    margin:0;
 }
-
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
 
@@ -4100,7 +4111,7 @@ h4
 
 .product-details-page 
 {
-    margin-right:5px;
+    
 }
 
 .product-collateral

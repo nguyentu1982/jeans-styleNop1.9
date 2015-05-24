@@ -78,7 +78,8 @@
        <%--<li><a href="<%= SEOHelper.GetMyAccountUrl()%>">
             <%=GetLocaleResourceString("Account.MyAccount")%></a> </li>--%>
         <li><span class="menu-right-conner"></span></li>
-    </ul>   
+    </ul>
+
 </div>
 <div class="clear"></div>
 

@@ -25,8 +25,13 @@ addshim:function($){
 alignmenu:function($, e, megamenu_pos){
 	var megamenu=this.megamenus[megamenu_pos]
 	var $anchor=megamenu.$anchorobj
-	var $menu=megamenu.$menuobj
-	var menuleft=($(window).width()-(megamenu.offsetx-$(document).scrollLeft())>megamenu.actualwidth)? megamenu.offsetx : megamenu.offsetx-megamenu.actualwidth+megamenu.anchorwidth //get x coord of menu
+	var $menu = megamenu.$menuobj
+
+	var menuleft = ($(window).width() - (megamenu.offsetx - $(document).scrollLeft()) > megamenu.actualwidth) ? megamenu.offsetx : megamenu.offsetx - megamenu.actualwidth + megamenu.anchorwidth //get x coord of menu
+	if ($(document).width() < 481)
+	{
+	    menuleft = 0;
+	}
 	//var menutop=($(window).height()-(megamenu.offsety-$(document).scrollTop()+megamenu.anchorheight)>megamenu.actualheight)? megamenu.offsety+megamenu.anchorheight : megamenu.offsety-megamenu.actualheight
 	var menutop=megamenu.offsety+megamenu.anchorheight  //get y coord of menu
 	$menu.css({left:menuleft+"px", top:menutop+"px"})

@@ -8,7 +8,7 @@
 
 
 
-<div style="margin: auto; background: #fff; text-align: center;padding-bottom:5px;">
+<div style="margin: auto; background: #fff; text-align: center;padding-bottom:5px;max-width:1170px;">
     <div class="footer-tags">
         <nopCommerce:PopularTags ID="ctrlPopularTags" runat="server" />
     </div>
