@@ -2511,14 +2511,14 @@ textarea
 {
 	color: Red;
 	font-weight:bold;
-    font-size: 1em;
+   	font-size: 1.2em;
 }
 
 .add-info .prices .oldproductPrice
 {
 	color: Green;
 	text-decoration: line-through;
-    font-size: 1em;
+   	font-size: 1.1em;
 }
 
 .old-price-label {
@@ -3922,7 +3922,7 @@ textarea
 {
 	margin: 10px 0 0;
 	height: 210px;
-    float:left;
+	clear:both;
 }
 .shop-men
 {
@@ -4199,10 +4199,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 .productname-description
 {
-	padding: 3px 10px;
+	padding: 10px;
 	font-weight: bold;
-	font-size:12px;
-
+	font-size:20px;
+    color:red;
+    text-align:center;
 }
 .what_else a
 {
@@ -4248,6 +4249,7 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: bolder;
 	font-size:20px;
 	line-height:25px;
+	float:left;
 }
 .hot-search
 {

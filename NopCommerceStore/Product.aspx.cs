@@ -33,6 +33,7 @@ using NopSolutions.NopCommerce.Common.Utils;
 using NopSolutions.NopCommerce.Common;
 using NopSolutions.NopCommerce.BusinessLogic.Infrastructure;
 using NopSolutions.NopCommerce.BusinessLogic.Products.Specs;
+using System.Globalization;
 namespace NopSolutions.NopCommerce.Web
 {
     public partial class ProductPage : BaseNopFrontendPage
@@ -64,7 +65,12 @@ namespace NopSolutions.NopCommerce.Web
         protected void Page_Load(object sender, EventArgs e)
         {
             if (product == null || product.Deleted)
-                Response.Redirect(CommonHelper.GetStoreLocation());
+            {
+                Response.StatusCode = 404;
+                string url = string.Format(CultureInfo.InvariantCulture, "{0}pagenotfound.html", CommonHelper.GetStoreLocation());
+                Response.Redirect(url);
+            }
+                //Response.Redirect(CommonHelper.GetStoreLocation());
             
             //title, meta
             string title = string.Empty;
