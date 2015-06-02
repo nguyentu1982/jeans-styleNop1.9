@@ -26,6 +26,9 @@ alignmenu:function($, e, megamenu_pos){
 	var megamenu=this.megamenus[megamenu_pos]
 	var $anchor=megamenu.$anchorobj
 	var $menu = megamenu.$menuobj
+	var w = $(window);
+	var offset = $(".headermenu").offset();
+	
 
 	var menuleft = ($(window).width() - (megamenu.offsetx - $(document).scrollLeft()) > megamenu.actualwidth) ? megamenu.offsetx : megamenu.offsetx - megamenu.actualwidth + megamenu.anchorwidth //get x coord of menu
 	if ($(document).width() < 481)
@@ -33,7 +36,13 @@ alignmenu:function($, e, megamenu_pos){
 	    menuleft = 0;
 	}
 	//var menutop=($(window).height()-(megamenu.offsety-$(document).scrollTop()+megamenu.anchorheight)>megamenu.actualheight)? megamenu.offsety+megamenu.anchorheight : megamenu.offsety-megamenu.actualheight
-	var menutop=megamenu.offsety+megamenu.anchorheight  //get y coord of menu
+	var menutop = megamenu.offsety + megamenu.anchorheight //get y coord of menu
+	if (w.scrollTop() > 0 && $(document).width() > 768)
+	{
+	    menutop = offset.top - w.scrollTop()+30;
+
+        
+	}
 	$menu.css({left:menuleft+"px", top:menutop+"px"})
 	this.$shimobj.css({width:megamenu.actualwidth+"px", height:megamenu.actualheight+"px", left:menuleft+"px", top:menutop+"px", display:"block"})
 },

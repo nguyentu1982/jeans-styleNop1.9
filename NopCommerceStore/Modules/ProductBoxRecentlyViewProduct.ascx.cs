@@ -80,20 +80,23 @@ namespace NopSolutions.NopCommerce.Web.Modules
 
                 var productVariantCollection = product.ProductVariants;
 
-                string stockMessage = productVariantCollection[0].FormatStockMessage();
-
-                
-                if (!String.IsNullOrEmpty(stockMessage))
-                {
-                    lblStockAvailablity.Text = stockMessage;
-                }
-                else
-                {
-                    pnlStockAvailablity.Visible = false;
-                }
+               
 
                 if (productVariantCollection.Count > 0)
                 {
+
+                    string stockMessage = productVariantCollection[0].FormatStockMessage();
+
+
+                    if (!String.IsNullOrEmpty(stockMessage))
+                    {
+                        lblStockAvailablity.Text = stockMessage;
+                    }
+                    else
+                    {
+                        pnlStockAvailablity.Visible = false;
+                    }
+
                     if (!product.HasMultipleVariants)
                     {
                         var productVariant = productVariantCollection[0];
