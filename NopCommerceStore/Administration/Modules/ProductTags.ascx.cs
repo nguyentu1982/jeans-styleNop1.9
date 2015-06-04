@@ -76,6 +76,31 @@ namespace NopSolutions.NopCommerce.Web.Administration.Modules
                 this.lblNoProductTags.Visible = false;
                 this.gvProductTags.DataSource = productTags;
                 this.gvProductTags.DataBind();
+
+                Product product = this.ProductService.GetProductById(this.ProductId);
+                if (product != null)
+                {
+                    Button btnDelete = FindControl("btnDelete") as Button;
+                    btnDelete.Visible = false;
+
+                    foreach (GridViewRow row in gvProductTags.Rows)
+                    {
+                        CheckBox cbProductTagInfo = row.FindControl("cbProductTag") as CheckBox;
+                        HiddenField hfProductTagID = row.FindControl("hfProductTagId") as HiddenField;
+
+                        int productTagId = int.Parse(hfProductTagID.Value);
+                        bool isProductTagExisted = this.ProductService.DoesProductTagMappingExist(product.ProductId, productTagId);
+
+                        if (isProductTagExisted)
+                        {
+                            cbProductTagInfo.Checked = true;
+                        }
+                        else
+                        {
+                            cbProductTagInfo.Checked = false;
+                        }
+                    }
+                }
             }
             else
             {
@@ -108,5 +133,47 @@ namespace NopSolutions.NopCommerce.Web.Administration.Modules
                 ProcessException(ex);
             }
         }
+
+        public void SaveInfo()
+        {
+            SaveInfo(this.ProductId);
+        }
+
+        public void SaveInfo(int prodId)
+        {
+            Product product = this.ProductService.GetProductById(prodId);
+            if (product != null)
+            {
+                foreach (GridViewRow row in gvProductTags.Rows)
+                {
+                    CheckBox cbProductTagInfo = row.FindControl("cbProductTag") as CheckBox;
+                    HiddenField hfProductTagID = row.FindControl("hfProductTagId") as HiddenField;
+
+                    int productTagId =  int.Parse( hfProductTagID.Value);
+                    bool isProductTagExisted = this.ProductService.DoesProductTagMappingExist(prodId, productTagId);
+
+                    if (cbProductTagInfo.Checked && !isProductTagExisted)
+                    { 
+                        //Add
+                        this.ProductService.AddProductTagMapping(prodId, productTagId);
+                    }
+
+                    if (!cbProductTagInfo.Checked && isProductTagExisted)
+                    { 
+                        //Delete
+                        this.ProductService.RemoveProductTagMapping(prodId, productTagId);
+                    }
+                }
+            }
+        }
+
+        public int ProductId
+        {
+            get
+            {
+                return CommonHelper.QueryStringInt("ProductId");
+            }
+        }
+
     }
 }

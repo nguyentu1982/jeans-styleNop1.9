@@ -86,6 +86,7 @@ namespace NopSolutions.NopCommerce.Web.Administration.Modules
                 ctrlCrossSellProducts.SaveInfo();
                 ctrlProductPictures.SaveInfo();
                 ctrlProductSpecifications.SaveInfo();
+                ctrlProductTags.SaveInfo();
 
                 this.CustomerActivityService.InsertActivity(
                     "EditProduct",

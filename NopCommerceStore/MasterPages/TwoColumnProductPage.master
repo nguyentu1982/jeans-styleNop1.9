@@ -41,9 +41,11 @@
             <div class="product-master-wrapper-right-side">
                 <nopCommerce:RecentlyViewedProducts ID="ctrlRecentlyViewedProducts" runat="server" />
             </div>
+            <nopCommerce:RelatedProducts ID="ctrlRelatedProducts" runat="server" />
         </div>
+        
     </div>
-
+     
     <script>
         jQuery(function () {
             $(window).scroll(function () {

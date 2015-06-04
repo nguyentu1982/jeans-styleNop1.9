@@ -2,7 +2,7 @@
     Inherits="NopSolutions.NopCommerce.Web.Modules.RecentlyViewedProductsControl" Codebehind="RecentlyViewedProducts.ascx.cs" %>
 <%@ Register TagPrefix="nopCommerce" TagName="ProductBoxRecentlyViewProduct" Src="~/Modules/ProductBoxRecentlyViewProduct.ascx" %>
 <div class="recently-viewed-products">
-    <div class="page-title">
+    <div class="title">
         <h4><%=GetLocaleResourceString("Products.RecentlyViewedProducts")%></h4>
     </div>
     <div class="recently-product-grid">

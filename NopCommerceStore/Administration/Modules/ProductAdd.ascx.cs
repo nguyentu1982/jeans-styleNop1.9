@@ -54,6 +54,7 @@ namespace NopSolutions.NopCommerce.Web.Administration.Modules
                 ctrlProductSEO.SaveInfo(product.ProductId);
                 ctrlProductCategory.SaveInfo(product.ProductId);
                 ctrlProductManufacturer.SaveInfo(product.ProductId);
+                ctrlProductTags.SaveInfo(product.ProductId);
 
                 this.CustomerActivityService.InsertActivity(
                     "AddNewProduct",

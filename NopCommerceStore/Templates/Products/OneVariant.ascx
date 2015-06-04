@@ -347,21 +347,5 @@ $("#__tab_ctl00_ctl00_cph1_cph1_ctl00_ProductsTabs_pnlProductReviews").click(fun
         scrollTop: $("#__tab_ctl00_ctl00_cph1_cph1_ctl00_ProductsTabs2_pnlProductReviews2").offset().top
     }, 2000);
 });
-
-//$(document).scroll(function ()
-//{
-//    var offset = $(".buyer-guide").offset();
-    
-//    var w = $(window);
-//    if (offset.top - w.scrollTop() < 207) {
-//        $(".buyer-guide").css("position", "fixed");        
-//    }
-//    else {
-       
-//    }
-   
-    
-//    //alert("(x,y): (" + (offset.left - w.scrollLeft()) + "," + (offset.top - w.scrollTop()) + ")");
-//})
  
 </script>

@@ -3949,7 +3949,8 @@ textarea
 	padding: 0px;
 	background: #fff;
 	margin-top: 2px;
-	margin: auto;	
+	margin: auto;
+    border-top:1px solid #C0C0C0;	
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -4247,9 +4248,9 @@ h1, h2, h3, h4, h5, h6 {
     font-style:italic;
     color: blue;
     font-weight: bolder;
-	font-size:20px;
+	font-size:16px;
 	line-height:25px;
-	float:left;
+	display:block;
 }
 .hot-search
 {
@@ -4432,14 +4433,19 @@ h1, h2, h3, h4, h5, h6 {
 	width:auto;
 }
 
+.related-products-grid {
+    float:left;
+    border-top: 1px solid #C0c0c0;
+}
 
+.related-products-grid .title {
+    padding:10px;
 
-.related-product-grid .item-box .relatedproduct-item .product-title
-{
-	height: 48px;
-    text-align: center;
-    padding: 0px 10px 0px 10px;
-    margin:5px;
+}
+
+.recently-viewed-products .title {
+    padding:10px;
+    text-align:left;
 }
 
 .recently-product-grid .item-box .recentlyproduct-item

@@ -4,11 +4,11 @@
 
 <div class="related-products-grid">
     <div class="title">
-        <%=GetLocaleResourceString("Products.RelatedProducts")%>
+        <h4><%=GetLocaleResourceString("Products.RelatedProducts")%></h4>
     </div>
     <div class="clear">
     </div>
-    <div class="related-product-grid">
+    <div class="recently-product-grid">
         <asp:ListView ID="dlRelatedProducts" runat="server" OnItemDataBound="dlRelatedProducts_ItemDataBound">
             <ItemTemplate>
                 <div class="item-box">

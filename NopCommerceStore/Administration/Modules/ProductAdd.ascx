@@ -8,6 +8,7 @@
 <%@ Register TagPrefix="nopCommerce" TagName="CrossSellProducts" Src="CrossSellProducts.ascx" %>
 <%@ Register TagPrefix="nopCommerce" TagName="ProductPictures" Src="ProductPictures.ascx" %>
 <%@ Register TagPrefix="nopCommerce" TagName="ProductSpecifications" Src="ProductSpecifications.ascx" %>
+<%@ Register TagPrefix="nopCommerce" TagName="ProductTags" Src="ProductTags.ascx" %>
 
 <div class="section-header">
     <div class="title">
@@ -44,6 +45,13 @@
             <nopCommerce:ProductManufacturer ID="ctrlProductManufacturer" runat="server" />
         </ContentTemplate>
     </ajaxToolkit:TabPanel>
+
+    <ajaxToolkit:TabPanel runat="server" ID="pnlProductTagsMappings" HeaderText="<% $NopResources:Admin.ProductAdd.ProductTagsMappings %>">
+        <ContentTemplate>
+            <nopCommerce:ProductTags ID="ctrlProductTags" runat="server" />
+        </ContentTemplate>
+    </ajaxToolkit:TabPanel>
+
     <ajaxToolkit:TabPanel runat="server" ID="pnlRelatedProducts" HeaderText="<% $NopResources:Admin.ProductAdd.RelatedProducts %>">
         <ContentTemplate>
             <nopCommerce:RelatedProducts ID="ctrlRelatedProducts" runat="server" />

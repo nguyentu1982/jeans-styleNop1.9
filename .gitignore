@@ -14,3 +14,5 @@ Libraries/Nop.BusinessLogic/obj/Debug/edmxResourcesToEmbed/Data/NopModel.ssdl
 *.cache
 *.cache
 *.cache
+*.jpg
+*.cache

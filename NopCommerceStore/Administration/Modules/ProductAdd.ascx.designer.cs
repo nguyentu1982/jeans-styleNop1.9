@@ -112,6 +112,24 @@ namespace NopSolutions.NopCommerce.Web.Administration.Modules {
         protected global::NopSolutions.NopCommerce.Web.Administration.Modules.ProductManufacturerControl ctrlProductManufacturer;
         
         /// <summary>
+        /// pnlProductTagsMappings control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.TabPanel pnlProductTagsMappings;
+        
+        /// <summary>
+        /// ctrlProductTags control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::NopSolutions.NopCommerce.Web.Administration.Modules.ProductTagsControl ctrlProductTags;
+        
+        /// <summary>
         /// pnlRelatedProducts control.
         /// </summary>
         /// <remarks>
