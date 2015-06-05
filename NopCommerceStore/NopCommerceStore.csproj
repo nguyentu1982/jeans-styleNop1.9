@@ -4124,6 +4124,13 @@
     <Compile Include="Alipay_Return.aspx.designer.cs">
       <DependentUpon>Alipay_Return.aspx</DependentUpon>
     </Compile>
+    <Compile Include="FileNotFound.aspx.cs">
+      <DependentUpon>FileNotFound.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FileNotFound.aspx.designer.cs">
+      <DependentUpon>FileNotFound.aspx</DependentUpon>
+    </Compile>
     <Compile Include="MasterPages\ThreeColumnNews.master.cs">
       <DependentUpon>ThreeColumnNews.master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -7049,6 +7056,7 @@
     <None Include="editors\fckeditor\fckutils.cfm" />
     <None Include="Install\Scripts\1.80\nopCommerce_upgrade.sql" />
     <None Include="Install\Scripts\1.90\nopCommerce_upgrade.sql" />
+    <Content Include="FileNotFound.aspx" />
     <Content Include="editors\fckeditor\editor\css\behaviors\disablehandles.htc" />
     <Content Include="editors\fckeditor\editor\css\behaviors\showtableborders.htc" />
     <Content Include="editors\fckeditor\editor\css\fck_editorarea.css" />

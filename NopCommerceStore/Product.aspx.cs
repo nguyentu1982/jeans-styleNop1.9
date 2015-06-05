@@ -66,9 +66,10 @@ namespace NopSolutions.NopCommerce.Web
         {
             if (product == null || product.Deleted)
             {
-                Response.StatusCode = 404;
-                string url = string.Format(CultureInfo.InvariantCulture, "{0}pagenotfound.html", CommonHelper.GetStoreLocation());
+               
+                string url = string.Format(CultureInfo.InvariantCulture, "{0}FileNotFound.aspx", CommonHelper.GetStoreLocation());
                 Response.Redirect(url);
+                Response.StatusCode = 404;
             }
                 //Response.Redirect(CommonHelper.GetStoreLocation());
             
