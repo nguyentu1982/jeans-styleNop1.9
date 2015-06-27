@@ -70,7 +70,7 @@
                         $(".product-master-wrapper-right-side").css("position", "fixed")
                         $(".product-master-wrapper-right-side").css("top", "30px")
                         $(".product-master-wrapper-right-side").css("left", offset2.left + "px")
-                        $(".product-master-wrapper-right-side").css("z-index", "9999")
+                        $(".product-master-wrapper-right-side").css("z-index", "999")
                     }
                 }
                 else {

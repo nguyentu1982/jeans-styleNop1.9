@@ -37,7 +37,8 @@ namespace NopSolutions.NopCommerce.Web.Templates.Products
             var product = this.ProductService.GetProductById(this.ProductId);
             if(product == null || product.ProductVariants.Count == 0)
             {
-                Response.Redirect(CommonHelper.GetStoreLocation());
+                //Response.Redirect(CommonHelper.GetStoreLocation());
+                Response.StatusCode = 404;
             }
             ctrlProductRating.Visible = product.AllowCustomerRatings;
             BindProductVariantInfo(ProductVariant);

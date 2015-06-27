@@ -4,7 +4,7 @@
 <%@ Register TagPrefix="nopCommerce" TagName="ProductPrice2" Src="~/Modules/ProductPrice2.ascx" %>
 <%@ Register TagPrefix="nopCommerce" TagName="ProductAttributes1" Src="~/Modules/ProductAttributes1.ascx" %>
 
-<div class="product-item"  onmouseover="displayImageNavigation(<%=hlImageLink.ClientID %>)" onmouseout="hideImageNavigation(<%=hlImageLink.ClientID %>)" >
+<div class="product-item"  onmouseover="getNextProductPicture('<%=hlImageLink.ImageUrl %>','<%=this.hiddenProductImageUrls.Value%>','<%=hlImageLink.ClientID %>')" onmouseout="getPreviosProductPicture('<%=this.hiddenProductImageUrls.Value%>','<%=hlImageLink.ClientID %>')" >
     <asp:HiddenField Id="hiddenProductImageUrls" runat="server" />
     <em class="picture-previous" style="display:none" id="<%=hlImageLink.ClientID +"picture-previous" %>" onclick="getPreviosProductPicture('<%=this.hiddenProductImageUrls.Value%>','<%=hlImageLink.ClientID %>')"></em>
     <div class="discount-tag" runat="server" ID="divDiscount" visible="false"><asp:Label runat="server" ID="lbDiscount" Visible="false" /></div>

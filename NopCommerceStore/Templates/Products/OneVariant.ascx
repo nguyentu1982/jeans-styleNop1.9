@@ -66,6 +66,8 @@
                     <%--</td>--%>
                 </ItemTemplate>
             </asp:ListView>
+            <!-- Go to www.addthis.com/dashboard to customize your tools -->
+            <div class="addthis_sharing_toolbox"></div>
         </div>
         <div class="overview">
             <div class="discount-tag" runat="server" ID="divDiscount" visible="false"><asp:Label runat="server" ID="lbDiscount" Visible="false" /></div>
