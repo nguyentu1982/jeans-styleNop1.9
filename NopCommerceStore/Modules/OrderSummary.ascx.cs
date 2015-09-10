@@ -531,5 +531,10 @@ namespace NopSolutions.NopCommerce.Web.Modules
                 this.ViewState["IsShoppingCart"] = value;
             }
         }
+
+        protected void cbRemoveFromCart_CheckedChanged(object sender, EventArgs e)
+        {
+            this.UpdateShoppingCart();
+        }
     }
 }

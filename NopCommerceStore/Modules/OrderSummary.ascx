@@ -1,4 +1,4 @@
-<%@ Control Language="C#" AutoEventWireup="true" Inherits="NopSolutions.NopCommerce.Web.Modules.OrderSummaryControl"
+﻿<%@ Control Language="C#" AutoEventWireup="true" Inherits="NopSolutions.NopCommerce.Web.Modules.OrderSummaryControl"
     CodeBehind="OrderSummary.ascx.cs" %>
 <%@ Register TagPrefix="nopCommerce" TagName="GoogleCheckoutButton" Src="~/Modules/GoogleCheckoutButton.ascx" %>
 <%@ Register TagPrefix="nopCommerce" TagName="OrderTotals" Src="~/Modules/OrderTotals.ascx" %>
@@ -71,7 +71,7 @@
                         <%if (IsShoppingCart)
                           { %>
                         <td>
-                            <asp:CheckBox runat="server" ID="cbRemoveFromCart" />
+                            <asp:CheckBox runat="server" ID="cbRemoveFromCart" onclick="if(!deleteItem(this)) return false" AutoPostBack="true"  OnCheckedChanged="cbRemoveFromCart_CheckedChanged"/>
                         </td>
                         <%} %>
                         <%if (this.SettingManager.GetSettingValueBoolean("Display.Products.ShowSKU"))
@@ -262,3 +262,15 @@
         <%} %>
     </div>
 </asp:Panel>
+
+<script>
+    function deleteItem(item) {
+        if (confirm("Bạn muốn xóa sản phẩm khỏi giỏ hàng?")) {
+            return true;
+        }
+        else {
+            item.checked = false;
+            return false;
+        }
+    }
+</script>
