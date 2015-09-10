@@ -83,7 +83,7 @@
                 if (offset.top - w.scrollTop() < offset.top && jQuery(document).width() > 768) {
                     jQuery(".headermenu").css("position", "fixed")
                     jQuery(".headermenu").css("top", "-3px")
-                    jQuery(".headermenu").css("z-index", "9999")
+                    jQuery(".headermenu").css("z-index", "998")
 
                 }
                 else {

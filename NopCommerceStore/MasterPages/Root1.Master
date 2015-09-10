@@ -297,7 +297,7 @@
                 if (offset.top - w.scrollTop() < offset.top && $(document).width() > 768) {
                     $(".headermenu").css("position", "fixed")
                     $(".headermenu").css("top", "-5px")
-                    $(".headermenu").css("z-index", "9999")
+                    $(".headermenu").css("z-index", "998")
 
                 }
                 else {
