@@ -86,6 +86,12 @@
             </ul>
         </div>
     </div>
+	<div class="footer-info">
+		<a href="http://online.gov.vn/HomePage/CustomWebsiteDisplay.aspx?DocId=13056">
+			<img src="http://online.gov.vn/PublicImages/2015/08/27/11/20150827110756-dathongbao.png" width="180px" />
+		</a>
+	</div>
+
     <div class="footer-info">
         <div class="listbox">
             <nopCommerce:NewsLetterSubscriptionBoxControl runat="server" ID="ctrlNewsLetterSubscriptionBoxControl" />

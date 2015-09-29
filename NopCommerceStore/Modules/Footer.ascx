@@ -88,6 +88,13 @@
             </ul>
         </div>
     </div>
+
+	<div class="footer-info">
+		<a href="http://online.gov.vn/HomePage/CustomWebsiteDisplay.aspx?DocId=13056">
+			<img src="http://online.gov.vn/PublicImages/2015/08/27/11/20150827110756-dathongbao.png" width="180px" />
+		</a>
+	</div>
+
     <div class="footer-info">
         <div class="listbox">
             <nopCommerce:NewsLetterSubscriptionBoxControl runat="server" ID="ctrlNewsLetterSubscriptionBoxControl" />
@@ -113,8 +120,6 @@
         Powered by <a href="http://www.nopcommerce.com/" rel="nofollow">nopCommerce</a>
 		<span id="_author2" itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name"><a href="https://plus.google.com/100770162889339370650?rel=author">Jeans Phong Cách (Jeans Style)</a></span></span>
         </div>
-		
-
     <div class="footer-storetheme">
             <nopCommerce:StoreThemeSelector ID="ctrlStoreTheme" runat="server" />
     </div>
