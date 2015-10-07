@@ -17,10 +17,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <asp:PlaceHolder ID="SCRIPTS" runat="server" />
     <asp:PlaceHolder ID="phAnalyticsHead" runat="server" />
-
-    <%--<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>--%>
-    <%--<script type="text/javascript" src="/Scripts/jquery-1.4.min.js"></script>--%>
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    
     <link rel="stylesheet" type="text/css" href="../MegaDropdownMenu/jkmegamenu.css" />
     <link rel="Stylesheet" type="text/css" href="../float-ads-fixed-position/ads.css" />
 
@@ -50,47 +50,84 @@
     </script>
 
     <script type="text/javascript">
-        jQuery(document).ready(function () {            
-            // hide #back-top first
-            jQuery("#back-top").hide();
-
-            // fade in #back-top
-            jQuery(function () {
-                jQuery(window).scroll(function () {
-                    if (jQuery(this).scrollTop() > 100) {
-                        jQuery('#back-top').fadeIn();
-                    } else {
-                        jQuery('#back-top').fadeOut();
-                    }
+        jQuery(document).ready(function ($) {
+            //Facebook
+            window.fbAsyncInit = function () {
+                FB.init({
+                    appId: '581973338578143',
+                    xfbml: true,
+                    version: 'v2.1'
                 });
+            };
 
-                // scroll body to 0px on click
-                jQuery('#back-top a').click(function () {
-                    jQuery('body,html').animate({
-                        scrollTop: 0
-                    }, 800);
-                    return false;
-                });
+            (function (d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) { return; }
+                js = d.createElement(s); js.id = id;
+                js.src = "//connect.facebook.net/en_US/sdk.js";
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+
+            //Facebook
+            (function (d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) return;
+                js = d.createElement(s); js.id = id;
+                js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1&appId=531573176905803";
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+
+
+
+            //Slider((((
+            $(window).load(function () {
+                $('#slider').nivoSlider(10);
+                //$("#flexiselDemo1").flexisel();
             });
-        })
 
-        jQuery(document).ready(function () {
-            jQuery(window).scroll(function () {
-                var offset = jQuery(".headermenu").offset();
-                var w = jQuery(window);
+            //back-top
+            $(function () {
+                // hide #back-top first
+                $("#back-top").hide();
+
+                // fade in #back-top
+                $(function () {
+                    $(window).scroll(function () {
+                        if ($(this).scrollTop() > 100) {
+                            $('#back-top').fadeIn();
+                        } else {
+                            $('#back-top').fadeOut();
+                        }
+                    });
+
+                    // scroll body to 0px on click
+                    $('#back-top a').click(function () {
+                        $('body,html').animate({
+                            scrollTop: 0
+                        }, 800);
+                        return false;
+                    });
+                });
+            })
+
+            $(function () {
+                $(window).scroll(function () {
+                    var offset = $(".headermenu").offset();
+                    var w = $(window);
 
 
-                if (offset.top - w.scrollTop() < offset.top && jQuery(document).width() > 768) {
-                    jQuery(".headermenu").css("position", "fixed")
-                    jQuery(".headermenu").css("top", "-3px")
-                    jQuery(".headermenu").css("z-index", "998")
+                    if (offset.top - w.scrollTop() < offset.top && $(document).width() > 768) {
+                        $(".headermenu").css("position", "fixed")
+                        $(".headermenu").css("top", "-5px")
+                        $(".headermenu").css("z-index", "998")
 
-                }
-                else {
-                    jQuery(".headermenu").css("position", "static")
-                    jQuery(".headermenu").css("top", offset.y + "px")
-                }
-                //alert("(x,y): ("+(offset.left-w.scrollLeft())+","+(offset.top-w.scrollTop())+")")
+                    }
+                    else {
+                        $(".headermenu").css("position", "static")
+                        $(".headermenu").css("top", offset.y + "px")
+                    }
+                    //alert("(x,y): ("+(offset.left-w.scrollLeft())+","+(offset.top-w.scrollTop())+")")
+                })
             })
         })
     </script>
@@ -139,23 +176,7 @@
         }
     </script>
 
-    <script>
-        window.fbAsyncInit = function () {
-            FB.init({
-                appId: '581973338578143',
-                xfbml: true,
-                version: 'v2.1'
-            });
-        };
-
-        (function (d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) { return; }
-            js = d.createElement(s); js.id = id;
-            js.src = "//connect.facebook.net/en_US/sdk.js";
-            fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));
-    </script>
+    
 
     <script>
         // This is called with the results from from FB.getLoginStatus().
@@ -329,16 +350,6 @@
     </script>
 
     <div id="fb-root"></div>
-    <script>(function (d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1&appId=531573176905803";
-    fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));
-    </script>
-            
-    
 
     <div id="fl813691">
         <div id="eb951855">

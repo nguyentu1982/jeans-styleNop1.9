@@ -4145,13 +4145,6 @@
     <Compile Include="MasterPages\TwoColumnNewsPage.master.designer.cs">
       <DependentUpon>TwoColumnNewsPage.master</DependentUpon>
     </Compile>
-    <Compile Include="MasterPages\Root1.Master.cs">
-      <DependentUpon>Root1.Master</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="MasterPages\Root1.Master.designer.cs">
-      <DependentUpon>Root1.Master</DependentUpon>
-    </Compile>
     <Compile Include="MasterPages\OneColumnHomepage.master.cs">
       <DependentUpon>OneColumnHomepage.master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -7740,7 +7733,6 @@
     <Content Include="nivo-slider\themes\.DS_Store" />
     <Content Include="nivo-slider\themes\dark\.DS_Store" />
     <Content Include="MasterPages\OneColumnHomepage.master" />
-    <Content Include="MasterPages\Root1.Master" />
     <Content Include="MasterPages\TwoColumnNewsPage.master" />
     <Content Include="MasterPages\ThreeColumnNews.master" />
   </ItemGroup>

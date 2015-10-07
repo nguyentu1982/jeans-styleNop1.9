@@ -10,7 +10,7 @@
 <%@ Register TagPrefix="nopCommerce" TagName="Topic" Src="~/Modules/Topic.ascx" %>
 <%@ Register TagPrefix="nopCommerce" TagName="RecentlyAddedProductsOnHomepage" Src="~/Modules/RecentlyAddedProductsOnHomepage.ascx" %>
 <%@ Register TagPrefix="nopCommerce" TagName="RelatedProductsOnHomepage" Src="~/Modules/RelatedProductsOnHomepage.ascx" %>
-<%@ Register TagPrefix="nopCommerce" TagName="RecentlyViewedProducts" Src="~/Modules/RecentlyViewedProducts.ascx" %>
+
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="cph1" runat="Server">
@@ -27,14 +27,8 @@
                 </div>
 
             </div>
-         <script type="text/javascript" src="/Scripts/jquery-1.9.0.min.js"></script>        
-        <script type="text/javascript" src="../nivo-slider/jquery.nivo.slider.js"></script>
-        <script type="text/javascript">
-            $(window).load(function () {
-                $('#slider').nivoSlider(10);
-            });
-                </script>
-       
+        <%-- <script type="text/javascript" src="/Scripts/jquery-1.9.0.min.js"></script> --%>       
+            
     
     
     <nopCommerce:RelatedProductsOnHomepage runat="server" ID="ctrRelatedRecentlyViewProductsOnHomepage"/>
@@ -70,7 +64,6 @@
     <%--<div class="clear">
     </div>
      <nopCommerce:HomePageCategories ID="HomePageCategories1" runat="server" />--%>
-    <nopCommerce:RecentlyViewedProducts ID="ctrlRecentlyViewedProducts" runat="server" />
     <div class="clear">
     </div>
     <nopCommerce:HomePageNews ID="ctrlHomePageNews" runat="server" />

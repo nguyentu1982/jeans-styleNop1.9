@@ -34,9 +34,8 @@
 </div>
 
 <script type="text/javascript" src="../9bitStudios-flexisel-c787002/js/jquery.flexisel.js"></script>
-<script type="text/javascript">
-
-    $(window).load(function () {
-        $("#flexiselDemo1").flexisel();
-    })
+<script>
+    jQuery(window).load(function () {        
+        jQuery("#flexiselDemo1").flexisel();
+    });
 </script>

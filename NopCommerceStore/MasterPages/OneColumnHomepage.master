@@ -1,4 +1,20 @@
-﻿<%@ Master Language="C#" MasterPageFile="~/MasterPages/Root1.master" AutoEventWireup="true" CodeBehind="OneColumnHomepage.master.cs" Inherits="NopSolutions.NopCommerce.Web.MasterPages.OneColumnHomepage" %>
+﻿<%@ Master Language="C#" MasterPageFile="~/MasterPages/Root.master" AutoEventWireup="true" CodeBehind="OneColumnHomepage.master.cs" Inherits="NopSolutions.NopCommerce.Web.MasterPages.OneColumnHomepage" %>
+
+<asp:Content ID="Content2" ContentPlaceHolderID="head" runat="server">
+        <%--Nivo Slider--%>
+     <script type="text/javascript" src="../nivo-slider/jquery.nivo.slider.js"></script>  
+
+    <link rel="stylesheet" href="../nivo-slider/themes/default/default.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="../nivo-slider/themes/light/light.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="../nivo-slider/themes/dark/dark.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="../nivo-slider/themes/bar/bar.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="../nivo-slider/nivo-slider.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="../nivo-slider/demo/style.css" type="text/css" media="screen" />
+    <%--End Nivo Slider--%>
+
+    <link href="../9bitStudios-flexisel-c787002/css/style.css" rel="stylesheet" type="text/css" />
+    
+</asp:Content>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="cph1" runat="server">
     <div class="master-wrapper-center-1">

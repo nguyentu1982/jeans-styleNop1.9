@@ -20,8 +20,8 @@
 
     <%-- <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>--%>
 
-    <script type="text/javascript" src="/Scripts/jquery-1.9.0.min.js"></script>        
-
+    <%--<script type="text/javascript" src="/Scripts/jquery-1.9.0.min.js"></script> --%>       
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
     <link rel="stylesheet" type="text/css" href="../MegaDropdownMenu/jkmegamenu.css" />
     <%--<link rel="Stylesheet" type="text/css" href="../float-ads-fixed-position/ads.css" />--%>
 
@@ -46,14 +46,7 @@
         ga('send', 'pageview');
 
     </script>
-    <%--Nivo Slider--%>
-    <link rel="stylesheet" href="../nivo-slider/themes/default/default.css" type="text/css" media="screen" />
-    <link rel="stylesheet" href="../nivo-slider/themes/light/light.css" type="text/css" media="screen" />
-    <link rel="stylesheet" href="../nivo-slider/themes/dark/dark.css" type="text/css" media="screen" />
-    <link rel="stylesheet" href="../nivo-slider/themes/bar/bar.css" type="text/css" media="screen" />
-    <link rel="stylesheet" href="../nivo-slider/nivo-slider.css" type="text/css" media="screen" />
-    <link rel="stylesheet" href="../nivo-slider/demo/style.css" type="text/css" media="screen" />
-    <%--End Nivo Slider--%>
+    
 
     <link href="../9bitStudios-flexisel-c787002/css/style.css" rel="stylesheet" type="text/css" />
      <link rel="Stylesheet" type="text/css" href="../float-ads-fixed-position/ads.css" />
@@ -63,21 +56,7 @@
 </head>
 <body>
     <script>
-        window.fbAsyncInit = function () {
-            FB.init({
-                appId: '581973338578143',
-                xfbml: true,
-                version: 'v2.1'
-            });
-        };
-
-        (function (d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) { return; }
-            js = d.createElement(s); js.id = id;
-            js.src = "//connect.facebook.net/en_US/sdk.js";
-            fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));
+        
     </script>
 
     <script>
@@ -255,56 +234,87 @@
     </script>
 
     <div id="fb-root"></div>
-    <script>(function (d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1&appId=531573176905803";
-    fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
+    <script></script>
 
     <script>
-        jQuery(function () {
-            // hide #back-top first
-            $("#back-top").hide();
-
-            // fade in #back-top
-            $(function () {
-                $(window).scroll(function () {
-                    if ($(this).scrollTop() > 100) {
-                        $('#back-top').fadeIn();
-                    } else {
-                        $('#back-top').fadeOut();
-                    }
+        jQuery(document).ready(function($)
+        {
+            //Facebook
+            window.fbAsyncInit = function () {
+                FB.init({
+                    appId: '581973338578143',
+                    xfbml: true,
+                    version: 'v2.1'
                 });
+            };
 
-                // scroll body to 0px on click
-                $('#back-top a').click(function () {
-                    $('body,html').animate({
-                        scrollTop: 0
-                    }, 800);
-                    return false;
-                });
+            (function (d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) { return; }
+                js = d.createElement(s); js.id = id;
+                js.src = "//connect.facebook.net/en_US/sdk.js";
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+
+            //Facebook
+            (function (d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) return;
+                js = d.createElement(s); js.id = id;
+                js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1&appId=531573176905803";
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+
+
+
+            //Slider((((
+            $(window).load(function () {
+                $('#slider').nivoSlider(10);
             });
-        })
 
-        jQuery(function () {
-            $(window).scroll(function(){
-                var offset = $(".headermenu").offset();
-                var w = $(window);
+            //back-top
+            $(function () {
+                // hide #back-top first
+                $("#back-top").hide();
+
+                // fade in #back-top
+                $(function () {
+                    $(window).scroll(function () {
+                        if ($(this).scrollTop() > 100) {
+                            $('#back-top').fadeIn();
+                        } else {
+                            $('#back-top').fadeOut();
+                        }
+                    });
+
+                    // scroll body to 0px on click
+                    $('#back-top a').click(function () {
+                        $('body,html').animate({
+                            scrollTop: 0
+                        }, 800);
+                        return false;
+                    });
+                });
+            })
+
+            $(function () {
+                $(window).scroll(function(){
+                    var offset = $(".headermenu").offset();
+                    var w = $(window);
 
 
-                if (offset.top - w.scrollTop() < offset.top && $(document).width() > 768) {
-                    $(".headermenu").css("position", "fixed")
-                    $(".headermenu").css("top", "-5px")
-                    $(".headermenu").css("z-index", "998")
+                    if (offset.top - w.scrollTop() < offset.top && $(document).width() > 768) {
+                        $(".headermenu").css("position", "fixed")
+                        $(".headermenu").css("top", "-5px")
+                        $(".headermenu").css("z-index", "998")
 
-                }
-                else {
-                    $(".headermenu").css("position", "static")
-                    $(".headermenu").css("top", offset.y+"px")
-                }
-                //alert("(x,y): ("+(offset.left-w.scrollLeft())+","+(offset.top-w.scrollTop())+")")
+                    }
+                    else {
+                        $(".headermenu").css("position", "static")
+                        $(".headermenu").css("top", offset.y+"px")
+                    }
+                    //alert("(x,y): ("+(offset.left-w.scrollLeft())+","+(offset.top-w.scrollTop())+")")
+                })
             })
         })
     </script>
