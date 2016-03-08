@@ -641,7 +641,10 @@ a.f-logout
 }
 
 .shop-info {
-    margin:10px;
+    margin: 10px;
+    background-color: blue;
+    padding: 10px;
+    font-size: initial;
 }
 
 .footer-tags 
