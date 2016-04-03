@@ -22,6 +22,8 @@
 
         <li><a href="<%=CommonHelper.GetStoreLocation()%>danh-muc-jean/44/quan-vai-nu.aspx" > <span class="menu-man">Quần vải nữ</span></a></li>
 
+        <li><a href="<%=CommonHelper.GetStoreLocation()%>danh-muc-jean/37/quan-kaki-nam.aspx" > <span class="menu-man">Quần Kaki nam</span></a></li>
+
         <li><a href="<%=CommonHelper.GetStoreLocation()%>danh-muc-jean/33/quan-jean-nam-nu-gia-re-tai-ha-noi.aspx" > <span class="sales-menu">Sales</span></a></li>
 
         <li><a href="<%=CommonHelper.GetStoreLocation()%>search.aspx" > <span class="sales-menu">Tìm sản phẩm</span></a></li>
