@@ -27,6 +27,9 @@
         <li><a href="<%=CommonHelper.GetStoreLocation()%>danh-muc-jean/33/quan-jean-nam-nu-gia-re-tai-ha-noi.aspx" > <span class="sales-menu">Sales</span></a></li>
 
         <li><a href="<%=CommonHelper.GetStoreLocation()%>search.aspx" > <span class="sales-menu">Tìm sản phẩm</span></a></li>
+
+        <li><a href="<%=CommonHelper.GetStoreLocation()%>topic/32/jeans-style-tuyen-nu-nhan-vien-ban-hang.aspx" > <span class="menu-man">Tuyển dụng</span></a></li>
+
         <%--<li><a href="<%=Page.ResolveUrl("~/customers.aspx")%>">
             <%=GetLocaleResourceString("Customer.Customer")%></a> </li>
 --%>
