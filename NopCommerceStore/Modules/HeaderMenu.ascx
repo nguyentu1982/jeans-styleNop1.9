@@ -16,6 +16,8 @@
         
         <li><a href="<%=CommonHelper.GetStoreLocation()%>danh-muc-jean/14/quan-jean-nam.aspx" id="megaanchor2"> <span class="menu-man">QUẦN JEAN NAM </span></a></li>
 
+        <li><a href="<%=CommonHelper.GetStoreLocation()%>danh-muc-jean/50/shop-ban-vay-jeans-dep-vnxk-ha-noi.aspx"> <span class="menu-man">Váy Jeans </span></a></li>
+
         <li><a href="<%=CommonHelper.GetStoreLocation()%>danh-muc-jean/41/ao-bo-nu.aspx" > <span class="menu-man">Áo bò nữ</span></a></li>
         
         <li><a href="<%=CommonHelper.GetStoreLocation()%>danh-muc-jean/40/ao-bo-nam.aspx" > <span class="menu-man">Áo bò nam</span></a></li>
