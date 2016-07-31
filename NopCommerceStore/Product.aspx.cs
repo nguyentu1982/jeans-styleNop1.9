@@ -1,4 +1,4 @@
-//------------------------------------------------------------------------------
+﻿//------------------------------------------------------------------------------
 // The contents of this file are subject to the nopCommerce Public License Version 1.0 ("License"); you may not use this file except in compliance with the License.
 // You may obtain a copy of the License at  http://www.nopCommerce.com/License.aspx. 
 // 
@@ -43,7 +43,8 @@ namespace NopSolutions.NopCommerce.Web
         private void CreateChildControlsTree()
         {
             product = this.ProductService.GetProductById(this.ProductId);
-            if (product != null)
+            if (product != null
+                )
             {
                 Control child = null;
 
@@ -56,10 +57,67 @@ namespace NopSolutions.NopCommerce.Web
             }
         }
 
+        protected void RenderRemarketingAdwordsScript()
+        {
+            product = this.ProductService.GetProductById(this.ProductId);
+            StringBuilder sb = new StringBuilder();
+            sb.Append("<script type='text/javascript'>");
+            sb.Append(Environment.NewLine);
+            sb.Append("var google_tag_params = {");
+            sb.Append(Environment.NewLine);
+            sb.Append("dynx_itemid: '"+product.ProductId+"',");
+            sb.Append(Environment.NewLine);
+            sb.Append("dynx_itemid2: '',");
+            sb.Append(Environment.NewLine);
+            sb.Append("dynx_pagetype: 'offerdetail',");
+            sb.Append(Environment.NewLine);
+            sb.Append("dynx_totalvalue: " + product.ProductVariants[0].Price.ToString("#.##", CultureInfo.InvariantCulture) + ",");
+            sb.Append(Environment.NewLine);
+            sb.Append("};");
+            sb.Append(Environment.NewLine);
+            sb.Append("</script>");
+            
+            sb.Append(Environment.NewLine);
+            sb.Append("<script type='text/javascript'>");
+            sb.Append(Environment.NewLine);
+            sb.Append("/* <![CDATA[ */");
+            sb.Append(Environment.NewLine);
+            sb.Append("var google_conversion_id = 971689623;");
+            sb.Append(Environment.NewLine);
+            sb.Append("var google_custom_params = window.google_tag_params;");
+            sb.Append(Environment.NewLine);
+            sb.Append("var google_remarketing_only = true;");
+            sb.Append(Environment.NewLine);
+            sb.Append("/* ]]> */");
+            sb.Append(Environment.NewLine);
+            sb.Append("</script>");
+            
+            sb.Append(Environment.NewLine);
+            sb.Append("<script type='text/javascript' src='//www.googleadservices.com/pagead/conversion.js'>");
+            sb.Append(Environment.NewLine);
+            sb.Append("</script>");
+            sb.Append(Environment.NewLine);
+            sb.Append("<noscript>");
+            sb.Append(Environment.NewLine);
+            sb.Append("<div style='display:inline;'>");
+            sb.Append(Environment.NewLine);
+            sb.Append("<img height='1' width='1' style='border-style:none;' alt='' src='//googleads.g.doubleclick.net/pagead/viewthroughconversion/971689623/?value=0&amp;guid=ON&amp;script=0'/>");
+            sb.Append(Environment.NewLine);
+            sb.Append("</div>");
+            sb.Append(Environment.NewLine);
+            sb.Append(" </noscript>");
+
+            string remarketingScript = sb.ToString();
+            Literal script = new Literal() { Text = remarketingScript };
+            PlaceHolder phRemarketingAdwordsBody = this.Controls[0].Controls[0].FindControl("phRemarketingAdwordsBody") as PlaceHolder;
+            phRemarketingAdwordsBody.Controls.AddAt(0, script);
+        }
+
         protected override void OnInit(EventArgs e)
         {
             base.OnInit(e);
             this.CreateChildControlsTree();
+            this.RenderRemarketingAdwordsScript();
         }
 
         protected void Page_Load(object sender, EventArgs e)
