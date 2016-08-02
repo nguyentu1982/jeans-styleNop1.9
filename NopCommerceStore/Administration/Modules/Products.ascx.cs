@@ -256,6 +256,26 @@ namespace NopSolutions.NopCommerce.Web.Administration.Modules
             }
         }
 
+        protected void btnExportXLSRemarketing_Click(object sender, EventArgs e)
+        {
+            if (Page.IsValid)
+            {
+                try
+                {
+                    string fileName = string.Format("productsRemarketing_{0}_{1}.xls", DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss"), CommonHelper.GenerateRandomDigitCode(4));
+                    string filePath = string.Format("{0}files\\ExportImport\\{1}", HttpContext.Current.Request.PhysicalApplicationPath, fileName);
+                    var products = GetProducts();
+
+                    this.ExportManager.ExportProductsToXlsRemarketing(filePath, products);
+                    CommonHelper.WriteResponseXls(filePath, fileName);
+                }
+                catch (Exception exc)
+                {
+                    ProcessException(exc);
+                }
+            }
+        }
+
         protected void btnImportXLS_Click(object sender, EventArgs e)
         {
             if (fuXlsFile.PostedFile != null && !String.IsNullOrEmpty(fuXlsFile.FileName))

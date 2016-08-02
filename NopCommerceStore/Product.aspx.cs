@@ -59,6 +59,8 @@ namespace NopSolutions.NopCommerce.Web
 
         protected void RenderRemarketingAdwordsScript()
         {
+            CultureInfo vnCul = CultureInfo.GetCultureInfo("vi-VN");
+
             product = this.ProductService.GetProductById(this.ProductId);
             StringBuilder sb = new StringBuilder();
             sb.Append("<script type='text/javascript'>");
@@ -71,7 +73,7 @@ namespace NopSolutions.NopCommerce.Web
             sb.Append(Environment.NewLine);
             sb.Append("dynx_pagetype: 'offerdetail',");
             sb.Append(Environment.NewLine);
-            sb.Append("dynx_totalvalue: " + product.ProductVariants[0].Price.ToString("#.##", CultureInfo.InvariantCulture) + ",");
+            sb.Append("dynx_totalvalue: " + product.ProductVariants[0].Price.ToString("#.##", CultureInfo.InvariantCulture));
             sb.Append(Environment.NewLine);
             sb.Append("};");
             sb.Append(Environment.NewLine);

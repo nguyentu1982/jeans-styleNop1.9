@@ -20,6 +20,11 @@
         <asp:Button runat="server" Text="<% $NopResources:Admin.Products.ExportXLSButton.Text %>"
             CssClass="adminButtonBlue" ID="btnExportXLS" OnClick="btnExportXLS_Click" ValidationGroup="ExportXLS"
             ToolTip="<% $NopResources:Admin.Products.ExportXLSButton.Tooltip %>" />
+        
+        <asp:Button runat="server" Text="<% $NopResources:Admin.Products.ExportXLSButtonRemarketing.Text %>"
+            CssClass="adminButtonBlue" ID="btnExportXLSRemarketing" OnClick="btnExportXLSRemarketing_Click" ValidationGroup="ExportXLS"
+            ToolTip="<% $NopResources:Admin.Products.ExportXLSButtonRemarketing.Tooltip %>" />
+
         <asp:Button runat="server" Text="<% $NopResources:Admin.Products.ImportXLSButton.Text %>"
             CssClass="adminButtonBlue" ID="btnImportXLS" OnClick="btnImportXLS_Click" ToolTip="<% $NopResources:Admin.Products.ImportXLSButton.Tooltip %>" />
         <input type="button" onclick="location.href='ProductAdd.aspx'" value="<%=GetLocaleResourceString("Admin.Products.AddButton.Text")%>"

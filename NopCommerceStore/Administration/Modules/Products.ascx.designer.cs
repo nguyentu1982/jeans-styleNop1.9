@@ -49,6 +49,15 @@ namespace NopSolutions.NopCommerce.Web.Administration.Modules {
         protected global::System.Web.UI.WebControls.Button btnExportXLS;
         
         /// <summary>
+        /// btnExportXLSRemarketing control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnExportXLSRemarketing;
+        
+        /// <summary>
         /// btnImportXLS control.
         /// </summary>
         /// <remarks>
