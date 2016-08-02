@@ -29,6 +29,8 @@ using NopSolutions.NopCommerce.BusinessLogic.Orders;
 using NopSolutions.NopCommerce.BusinessLogic.Products;
 using NopSolutions.NopCommerce.BusinessLogic.Products.Attributes;
 using NopSolutions.NopCommerce.BusinessLogic.Products.Specs;
+using NopSolutions.NopCommerce.BusinessLogic.SEO;
+using NopSolutions.NopCommerce.BusinessLogic.Media;
 
 namespace NopSolutions.NopCommerce.BusinessLogic.ExportImport
 {
@@ -787,6 +789,99 @@ namespace NopSolutions.NopCommerce.BusinessLogic.ExportImport
         }
 
         /// <summary>
+        /// Customize - Export products to XLS Remarketing 
+        /// </summary>
+        /// <param name="filePath">File path to use</param>
+        /// <param name="products">Products</param>
+        public void ExportProductsToXlsRemarketing(string filePath, List<Product> products)
+        {
+            using (ExcelHelper excelHelper = new ExcelHelper(filePath))
+            {
+                excelHelper.Hdr = "YES";
+                excelHelper.Imex = "0";
+                Dictionary<string, string> tableDefinition = new Dictionary<string, string>();
+                tableDefinition.Add("ID", "ntext");
+                tableDefinition.Add("ID2", "ntext");
+                tableDefinition.Add("[Item title]", "ntext");
+                tableDefinition.Add("[Final URL]", "ntext");
+                tableDefinition.Add("[Image URL]", "ntext");
+                tableDefinition.Add("[Item subtitle]", "ntext");
+                tableDefinition.Add("[Item description]", "ntext");
+                tableDefinition.Add("[Item category]", "ntext");
+                tableDefinition.Add("Price", "ntext");
+                tableDefinition.Add("[Sale price]", "ntext");
+                tableDefinition.Add("[Contextual keywords]", "ntext");
+                tableDefinition.Add("[Tracking template]", "ntext");
+                tableDefinition.Add("[Custom parameter]", "ntext");
+                excelHelper.WriteTable("Products", tableDefinition);
+
+                CultureInfo vnCul = CultureInfo.GetCultureInfo("vi-VN");
+                string decimalQuoter = (CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator.Equals(",") ? "\"" : String.Empty);
+                
+
+                foreach (var p in products)
+                {
+                    if (p.Published == true)
+                    {
+                        var productVariants = IoC.Resolve<IProductService>().GetProductVariantsByProductId(p.ProductId, true);
+
+                        foreach (var pv in productVariants)
+                        {
+                            StringBuilder sb = new StringBuilder();
+                            sb.Append("INSERT INTO [Products] (ID, ID2,[Item title],[Final URL],[Image URL],[Item subtitle],[Item description],[Item category],[Price],[Sale price],[Contextual keywords],[Tracking template],[Custom parameter]) VALUES (");
+                            sb.Append('"'); sb.Append(p.ProductId.ToString().Replace('"', '\'')); sb.Append("\",");
+                            sb.Append('"'); sb.Append(string.Empty); sb.Append("\",");
+                            sb.Append('"'); sb.Append(p.Name.Replace('"', '\'')); sb.Append("\",");
+
+                            string productURL = SEOHelper.GetProductUrl(p);
+                            sb.Append('"'); sb.Append(productURL.Replace('"', '\'')); sb.Append("\",");
+
+                            var picture = p.DefaultPicture;
+                            var imageURL = string.Empty;
+                            if (picture != null)
+                            {
+                                imageURL = IoC.Resolve<IPictureService>().GetPictureUrl(picture, this.ProductImageSize, true, SEOHelper.GetSEName(p.LocalizedName));
+
+                            }
+
+                            sb.Append('"'); sb.Append(imageURL.Replace('"', '\'')); sb.Append("\",");
+                            sb.Append('"'); sb.Append(string.Empty.Replace('"', '\'')); sb.Append("\",");
+                            sb.Append('"'); sb.Append(p.ShortDescription.Replace('"', '\'')); sb.Append("\",");
+                            if (p.ProductCategories.Count > 0)
+                            {
+                                sb.Append('"'); sb.Append(p.ProductCategories[p.ProductCategories.Count - 1].Category.Name.Replace('"', '\'')); sb.Append("\",");
+                            }
+                            else
+                            {
+                                sb.Append('"'); sb.Append(string.Empty.Replace('"', '\'')); sb.Append("\",");
+                            }
+                            string oldPrice = decimal.Parse(pv.OldPrice.ToString()).ToString("#,###", CultureInfo.InvariantCulture);
+                            if (!string.IsNullOrEmpty(oldPrice))
+                            {
+                                oldPrice = oldPrice + " VND";
+                            }
+                            string price = decimal.Parse(pv.Price.ToString()).ToString("#,###", CultureInfo.InvariantCulture);
+                            if(!string.IsNullOrEmpty(price))
+                            {
+                                price = price + " VND";
+                            }
+                            
+                            sb.Append('"'); sb.Append(oldPrice.Replace('"', '\'')); sb.Append("\",");
+                            sb.Append('"'); sb.Append(price.Replace('"', '\'')); sb.Append("\",");                            
+                            sb.Append('"'); sb.Append(string.Empty.Replace('"', '\'')); sb.Append("\",");
+                            sb.Append('"'); sb.Append(string.Empty.Replace('"', '\'')); sb.Append("\",");
+                            sb.Append('"'); sb.Append(string.Empty.Replace('"', '\'')); sb.Append('"');
+                            sb.Append(")");
+
+                            excelHelper.ExecuteCommand(sb.ToString());
+                        }
+                    
+                    }
+                }
+            }
+        }
+
+        /// <summary>
         /// Export order list to xml
         /// </summary>
         /// <param name="orders">Orders</param>
@@ -1125,5 +1220,17 @@ namespace NopSolutions.NopCommerce.BusinessLogic.ExportImport
         }
 
         #endregion
+
+        public int ProductImageSize {
+            get
+            {                
+                 return IoC.Resolve<ISettingManager>().GetSettingValueInteger("Media.Product.ThumbnailImageSizeRemarketingAdwords", 300);                
+            }
+            set
+            {
+                
+            }
+        
+        }
     }
 }

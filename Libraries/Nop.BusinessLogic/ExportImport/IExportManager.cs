@@ -17,6 +17,8 @@ using NopSolutions.NopCommerce.BusinessLogic.CustomerManagement;
 using NopSolutions.NopCommerce.BusinessLogic.Manufacturers;
 using NopSolutions.NopCommerce.BusinessLogic.Orders;
 using NopSolutions.NopCommerce.BusinessLogic.Products;
+using NopSolutions.NopCommerce.BusinessLogic.Media;
+using NopSolutions.NopCommerce.BusinessLogic.Infrastructure;
 
 namespace NopSolutions.NopCommerce.BusinessLogic.ExportImport
 {
@@ -85,5 +87,9 @@ namespace NopSolutions.NopCommerce.BusinessLogic.ExportImport
         /// </summary>
         /// <returns>Result in XML format</returns>
         string ExportMessageTokensToXml();
+
+        void ExportProductsToXlsRemarketing(string filePath, List<Product> products);
+
+        
     }
 }
