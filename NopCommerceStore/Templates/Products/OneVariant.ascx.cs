@@ -85,6 +85,15 @@ namespace NopSolutions.NopCommerce.Web.Templates.Products
                 if (manufacturer != null)
                     manufacturers.Add(manufacturer);
             }
+            if(manufacturers.Count ==0)
+            {
+                int manufactureId = this.SettingManager.GetSettingValueInteger("DefaultManufactureId");
+                Manufacturer m = this.ManufacturerService.GetManufacturerById(manufactureId);
+                if(m != null)
+                {
+                    manufacturers.Add(m);
+                };
+            }
             if (manufacturers.Count > 0)
             {
                 if (manufacturers.Count == 1)

@@ -560,15 +560,9 @@ a.f-logout
     display:none;
 }
 
-
-.headermenu a 
-{
-    color:#fff;font-size:1.1em;text-decoration:none
-}
-
 .headermenu .topmenu
 {
-	width: 90%;height: 100%;zoom: 1;
+	height: 100%;zoom: 1;
     margin:auto;
 }
 
@@ -583,7 +577,6 @@ a.f-logout
     height:28px;
     line-height:28px;
     text-align:center;
-    min-width:120px;
     /*background:url(/Themes/DefaultClean/Content/images/top-menu-divider.png) no-repeat 100% 50%;*/
     z-index:9;
 }
@@ -594,7 +587,8 @@ a.f-logout
 	text-decoration: none;
 	text-transform: uppercase;	
 	vertical-align: middle;
-	padding: 10px 20px 10px 20px;
+	padding: 15px;
+    font-size: 1.1em;
 }
 
 .headermenu a:hover
@@ -1274,12 +1268,11 @@ textarea
 .productvariantaddtocartbutton, .productwritereviewbutton, .loginbutton, .registerbutton,
 .checkoutasguestbutton, .savecustomerinfobutton, .registernextstepbutton, .completeregistrationbutton, .passwordrecoverybutton,
 .newpasswordbutton, .saveaddressbutton, .sendemailafriendbutton, .checkoutbutton,
-.newaddressnextstepbutton, .selectbillingaddressbutton, 
+.newaddressnextstepbutton, .selectbillingaddressbutton, .selectshippingaddressbutton,
 .shippingmethodnextstepbutton, .paymentmethodnextstepbutton, .paymentinfonextstepbutton,
 .confirmordernextstepbutton, .submitforumtopicbutton, .submitpmbutton, .replypmbutton,
 .deleteselectedpmbutton, .reorderbutton, .minicartcheckoutbutton, .newsletterbox-subscribebutton, .useragreementbutton
-{
-    width:110px;
+{   
     height:24px;
 	background: -webkit-gradient(linear,left top,left bottom,from(#7db72f),to(#4e7d0e));
     padding: 5px 10px;
@@ -1289,7 +1282,7 @@ textarea
     text-transform: uppercase;
 }
 
-.changepasswordbutton, .selectshippingaddressbutton
+.changepasswordbutton
 {
 	width: 160px;
 	height: 26px;
@@ -6018,14 +6011,17 @@ h1, h2, h3, h4, h5, h6 {
     right: 8px;
     top: 8px;
     line-height: 40px;
-    user-select: none;
     -webkit-user-select: none;
     -moz-user-select: none;
     cursor: default;
     z-index: 1;
     border-radius: 100%;
 }
-
+.freeShipping {
+    position:absolute;
+    top:0px;
+    left:0px;
+}
 pre {
  white-space: pre-wrap;       /* css-3 */
 

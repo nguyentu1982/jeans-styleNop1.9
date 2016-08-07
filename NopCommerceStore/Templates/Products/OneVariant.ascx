@@ -33,7 +33,7 @@
     <nopCommerce:ProductShareButton ID="ctrlProductShareButton" runat="server" />
 
     <div class="product-essential product-details-info">
-        
+
         <script lang="javascript" type="text/javascript">
             function UpdateMainImage(url) {
                 var imgMain = document.getElementById('<%=defaultImage.ClientID%>');
@@ -46,7 +46,7 @@
             <a runat="server" id="lnkMainLightbox" class="cloud-zoom" rel="position:'inside', showTitle: false, adjustX:-4, adjustY:-4">
                 <asp:Image ID="defaultImage" runat="server" Width="100%" />
             </a>
-            <div class="picture-guide"> <%=GetLocaleResourceString("Products.Picture.Zoom.Guide")%></div>
+            <div class="picture-guide"><%=GetLocaleResourceString("Products.Picture.Zoom.Guide")%></div>
             <asp:ListView ID="lvProductPictures" runat="server" GroupItemCount="3">
                 <LayoutTemplate>
                     <%-- <table style="margin-top: 10px;">--%>
@@ -62,7 +62,7 @@
                     <%--<td align="left">--%>
                     <a href="<%#this.PictureService.GetPictureUrl((Picture)Container.DataItem,0, false, SEOHelper.GetSEName(this.ProductService.GetProductById(this.ProductId).LocalizedName))%>" class="cloud-zoom-gallery" rel="useZoom:'ctl00_ctl00_cph1_cph1_ctl00_lnkMainLightbox', smallImage:'<%#this.PictureService.GetPictureUrl((Picture)Container.DataItem,0, false, SEOHelper.GetSEName(this.ProductService.GetProductById(this.ProductId).LocalizedName))%>'"
                         title="<%= lProductName.Text%>">
-                        <img src="<%#this.PictureService.GetPictureUrl((Picture)Container.DataItem, 70)%>" alt="Product image" style="border:1px solid #C0C0C0" /></a>
+                        <img src="<%#this.PictureService.GetPictureUrl((Picture)Container.DataItem, 70)%>" alt="Product image" style="border: 1px solid #C0C0C0" /></a>
                     <%--</td>--%>
                 </ItemTemplate>
             </asp:ListView>
@@ -70,7 +70,6 @@
             <div class="addthis_sharing_toolbox"></div>
         </div>
         <div class="overview">
-            <div class="discount-tag" runat="server" ID="divDiscount" visible="false"><asp:Label runat="server" ID="lbDiscount" Visible="false" /></div>
             <asp:PlaceHolder runat="server" ID="phManufacturers">
                 <div class="manufacturers">
                     <asp:Literal ID="lManufacturersTitle" runat="server" Visible="false" />
@@ -80,13 +79,17 @@
                         </ItemTemplate>
                         <SeparatorTemplate>
                         </SeparatorTemplate>
-                    </asp:Repeater>
-
+                    </asp:Repeater>                    
                 </div>
-
             </asp:PlaceHolder>
+            <div class="freeShipping">
+                <asp:Image ID="imgFreeShiping" runat="server" Visible="false" />
+            </div>
+            <div class="discount-tag" runat="server" id="divDiscount" visible="false">
+                <asp:Label runat="server" ID="lbDiscount" Visible="false" />
+            </div>
 
-            <div class="product-info">                
+            <div class="product-info">
                 <h1 class="productname">
                     <asp:Literal ID="lProductName" runat="server" />
                 </h1>
@@ -111,7 +114,7 @@
             </asp:PlaceHolder>
 
             <div class="product-collateral">
-                
+
                 <nopCommerce:ProductRating ID="ctrlProductRating" runat="server" />
                 <br />
                 <div>
@@ -122,9 +125,7 @@
                             RequiredErrorMessage="<% $NopResources:Products.CustomerEnteredPrice.EnterPrice %>"
                             MinimumValue="0" MaximumValue="100000000" Width="100" />
                     </div>
-                    <div class="freeShipping">
-                        <asp:Image ID="imgFreeShiping" runat="server" Visible="false" />
-                    </div>
+
                 </div>
                 <div class="add-info">
                     <div class="size-guide">
@@ -137,7 +138,7 @@
                         </asp:Panel>
                     </div>
                     <br />
-
+                    <%=GetLocaleResourceString("Products.OrderQuantity")%>
                     <nopCommerce:NumericTextBox runat="server" ID="txtQuantity" Value="1" RequiredErrorMessage="<% $NopResources:Products.EnterQuantity %>"
                         RangeErrorMessage="<% $NopResources:Products.QuantityRange %>" MinimumValue="1"
                         MaximumValue="999999" Width="50" />
@@ -161,7 +162,7 @@
                    }
                    if (warehouse.Count > 0)
                    {%>
-                <div style="border: dotted 1px #c0c0c0; padding: 5px; margin: 10px 0px 10px 0px; background-color: aqua;font-size:14px;max-width:350px;">
+                <div style="border: dotted 1px #c0c0c0; padding: 5px; margin: 10px 0px 10px 0px; background-color: aqua; font-size: 14px; max-width: 350px;">
                     <div style="font-weight: bold; color: #3664A5; font-size: 14px; font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;">
                         <%=GetLocaleResourceString("Products.Warehouse")%>
                     </div>
@@ -170,7 +171,8 @@
                             <div style="width: 300px; font-weight: bold; margin-top: 5px"><%#Eval("Name") %></div>
 
                             <div style="margin-left: 20px"><%=GetLocaleResourceString("Warehouse.StreetAddress")%><%#Eval("Address1") %>- <%#Eval("City") %> </div>
-                            <div style="margin-left: 20px"><%=GetLocaleResourceString("Warehouse.TelephoneNumber")%><%#Eval("PhoneNumber")%><br/><%#Eval("Email") %></div>
+                            <div style="margin-left: 20px"><%=GetLocaleResourceString("Warehouse.TelephoneNumber")%><%#Eval("PhoneNumber")%><br />
+                                <%#Eval("Email") %></div>
                         </ItemTemplate>
                     </asp:Repeater>
                 </div>
@@ -223,7 +225,7 @@ thanh toán]</a></td>
 
         </div>
         <ajaxToolkit:TabContainer runat="server" ID="ProductsTabs" ActiveTabIndex="0" CssClass="grey">
-            <ajaxToolkit:TabPanel runat="server" ID="pnlStyleNote" HeaderText="<% $NopResources:Products.StyleNote %>" visible="false">
+            <ajaxToolkit:TabPanel runat="server" ID="pnlStyleNote" HeaderText="<% $NopResources:Products.StyleNote %>" Visible="false">
                 <ContentTemplate>
                     <nopCommerce:StyleNote ID="ctrlStyleNote" runat="server" />
                 </ContentTemplate>
@@ -233,7 +235,7 @@ thanh toán]</a></td>
                     <nopCommerce:ProductSpecs ID="ctrlProductSpecs" runat="server" Visible="true" />
                 </ContentTemplate>
             </ajaxToolkit:TabPanel>
-            <ajaxToolkit:TabPanel runat="server" ID="pnlProductGuaranty" HeaderText="<% $NopResources:Products.Guaranty %>" visible="true">
+            <ajaxToolkit:TabPanel runat="server" ID="pnlProductGuaranty" HeaderText="<% $NopResources:Products.Guaranty %>" Visible="true">
                 <ContentTemplate>
                     <nopCommerce:Topic ID="topicFreeShiping" runat="server" TopicName="FreeShipping" OverrideSEO="false"></nopCommerce:Topic>
                 </ContentTemplate>
@@ -250,10 +252,9 @@ thanh toán]</a></td>
             </ajaxToolkit:TabPanel>
             <ajaxToolkit:TabPanel runat="server" ID="pnlProductReviews" HeaderText="<% $NopResources:Products.ProductReviews %>">
                 <ContentTemplate>
-                    
                 </ContentTemplate>
             </ajaxToolkit:TabPanel>
-            <ajaxToolkit:TabPanel runat="server" ID="pnlProductTags" HeaderText="<% $NopResources:Products.ProductTags %>" visible="false">
+            <ajaxToolkit:TabPanel runat="server" ID="pnlProductTags" HeaderText="<% $NopResources:Products.ProductTags %>" Visible="false">
                 <ContentTemplate>
                     <nopCommerce:ProductTags ID="ctrlProductTags" runat="server" Visible="false" />
                 </ContentTemplate>
@@ -287,14 +288,14 @@ thanh toán]</a></td>
                         runat="server" />
                 </ItemTemplate>
             </asp:ListView>
-	
-	
+
+
         </div>
 
-	<ajaxToolkit:TabContainer runat="server" ID="ProductsTabs2" ActiveTabIndex="2" CssClass="grey">
-         
-            
-           
+        <ajaxToolkit:TabContainer runat="server" ID="ProductsTabs2" ActiveTabIndex="2" CssClass="grey">
+
+
+
             <ajaxToolkit:TabPanel runat="server" ID="pnlReturnPolicy2" HeaderText="<% $NopResources:Products.ReturnPolicy %>">
                 <ContentTemplate>
                     <nopCommerce:Topic ID="topicReturnPolicy2" runat="server" TopicName="ReturnPolicy" OverrideSEO="false"></nopCommerce:Topic>
@@ -312,9 +313,9 @@ thanh toán]</a></td>
             </ajaxToolkit:TabPanel>
         </ajaxToolkit:TabContainer>
 
-	<div style="border:1px solid #c0c0c0;float:left;">
-	<nopCommerce:Topic ID="topicFreeShiping2" runat="server" TopicName="FreeShipping" OverrideSEO="false"></nopCommerce:Topic>
-	</div>
+        <div style="border: 1px solid #c0c0c0; float: left;">
+            <nopCommerce:Topic ID="topicFreeShiping2" runat="server" TopicName="FreeShipping" OverrideSEO="false"></nopCommerce:Topic>
+        </div>
         <div class="clear">
         </div>
 
@@ -344,10 +345,10 @@ thanh toán]</a></td>
 
 </div>
 <script text="text/javascript">
-$("#__tab_ctl00_ctl00_cph1_cph1_ctl00_ProductsTabs_pnlProductReviews").click(function() {
-    $('html, body').animate({
-        scrollTop: $("#__tab_ctl00_ctl00_cph1_cph1_ctl00_ProductsTabs2_pnlProductReviews2").offset().top
-    }, 2000);
-});
- 
+    $("#__tab_ctl00_ctl00_cph1_cph1_ctl00_ProductsTabs_pnlProductReviews").click(function () {
+        $('html, body').animate({
+            scrollTop: $("#__tab_ctl00_ctl00_cph1_cph1_ctl00_ProductsTabs2_pnlProductReviews2").offset().top
+        }, 2000);
+    });
+
 </script>
