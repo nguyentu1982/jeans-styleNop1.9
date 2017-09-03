@@ -9,7 +9,7 @@
 
 
 
-<div style="margin: auto; background: #fff; text-align: center;padding-bottom:5px;max-width:1170px;">
+<div class="footer-bf">
     <nopCommerce:RecentlyViewedProducts ID="ctrlRecentlyViewedProducts" runat="server" />
     <div class="footer-tags">
         <nopCommerce:PopularTags ID="ctrlPopularTags" runat="server" />
