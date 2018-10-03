@@ -67,60 +67,6 @@ namespace NopSolutions.NopCommerce.Web.Templates.Products {
         protected global::System.Web.UI.WebControls.ListView lvProductPictures;
         
         /// <summary>
-        /// phManufacturers control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.PlaceHolder phManufacturers;
-        
-        /// <summary>
-        /// lManufacturersTitle control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal lManufacturersTitle;
-        
-        /// <summary>
-        /// rptrManufacturers control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rptrManufacturers;
-        
-        /// <summary>
-        /// imgFreeShiping control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Image imgFreeShiping;
-        
-        /// <summary>
-        /// divDiscount control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divDiscount;
-        
-        /// <summary>
-        /// lbDiscount control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbDiscount;
-        
-        /// <summary>
         /// lProductName control.
         /// </summary>
         /// <remarks>
@@ -283,6 +229,60 @@ namespace NopSolutions.NopCommerce.Web.Templates.Products {
         protected global::System.Web.UI.WebControls.Repeater rptStored;
         
         /// <summary>
+        /// phManufacturers control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.PlaceHolder phManufacturers;
+        
+        /// <summary>
+        /// lManufacturersTitle control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal lManufacturersTitle;
+        
+        /// <summary>
+        /// rptrManufacturers control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater rptrManufacturers;
+        
+        /// <summary>
+        /// imgFreeShiping control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image imgFreeShiping;
+        
+        /// <summary>
+        /// divDiscount control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divDiscount;
+        
+        /// <summary>
+        /// lbDiscount control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbDiscount;
+        
+        /// <summary>
         /// btnAddToWishlist control.
         /// </summary>
         /// <remarks>
@@ -443,6 +443,24 @@ namespace NopSolutions.NopCommerce.Web.Templates.Products {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::NopSolutions.NopCommerce.Web.Modules.TopicControl SizeGuide;
+        
+        /// <summary>
+        /// pnlBuyGuide control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.TabPanel pnlBuyGuide;
+        
+        /// <summary>
+        /// BuyGuide control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::NopSolutions.NopCommerce.Web.Modules.TopicControl BuyGuide;
         
         /// <summary>
         /// pnlProductReviews control.

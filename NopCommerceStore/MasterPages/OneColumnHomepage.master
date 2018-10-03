@@ -13,7 +13,15 @@
     <%--End Nivo Slider--%>
 
     <link href="../9bitStudios-flexisel-c787002/css/style.css" rel="stylesheet" type="text/css" />
-    
+    <script type="text/javascript">
+        jQuery(document).ready(function ($) {
+            //Slider((((
+            $(window).load(function () {
+                $('#slider').nivoSlider(10);
+                //$("#flexiselDemo1").flexisel();
+            });
+        })
+    </script>
 </asp:Content>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="cph1" runat="server">

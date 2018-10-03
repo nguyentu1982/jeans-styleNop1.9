@@ -38,14 +38,5 @@ namespace NopSolutions.NopCommerce.Web.MasterPages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::NopSolutions.NopCommerce.Web.Modules.RecentlyViewedProductsControl ctrlRecentlyViewedProducts;
-        
-        /// <summary>
-        /// ctrlRelatedProducts control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::NopSolutions.NopCommerce.Web.Modules.RelatedProductsControl ctrlRelatedProducts;
     }
 }

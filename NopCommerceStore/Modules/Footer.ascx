@@ -6,11 +6,12 @@
 <%@ Register TagPrefix="nopCommerce" TagName="PopularTags" Src="~/Modules/PopularTags1.ascx" %>
 <%@ Register TagPrefix="nopCommerce" TagName="RecentlyViewedProducts" Src="~/Modules/RecentlyViewedProducts.ascx" %>
 <%@ Register TagPrefix="nopCommerce" TagName="NewsLetterSubscriptionBoxControl" Src="~/Modules/NewsLetterSubscriptionBoxControl.ascx" %>
-
+<%@ Register TagPrefix="nopCommerce" TagName="RelatedProducts" Src="~/Modules/RelatedProducts.ascx" %>
 
 
 <div class="footer-bf">
     <nopCommerce:RecentlyViewedProducts ID="ctrlRecentlyViewedProducts" runat="server" />
+    <nopCommerce:RelatedProducts ID="ctrlRelatedProducts" runat="server" />
     <div class="footer-tags">
         <nopCommerce:PopularTags ID="ctrlPopularTags" runat="server" />
     </div>

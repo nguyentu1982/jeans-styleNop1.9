@@ -70,25 +70,7 @@
             <div class="addthis_sharing_toolbox"></div>
         </div>
         <div class="overview">
-            <asp:PlaceHolder runat="server" ID="phManufacturers">
-                <div class="manufacturers">
-                    <asp:Literal ID="lManufacturersTitle" runat="server" Visible="false" />
-                    <asp:Repeater runat="server" ID="rptrManufacturers">
-                        <ItemTemplate>
-                            <asp:HyperLink ID="hlManufacturer" runat="server" Text='<%#Server.HtmlEncode(Eval("LocalizedName").ToString()) %>' ImageUrl='<%#this.PictureService.GetPictureUrl(((Manufacturer)(Container.DataItem)).Picture,this.SettingManager.GetSettingValueInteger("Media.Manufacture.ThumbnailImageSizeInProductPage", 75))%>' />
-                        </ItemTemplate>
-                        <SeparatorTemplate>
-                        </SeparatorTemplate>
-                    </asp:Repeater>                    
-                </div>
-            </asp:PlaceHolder>
-            <div class="freeShipping">
-                <asp:Image ID="imgFreeShiping" runat="server" Visible="false" />
-            </div>
-            <div class="discount-tag" runat="server" id="divDiscount" visible="false">
-                <asp:Label runat="server" ID="lbDiscount" Visible="false" />
-            </div>
-
+            
             <div class="product-info">
                 <h1 class="productname">
                     <asp:Literal ID="lProductName" runat="server" />
@@ -126,10 +108,14 @@
                             MinimumValue="0" MaximumValue="100000000" Width="100" />
                     </div>
 
+
                 </div>
                 <div class="add-info">
                     <div class="size-guide">
                         <a style="cursor: pointer; text-decoration: underline;" onclick="window.open('<%=CommonHelper.GetStoreLocation()%>topic/29/huong-dan-chon-size-quan-jean.aspx', 'window', 'toolbars=0,width=900,height=600,left=200,top=200,scrollbars=1,resizable=1');"><%=GetLocaleResourceString("Products.SizeGuide")%></a>
+                    </div>
+                    <div class="buy-guide">
+                        <a style="cursor: pointer; text-decoration: underline;" onclick="window.open('<%=CommonHelper.GetStoreLocation()%>topic/11/huong-dan-mua-hang-tai-jeans-style.aspx', 'window', 'toolbars=0,width=900,height=600,left=200,top=200,scrollbars=1,resizable=1');"><%=GetLocaleResourceString("Products.BuyGuide")%></a>
                     </div>
                     <div class="attributes">
                         <nopCommerce:ProductAttributes ID="ctrlProductAttributes" runat="server" />
@@ -143,14 +129,14 @@
                         RangeErrorMessage="<% $NopResources:Products.QuantityRange %>" MinimumValue="1"
                         MaximumValue="999999" Width="50" />
                     <asp:Button ID="btnAddToCart" runat="server" OnCommand="OnCommand" Text="<% $NopResources:Products.AddToCart %>"
-                        CommandName="AddToCart" CommandArgument='<%#Eval("ProductVariantId")%>' CssClass="productvariantaddtocartbutton" />
+                        CommandName="AddToCart" CommandArgument='<%#Eval("ProductVariantId")%>' CssClass="productvariantaddtocartbutton" /><br />
                     <asp:Label runat="server" ID="lblError" EnableViewState="false" CssClass="error" />
                 </div>
                 <asp:Panel runat="server" ID="pnlDownloadSample" Visible="false" CssClass="one-variant-download-sample">
                     <span class="downloadsamplebutton">
                         <asp:HyperLink runat="server" ID="hlDownloadSample" Text="<% $NopResources:Products.DownloadSample %>" />
                     </span>
-                </asp:Panel>
+                </asp:Panel>                
 
                 <% var warehouse = new List<Warehouse>();
                    foreach (ProductVariant pv in ProductVariants)
@@ -162,7 +148,7 @@
                    }
                    if (warehouse.Count > 0)
                    {%>
-                <div style="border: dotted 1px #c0c0c0; padding: 5px; margin: 10px 0px 10px 0px; background-color: aqua; font-size: 14px; max-width: 350px;">
+                <div style="border: dotted 1px #c0c0c0; padding: 5px; margin: 10px 0px 10px 0px; background-color: aqua; font-size: 14px; max-width: 350px;display:none">
                     <div style="font-weight: bold; color: #3664A5; font-size: 14px; font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;">
                         <%=GetLocaleResourceString("Products.Warehouse")%>
                     </div>
@@ -171,13 +157,37 @@
                             <div style="width: 300px; font-weight: bold; margin-top: 5px"><%#Eval("Name") %></div>
 
                             <div style="margin-left: 20px"><%=GetLocaleResourceString("Warehouse.StreetAddress")%><%#Eval("Address1") %>- <%#Eval("City") %> </div>
-                            <div style="margin-left: 20px"><%=GetLocaleResourceString("Warehouse.TelephoneNumber")%><%#Eval("PhoneNumber")%><br />
-                                <%#Eval("Email") %></div>
+                            <div style="margin-left: 20px">
+                                <%=GetLocaleResourceString("Warehouse.TelephoneNumber")%><%#Eval("PhoneNumber")%><br />
+                                <%#Eval("Email") %>
+                            </div>
                         </ItemTemplate>
                     </asp:Repeater>
                 </div>
                 <%}   
                 %>
+
+                <div>
+                <asp:PlaceHolder runat="server" ID="phManufacturers" Visible="true">
+                    <div class="manufacturers">
+                        <asp:Literal ID="lManufacturersTitle" runat="server" Visible="false" />
+                        <asp:Repeater runat="server" ID="rptrManufacturers">
+                            <ItemTemplate>
+                                <asp:HyperLink ID="hlManufacturer" runat="server" Text='<%#Server.HtmlEncode(Eval("LocalizedName").ToString()) %>' ImageUrl='<%#this.PictureService.GetPictureUrl(((Manufacturer)(Container.DataItem)).Picture,this.SettingManager.GetSettingValueInteger("Media.Manufacture.ThumbnailImageSizeInProductPage", 75))%>' />
+                            </ItemTemplate>
+                            <SeparatorTemplate>
+                            </SeparatorTemplate>
+                        </asp:Repeater>
+                    </div>
+                </asp:PlaceHolder>
+                <div class="freeShipping">
+                    <asp:Image ID="imgFreeShiping" runat="server" Visible="false" />
+                </div>
+                <div class="discount-tag" runat="server" id="divDiscount" visible="false">
+                    <asp:Label runat="server" ID="lbDiscount" Visible="false" />
+                </div>
+            </div>
+                <div class="clear"></div>
                 <asp:Button ID="btnAddToWishlist" runat="server" OnCommand="OnCommand" Text="<% $NopResources:Wishlist.AddToWishlist %>"
                     CommandName="AddToWishlist" CommandArgument='<%#Eval("ProductVariantId")%>' CssClass="productvariantaddtowishlistbutton" />
                 <nopCommerce:ProductEmailAFriendButton ID="ctrlProductEmailAFriendButton" runat="server" />
@@ -248,6 +258,11 @@ thanh toán]</a></td>
             <ajaxToolkit:TabPanel runat="server" ID="pnlSizeGuide" HeaderText="<% $NopResources:Products.SizeGuide %>">
                 <ContentTemplate>
                     <nopCommerce:Topic ID="SizeGuide" runat="server" TopicName="SizeGuide" OverrideSEO="false"></nopCommerce:Topic>
+                </ContentTemplate>
+            </ajaxToolkit:TabPanel>
+            <ajaxToolkit:TabPanel runat="server" ID="pnlBuyGuide" HeaderText="<% $NopResources:Products.BuyGuide %>">
+                <ContentTemplate>
+                    <nopCommerce:Topic ID="BuyGuide" runat="server" TopicName="HuongDanMuaHang" OverrideSEO="false"></nopCommerce:Topic>
                 </ContentTemplate>
             </ajaxToolkit:TabPanel>
             <ajaxToolkit:TabPanel runat="server" ID="pnlProductReviews" HeaderText="<% $NopResources:Products.ProductReviews %>">

@@ -12,7 +12,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <title></title>
     <meta name="description" content="" />
-    <meta name="keywords" content="" />    
+    <meta name="keywords" content="" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <asp:PlaceHolder ID="SCRIPTS" runat="server" />
@@ -20,7 +20,7 @@
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
-    
+
     <link rel="stylesheet" type="text/css" href="../MegaDropdownMenu/jkmegamenu.css" />
     <link rel="Stylesheet" type="text/css" href="../float-ads-fixed-position/ads.css" />
 
@@ -31,10 +31,7 @@
     * This notice must stay intact for usage
     * Visit JavaScript Kit at http://www.javascriptkit.com/ for full source code
     ***********************************************/--%>
-
     </script>
-
-    
 
     <script>
         (function (i, s, o, g, r, a, m) {
@@ -48,6 +45,39 @@
         ga('send', 'pageview');
 
     </script>
+    <!-- Global site tag (gtag.js) - AdWords: 971689623 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-971689623"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'AW-971689623');
+    </script>
+
+    <asp:PlaceHolder ID="phRemarketingAdwordsBody" runat="server" />
+
+    <!-- Facebook Pixel Code -->
+    <script>
+        !function (f, b, e, v, n, t, s) {
+            if (f.fbq) return; n = f.fbq = function () {
+                n.callMethod ?
+                n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+            };
+            if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+            n.queue = []; t = b.createElement(e); t.async = !0;
+            t.src = v; s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s)
+        }(window, document, 'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '690086624492510');
+        fbq('track', 'PageView');
+    </script>
+    <noscript>
+        <img height="1" width="1" style="display: none"
+            src="https://www.facebook.com/tr?id=690086624492510&ev=PageView&noscript=1" />
+    </noscript>
+    <!-- End Facebook Pixel Code -->
 
     <script type="text/javascript">
         jQuery(document).ready(function ($) {
@@ -79,11 +109,11 @@
 
 
 
-            //Slider((((
-            $(window).load(function () {
-                $('#slider').nivoSlider(10);
-                //$("#flexiselDemo1").flexisel();
-            });
+            ////Slider((((
+            //$(window).load(function () {
+            //    $('#slider').nivoSlider(10);
+            //    //$("#flexiselDemo1").flexisel();
+            //});
 
             //back-top
             $(function () {
@@ -132,51 +162,13 @@
         })
     </script>
 
-    
+
     <meta property="fb:app_id" content="531573176905803" />
 </head>
 <body>
-    <script type="text/javascript">
-        function displayImageNavigation(imgClientId) {
-            document.getElementById(imgClientId.id + 'picture-previous').style.display = 'block';
-            document.getElementById(imgClientId.id + 'picture-next').style.display = 'block';
-        }
-
-        function hideImageNavigation(imgClientId) {
-            document.getElementById(imgClientId.id + 'picture-previous').style.display = 'none';
-            document.getElementById(imgClientId.id + 'picture-next').style.display = 'none';
-        }
-
-        function getNextProductPicture(currentImageUrl, productimageUrls, imgId) {
-            var urls = productimageUrls.split(";");
-            var imgIndex = urls.indexOf(document.getElementById(imgId).firstChild.src);
-            
-            if (parseInt(imgIndex) == parseInt(urls.length - 1))
-            {
-                imgIndex = -1;
-            }
-
-            document.getElementById(imgId).firstChild.src = urls[imgIndex + 1];
-            document.getElementById(imgId).firstChild.width = 200;
-            document.getElementById(imgId).firstChild.height = 200;
-           
-        }
-
-        function getPreviosProductPicture(productimageUrls, imgId) {
-            var urls = productimageUrls.split(";");
-            var imgIndex = urls.indexOf(document.getElementById(imgId).firstChild.src);
-
-            if (parseInt(imgIndex) == 0) {
-                imgIndex = urls.length;
-            }
-
-            document.getElementById(imgId).firstChild.src = urls[imgIndex - 1];
-            document.getElementById(imgId).firstChild.width = 200;
-            document.getElementById(imgId).firstChild.height = 200;
-        }
-    </script>
-
     
+
+
 
     <script>
         // This is called with the results from from FB.getLoginStatus().
@@ -366,13 +358,10 @@
                 <div id="co453569">
                     <a href="<%=Page.ResolveUrl("~/topic/11/huong-dan-mua-hang-tai-jeans-style.aspx")%>" target="_blank" title="Hướng dẫn đặt hàng online">
                         <img src="/float-ads-fixed-position/images/online-support.jpg" width="290" alt=""></a>
-                    <div style="font-size: 16px;
-                                color: blue;
-                                font-style: italic;
-                                font-weight: bold;">
+                    <div style="font-size: 16px; color: blue; font-style: italic; font-weight: bold;">
                         Sẵn sàng phục vụ quý khách!
                     </div>
-                   <%-- <a href="ymsgr:sendIM?quanjeandep.banle2" rel="nofollow">
+                    <%-- <a href="ymsgr:sendIM?quanjeandep.banle2" rel="nofollow">
                         <img src="http://opi.yahoo.com/online?u=quanjeandep.banle2&amp;m=g&amp;t=2" alt="Jeans Style Long Biên">
                     </a>
                     <a href="ymsgr:sendIM?quanjeandep" rel="nofollow">
@@ -388,7 +377,7 @@
         var pf204652maxHeight = 198;//Chieu cao khung quang cao
         if (screen.width <= 768) {
             pf204652maxHeight = 20;
-            document.getElementById('call-to-buy').style.display = 'inline';            
+            document.getElementById('call-to-buy').style.display = 'inline';
         }
         var pf204652minHeight = 20;
         var pf204652curHeight = 0;
@@ -424,11 +413,11 @@
             pf204652bottomLayer.style.display = 'none';
         }
     </script>
-    
-        
-      
+
+
+
     <form id="form1" runat="server">
-        
+
         <div class="master-wrapper-page">
 
             <div class="master-wrapper-content">
@@ -443,30 +432,30 @@
                 </asp:ContentPlaceHolder>
                 <div class="clear">
                 </div>
-            
-            <p id="back-top">
-                <a href="#top"><span></span></a>
-            </p>
-            <nopCommerce:GoogleAdsense runat="server" ID="ctrlGoogleAdsense" />
-            <nopCommerce:Footer ID="ctrlFooter" runat="server" />
-        </div>
+
+                <p id="back-top">
+                    <a href="#top"><span></span></a>
+                </p>
+                <nopCommerce:GoogleAdsense runat="server" ID="ctrlGoogleAdsense" />
+                <nopCommerce:Footer ID="ctrlFooter" runat="server" />
+            </div>
         </div>
     </form>
     <asp:PlaceHolder ID="phAnalyticsBody" runat="server" />
-    <asp:PlaceHolder ID="phRemarketingAdwordsBody" runat="server" />
+
     <div id="spot-im-root"></div>
     <!--Start of Tawk.to Script-->
-<script type="text/javascript">
-    var $_Tawk_API = {}, $_Tawk_LoadStart = new Date();
-    (function () {
-        var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
-        s1.async = true;
-        s1.src = 'https://embed.tawk.to/555de7718ef604322ca1e4a8/default';
-        s1.charset = 'UTF-8';
-        s1.setAttribute('crossorigin', '*');
-        s0.parentNode.insertBefore(s1, s0);
-    })();
-</script>
-<!--End of Tawk.to Script-->
+    <script type="text/javascript">
+        var $_Tawk_API = {}, $_Tawk_LoadStart = new Date();
+        (function () {
+            var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+            s1.async = true;
+            s1.src = 'https://embed.tawk.to/555de7718ef604322ca1e4a8/default';
+            s1.charset = 'UTF-8';
+            s1.setAttribute('crossorigin', '*');
+            s0.parentNode.insertBefore(s1, s0);
+        })();
+    </script>
+    <!--End of Tawk.to Script-->
 </body>
 </html>
