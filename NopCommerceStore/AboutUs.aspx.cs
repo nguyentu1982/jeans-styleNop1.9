@@ -37,13 +37,14 @@ namespace NopSolutions.NopCommerce.Web
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+           
         }
 
         public override PageSslProtectionEnum SslProtected
         {
             get
             {
-                return PageSslProtectionEnum.No;
+                return PageSslProtectionEnum.Yes;
             }
         }
     }

@@ -12,7 +12,6 @@
 <%@ Register TagPrefix="nopCommerce" TagName="RelatedProductsOnHomepage" Src="~/Modules/RelatedProductsOnHomepage.ascx" %>
 
 
-
 <asp:Content ID="Content1" ContentPlaceHolderID="cph1" runat="Server">
    
        <div id="wrapper">

@@ -17,7 +17,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <asp:PlaceHolder ID="SCRIPTS" runat="server" />
     <asp:PlaceHolder ID="phAnalyticsHead" runat="server" />
-    <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 
@@ -282,28 +282,28 @@
         <div class="column">
             <h3>Quần jean dài</h3>
             <ul>
-                <li><a href="http://quanjeandep.com/danh-muc-jean/39/quan-boyfriend-jeans-nu-vnxk-ha-noi.aspx">Quần jean boy-friend nữ</a></li>
-                <li><a href="http://quanjeandep.com/danh-muc-jean/19/quan-jean-nu-cap-cao.aspx">Quần jean nữ cạp cao</a></li>
-                <li><a href="http://quanjeandep.com/danh-muc-jean/21/quan-jean-nu-cap-tre.aspx">Quần jean nữ cạp trễ</a></li>
-                <li><a href="http://quanjeandep.com/danh-muc-jean/22/quan-jean-nu-ong-con.aspx">Quần jean nữ ống côn</a></li>
-                <li><a href="http://quanjeandep.com/danh-muc-jean/23/quan-jean-nu-ong-dung.aspx">Quần jean nữ ống đứng</a></li>
-                <li><a href="http://quanjeandep.com/danh-muc-jean/24/quan-jean-nu-ong-vay.aspx">Quần jean nữ ống vẩy</a></li>
-                <li><a href="http://quanjeandep.com/danh-muc-jean/25/quan-jean-nu-rach.aspx">Quần jean nữ rách</a></li>
-                <li><a href="http://quanjeandep.com/danh-muc-jean/26/quan-jean-nu-ngoai-co.aspx">Quần jean nữ big size</a></li>
+                <li><a href="<%=CommonHelper.GetStoreLocation()%>danh-muc-jean/39/quan-boyfriend-jeans-nu-vnxk-ha-noi.aspx">Quần jean boy-friend nữ</a></li>
+                <li><a href="<%=CommonHelper.GetStoreLocation()%>danh-muc-jean/19/quan-jean-nu-cap-cao.aspx">Quần jean nữ cạp cao</a></li>
+                <li><a href="<%=CommonHelper.GetStoreLocation()%>danh-muc-jean/21/quan-jean-nu-cap-tre.aspx">Quần jean nữ cạp trễ</a></li>
+                <li><a href="<%=CommonHelper.GetStoreLocation()%>danh-muc-jean/22/quan-jean-nu-ong-con.aspx">Quần jean nữ ống côn</a></li>
+                <li><a href="<%=CommonHelper.GetStoreLocation()%>danh-muc-jean/23/quan-jean-nu-ong-dung.aspx">Quần jean nữ ống đứng</a></li>
+                <li><a href="<%=CommonHelper.GetStoreLocation()%>danh-muc-jean/24/quan-jean-nu-ong-vay.aspx">Quần jean nữ ống vẩy</a></li>
+                <li><a href="<%=CommonHelper.GetStoreLocation()%>danh-muc-jean/25/quan-jean-nu-rach.aspx">Quần jean nữ rách</a></li>
+                <li><a href="<%=CommonHelper.GetStoreLocation()%>danh-muc-jean/26/quan-jean-nu-ngoai-co.aspx">Quần jean nữ big size</a></li>
             </ul>
         </div>
 
         <div class="column">
             <h3>Quần jean ngố</h3>
             <ul>
-                <li><a href="http://quanjeandep.com/danh-muc-jean/4/quan-jean-lung-ngo.aspx">Quần jean lửng, ngố</a></li>
+                <li><a href="<%=CommonHelper.GetStoreLocation()%>danh-muc-jean/4/quan-jean-lung-ngo.aspx">Quần jean lửng, ngố</a></li>
             </ul>
         </div>
 
         <div class="column">
             <h3>Quần sooc</h3>
             <ul>
-                <li><a href="http://quanjeandep.com/danh-muc-jean/5/quan-sooc-nu.aspx">Quần sooc jean</a></li>
+                <li><a href="<%=CommonHelper.GetStoreLocation()%>danh-muc-jean/5/quan-sooc-nu.aspx">Quần sooc jean</a></li>
             </ul>
         </div>
 
@@ -316,17 +316,17 @@
         <div class="column">
             <h3>Quần jean dài</h3>
             <ul>
-                <li><a href="http://quanjeandep.com/danh-muc-jean/15/quan-jean-nam-dai.aspx">Quần jean nam dài</a></li>
-                <li><a href="http://quanjeandep.com/danh-muc-jean/17/quan-jean-nam-ong-dung.aspx">Quần jean nam ống đứng</a></li>
-                <li><a href="http://quanjeandep.com/danh-muc-jean/18/quan-jean-nam-ong-con.aspx">Quần jean nam ống côn</a></li>
-                <li><a href="http://quanjeandep.com/danh-muc-jean/30/quan-jean-nam-big-size.aspx">Quần jean nam big size</a></li>
+                <li><a href="<%=CommonHelper.GetStoreLocation()%>danh-muc-jean/15/quan-jean-nam-dai.aspx">Quần jean nam dài</a></li>
+                <li><a href="<%=CommonHelper.GetStoreLocation()%>danh-muc-jean/17/quan-jean-nam-ong-dung.aspx">Quần jean nam ống đứng</a></li>
+                <li><a href="<%=CommonHelper.GetStoreLocation()%>danh-muc-jean/18/quan-jean-nam-ong-con.aspx">Quần jean nam ống côn</a></li>
+                <li><a href="<%=CommonHelper.GetStoreLocation()%>danh-muc-jean/30/quan-jean-nam-big-size.aspx">Quần jean nam big size</a></li>
             </ul>
         </div>
 
         <div class="column">
             <h3>Quần jean lửng, ngố</h3>
             <ul>
-                <li><a href="http://quanjeandep.com/danh-muc-jean/16/quan-jean-nam-ngo.aspx">Quần jean nam lửng, ngố</a></li>
+                <li><a href="<%=CommonHelper.GetStoreLocation()%>danh-muc-jean/16/quan-jean-nam-ngo.aspx">Quần jean nam lửng, ngố</a></li>
             </ul>
         </div>
 

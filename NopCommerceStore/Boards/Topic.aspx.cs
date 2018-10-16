@@ -59,7 +59,7 @@ namespace NopSolutions.NopCommerce.Web.Boards
         {
             get
             {
-                return PageSslProtectionEnum.No;
+                return PageSslProtectionEnum.Yes;
             }
         }
     }

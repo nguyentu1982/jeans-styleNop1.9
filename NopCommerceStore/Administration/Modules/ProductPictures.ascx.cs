@@ -199,7 +199,7 @@ namespace NopSolutions.NopCommerce.Web.Administration.Modules
                 ProductPicture productPicture = (ProductPicture)e.Row.DataItem;
                 Image iProductPicture = e.Row.FindControl("iProductPicture") as Image;
                 if (iProductPicture != null)
-                    iProductPicture.ImageUrl = this.PictureService.GetPictureUrl(productPicture.PictureId);
+                    iProductPicture.ImageUrl = this.PictureService.GetPictureUrl(productPicture.Picture, 0, false, SEOHelper.GetSEName(productPicture.NpProduct.LocalizedName));
 
                 Button btnUpdate = e.Row.FindControl("btnUpdate") as Button;
                 if (btnUpdate != null)

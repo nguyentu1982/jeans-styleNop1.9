@@ -45,7 +45,7 @@ namespace NopSolutions.NopCommerce.Web
         {
             get
             {
-                return PageSslProtectionEnum.No;
+                return PageSslProtectionEnum.Yes;
             }
         }
     }
