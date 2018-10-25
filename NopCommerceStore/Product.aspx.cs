@@ -89,13 +89,13 @@ namespace NopSolutions.NopCommerce.Web
             sb.Append(Environment.NewLine);
             sb.Append("dynx_itemid: '"+product.ProductId+"',");
             sb.Append(Environment.NewLine);
-            sb.Append("dynx_pagetype: offerdetail,");           
+            sb.Append("dynx_pagetype: 'offerdetail',");           
             sb.Append(Environment.NewLine);
             sb.Append("dynx_itemid2: '',");
             sb.Append(Environment.NewLine);
             sb.Append("ecomm_prodid: '"+product.ProductId+"',");
             sb.Append(Environment.NewLine);
-            sb.Append("ecomm_pagetype: product," );
+            sb.Append("ecomm_pagetype: 'product'," );
             sb.Append(Environment.NewLine);
             sb.Append("ecomm_totalvalue: " + product.ProductVariants[0].Price.ToString("#.##", CultureInfo.InvariantCulture));
             sb.Append(Environment.NewLine);
