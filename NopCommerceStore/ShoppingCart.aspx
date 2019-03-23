@@ -16,4 +16,11 @@
             </nopCommerce:OrderSummary>
         </div>
     </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function (event) {
+            jQuery('#ctl00_ctl00_cph1_cph1_OrderSummaryControl_btnCheckout').on('click', function () {
+                gtag('event', 'conversion', { 'send_to': 'AW-971689623/TU1aCMDv5pYBEJedq88D' });
+            });
+        });
+</script>
 </asp:Content>
