@@ -59,17 +59,10 @@ namespace NopSolutions.NopCommerce.Web.Modules
                     StringBuilder attributeScripts = new StringBuilder();
 
                     this.Visible = true;
-                    bool isOutOfStock = true;
-                    string attributeTitleID = string.Empty;
                     foreach (var attribute in productVariantAttributes)
                     {
                         var divAttribute = new Panel();
                         var attributeTitle = new Label();
-                        attributeTitle.ID = attribute.ProductAttributeId.ToString();
-                        if (attribute.ProductAttribute.Name.ToLower() == "size")
-                        {
-                            attributeTitleID = attribute.ProductAttributeId.ToString();
-                        }
                         if (attribute.IsRequired)
                             attributeTitle.Text = "<span>*</span> ";
 
@@ -179,7 +172,6 @@ namespace NopSolutions.NopCommerce.Web.Modules
                                             preSelectedSet = true;
                                         }
                                         ddlAttributes.Items.Add(pvaValueItem);
-
                                     }
                                     
                                     //dynamic price update
@@ -209,7 +201,6 @@ namespace NopSolutions.NopCommerce.Web.Modules
                                     rblAttributes.Items.Clear();
 
                                     var pvaValues = attribute.ProductVariantAttributeValues;
-                                    rblAttributes.RepeatColumns = pvaValues.Count;
                                     bool preSelectedSet = false;
                                     foreach (var pvaValue in pvaValues)
                                     {
@@ -242,37 +233,12 @@ namespace NopSolutions.NopCommerce.Web.Modules
                                         }
 
                                         var pvaValueItem = new ListItem(Server.HtmlEncode(pvaValueName), pvaValue.ProductVariantAttributeValueId.ToString());
-                                        
                                         if (!preSelectedSet && pvaValue.IsPreSelected)
                                         {
                                             pvaValueItem.Selected = pvaValue.IsPreSelected;
                                             preSelectedSet = true;
                                         }
                                         rblAttributes.Items.Add(pvaValueItem);
-                                        if ((ManageInventoryMethodEnum)productVariant.ManageInventory == ManageInventoryMethodEnum.ManageStockByAttributes)
-                                        {
-                                            
-                                            string selectedAttributes = string.Empty;
-                                            selectedAttributes = ProductAttributeHelper.AddProductAttribute(selectedAttributes,
-                                                attribute, pvaValue.ProductVariantAttributeValueId.ToString());
-
-                                            var combination = ProductAttributeService.FindProductVariantAttributeCombination(productVariant.ProductVariantId, selectedAttributes);
-                                            if (combination != null)
-                                            {
-                                                if (combination.StockQuantity == 0)
-                                                {
-                                                    rblAttributes.Items.Remove(pvaValueItem);
-                                                }
-                                                else
-                                                {
-                                                    isOutOfStock = false;
-                                                }
-                                            }
-                                            if (combination == null)
-                                            {
-                                                rblAttributes.Items.Remove(pvaValueItem);                                                
-                                            }
-                                        } 
                                     }
                                 }
                                 break;
@@ -355,14 +321,7 @@ namespace NopSolutions.NopCommerce.Web.Modules
                         
                     }
 
-                    if (isOutOfStock == true)
-                    {
-                        Label attributeTitle = this.FindControl(attributeTitleID) as Label;                             
-                        attributeTitle.Text = GetLocaleResourceString("Products.OutOfStock");
-                        attributeTitle.CssClass = "stock";
-                        Button addtoCard = Parent.FindControl("btnAddToCart") as Button;
-                        addtoCard.Enabled = false;
-                    }
+
                     //display price if allowed
                     if (!this.HidePrices &&
                         (!this.SettingManager.GetSettingValueBoolean("Common.HidePricesForNonRegistered") ||

@@ -193,7 +193,7 @@ img
 .master-wrapper-center-1
 {	
 	background: #FFF;
-    padding:0px 5px 0px 5px;
+    
     max-width:1266px;
     margin:auto;
 }
@@ -3403,6 +3403,7 @@ textarea
 {
 	color: #9a9a9a;
 	font-style: italic;
+    display:none;
 }
 
 .newslist .newsitems a.newstitle
@@ -3933,6 +3934,7 @@ textarea
 	margin-top: 2px;
 	margin: auto;
     border-top:1px solid #C0C0C0;	
+    float:left;
 }
 
 h1, h2, h3, h4, h5, h6 {

@@ -326,7 +326,7 @@ namespace NopSolutions.NopCommerce.Web.Administration.Modules
                             string productVariantAttributeValueId = n.SelectSingleNode("/Attributes/ProductVariantAttribute/ProductVariantAttributeValue/Value").InnerText;
                             ProductVariantAttribute p = this.ProductAttributeService.GetProductVariantAttributeById(int.Parse(productVariantAttributeId));
                             ProductVariantAttributeValue pv = this.ProductAttributeService.GetProductVariantAttributeValueById(int.Parse(productVariantAttributeValueId));
-                            if (p.ProductAttribute.Name.ToLower() == "size")
+                            if (p.ProductAttribute.Name.ToLower().Contains("size"))
                             {
                                 int productSpecificationAttributeOptionId = this.SpecificationAttributeService.GetSpecificationAttributeOption(p.ProductAttribute.Name, pv.Name).SpecificationAttributeOptionId;
                                 
@@ -410,7 +410,7 @@ namespace NopSolutions.NopCommerce.Web.Administration.Modules
                     string productVariantAttributeValueId = n.SelectSingleNode("/Attributes/ProductVariantAttribute/ProductVariantAttributeValue/Value").InnerText;
                     ProductVariantAttribute p = this.ProductAttributeService.GetProductVariantAttributeById(int.Parse(productVariantAttributeId));
                     ProductVariantAttributeValue pv = this.ProductAttributeService.GetProductVariantAttributeValueById(int.Parse(productVariantAttributeValueId));
-                    if (p.ProductAttribute.Name.ToLower() == "size")
+                    if (p.ProductAttribute.Name.ToLower().Contains("size"))
                     {
                         int productSpecificationAttributeOptionId = this.SpecificationAttributeService.GetSpecificationAttributeOption(p.ProductAttribute.Name, pv.Name).SpecificationAttributeOptionId;
 
@@ -509,7 +509,7 @@ namespace NopSolutions.NopCommerce.Web.Administration.Modules
                 string productVariantAttributeValueId = n.SelectSingleNode("/Attributes/ProductVariantAttribute/ProductVariantAttributeValue/Value").InnerText;
                 ProductVariantAttribute p = this.ProductAttributeService.GetProductVariantAttributeById(int.Parse(productVariantAttributeId));
                 ProductVariantAttributeValue pv = this.ProductAttributeService.GetProductVariantAttributeValueById(int.Parse(productVariantAttributeValueId));
-                if (p.ProductAttribute.Name.ToLower() == "size")
+                if (p.ProductAttribute.Name.ToLower().Contains("size"))
                 {
                     int productSpecificationAttributeOptionId = this.SpecificationAttributeService.GetSpecificationAttributeOption(p.ProductAttribute.Name, pv.Name).SpecificationAttributeOptionId;
 
