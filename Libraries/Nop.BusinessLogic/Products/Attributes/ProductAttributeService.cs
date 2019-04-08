@@ -838,6 +838,25 @@ namespace NopSolutions.NopCommerce.BusinessLogic.Products.Attributes
             return null;
         }
 
+        public ProductVariantAttributeCombination FindProductVariantAttributeCombinationDisplayOnProductBox(int productVariantId, string attributesXml)
+        {
+            //existing combinations
+            var combinations = this.GetAllProductVariantAttributeCombinations(productVariantId);
+            if (combinations.Count == 0)
+                return null;
+
+            foreach (var combination in combinations)
+            {
+                bool attributesEqual = ProductAttributeHelper.AreProductAttributesEqualDisplayOnProductBox(combination.AttributesXml, attributesXml);
+                if (attributesEqual)
+                {
+                    return combination;
+                }
+            }
+
+            return null;
+        }
+
         #endregion
 
         #endregion

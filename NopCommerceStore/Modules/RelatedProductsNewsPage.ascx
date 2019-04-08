@@ -2,13 +2,13 @@
     CodeBehind="RelatedProductsNewsPage.ascx.cs" %>
 <%@ Register TagPrefix="nopCommerce" TagName="ProductBoxRelatedProductOnNewsPage" Src="~/Modules/ProductBoxRelatedProductOnNewsPage.ascx" %>
 
-<div class="related-products-grid">
-    <div class="title">
+<div class="recently-viewed-products">
+    <h4 class="title">
         <%=GetLocaleResourceString("Products.RelatedProductsOnNewsPage")%>
-    </div>
+    </h4>
     <div class="clear">
     </div>
-    <div class="related-product-grid">
+    <div class="recently-product-grid">
         <asp:ListView ID="dlRelatedProducts" runat="server" OnItemDataBound="dlRelatedProducts_ItemDataBound" >
             <ItemTemplate>
                 <div class="item-box">

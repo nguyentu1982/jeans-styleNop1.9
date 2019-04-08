@@ -77,158 +77,158 @@ namespace NopSolutions.NopCommerce.Web.Modules
                     string attributeTitleID = string.Empty;
                     foreach (var attribute in productVariantAttributes)
                     {
-                        if (attribute.ProductAttribute.Name.ToLower() != "size") break;
-                        
-                        var divAttribute = new Panel();
-                        var attributeTitle = new Label();
-                        attributeTitle.ID = attribute.ProductAttributeId.ToString();
-                        attributeTitleID = attribute.ProductAttributeId.ToString();
-                        if (attribute.IsRequired)
-                            attributeTitle.Text = "<span>*</span> ";
-
-                        //text prompt / title
-                        string textPrompt = string.Empty;
-                        if (!string.IsNullOrEmpty(attribute.TextPrompt))
-                            textPrompt = attribute.TextPrompt;
-                        else
-                            textPrompt = attribute.ProductAttribute.LocalizedName;
-
-                        attributeTitle.Text += Server.HtmlEncode(textPrompt);
-                        attributeTitle.Style.Add("font-weight", "bold");
-
-                        //description
-                        if (!string.IsNullOrEmpty(attribute.ProductAttribute.LocalizedDescription))
-                            attributeTitle.Text += string.Format("<br /><span>{0}</span>", Server.HtmlEncode(attribute.ProductAttribute.LocalizedDescription));
-
-                        bool addBreak = true;
-                        switch (attribute.AttributeControlType)
+                        if (attribute.ProductAttribute.Name.ToLower() == "size")
                         {
-                            case AttributeControlTypeEnum.TextBox:
-                                {
-                                    addBreak = false;
-                                }
-                                break;
-                            default:
-                                break;
-                        }
-                        if (addBreak)
-                        {
-                            attributeTitle.Text += "<br />";
-                        }
-                        else
-                        {
-                            attributeTitle.Text += "&nbsp;&nbsp;&nbsp;";
-                        }
-                        attributeTitle.Text = GetLocaleResourceString("Product.ProductAttribute.Size");
-                        divAttribute.Controls.Add(attributeTitle);
-                        phAttributes.Controls.Add(divAttribute);
+                            var divAttribute = new Panel();
+                            var attributeTitle = new Label();
+                            attributeTitle.ID = attribute.ProductAttributeId.ToString();
+                            attributeTitleID = attribute.ProductAttributeId.ToString();
+                            if (attribute.IsRequired)
+                                attributeTitle.Text = "<span>*</span> ";
 
-                        string controlId = string.Format("{0}_{1}", attribute.ProductAttribute.ProductAttributeId, attribute.ProductVariantAttributeId);
-                        switch (attribute.AttributeControlType)
-                        {
-                            case AttributeControlTypeEnum.DropdownList:
-                                {
-                                    var ddlAttributes = new DropDownList();
-                                    ddlAttributes.ID = controlId;
-                                    divAttribute.Controls.Add(ddlAttributes);
-                                    ddlAttributes.Items.Clear();
-                                    
-                                    //dynamic price update
-                                    if (this.SettingManager.GetSettingValueBoolean("ProductAttribute.EnableDynamicPriceUpdate"))
+                            //text prompt / title
+                            string textPrompt = string.Empty;
+                            if (!string.IsNullOrEmpty(attribute.TextPrompt))
+                                textPrompt = attribute.TextPrompt;
+                            else
+                                textPrompt = attribute.ProductAttribute.LocalizedName;
+
+                            attributeTitle.Text += Server.HtmlEncode(textPrompt);
+                            attributeTitle.Style.Add("font-weight", "bold");
+
+                            //description
+                            if (!string.IsNullOrEmpty(attribute.ProductAttribute.LocalizedDescription))
+                                attributeTitle.Text += string.Format("<br /><span>{0}</span>", Server.HtmlEncode(attribute.ProductAttribute.LocalizedDescription));
+
+                            bool addBreak = true;
+                            switch (attribute.AttributeControlType)
+                            {
+                                case AttributeControlTypeEnum.TextBox:
                                     {
-                                        adjustmentTableScripts.AppendFormat("{0}['{1}'] = new Array(", AdjustmentTableName, ddlAttributes.ClientID);
-                                        attributeScripts.AppendFormat("$('#{0}').change(function(){{{1}();}});\n", ddlAttributes.ClientID, AdjustmentFuncName);
+                                        addBreak = false;
                                     }
+                                    break;
+                                default:
+                                    break;
+                            }
+                            if (addBreak)
+                            {
+                                attributeTitle.Text += "<br />";
+                            }
+                            else
+                            {
+                                attributeTitle.Text += "&nbsp;&nbsp;&nbsp;";
+                            }
+                            attributeTitle.Text = GetLocaleResourceString("Product.ProductAttribute.Size");
+                            divAttribute.Controls.Add(attributeTitle);
+                            phAttributes.Controls.Add(divAttribute);
 
-                                    int numberOfJsArrayItems = 0;
-                                    if (!attribute.IsRequired)
+                            string controlId = string.Format("{0}_{1}", attribute.ProductAttribute.ProductAttributeId, attribute.ProductVariantAttributeId);
+                            switch (attribute.AttributeControlType)
+                            {
+                                case AttributeControlTypeEnum.DropdownList:
                                     {
-                                        ddlAttributes.Items.Add(new ListItem("---", "0"));
+                                        var ddlAttributes = new DropDownList();
+                                        ddlAttributes.ID = controlId;
+                                        divAttribute.Controls.Add(ddlAttributes);
+                                        ddlAttributes.Items.Clear();
 
                                         //dynamic price update
                                         if (this.SettingManager.GetSettingValueBoolean("ProductAttribute.EnableDynamicPriceUpdate"))
                                         {
-                                            adjustmentTableScripts.AppendFormat(CultureInfo.InvariantCulture, "{0},", decimal.Zero);
-                                            numberOfJsArrayItems++;
+                                            adjustmentTableScripts.AppendFormat("{0}['{1}'] = new Array(", AdjustmentTableName, ddlAttributes.ClientID);
+                                            attributeScripts.AppendFormat("$('#{0}').change(function(){{{1}();}});\n", ddlAttributes.ClientID, AdjustmentFuncName);
                                         }
-                                    }
-                                    var pvaValues = attribute.ProductVariantAttributeValues;
 
-                                    //values
-                                    bool preSelectedSet = false;
-                                    foreach (var pvaValue in pvaValues)
-                                    {
-                                        string pvaValueName = pvaValue.LocalizedName;
-
-                                        //display price if allowed
-                                        if (!this.HidePrices &&
-                                            (!this.SettingManager.GetSettingValueBoolean("Common.HidePricesForNonRegistered") ||
-                                            (NopContext.Current.User != null &&
-                                            !NopContext.Current.User.IsGuest)))
+                                        int numberOfJsArrayItems = 0;
+                                        if (!attribute.IsRequired)
                                         {
-                                            decimal taxRate = decimal.Zero;
-                                            decimal priceAdjustmentBase = this.TaxService.GetPrice(productVariant, pvaValue.PriceAdjustment, out taxRate);
-                                            decimal priceAdjustment = this.CurrencyService.ConvertCurrency(priceAdjustmentBase, this.CurrencyService.PrimaryStoreCurrency, NopContext.Current.WorkingCurrency);
-                                            if (priceAdjustmentBase > decimal.Zero)
-                                            {
-                                                pvaValueName += string.Format(" [+{0}]", PriceHelper.FormatPrice(priceAdjustment, false, false));
-                                            }
-                                            else if (priceAdjustmentBase < decimal.Zero)
-                                            {
-                                                pvaValueName += string.Format(" [-{0}]", PriceHelper.FormatPrice(-priceAdjustment, false, false));
-                                            }
+                                            ddlAttributes.Items.Add(new ListItem("---", "0"));
 
                                             //dynamic price update
                                             if (this.SettingManager.GetSettingValueBoolean("ProductAttribute.EnableDynamicPriceUpdate"))
                                             {
-                                                adjustmentTableScripts.AppendFormat(CultureInfo.InvariantCulture, "{0},", (float)priceAdjustment);
+                                                adjustmentTableScripts.AppendFormat(CultureInfo.InvariantCulture, "{0},", decimal.Zero);
                                                 numberOfJsArrayItems++;
                                             }
                                         }
+                                        var pvaValues = attribute.ProductVariantAttributeValues;
 
-                                        var pvaValueItem = new ListItem(pvaValueName, pvaValue.ProductVariantAttributeValueId.ToString());
-                                        if (!preSelectedSet && pvaValue.IsPreSelected)
+                                        //values
+                                        bool preSelectedSet = false;
+                                        foreach (var pvaValue in pvaValues)
                                         {
-                                            pvaValueItem.Selected = pvaValue.IsPreSelected;
-                                            preSelectedSet = true;
+                                            string pvaValueName = pvaValue.LocalizedName;
+
+                                            //display price if allowed
+                                            if (!this.HidePrices &&
+                                                (!this.SettingManager.GetSettingValueBoolean("Common.HidePricesForNonRegistered") ||
+                                                (NopContext.Current.User != null &&
+                                                !NopContext.Current.User.IsGuest)))
+                                            {
+                                                decimal taxRate = decimal.Zero;
+                                                decimal priceAdjustmentBase = this.TaxService.GetPrice(productVariant, pvaValue.PriceAdjustment, out taxRate);
+                                                decimal priceAdjustment = this.CurrencyService.ConvertCurrency(priceAdjustmentBase, this.CurrencyService.PrimaryStoreCurrency, NopContext.Current.WorkingCurrency);
+                                                if (priceAdjustmentBase > decimal.Zero)
+                                                {
+                                                    pvaValueName += string.Format(" [+{0}]", PriceHelper.FormatPrice(priceAdjustment, false, false));
+                                                }
+                                                else if (priceAdjustmentBase < decimal.Zero)
+                                                {
+                                                    pvaValueName += string.Format(" [-{0}]", PriceHelper.FormatPrice(-priceAdjustment, false, false));
+                                                }
+
+                                                //dynamic price update
+                                                if (this.SettingManager.GetSettingValueBoolean("ProductAttribute.EnableDynamicPriceUpdate"))
+                                                {
+                                                    adjustmentTableScripts.AppendFormat(CultureInfo.InvariantCulture, "{0},", (float)priceAdjustment);
+                                                    numberOfJsArrayItems++;
+                                                }
+                                            }
+
+                                            var pvaValueItem = new ListItem(pvaValueName, pvaValue.ProductVariantAttributeValueId.ToString());
+                                            if (!preSelectedSet && pvaValue.IsPreSelected)
+                                            {
+                                                pvaValueItem.Selected = pvaValue.IsPreSelected;
+                                                preSelectedSet = true;
+                                            }
+                                            ddlAttributes.Items.Add(pvaValueItem);
                                         }
-                                        ddlAttributes.Items.Add(pvaValueItem);
-                                    }
-                                    
-                                    //dynamic price update
-                                    if (this.SettingManager.GetSettingValueBoolean("ProductAttribute.EnableDynamicPriceUpdate"))
-                                    {
-                                        //If you create an array with a single numeric parameter, that number is used for specifying the number of elements in this array.
-                                        //so have a little hack here (we need at least two elements)
-                                        if (numberOfJsArrayItems == 1)
+
+                                        //dynamic price update
+                                        if (this.SettingManager.GetSettingValueBoolean("ProductAttribute.EnableDynamicPriceUpdate"))
                                         {
-                                            adjustmentTableScripts.AppendFormat(CultureInfo.InvariantCulture, "{0},", decimal.Zero);
+                                            //If you create an array with a single numeric parameter, that number is used for specifying the number of elements in this array.
+                                            //so have a little hack here (we need at least two elements)
+                                            if (numberOfJsArrayItems == 1)
+                                            {
+                                                adjustmentTableScripts.AppendFormat(CultureInfo.InvariantCulture, "{0},", decimal.Zero);
+                                            }
+                                        }
+
+                                        //dynamic price update
+                                        if (this.SettingManager.GetSettingValueBoolean("ProductAttribute.EnableDynamicPriceUpdate"))
+                                        {
+                                            adjustmentTableScripts.Length -= 1;
+                                            adjustmentTableScripts.Append(");\n");
                                         }
                                     }
-
-                                    //dynamic price update
-                                    if (this.SettingManager.GetSettingValueBoolean("ProductAttribute.EnableDynamicPriceUpdate"))
+                                    break;
+                                case AttributeControlTypeEnum.RadioList:
                                     {
-                                        adjustmentTableScripts.Length -= 1;
-                                        adjustmentTableScripts.Append(");\n");
-                                    }
-                                }
-                                break;
-                            case AttributeControlTypeEnum.RadioList:
-                                {
-                                    var rblAttributes = new RadioButtonList();
-                                    rblAttributes.ID = controlId;
-                                    divAttribute.Controls.Add(rblAttributes);
-                                    rblAttributes.Items.Clear();
-                                    rblAttributes.CssClass = "attribute-radioList";
-                                    var pvaValues = attribute.ProductVariantAttributeValues;
-                                    rblAttributes.RepeatColumns = pvaValues.Count;
+                                        var rblAttributes = new RadioButtonList();
+                                        rblAttributes.ID = controlId;
+                                        divAttribute.Controls.Add(rblAttributes);
+                                        rblAttributes.Items.Clear();
+                                        rblAttributes.CssClass = "attribute-radioList";
+                                        var pvaValues = attribute.ProductVariantAttributeValues;
+                                        rblAttributes.RepeatColumns = pvaValues.Count;
 
-                                    bool preSelectedSet = false;
-                                    
-                                    foreach (var pvaValue in pvaValues)
-                                    {
-                                                                               
+                                        bool preSelectedSet = false;
+
+                                        foreach (var pvaValue in pvaValues)
+                                        {
+
                                             string pvaValueName = pvaValue.LocalizedName;
 
                                             //display price if allowed
@@ -256,7 +256,7 @@ namespace NopSolutions.NopCommerce.Web.Modules
                                                     attributeScripts.AppendFormat("$('#{0}_{1}').click(function(){{{2}();}});\n", rblAttributes.ClientID, rblAttributes.Items.Count, AdjustmentFuncName);
                                                 }
                                             }
-                                            
+
                                             var pvaValueItem = new ListItem(Server.HtmlEncode(pvaValueName), pvaValue.ProductVariantAttributeValueId.ToString());
                                             if (!preSelectedSet && pvaValue.IsPreSelected)
                                             {
@@ -271,13 +271,13 @@ namespace NopSolutions.NopCommerce.Web.Modules
                                                 selectedAttributes = ProductAttributeHelper.AddProductAttribute(selectedAttributes,
                                                     attribute, pvaValue.ProductVariantAttributeValueId.ToString());
 
-                                                var combination = ProductAttributeService.FindProductVariantAttributeCombination(productVariant.ProductVariantId, selectedAttributes);
+                                                var combination = ProductAttributeService.FindProductVariantAttributeCombinationDisplayOnProductBox(productVariant.ProductVariantId, selectedAttributes);
                                                 if (combination != null)
                                                 {
                                                     if (combination.StockQuantity == 0)
-                                                    {                                                       
+                                                    {
                                                         rblAttributes.Items.Remove(pvaValueItem);
-                                                        
+
                                                     }
                                                     else
                                                     {
@@ -285,93 +285,93 @@ namespace NopSolutions.NopCommerce.Web.Modules
                                                     }
                                                 }
                                                 if (combination == null)
-                                                {                                                    
-                                                    rblAttributes.Items.Remove(pvaValueItem);                                                   
+                                                {
+                                                    rblAttributes.Items.Remove(pvaValueItem);
                                                 }
-                                            } 
-
-                                            
-                                        
-                                    }
-                                }
-                                break;
-                            case AttributeControlTypeEnum.Checkboxes:
-                                {
-                                    var cblAttributes = new CheckBoxList();
-                                    cblAttributes.ID = controlId;
-                                    divAttribute.Controls.Add(cblAttributes);
-                                    cblAttributes.Items.Clear();
-
-                                    //values
-                                    var pvaValues = attribute.ProductVariantAttributeValues;
-                                    foreach (var pvaValue in pvaValues)
-                                    {
-                                        string pvaValueName = pvaValue.LocalizedName;
-
-                                        //display price if allowed
-                                        if (!this.HidePrices &&
-                                            (!this.SettingManager.GetSettingValueBoolean("Common.HidePricesForNonRegistered") ||
-                                            (NopContext.Current.User != null &&
-                                            !NopContext.Current.User.IsGuest)))
-                                        {
-                                            decimal taxRate = decimal.Zero;
-                                            decimal priceAdjustmentBase = this.TaxService.GetPrice(productVariant, pvaValue.PriceAdjustment, out taxRate);
-                                            decimal priceAdjustment = this.CurrencyService.ConvertCurrency(priceAdjustmentBase, this.CurrencyService.PrimaryStoreCurrency, NopContext.Current.WorkingCurrency);
-                                            if (priceAdjustmentBase > decimal.Zero)
-                                            {
-                                                pvaValueName += string.Format(" [+{0}]", PriceHelper.FormatPrice(priceAdjustment, false, false));
-                                            }
-                                            else if (priceAdjustmentBase < decimal.Zero)
-                                            {
-                                                pvaValueName += string.Format(" [-{0}]", PriceHelper.FormatPrice(-priceAdjustment, false, false));
                                             }
 
-                                            //dynamic price update
-                                            if (this.SettingManager.GetSettingValueBoolean("ProductAttribute.EnableDynamicPriceUpdate"))
-                                            {
-                                                adjustmentTableScripts.AppendFormat(CultureInfo.InvariantCulture, "{0}['{1}_{2}'] = {3};\n", AdjustmentTableName, cblAttributes.ClientID, cblAttributes.Items.Count, (float)priceAdjustment);
-                                                attributeScripts.AppendFormat("$('#{0}_{1}').click(function(){{{2}();}});\n", cblAttributes.ClientID, cblAttributes.Items.Count, AdjustmentFuncName);
-                                            }
+
+
                                         }
-
-                                        var pvaValueItem = new ListItem(Server.HtmlEncode(pvaValueName), pvaValue.ProductVariantAttributeValueId.ToString());
-                                        pvaValueItem.Selected = pvaValue.IsPreSelected;
-                                        cblAttributes.Items.Add(pvaValueItem);
                                     }
-                                }
-                                break;
-                            case AttributeControlTypeEnum.TextBox:
-                                {
-                                    var txtAttribute = new TextBox();
-                                    txtAttribute.Width = this.SettingManager.GetSettingValueInteger("ProductAttribute.Textbox.Width", 300);
-                                    txtAttribute.ID = controlId;
-                                    divAttribute.Controls.Add(txtAttribute);
-                                }
-                                break;
-                            case AttributeControlTypeEnum.MultilineTextbox:
-                                {
-                                    var txtAttribute = new TextBox();
-                                    txtAttribute.ID = controlId;
-                                    txtAttribute.TextMode = TextBoxMode.MultiLine;
-                                    txtAttribute.Width = this.SettingManager.GetSettingValueInteger("ProductAttribute.MultiTextbox.Width", 300);
-                                    txtAttribute.Height = this.SettingManager.GetSettingValueInteger("ProductAttribute.MultiTextbox.Height", 150);
-                                    divAttribute.Controls.Add(txtAttribute);
-                                }
-                                break;
-                            case AttributeControlTypeEnum.Datepicker:
-                                {
-                                    var datePicker = new NopDatePicker();
-                                    //changes these properties in order to change year range
-                                    datePicker.FirstYear = DateTime.Now.Year;
-                                    datePicker.LastYear = DateTime.Now.Year + 1;
-                                    datePicker.ID = controlId;
-                                    divAttribute.Controls.Add(datePicker);
-                                }
-                                break;
-                            default:
-                                break;
+                                    break;
+                                case AttributeControlTypeEnum.Checkboxes:
+                                    {
+                                        var cblAttributes = new CheckBoxList();
+                                        cblAttributes.ID = controlId;
+                                        divAttribute.Controls.Add(cblAttributes);
+                                        cblAttributes.Items.Clear();
+
+                                        //values
+                                        var pvaValues = attribute.ProductVariantAttributeValues;
+                                        foreach (var pvaValue in pvaValues)
+                                        {
+                                            string pvaValueName = pvaValue.LocalizedName;
+
+                                            //display price if allowed
+                                            if (!this.HidePrices &&
+                                                (!this.SettingManager.GetSettingValueBoolean("Common.HidePricesForNonRegistered") ||
+                                                (NopContext.Current.User != null &&
+                                                !NopContext.Current.User.IsGuest)))
+                                            {
+                                                decimal taxRate = decimal.Zero;
+                                                decimal priceAdjustmentBase = this.TaxService.GetPrice(productVariant, pvaValue.PriceAdjustment, out taxRate);
+                                                decimal priceAdjustment = this.CurrencyService.ConvertCurrency(priceAdjustmentBase, this.CurrencyService.PrimaryStoreCurrency, NopContext.Current.WorkingCurrency);
+                                                if (priceAdjustmentBase > decimal.Zero)
+                                                {
+                                                    pvaValueName += string.Format(" [+{0}]", PriceHelper.FormatPrice(priceAdjustment, false, false));
+                                                }
+                                                else if (priceAdjustmentBase < decimal.Zero)
+                                                {
+                                                    pvaValueName += string.Format(" [-{0}]", PriceHelper.FormatPrice(-priceAdjustment, false, false));
+                                                }
+
+                                                //dynamic price update
+                                                if (this.SettingManager.GetSettingValueBoolean("ProductAttribute.EnableDynamicPriceUpdate"))
+                                                {
+                                                    adjustmentTableScripts.AppendFormat(CultureInfo.InvariantCulture, "{0}['{1}_{2}'] = {3};\n", AdjustmentTableName, cblAttributes.ClientID, cblAttributes.Items.Count, (float)priceAdjustment);
+                                                    attributeScripts.AppendFormat("$('#{0}_{1}').click(function(){{{2}();}});\n", cblAttributes.ClientID, cblAttributes.Items.Count, AdjustmentFuncName);
+                                                }
+                                            }
+
+                                            var pvaValueItem = new ListItem(Server.HtmlEncode(pvaValueName), pvaValue.ProductVariantAttributeValueId.ToString());
+                                            pvaValueItem.Selected = pvaValue.IsPreSelected;
+                                            cblAttributes.Items.Add(pvaValueItem);
+                                        }
+                                    }
+                                    break;
+                                case AttributeControlTypeEnum.TextBox:
+                                    {
+                                        var txtAttribute = new TextBox();
+                                        txtAttribute.Width = this.SettingManager.GetSettingValueInteger("ProductAttribute.Textbox.Width", 300);
+                                        txtAttribute.ID = controlId;
+                                        divAttribute.Controls.Add(txtAttribute);
+                                    }
+                                    break;
+                                case AttributeControlTypeEnum.MultilineTextbox:
+                                    {
+                                        var txtAttribute = new TextBox();
+                                        txtAttribute.ID = controlId;
+                                        txtAttribute.TextMode = TextBoxMode.MultiLine;
+                                        txtAttribute.Width = this.SettingManager.GetSettingValueInteger("ProductAttribute.MultiTextbox.Width", 300);
+                                        txtAttribute.Height = this.SettingManager.GetSettingValueInteger("ProductAttribute.MultiTextbox.Height", 150);
+                                        divAttribute.Controls.Add(txtAttribute);
+                                    }
+                                    break;
+                                case AttributeControlTypeEnum.Datepicker:
+                                    {
+                                        var datePicker = new NopDatePicker();
+                                        //changes these properties in order to change year range
+                                        datePicker.FirstYear = DateTime.Now.Year;
+                                        datePicker.LastYear = DateTime.Now.Year + 1;
+                                        datePicker.ID = controlId;
+                                        divAttribute.Controls.Add(datePicker);
+                                    }
+                                    break;
+                                default:
+                                    break;
+                            }
                         }
-                        
                     }
 
                     if (isOutOfStock)

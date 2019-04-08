@@ -2,7 +2,7 @@
     CodeBehind="RelatedProductsOnHomePage.ascx.cs" %>
 <%@ Register TagPrefix="nopCommerce" TagName="ProductBoxRelatedProduct" Src="~/Modules/ProductBoxRelatedProduct.ascx" %>
 
-<div class="recently-viewed-products">
+<div class="recently-viewed-products-home">
     <div class="page-title">
         <h4><%=GetLocaleResourceString("Products.RelatedProductsOnHomePage")%></h4>
     </div>

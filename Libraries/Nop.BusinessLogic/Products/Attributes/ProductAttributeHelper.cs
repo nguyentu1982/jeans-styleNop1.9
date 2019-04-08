@@ -293,6 +293,54 @@ namespace NopSolutions.NopCommerce.BusinessLogic.Products.Attributes
             return attributesEqual;
         }
 
+        public static bool AreProductAttributesEqualDisplayOnProductBox(string attributes1, string attributes2)
+        {
+            bool attributesEqual = true;
+            
+                var pva1Collection = ProductAttributeHelper.ParseProductVariantAttributes(attributes2);
+                var pva2Collection = ProductAttributeHelper.ParseProductVariantAttributes(attributes1);
+                foreach (var pva1 in pva1Collection)
+                {
+                    foreach (var pva2 in pva2Collection)
+                    {
+                        if (pva1.ProductVariantAttributeId == pva2.ProductVariantAttributeId)
+                        {
+                            var pvaValues1Str = ProductAttributeHelper.ParseValues(attributes2, pva1.ProductVariantAttributeId);
+                            var pvaValues2Str = ProductAttributeHelper.ParseValues(attributes1, pva2.ProductVariantAttributeId);
+                            if (pvaValues1Str.Count == pvaValues2Str.Count)
+                            {
+                                foreach (string str1 in pvaValues1Str)
+                                {
+                                    bool hasAttribute = false;
+                                    foreach (string str2 in pvaValues2Str)
+                                    {
+                                        if (str1.Trim().ToLower() == str2.Trim().ToLower())
+                                        {
+                                            hasAttribute = true;
+                                            break;
+                                        }
+                                    }
+
+                                    if (!hasAttribute)
+                                    {
+                                        attributesEqual = false;
+                                        break;
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                attributesEqual = false;
+                                break;
+                            }
+                        }
+                    }
+                }
+           
+
+            return attributesEqual;
+        }
+
         #endregion
 
         #region Gift card attributes

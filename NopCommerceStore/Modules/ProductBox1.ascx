@@ -2,7 +2,7 @@
     CodeBehind="ProductBox1.ascx.cs" %>
 <%@ Register TagPrefix="nopCommerce" TagName="ProductPrice1" Src="~/Modules/ProductPrice1.ascx" %>
 <%@ Register TagPrefix="nopCommerce" TagName="ProductPrice2" Src="~/Modules/ProductPrice2.ascx" %>
-<%@ Register TagPrefix="nopCommerce" TagName="ProductAttributes1" Src="~/Modules/ProductAttributes1.ascx" %>
+<%@ Register TagPrefix="nopCommerce" TagName="ProductAttributesOnProductBox" Src="~/Modules/ProductAttributes1.ascx" %>
 
 <div class="product-item"  onmouseover="getNextProductPicture('<%=hlImageLink.ImageUrl %>','<%=this.hiddenProductImageUrls.Value%>','<%=hlImageLink.ClientID %>')" onmouseout="getPreviosProductPicture('<%=this.hiddenProductImageUrls.Value%>','<%=hlImageLink.ClientID %>')" >
     <asp:HiddenField Id="hiddenProductImageUrls" runat="server" />
@@ -39,7 +39,7 @@
     </asp:Panel>
 
     <div class="attributes">
-        <nopCommerce:ProductAttributes1 ID="ctrlProductAttributes1" runat="server" />
+        <nopCommerce:ProductAttributesOnProductBox ID="ctrlProductAttributes1" runat="server" />
     </div>
 
 
