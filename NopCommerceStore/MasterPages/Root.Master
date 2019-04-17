@@ -277,69 +277,145 @@
     <!--Mega Menu Anchor-->
 
     <!--Mega Drop Down Menu HTML. Retain given CSS classes-->
-    <div id="megamenu1" class="megamenu">
-
+    <!--Jeans nữ-->
+    <div id="megamenu1" class="megamenu"> <!--Jeans nữ-->
         <div class="column">
-            <h3>Quần jean dài</h3>
+            <h3>Quần dài</h3>
             <ul>
-                <li><a href="<%=CommonHelper.GetStoreLocation()%>danh-muc-jean/39/quan-boyfriend-jeans-nu-vnxk-ha-noi.aspx">Quần jean boy-friend nữ</a></li>
-                <li><a href="<%=CommonHelper.GetStoreLocation()%>danh-muc-jean/19/quan-jean-nu-cap-cao.aspx">Quần jean nữ cạp cao</a></li>
-                <li><a href="<%=CommonHelper.GetStoreLocation()%>danh-muc-jean/21/quan-jean-nu-cap-tre.aspx">Quần jean nữ cạp trễ</a></li>
-                <li><a href="<%=CommonHelper.GetStoreLocation()%>danh-muc-jean/22/quan-jean-nu-ong-con.aspx">Quần jean nữ ống côn</a></li>
-                <li><a href="<%=CommonHelper.GetStoreLocation()%>danh-muc-jean/23/quan-jean-nu-ong-dung.aspx">Quần jean nữ ống đứng</a></li>
-                <li><a href="<%=CommonHelper.GetStoreLocation()%>danh-muc-jean/24/quan-jean-nu-ong-vay.aspx">Quần jean nữ ống vẩy</a></li>
-                <li><a href="<%=CommonHelper.GetStoreLocation()%>danh-muc-jean/25/quan-jean-nu-rach.aspx">Quần jean nữ rách</a></li>
-                <li><a href="<%=CommonHelper.GetStoreLocation()%>danh-muc-jean/26/quan-jean-nu-ngoai-co.aspx">Quần jean nữ big size</a></li>
+                <li><a href="<%=CommonHelper.GetStoreLocation()%>danh-muc-jean/22/quan-jean-nu-ong-con.aspx">Jeans nữ ống côn</a></li>                
+                <li><a href="<%=CommonHelper.GetStoreLocation()%>danh-muc-jean/23/quan-jean-nu-ong-dung.aspx">Jeans nữ ống đứng</a></li>
+                <li><a href="<%=CommonHelper.GetStoreLocation()%>danh-muc-jean/23/quan-jean-nu-ong-dung.aspx">Jeans nữ ống xuông</a></li>
+                <li><a href="<%=CommonHelper.GetStoreLocation()%>danh-muc-jean/39/quan-boyfriend-jeans-nu-vnxk-ha-noi.aspx">Jean nữ boy-friend</a></li>
+                <li><a href="<%=CommonHelper.GetStoreLocation()%>danh-muc-jean/24/quan-jean-nu-ong-vay.aspx">Jeans nữ ống vẩy</a></li>
             </ul>
         </div>
 
         <div class="column">
-            <h3>Quần jean ngố</h3>
+            <h3>Quần ngắn</h3>
             <ul>
-                <li><a href="<%=CommonHelper.GetStoreLocation()%>danh-muc-jean/4/quan-jean-lung-ngo.aspx">Quần jean lửng, ngố</a></li>
+                <li><a href="<%=CommonHelper.GetStoreLocation()%>danh-muc-jean/4/quan-jean-lung-ngo.aspx">Jeans nữ lửng, ngố</a></li>
+                <li><a href="<%=CommonHelper.GetStoreLocation()%>danh-muc-jean/5/quan-sooc-nu.aspx">Jeans sooc nữ</a></li>
             </ul>
         </div>
 
         <div class="column">
-            <h3>Quần sooc</h3>
+            <h3>Váy jeans</h3>
             <ul>
-                <li><a href="<%=CommonHelper.GetStoreLocation()%>danh-muc-jean/5/quan-sooc-nu.aspx">Quần sooc jean</a></li>
+                <li><a href="<%=CommonHelper.GetStoreLocation()%>danh-muc-jean/50/shop-ban-vay-jeans-dep-vnxk-ha-noi.aspx">Váy Jeans</a></li>
             </ul>
         </div>
-
         <br style="clear: left" />
         <!--Break after 3rd column. Move this if desired-->
-    </div>
+        <div class="column">
+            <h3>Áo jeans</h3>
+            <ul>
+                <li><a href="<%=CommonHelper.GetStoreLocation()%>danh-muc-jean/41/ao-bo-nu.aspx">Áo Jeans</a></li>
+            </ul>
+        </div>
 
+        <div class="column">
+            <h3>Quần vải</h3>
+            <ul
+                <li><a href="<%=CommonHelper.GetStoreLocation()%>danh-muc-jean/44/quan-vai-nu.aspx">Quần vải nữ</a></li>
+            </ul>
+        </div>
+
+        <div class="column">
+            <h3>Big size nữ</h3>
+            <ul
+                <li><a href="<%=CommonHelper.GetStoreLocation()%>danh-muc-jean/26/quan-jean-nu-size-lon-big-size.aspx">Big size nữ</a></li>
+            </ul>
+        </div>
+      
+        <br style="clear: left" />
+        <!--Break after 3rd column. Move this if desired-->
+        <div class="column">
+            <h3>Sales</h3>
+            <ul
+                <li><a href="<%=CommonHelper.GetStoreLocation()%>danh-muc-jean/33/quan-jean-nam-nu-gia-re-tai-ha-noi.aspx">Sales</a></li>
+            </ul>
+        </div>
+        <br style="clear: left" />
+    </div>
+    <!--Jeans nam-->
     <div id="megamenu2" class="megamenu">
 
         <div class="column">
-            <h3>Quần jean dài</h3>
+            <h3>Quần dài</h3>
             <ul>
-                <li><a href="<%=CommonHelper.GetStoreLocation()%>danh-muc-jean/15/quan-jean-nam-dai.aspx">Quần jean nam dài</a></li>
-                <li><a href="<%=CommonHelper.GetStoreLocation()%>danh-muc-jean/17/quan-jean-nam-ong-dung.aspx">Quần jean nam ống đứng</a></li>
-                <li><a href="<%=CommonHelper.GetStoreLocation()%>danh-muc-jean/18/quan-jean-nam-ong-con.aspx">Quần jean nam ống côn</a></li>
-                <li><a href="<%=CommonHelper.GetStoreLocation()%>danh-muc-jean/30/quan-jean-nam-big-size.aspx">Quần jean nam big size</a></li>
+                <%--<li><a href="<%=CommonHelper.GetStoreLocation()%>danh-muc-jean/15/quan-jean-nam-dai.aspx">Quần jean nam dài</a></li>--%>
+                
+                <li><a href="<%=CommonHelper.GetStoreLocation()%>danh-muc-jean/18/quan-jean-nam-ong-con.aspx">Jeans nam ống côn</a></li>
+                <li><a href="<%=CommonHelper.GetStoreLocation()%>danh-muc-jean/61/quan-jean-nam-dang-slim-fit.aspx">Jeans nam slim-fit</a></li>
+                <li><a href="<%=CommonHelper.GetStoreLocation()%>danh-muc-jean/17/quan-jean-nam-ong-dung.aspx">Jeans nam ống đứng</a></li>
+                <li><a href="<%=CommonHelper.GetStoreLocation()%>danh-muc-jean/71/quan-jeans-nam-ong-thung.aspx">Jeans nam ống thụng</a></li>
+                
             </ul>
         </div>
 
         <div class="column">
-            <h3>Quần jean lửng, ngố</h3>
+            <h3>Quần ngắn</h3>
             <ul>
-                <li><a href="<%=CommonHelper.GetStoreLocation()%>danh-muc-jean/16/quan-jean-nam-ngo.aspx">Quần jean nam lửng, ngố</a></li>
+                <li><a href="<%=CommonHelper.GetStoreLocation()%>danh-muc-jean/16/quan-jean-nam-ngo.aspx">Jeans nam lửng, ngố</a></li>
             </ul>
         </div>
 
+        <div class="column">
+            <h3>Áo jeans</h3>
+            <ul>
+                <li><a href="<%=CommonHelper.GetStoreLocation()%>danh-muc-jean/40/ao-bo-nam.aspx">Áo jeans nam</a></li>
+            </ul>
+        </div>
         <br style="clear: left" />
         <!--Break after 3rd column. Move this if desired-->
+        <div class="column">
+            <h3>Kaki</h3>
+            <ul>
+                <li><a href="<%=CommonHelper.GetStoreLocation()%>danh-muc-jean/37/quan-kaki-nam.aspx">Quần kaki </a></li>
+            </ul>
+        </div>
+
+        <div class="column">
+            <h3>Big size </h3>
+            <ul>                
+                <li><a href="<%=CommonHelper.GetStoreLocation()%>danh-muc-jean/30/jeans-nam-big-size.aspx">Big Size Nam</a></li>
+                
+                
+            </ul>
+        </div>
     </div>
+    <!--Big size nam-->
+    <div id="megamenu3" class="megamenu">
 
+        <div class="column">
+            <h3>Quần </h3>
+            <ul>                
+                <li><a href="<%=CommonHelper.GetStoreLocation()%>danh-muc-jean/64/quan-jeans-dai-nam-big-size.aspx">Jeans nam dài big size</a></li>
+                <li><a href="<%=CommonHelper.GetStoreLocation()%>danh-muc-jean/65/quan-jeans-lung-ngo-nam-big-size.aspx">Jeans nam lửng, ngố big size</a></li>
+                
+            </ul>
+        </div>
 
+        
+
+        <div class="column">
+            <h3>Áo</h3>
+            <ul>
+                <li><a href="<%=CommonHelper.GetStoreLocation()%>danh-muc-jean/60/ao-jean-nam-big-size.aspx">Áo jeans nam big size</a></li>
+            </ul>
+        </div>
+        <br style="clear: left" />
+        <!--Break after 3rd column. Move this if desired-->
+        
+
+        
+    </div>
     <script type="text/javascript">
 
         //jkmegamenu.definemenu("anchorid", "menuid", "mouseover|click")
         jkmegamenu.definemenu("megaanchor", "megamenu1", "mouseover")
         jkmegamenu.definemenu("megaanchor2", "megamenu2", "mouseover")
+        jkmegamenu.definemenu("megaanchor3", "megamenu3", "mouseover")
     </script>
 
     <div id="fb-root"></div>
@@ -361,12 +437,7 @@
                     <div style="font-size: 16px; color: blue; font-style: italic; font-weight: bold;">
                         Sẵn sàng phục vụ quý khách!
                     </div>
-                    <%-- <a href="ymsgr:sendIM?quanjeandep.banle2" rel="nofollow">
-                        <img src="http://opi.yahoo.com/online?u=quanjeandep.banle2&amp;m=g&amp;t=2" alt="Jeans Style Long Biên">
-                    </a>
-                    <a href="ymsgr:sendIM?quanjeandep" rel="nofollow">
-                        <img src="http://opi.yahoo.com/online?u=quanjeandep&amp;m=g&amp;t=2" alt="Jeans Style Đội Cấn">
-                    </a>--%>
+                    
                 </div>
             </div>
         </div>

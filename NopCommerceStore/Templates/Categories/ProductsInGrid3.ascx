@@ -130,12 +130,7 @@
 
             <asp:Literal runat="server" ID="litProductCount"></asp:Literal>
         </div>
-        <div class="product-pager">
-
-            <nopCommerce:Pager runat="server" ID="productsPagerTop" FirstButtonText="<% $NopResources:Pager.First %>"
-                LastButtonText="<% $NopResources:Pager.Last %>" NextButtonText="<% $NopResources:Pager.Next %>"
-                PreviousButtonText="<% $NopResources:Pager.Previous %>" CurrentPageText="Pager.CurrentPage" ShowFirst="True" ShowLast="True" />
-        </div>
+        
         <div class="clear">
         </div>
 

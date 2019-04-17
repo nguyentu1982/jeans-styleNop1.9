@@ -59,6 +59,7 @@ namespace NopSolutions.NopCommerce.Web.Modules
                     StringBuilder attributeScripts = new StringBuilder();
 
                     this.Visible = true;
+                    bool isOutOfStock = true;
                     foreach (var attribute in productVariantAttributes)
                     {
                         var divAttribute = new Panel();
@@ -239,6 +240,31 @@ namespace NopSolutions.NopCommerce.Web.Modules
                                             preSelectedSet = true;
                                         }
                                         rblAttributes.Items.Add(pvaValueItem);
+
+                                        if ((ManageInventoryMethodEnum)productVariant.ManageInventory == ManageInventoryMethodEnum.ManageStockByAttributes)
+                                        {
+                                            string selectedAttributes = string.Empty;
+                                            selectedAttributes = ProductAttributeHelper.AddProductAttribute(selectedAttributes,
+                                                attribute, pvaValue.ProductVariantAttributeValueId.ToString());
+
+                                            var combination = ProductAttributeService.FindProductVariantAttributeCombinationDisplayOnProductBox(productVariant.ProductVariantId, selectedAttributes);
+                                            if (combination != null)
+                                            {
+                                                if (combination.StockQuantity == 0)
+                                                {
+                                                    rblAttributes.Items.Remove(pvaValueItem);
+
+                                                }
+                                                else
+                                                {
+                                                    isOutOfStock = false;
+                                                }
+                                            }
+                                            if (combination == null)
+                                            {
+                                                rblAttributes.Items.Remove(pvaValueItem);
+                                            }
+                                        }
                                     }
                                 }
                                 break;

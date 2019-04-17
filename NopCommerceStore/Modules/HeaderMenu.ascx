@@ -11,26 +11,15 @@
         
         <li><a href="<%=CommonHelper.GetStoreLocation()%>">
             <span class="menu-home"><%=GetLocaleResourceString("Content.HomePage")%></span></a> </li>
-       
-        <li><a href="<%=CommonHelper.GetStoreLocation()%>danh-muc-jean/13/quan-jean-nu.aspx" id="megaanchor"><span class="menu-woman">QUẦN JEAN NỮ </span></a></li>
-        
-        <li><a href="<%=CommonHelper.GetStoreLocation()%>danh-muc-jean/14/quan-jean-nam.aspx" id="megaanchor2"> <span class="menu-man">QUẦN JEAN NAM </span></a></li>
+               
+        <li><a href="<%=CommonHelper.GetStoreLocation()%>danh-muc-jean/14/quan-jean-nam.aspx" id="megaanchor2"> JEANS NAM <i class="angle-down"></i></a></li>
 
-        <li><a href="<%=CommonHelper.GetStoreLocation()%>danh-muc-jean/50/shop-ban-vay-jeans-dep-vnxk-ha-noi.aspx"> <span class="menu-man">Váy Jeans </span></a></li>
+        <li><a href="<%=CommonHelper.GetStoreLocation()%>danh-muc-jean/13/quan-jean-nu.aspx" id="megaanchor">JEANS NỮ<i class="angle-down"></i></a></li>
 
-        <li><a href="<%=CommonHelper.GetStoreLocation()%>danh-muc-jean/41/ao-bo-nu.aspx" > <span class="menu-man">Áo bò nữ</span></a></li>
-        
-        <li><a href="<%=CommonHelper.GetStoreLocation()%>danh-muc-jean/40/ao-bo-nam.aspx" > <span class="menu-man">Áo bò nam</span></a></li>
+        <li><a href="<%=CommonHelper.GetStoreLocation()%>danh-muc-jean/30/jeans-nam-big-size.aspx" id="megaanchor3"> BIG SIZE NAM <i class="angle-down"></i></a></li>
 
-        <li><a href="<%=CommonHelper.GetStoreLocation()%>danh-muc-jean/44/quan-vai-nu.aspx" > <span class="menu-man">Quần vải nữ</span></a></li>
-
-        <li><a href="<%=CommonHelper.GetStoreLocation()%>danh-muc-jean/37/quan-kaki-nam.aspx" > <span class="menu-man">Quần Kaki nam</span></a></li>
-
-        <li><a href="<%=CommonHelper.GetStoreLocation()%>danh-muc-jean/33/quan-jean-nam-nu-gia-re-tai-ha-noi.aspx" > <span class="sales-menu">Sales</span></a></li>
-
-        <li><a href="<%=CommonHelper.GetStoreLocation()%>search.aspx" > <span class="sales-menu">Tìm sản phẩm</span></a></li>
-
-        <li><a href="<%=CommonHelper.GetStoreLocation()%>topic/32/jeans-style-tuyen-nu-nhan-vien-ban-hang.aspx" > <span class="menu-man">Tuyển dụng</span></a></li>
+        <li><a href="<%=CommonHelper.GetStoreLocation()%>danh-muc-jean/26/quan-jean-nu-size-lon-big-size.aspx" id="megaanchor4">BIG SIZE NỮ </a></li>
+           
 
         <%--<li><a href="<%=Page.ResolveUrl("~/customers.aspx")%>">
             <%=GetLocaleResourceString("Customer.Customer")%></a> </li>
@@ -90,12 +79,12 @@
 </div>
 <div class="clear"></div>
 
-    <div class="header-bottom-seach">
+<%--<div class="header-bottom-seach">--%>
         
-        <%=GetLocaleResourceString("Homepage.SeoKeyWord")%>
+        <%--<%=GetLocaleResourceString("Homepage.SeoKeyWord")%>--%>
         
 <%--<div class="searchbox">
     <nopCommerce:SearchBox runat="server" ID="ctrlSearchBox">
     </nopCommerce:SearchBox>
 </div> --%>   
-</div>
+<%--</div>--%>

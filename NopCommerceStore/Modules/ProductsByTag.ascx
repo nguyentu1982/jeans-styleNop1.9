@@ -10,11 +10,7 @@
     </div>
     <div class="clear">
     </div>
-    <div class="product-pager">
-        <nopCommerce:Pager runat="server" ID="productsPagerTop" FirstButtonText="<% $NopResources:Pager.First %>"
-            LastButtonText="<% $NopResources:Pager.Last %>" NextButtonText="<% $NopResources:Pager.Next %>"
-            PreviousButtonText="<% $NopResources:Pager.Previous %>" CurrentPageText="Pager.CurrentPage" />
-    </div>
+   
     <div class="product-grid">
         <asp:ListView ID="dlProducts" runat="server">
             <ItemTemplate>
@@ -26,6 +22,7 @@
             </ItemTemplate>
         </asp:ListView>
     </div>
+    <div class="clear"></div>
     <div class="product-pager">
         <nopCommerce:Pager runat="server" ID="productsPager" FirstButtonText="<% $NopResources:Pager.First %>"
             LastButtonText="<% $NopResources:Pager.Last %>" NextButtonText="<% $NopResources:Pager.Next %>"

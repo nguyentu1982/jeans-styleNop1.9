@@ -165,9 +165,7 @@ namespace NopSolutions.NopCommerce.Web.Templates.Categories
                 this.productsPager.TotalRecords = totalRecords;
                 this.productsPager.PageIndex = this.CurrentPageIndex;
 
-                this.productsPagerTop.PageSize = pageSize;
-                this.productsPagerTop.TotalRecords = totalRecords;
-                this.productsPagerTop.PageIndex = this.CurrentPageIndex;
+                
 
                 this.dlProducts.DataSource = productCollection;
                 this.dlProducts.DataBind();

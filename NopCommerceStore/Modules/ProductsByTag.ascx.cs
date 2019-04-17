@@ -48,6 +48,7 @@ namespace NopSolutions.NopCommerce.Web.Modules
         protected void BindData()
         {
             var productTag = this.ProductService.GetProductTagById(this.ProductTagId);
+            
             if (productTag == null)
             {
                 string url = CommonHelper.GetStoreLocation();
@@ -58,7 +59,12 @@ namespace NopSolutions.NopCommerce.Web.Modules
             lDescription.Text = productTag.Description;
             //page size
             int totalRecords = 0;
-            int pageSize = 30;
+            int pageSize = 48;
+            
+            if(this.SettingManager.GetSettingValueInteger("ProductTags.PageSize")>0)
+            {
+                pageSize = this.SettingManager.GetSettingValueInteger("ProductTags.PageSize");
+            }
 
             var productCollection = this.ProductService.GetAllProducts(0, 0, 
                 productTag.ProductTagId, false, null, null,
@@ -71,9 +77,7 @@ namespace NopSolutions.NopCommerce.Web.Modules
                 this.productsPager.TotalRecords = totalRecords;
                 this.productsPager.PageIndex = this.CurrentPageIndex;
 
-                this.productsPagerTop.PageSize = pageSize;
-                this.productsPagerTop.TotalRecords = totalRecords;
-                this.productsPagerTop.PageIndex = this.CurrentPageIndex;
+                
 
                 this.dlProducts.DataSource = productCollection;
                 this.dlProducts.DataBind();

@@ -551,6 +551,7 @@ a.f-logout
 {
 	height: 100%;zoom: 1;
     margin:auto;
+    text-align:center;
 }
 
 .topmenu-mobile {
@@ -559,8 +560,7 @@ a.f-logout
 
 .headermenu .topmenu li
 {
-    float:left;
-    list-style-type:none;
+    display:inline-block;
 
     text-align:center;
     /*background:url(/Themes/DefaultClean/Content/images/top-menu-divider.png) no-repeat 100% 50%;*/
@@ -575,10 +575,19 @@ a.f-logout
 	text-decoration: none;
 	text-transform: uppercase;	
 	vertical-align: middle;
-	padding: 15px;
-    font-size: 1.1em;
+    font-size: 14px;
+    font-weight:bold;
 }
 
+i.angle-down {
+    width: 8px;
+    height: 8px;
+    border: 2px solid #fff;
+    border-width: 0 2px 2px 0;
+    display: inline-block;
+    transform: rotate(45deg) translateY(-5px);
+    transform-origin: center;
+}
 .headermenu a:hover
 {
 	color: #E3E3E3;
@@ -1062,7 +1071,7 @@ ul.sitemap li span
 
 checkbox, input, radio, select
 {	
-	font-size: 11px;
+	font-size: 14px;
 }
 
 /* fix ie button padding bug - apply to all buttons to reduce extra padding applied by ie!
@@ -2207,7 +2216,7 @@ textarea
 	font-weight: bold;
 	text-transform: uppercase;
 	clear: both;
-	font-size: 1.1em;
+	font-size: 14px;
 	border-bottom: solid 1px #C0C0C0;
 }
 
@@ -2351,7 +2360,7 @@ textarea
 	font-weight: bold;
 	text-transform: uppercase;
 	clear: both;
-	font-size: 1.1em;
+	font-size: 14px;
 	border-bottom: solid 1px #C0C0C0;
 }
 
@@ -2513,7 +2522,7 @@ textarea
 {
 	color: Green;
 	text-decoration: line-through;
-   	font-size: 1.1em;
+   	font-size: 14px;
 }
 
 .old-price-label {
@@ -2737,9 +2746,8 @@ textarea
 .category-page .product-pager, .manufacturer-page .product-pager, .producttag-page .product-pager
 {
 	font-size:11px;
-	text-align: right;
+	text-align: center;
 	margin: 3px 3px 0px 0px;
-    float:right;
     padding:6px;
     background-color:#ff3300;
 }
@@ -2796,7 +2804,7 @@ textarea
 .category-page .category-description, .manufacturer-page .manufacturer-description
 {
 	color: #0A263C;
-	font-size: 1.1em;
+	font-size: 14px;
     margin:10px;
 }
 
@@ -2825,8 +2833,8 @@ textarea
 
 .sub-category-grid .sub-category-item .category-title, .manufacturer-grid .manufacturer-item .man-title
 {
-	font-weight: bold;
-	font-size: 1.1em;
+	font-weight: normal;
+	font-size: 14px;
 	display: block;
     padding:5px;
 }
@@ -2919,7 +2927,7 @@ textarea
 {
     padding: 5px 5px 5px 5px;
     min-height: 15px;
-    float:left;
+    text-align:center;
 }
 
 .product-count {
@@ -2929,7 +2937,8 @@ textarea
 }
 
 .select-filter {
-    float:left;
+    display:inline-block;
+    
 }
 .product-spec-filter .title
 {
@@ -2946,8 +2955,7 @@ textarea
 
 .remove-filter
 {
-    float:left;
-    font-weight:bold;
+    display:inline-block;
 }
 
 .product-spec-filter .remove-product-spec-filter
@@ -3294,7 +3302,8 @@ textarea
 	padding: 10px;	
 	font-weight:bold;
 	font-size: 1em;	
-    border: 1px solid #C0c0c0;
+    border-bottom: 1px solid #C0c0c0;
+    font-style:italic;
 }
 
 .breadcrumb div
@@ -4152,7 +4161,7 @@ h1, h2, h3, h4, h5, h6 {
 {
 	color: #555;
 	margin-bottom: 0.3em;
-	font-size: 1.1em;
+	font-size: 14px;
 }
 
 .product-details-info .fulldescription
@@ -4963,7 +4972,7 @@ h1, h2, h3, h4, h5, h6 {
 	margin-bottom: 10px;
 	font-weight: bold;
 	text-transform: uppercase;
-	font-size: 1.1em;
+	font-size: 14px;
 }
 
 .forumbreadcrumb a
@@ -4990,7 +4999,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .forumgroups .forumgroup .grouptitle
 {
-	font-size: 1.1em;
+	font-size: 14px;
 }
 
 .forumgroup .grouptitle a
@@ -5072,7 +5081,7 @@ h1, h2, h3, h4, h5, h6 {
 .forumgroup tr.forum td.forumname .forumtitle
 {
 	font-weight: bold;
-	font-size: 1.1em;
+	font-size: 14px;
 	line-height: 18px;
 }
 
@@ -5225,7 +5234,7 @@ h1, h2, h3, h4, h5, h6 {
 .forum table.topics tr.topic td.topicname .topictitle
 {
 	font-weight: bold;
-	font-size: 1.1em;
+	font-size: 14px;
 	line-height: 18px;
 }
 
@@ -5685,7 +5694,7 @@ h1, h2, h3, h4, h5, h6 {
 .forumsearch table.topics tr.topic td.topicname .topictitle
 {
 	font-weight: bold;
-	font-size: 1.1em;
+	font-size: 14px;
 	line-height: 18px;
 }
 
@@ -5891,7 +5900,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .activediscussions .activediscussionstitle
 {
-	font-size: 1.1em;
+	font-size: 14px;
 	font-weight: bold;
 }
 
@@ -5970,7 +5979,7 @@ h1, h2, h3, h4, h5, h6 {
 .activediscussions table.topics tr.topic td.topicname .topictitle
 {
 	font-weight: bold;
-	font-size: 1.1em;
+	font-size: 14px;
 	line-height: 18px;
 }
 
@@ -6004,6 +6013,7 @@ h1, h2, h3, h4, h5, h6 {
     cursor: default;
     border-radius: 100%;
     float: left;
+    position:absolute;
 }
 
 .discount-tag-box
