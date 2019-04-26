@@ -70,7 +70,7 @@
             <div class="addthis_sharing_toolbox"></div>
         </div>
         <div class="overview">
-            
+
             <div class="product-info">
                 <h1 class="productname">
                     <asp:Literal ID="lProductName" runat="server" />
@@ -98,7 +98,7 @@
             <div class="product-collateral">
 
                 <nopCommerce:ProductRating ID="ctrlProductRating" runat="server" />
-                <br />
+                
                 <div>
                     <div class="one-variant-price">
                         <nopCommerce:ProductPrice1 ID="ctrlProductPrice" runat="server" />
@@ -123,7 +123,7 @@
                             <asp:Label ID="lblStockAvailablity" runat="server" />
                         </asp:Panel>
                     </div>
-                    <br />
+                    
                     <%=GetLocaleResourceString("Products.OrderQuantity")%>
                     <nopCommerce:NumericTextBox runat="server" ID="txtQuantity" Value="1" RequiredErrorMessage="<% $NopResources:Products.EnterQuantity %>"
                         RangeErrorMessage="<% $NopResources:Products.QuantityRange %>" MinimumValue="1"
@@ -136,7 +136,7 @@
                     <span class="downloadsamplebutton">
                         <asp:HyperLink runat="server" ID="hlDownloadSample" Text="<% $NopResources:Products.DownloadSample %>" />
                     </span>
-                </asp:Panel>                
+                </asp:Panel>
 
                 <% var warehouse = new List<Warehouse>();
                    foreach (ProductVariant pv in ProductVariants)
@@ -148,26 +148,42 @@
                    }
                    if (warehouse.Count > 0)
                    {%>
-                <div style="border: dotted 1px #c0c0c0; padding: 5px; margin: 10px 0px 10px 0px; background-color: aqua; font-size: 14px; max-width: 350px;display:none">
-                    <div style="font-weight: bold; color: #3664A5; font-size: 14px; font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;">
-                        <%=GetLocaleResourceString("Products.Warehouse")%>
+
+                <%}   
+                %>
+
+                <div>
+
+                    <div class="freeShipping">
+                        <asp:Image ID="imgFreeShiping" runat="server" Visible="false" />
                     </div>
+                    <div class="discount-tag" runat="server" id="divDiscount" visible="false">
+                        <asp:Label runat="server" ID="lbDiscount" Visible="false" />
+                    </div>
+                </div>
+                <div class="clear"></div>
+                <asp:Button ID="btnAddToWishlist" runat="server" OnCommand="OnCommand" Text="<% $NopResources:Wishlist.AddToWishlist %>"
+                    CommandName="AddToWishlist" CommandArgument='<%#Eval("ProductVariantId")%>' CssClass="productvariantaddtowishlistbutton" />
+                <nopCommerce:ProductEmailAFriendButton ID="ctrlProductEmailAFriendButton" runat="server" />
+                <nopCommerce:ProductAddToCompareList ID="ctrlProductAddToCompareList" runat="server" />
+                <div class="clear"></div>
+                <div style="border: dotted 1px #c0c0c0; padding: 5px; margin-top:10px; font-size: 14px; max-width: 350px;">
+                    
                     <asp:Repeater ID="rptStored" runat="server">
                         <ItemTemplate>
-                            <div style="width: 300px; font-weight: bold; margin-top: 5px"><%#Eval("Name") %></div>
+                            <div style="width: 300px; font-weight: bold; margin-top: 5px"><%=GetLocaleResourceString("Products.StoreGuide")%></div>
 
                             <div style="margin-left: 20px"><%=GetLocaleResourceString("Warehouse.StreetAddress")%><%#Eval("Address1") %>- <%#Eval("City") %> </div>
+                             <div style="width: 300px; font-weight: bold; margin-top: 5px"><%=GetLocaleResourceString("Products.SupportGuide")%></div>
                             <div style="margin-left: 20px">
+                               
                                 <%=GetLocaleResourceString("Warehouse.TelephoneNumber")%><%#Eval("PhoneNumber")%><br />
                                 <%#Eval("Email") %>
                             </div>
                         </ItemTemplate>
                     </asp:Repeater>
                 </div>
-                <%}   
-                %>
-
-                <div>
+                <div class="clear"></div>
                 <asp:PlaceHolder runat="server" ID="phManufacturers" Visible="true">
                     <div class="manufacturers">
                         <asp:Literal ID="lManufacturersTitle" runat="server" Visible="false" />
@@ -180,20 +196,7 @@
                         </asp:Repeater>
                     </div>
                 </asp:PlaceHolder>
-                <div class="freeShipping">
-                    <asp:Image ID="imgFreeShiping" runat="server" Visible="false" />
-                </div>
-                <div class="discount-tag" runat="server" id="divDiscount" visible="false">
-                    <asp:Label runat="server" ID="lbDiscount" Visible="false" />
-                </div>
-            </div>
-                <div class="clear"></div>
-                <asp:Button ID="btnAddToWishlist" runat="server" OnCommand="OnCommand" Text="<% $NopResources:Wishlist.AddToWishlist %>"
-                    CommandName="AddToWishlist" CommandArgument='<%#Eval("ProductVariantId")%>' CssClass="productvariantaddtowishlistbutton" />
-                <nopCommerce:ProductEmailAFriendButton ID="ctrlProductEmailAFriendButton" runat="server" />
-                <nopCommerce:ProductAddToCompareList ID="ctrlProductAddToCompareList" runat="server" />
-
-                <table>
+                <table runat="server" visible="false">
                     <tr>
                         <td>
                             <asp:HyperLink ID="lkNganLuong" runat="server" title="Thanh toán trực tuyến AN TOÀN và ĐƯỢC BẢO VỆ, sử dụng thẻ ngân hàng trong và ngoài nước hoặc nhiều hình thức tiện lợi khác.

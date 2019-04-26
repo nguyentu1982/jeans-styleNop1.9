@@ -5,10 +5,10 @@
     <asp:Label ID="lblOldPrice" runat="server" CssClass="oldProductPrice" />
 </asp:PlaceHolder>
 <asp:Label ID="lblCustomerEnterPrice" runat="server" Visible="false" />
-<p></p>
+
 <asp:Label ID="lblPrice" runat="server" Visible="true" CssClass="price-label" />
 <asp:Label ID="lblPriceValue" runat="server" CssClass="productPrice" />
-<p></p>
+
 <asp:PlaceHolder runat="server" ID="phDiscount">
     <span class="price-label"><%=GetLocaleResourceString("Products.FinalPriceWithDiscount")%>&nbsp;&nbsp;</span> 
     <asp:Label ID="lblFinalPriceWithDiscount" runat="server" CssClass="productPrice" />

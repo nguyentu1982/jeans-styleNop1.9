@@ -94,6 +94,7 @@
         
     
 </div>
+<div class="clear"></div>
 <div class="header">
      
     <div class="header-logo">
@@ -105,24 +106,12 @@
     <div class="free-shiping">
         <a href="/topic/11/huong-dan-mua-hang-tai-jeans-style.aspx" class="free-shiping-logo"></a>
     </div>
-    
+     --%> 
     <div class="searchbox">
         <nopCommerce:SearchBox runat="server" ID="ctrlSearchBox">
         </nopCommerce:SearchBox>
-    </div>  --%> 
-    <div class="header-selectors-wrapper">
-            
-               <%-- <table>                
-                <tr>
-                    <td  class="tele"></td><td>Hotline:0988 08 4657 (PT.Bán Hàng)</td>                    
-                    <td><a class="yahoo" href="ymsgr:sendIM?quanjeandep"></a></td><td>Sales Support-NV Bán hàng</td>
-                    <td><a class="right-logo"></a></td>                    
-                </tr>
-                
-                    
-                                
-            </table>  --%>      
-        
+    </div> 
+    <div class="header-selectors-wrapper">        
         <div class="header-taxDisplayTypeSelector">
             <nopCommerce:TaxDisplayTypeSelector runat="server" ID="ctrlTaxDisplayTypeSelector">
             </nopCommerce:TaxDisplayTypeSelector>

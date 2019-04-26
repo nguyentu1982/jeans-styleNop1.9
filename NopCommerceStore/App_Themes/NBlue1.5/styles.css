@@ -327,14 +327,13 @@ img
 {
 	/*background:url("images/top-head-background.gif");*/
 	min-height:30px;
-	margin-left: 3px;
     background-color:#fff;
     width:100%;
 }
 .header
 {
 	background:url("images/header-background.gif") repeat;
-	margin: auto;    
+	min-height:89px;  
 }
 
 .menu-left-conner
@@ -399,7 +398,6 @@ img
 .header-logo
 {
 	width:184px;
-    padding:6px;
     margin:auto;
 }
 
@@ -483,7 +481,6 @@ a.right-logo
 {
 	width: 200px;
 	float: left;
-	padding: 6px;
 }
 
 .header-links ul
@@ -605,8 +602,12 @@ i.angle-down {
 
 .searchbox 
 {
-	float: right;
-	padding: 4px 11px;
+	    float: right;
+    /* padding: 4px 11px; */
+    position: absolute;
+    right: 36px;
+    top: 94px;
+    background: white;
 }
 
 .searchbox ul
@@ -1530,6 +1531,7 @@ textarea
 .manufacturers
 {
     float:left;
+    padding-top:10px;
 }
 
 .manufacturers img
@@ -1539,9 +1541,7 @@ textarea
 
 .product-info
 {
-	float: left;
-	border: dotted 1px #c0c0c0;
-	margin: 5px 5px 0px 0px;
+	margin-top:5px; 
 	padding:5px;
     max-width:350px;
 }
@@ -2487,7 +2487,7 @@ textarea
 
 .add-info .attributes
 {
-    border: 1px dotted #c0c0c0;
+    
     padding: 5px;
     max-width:350px;
 }
@@ -4110,9 +4110,13 @@ h1, h2, h3, h4, h5, h6 {
 
 .product-collateral
 {
-	margin-top: 10px;
-	margin-bottom: 10px;
-	clear: both;
+    border-top: 1px solid #c0c0c0;
+    padding-top: 10px;
+}
+
+.add-info
+{    
+    padding-top: 10px;
 }
 
 .product-essential
@@ -4133,8 +4137,7 @@ h1, h2, h3, h4, h5, h6 {
 .product-details-info .overview
 {
 	float: left;
-	padding: 0px 5px;
-    min-height:458px;
+	padding: 5px;
 }
 
 .picture-guide {
@@ -6014,6 +6017,7 @@ h1, h2, h3, h4, h5, h6 {
     border-radius: 100%;
     float: left;
     position:absolute;
+    display:none;
 }
 
 .discount-tag-box

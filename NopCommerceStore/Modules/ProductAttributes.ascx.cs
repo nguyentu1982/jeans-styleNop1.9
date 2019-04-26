@@ -200,7 +200,7 @@ namespace NopSolutions.NopCommerce.Web.Modules
                                     rblAttributes.ID = controlId;
                                     divAttribute.Controls.Add(rblAttributes);
                                     rblAttributes.Items.Clear();
-
+                                    rblAttributes.RepeatDirection = RepeatDirection.Horizontal;
                                     var pvaValues = attribute.ProductVariantAttributeValues;
                                     bool preSelectedSet = false;
                                     foreach (var pvaValue in pvaValues)

@@ -100,7 +100,7 @@ namespace NopSolutions.NopCommerce.Web.Modules
                                 phOldPrice.Visible = true;
                                 (Parent.FindControl("lkNganLuong") as HyperLink).NavigateUrl = urlNganLuongFinalPriceWithoutDiscount;
                                 (Parent.FindControl("lkBaoKim") as HyperLink).NavigateUrl = urlBaoKimFinalPriceWithoutDiscount;
-                                
+                                lblPrice.Text = GetLocaleResourceString("Products.FinalPriceWithoutDiscount");
                             }
                             else
                             {

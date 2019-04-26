@@ -284,9 +284,10 @@
             <ul>
                 <li><a href="<%=CommonHelper.GetStoreLocation()%>danh-muc-jean/22/quan-jean-nu-ong-con.aspx">Jeans nữ ống côn</a></li>                
                 <li><a href="<%=CommonHelper.GetStoreLocation()%>danh-muc-jean/23/quan-jean-nu-ong-dung.aspx">Jeans nữ ống đứng</a></li>
-                <li><a href="<%=CommonHelper.GetStoreLocation()%>danh-muc-jean/23/quan-jean-nu-ong-dung.aspx">Jeans nữ ống xuông</a></li>
-                <li><a href="<%=CommonHelper.GetStoreLocation()%>danh-muc-jean/39/quan-boyfriend-jeans-nu-vnxk-ha-noi.aspx">Jean nữ boy-friend</a></li>
-                <li><a href="<%=CommonHelper.GetStoreLocation()%>danh-muc-jean/24/quan-jean-nu-ong-vay.aspx">Jeans nữ ống vẩy</a></li>
+                <li><a href="<%=CommonHelper.GetStoreLocation()%>danh-muc-jean/63/quan-jeans-nu-ong-rong-quan-culottes.aspx">Jeans nữ ống xuông</a></li>
+                <li><a href="<%=CommonHelper.GetStoreLocation()%>danh-muc-jean/24/quan-jean-nu-ong-vay.aspx">Jeans nữ ống vẩy</a></li>                
+                <li><a href="<%=CommonHelper.GetStoreLocation()%>danh-muc-jean/39/quan-boyfriend-jeans-nu-vnxk-ha-noi.aspx">Jeans nữ boy-friend</a></li>
+                <li><a href="<%=CommonHelper.GetStoreLocation()%>danh-muc-jean/51/quan-baggy-jeans-nu-re-dep-tai-ha-noi.aspx">Jeans nữ Baggy</a></li>
             </ul>
         </div>
 

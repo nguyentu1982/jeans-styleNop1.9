@@ -46,6 +46,7 @@ namespace NopSolutions.NopCommerce.Web.Administration.Modules
             if (productTags != null)
             {
                 var existingProductCategoryCollection = productTags.NpProducts;
+
                 List<ProductTagsMappingHelperClass> productCategoryMappings = GetProductTagsMappings(existingProductCategoryCollection);
                 gvProductCategoryMappings.Columns[1].Visible = this.SettingManager.GetSettingValueBoolean("Display.ShowAdminProductImages");
                 gvProductCategoryMappings.DataSource = productCategoryMappings;
@@ -107,7 +108,7 @@ namespace NopSolutions.NopCommerce.Web.Administration.Modules
             foreach (Product pc in existingProductCategoryCollection)
             {
                 Product product = pc;
-                if (product != null)
+                if (product != null && !(product.Deleted))
                 {
                     ProductTagsMappingHelperClass pcmhc = new ProductTagsMappingHelperClass();
                     pcmhc.ProductTagId = this.ProductTagId;
