@@ -334,6 +334,7 @@ img
 {
 	background:url("images/header-background.gif") repeat;
 	min-height:89px;  
+    position:relative;
 }
 
 .menu-left-conner
@@ -605,8 +606,8 @@ i.angle-down {
 	    float: right;
     /* padding: 4px 11px; */
     position: absolute;
-    right: 36px;
-    top: 94px;
+    right: 5px;
+    top: 60px;
     background: white;
 }
 
