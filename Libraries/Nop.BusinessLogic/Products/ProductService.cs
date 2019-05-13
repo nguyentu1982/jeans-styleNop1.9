@@ -538,7 +538,6 @@ namespace NopSolutions.NopCommerce.BusinessLogic.Products
             product.MetaTitle = CommonHelper.EnsureMaximumLength(product.MetaTitle, 400);
             product.SEName = CommonHelper.EnsureNotNull(product.SEName);
             product.SEName = CommonHelper.EnsureMaximumLength(product.SEName, 100);
-
             
             if (!_context.IsAttached(product))
                 _context.Products.Attach(product);
@@ -556,6 +555,13 @@ namespace NopSolutions.NopCommerce.BusinessLogic.Products
             //raise event             
             EventContext.Current.OnProductUpdated(null,
                 new ProductEventArgs() { Product = product });
+        }
+
+        public void UpTop(int productId)
+        {
+            Product p = this.GetProductById(productId);
+            p.CreatedOn = DateTime.Now;
+            this.UpdateProduct(p);
         }
 
         /// <summary>

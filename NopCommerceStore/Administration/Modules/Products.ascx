@@ -108,7 +108,7 @@
 </script>
 <asp:GridView ID="gvProducts" runat="server" AutoGenerateColumns="False" Width="100%"
     OnPageIndexChanging="gvProducts_PageIndexChanging" AllowPaging="true" PageSize="15"
-    OnRowDataBound="gvProducts_RowDataBound">
+    OnRowDataBound="gvProducts_RowDataBound" OnRowCommand="gvProducts_RowCommand" DataKeyNames="ProductId">
     <Columns>
         <asp:TemplateField ItemStyle-Width="5%" ItemStyle-HorizontalAlign="Center">
             <HeaderTemplate>
@@ -172,6 +172,13 @@
                 <a href="ProductDetails.aspx?ProductId=<%#Eval("ProductId")%>" title="<%#GetLocaleResourceString("Admin.Products.Edit.Tooltip")%>">
                     <%#GetLocaleResourceString("Admin.Products.Edit")%>
                 </a>
+            </ItemTemplate>
+        </asp:TemplateField>
+        <asp:TemplateField HeaderText="<% $NopResources:Admin.Products.Up %>" HeaderStyle-HorizontalAlign="Center"
+            ItemStyle-Width="10%" ItemStyle-HorizontalAlign="Center">
+            <ItemTemplate>
+                <asp:Button ID="btnUpTop" runat="server" CssClass="adminButton" Text="<% $NopResources:Admin.Products.Up %>"
+                     CommandName="UpTop" commandargument="<%# Container.DataItemIndex %>" />
             </ItemTemplate>
         </asp:TemplateField>
     </Columns>

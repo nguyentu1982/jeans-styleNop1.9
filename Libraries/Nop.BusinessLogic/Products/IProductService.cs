@@ -1031,5 +1031,7 @@ namespace NopSolutions.NopCommerce.BusinessLogic.Products
         /// </summary>
         bool SortProductByCreatedDate { get; set; }
         #endregion
+
+        void UpTop(int productId);
     }
 }
