@@ -179,11 +179,15 @@
             <ItemTemplate>
                 <asp:Button ID="btnUpTop" runat="server" CssClass="adminButton" Text="<% $NopResources:Admin.Products.Up %>"
                      CommandName="UpTop" commandargument="<%# Container.DataItemIndex %>" />
+                <nopCommerce:ConfirmationBox runat="server" ID="ConfirmationBox1" TargetControlID="btnUpTop"
+            YesText="<% $NopResources:Admin.Common.Yes %>" NoText="<% $NopResources:Admin.Common.No %>"
+            ConfirmText="<% $NopResources:Admin.Common.AreYouSure %>" />
             </ItemTemplate>
         </asp:TemplateField>
     </Columns>
     <PagerSettings PageButtonCount="50" Position="TopAndBottom" />
 </asp:GridView>
+
 <br />
 <asp:Label runat="server" ID="lblNoProductsFound" Text="<% $NopResources: Admin.Products.NoProductsFound%>"
     Visible="false"></asp:Label>
