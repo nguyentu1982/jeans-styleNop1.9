@@ -38,6 +38,7 @@ using NopSolutions.NopCommerce.Web.Administration.Modules;
 using NopSolutions.NopCommerce.BusinessLogic.Infrastructure;
 using System.Xml;
 using NopSolutions.NopCommerce.BusinessLogic.Products.Specs;
+using System.Data.SqlClient;
 
 namespace NopSolutions.NopCommerce.Web.Administration.Modules
 {
@@ -376,10 +377,18 @@ namespace NopSolutions.NopCommerce.Web.Administration.Modules
                 Label lblAttributes = row.FindControl("lblAttributes") as Label;
                 Label lblWarnings = row.FindControl("lblWarnings") as Label;
                 NumericTextBox txtStockQuantity = row.FindControl("txtStockQuantity") as NumericTextBox;
+                NumericTextBox txtIdMap = row.FindControl("txtIdMapping") as NumericTextBox;
                 CheckBox cbAllowOutOfStockOrders = row.FindControl("cbAllowOutOfStockOrders") as CheckBox;
 
                 int productVariantAttributeCombinationId = int.Parse(hfProductVariantAttributeCombinationId.Value);
-                int stockQuantity = txtStockQuantity.Value;            
+                int stockQuantity = txtStockQuantity.Value;
+                int idMap = txtIdMap.Value;
+                if(idMap != 0)
+                {
+                    int? stockGetOnOtherDatabase = GetStockQuantityByProductId(idMap);
+                    if (stockGetOnOtherDatabase != null) 
+                        stockQuantity = int.Parse(stockGetOnOtherDatabase.ToString());
+                }
                 bool allowOutOfStockOrders = cbAllowOutOfStockOrders.Checked;
 
                 var combination = this.ProductAttributeService.GetProductVariantAttributeCombinationById(productVariantAttributeCombinationId);
@@ -388,7 +397,7 @@ namespace NopSolutions.NopCommerce.Web.Administration.Modules
                 {
                     combination.StockQuantity = stockQuantity;
                     combination.AllowOutOfStockOrders = allowOutOfStockOrders;
-
+                    combination.IdMap = idMap;
                     this.ProductAttributeService.UpdateProductVariantAttributeCombination(combination);
                 }
 
@@ -448,6 +457,123 @@ namespace NopSolutions.NopCommerce.Web.Administration.Modules
             }
         }
 
+        public void UpdateSize(int productId)
+        {
+            int? stockQuantity = 0;            
+            stockQuantity = GetStockQuantityByProductId(productId);
+
+            if (stockQuantity != null)
+            {
+                var combination = this.ProductAttributeService.GetProductVariantAttributeCombinationByIdMap(productId);
+
+                if (combination != null)
+                {
+                    combination.StockQuantity = int.Parse(stockQuantity.ToString());
+                    this.ProductAttributeService.UpdateProductVariantAttributeCombination(combination);
+
+                    ProductVariant productVariant = this.ProductService.GetProductVariantById(combination.ProductVariantId);
+                    //var combination = this.ProductAttributeService.GetProductVariantAttributeCombinationById(productVariantAttributeCombinationId);
+                    string attributes = combination.AttributesXml;
+                    XmlDocument doc = new XmlDocument();
+                    doc.LoadXml(attributes);
+
+                    XmlNodeList productVariantAttributeNodes = doc.DocumentElement.SelectNodes("/Attributes/ProductVariantAttribute");
+
+                    foreach (XmlNode n in productVariantAttributeNodes)
+                    {
+                        string productVariantAttributeId = n.Attributes["ID"].Value;
+                        string productVariantAttributeValueId = n.SelectSingleNode("/Attributes/ProductVariantAttribute/ProductVariantAttributeValue/Value").InnerText;
+                        ProductVariantAttribute p = this.ProductAttributeService.GetProductVariantAttributeById(int.Parse(productVariantAttributeId));
+                        ProductVariantAttributeValue pv = this.ProductAttributeService.GetProductVariantAttributeValueById(int.Parse(productVariantAttributeValueId));
+                        if (p.ProductAttribute.Name.ToLower().Contains("size"))
+                        {
+                            int productSpecificationAttributeOptionId = this.SpecificationAttributeService.GetSpecificationAttributeOption(p.ProductAttribute.Name, pv.Name).SpecificationAttributeOptionId;
+
+                            List<ProductSpecificationAttribute> productSpecificationAttributes = this.SpecificationAttributeService.GetProductSpecificationAttributesByProductId(productVariant.Product.ProductId);
+                            bool isproductSpecificationAttributeExisted = false;
+                            int productSpecificationAttributeId = 0;
+                            foreach (ProductSpecificationAttribute psa in productSpecificationAttributes)
+                            {
+                                if (psa.SpecificationAttributeOptionId == productSpecificationAttributeOptionId)
+                                {
+                                    isproductSpecificationAttributeExisted = true;
+                                    productSpecificationAttributeId = psa.ProductSpecificationAttributeId;
+                                }
+                            }
+
+                            if (isproductSpecificationAttributeExisted && stockQuantity <= 0)
+                            {
+                                this.SpecificationAttributeService.DeleteProductSpecificationAttribute(productSpecificationAttributeId);
+                            }
+
+                            if (!isproductSpecificationAttributeExisted && stockQuantity > 0)
+                            {
+                                var productSpecificationAttribute = new NopSolutions.NopCommerce.BusinessLogic.Products.Specs.ProductSpecificationAttribute()
+                                {
+                                    ProductId = productVariant.Product.ProductId,
+                                    SpecificationAttributeOptionId = productSpecificationAttributeOptionId,
+                                    AllowFiltering = true,
+                                    ShowOnProductPage = false,
+                                    DisplayOrder = 0
+                                };
+                                this.SpecificationAttributeService.InsertProductSpecificationAttribute(productSpecificationAttribute);
+                            }
+                        }
+                    }
+                }
+
+            }
+        }
+        public int? GetStockQuantityByProductId(int productId)
+        {
+            int stockQuantity = 0;
+            string connectionString = "Data Source=45.251.114.246,3314;Initial Catalog=JS-Manage;User ID=sa;Password=niemvui";
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    // Create the command and set its properties.
+                    SqlCommand command = new SqlCommand();
+                    command.Connection = connection;
+                    command.CommandText = "GetStockQuantityByProductId";
+                    command.CommandType = CommandType.StoredProcedure;
+
+                    // Add the input parameter and set its properties.
+                    SqlParameter parameter = new SqlParameter();
+                    parameter.ParameterName = "@ProductId";
+                    parameter.SqlDbType = SqlDbType.NVarChar;
+                    parameter.Direction = ParameterDirection.Input;
+                    parameter.Value = productId;
+
+                    // Add the parameter to the Parameters collection. 
+                    command.Parameters.Add(parameter);
+
+                    // Open the connection and execute the reader.
+                    connection.Open();
+                    SqlDataReader reader = command.ExecuteReader();
+
+                    if (reader.HasRows)
+                    {
+                        while (reader.Read())
+                        {
+                            stockQuantity = int.Parse(reader[10].ToString());
+                        }
+                    }
+                    else
+                    {
+                        // Console.WriteLine("No rows found.");
+                    }
+                    reader.Close();
+                }
+                return stockQuantity;  
+            }
+            catch (Exception exc)
+            {
+                processAjaxError(exc);
+                return null;
+            }
+              
+        }
         protected void gvCombinations_RowDataBound(object sender, GridViewRowEventArgs e)
         {
             if (e.Row.RowType == DataControlRowType.DataRow)

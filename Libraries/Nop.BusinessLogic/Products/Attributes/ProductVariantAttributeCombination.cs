@@ -43,6 +43,11 @@ namespace NopSolutions.NopCommerce.BusinessLogic.Products.Attributes
         public int StockQuantity { get; set; }
 
         /// <summary>
+        /// Gets or sets the ID Map
+        /// </summary>
+        public int IdMap { get; set; }
+
+        /// <summary>
         /// Gets or sets a value indicating whether to allow orders when out of stock
         /// </summary>
         public bool AllowOutOfStockOrders { get; set; }

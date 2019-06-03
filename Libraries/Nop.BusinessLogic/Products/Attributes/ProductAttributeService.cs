@@ -783,6 +783,25 @@ namespace NopSolutions.NopCommerce.BusinessLogic.Products.Attributes
         }
 
         /// <summary>
+        /// Gets a product variant attribute combination
+        /// </summary>
+        /// <param name="productVariantAttributeCombinationId">Product variant attribute combination identifier</param>
+        /// <returns>Product variant attribute combination</returns>
+        public ProductVariantAttributeCombination GetProductVariantAttributeCombinationByIdMap(int idMap)
+        {
+            if (idMap == 0)
+                return null;
+
+
+            var query = from pvac in _context.ProductVariantAttributeCombinations
+                        where pvac.IdMap == idMap
+                        select pvac;
+            var combination = query.SingleOrDefault();
+
+            return combination;
+        }
+
+        /// <summary>
         /// Inserts a product variant attribute combination
         /// </summary>
         /// <param name="combination">Product variant attribute combination</param>

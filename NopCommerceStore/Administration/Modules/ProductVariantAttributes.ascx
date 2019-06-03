@@ -183,6 +183,16 @@
                                                 MaximumValue="99999"></nopCommerce:NumericTextBox>
                                         </ItemTemplate>
                                     </asp:TemplateField>
+                                     <asp:TemplateField HeaderText="<% $NopResources:Admin.ProductVariantAttributes.CombinationsGrid.IdMap %>"
+                                        ItemStyle-Width="15%">
+                                        <ItemTemplate>
+                                            <nopCommerce:NumericTextBox runat="server" CssClass="adminInput" Width="50px" ID="txtIdMapping"
+                                                Value='<%# Eval("IdMap") %>' RequiredErrorMessage="<% $NopResources:Admin.ProductVariantAttributes.CombinationsGrid.IdMap.RequiredErrorMessage %>"
+                                                RangeErrorMessage="<% $NopResources:Admin.ProductVariantAttributes.CombinationsGrid.IdMap.RangeErrorMessage %>"
+                                                ValidationGroup="UpdateProductVariantAttributeCombination" MinimumValue="-99999"
+                                                MaximumValue="99999999"></nopCommerce:NumericTextBox>
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
                                     <asp:TemplateField HeaderText="<% $NopResources:Admin.ProductVariantAttributes.CombinationsGrid.AllowOutOfStockOrders %>"
                                         ItemStyle-Width="15%">
                                         <ItemTemplate>
