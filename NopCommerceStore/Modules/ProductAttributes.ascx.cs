@@ -250,7 +250,7 @@ namespace NopSolutions.NopCommerce.Web.Modules
                                             var combination = ProductAttributeService.FindProductVariantAttributeCombinationDisplayOnProductBox(productVariant.ProductVariantId, selectedAttributes);
                                             if (combination != null)
                                             {
-                                                if (combination.StockQuantity == 0)
+                                                if (combination.StockQuantity == 0 && !combination.AllowOutOfStockOrders)
                                                 {
                                                     rblAttributes.Items.Remove(pvaValueItem);
 
