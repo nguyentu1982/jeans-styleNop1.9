@@ -527,7 +527,7 @@ namespace NopSolutions.NopCommerce.Web.Administration.Modules
         public int? GetStockQuantityByProductId(int productId)
         {
             int stockQuantity = 0;
-            string connectionString = "Data Source=45.251.114.246,3314;Initial Catalog=JS-Manage;User ID=sa;Password=niemvui";
+            string connectionString = ConfigurationManager.ConnectionStrings["JsSqlConnection"].ConnectionString;
             try
             {
                 using (SqlConnection connection = new SqlConnection(connectionString))

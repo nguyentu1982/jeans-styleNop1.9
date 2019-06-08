@@ -417,6 +417,13 @@
     <Compile Include="Administration\BulkEditProducts.aspx.designer.cs">
       <DependentUpon>BulkEditProducts.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Administration\Modules\UpdateSize.ascx.cs">
+      <DependentUpon>UpdateSize.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administration\Modules\UpdateSize.ascx.designer.cs">
+      <DependentUpon>UpdateSize.ascx</DependentUpon>
+    </Compile>
     <Compile Include="Administration\ProductWebService.asmx.cs">
       <DependentUpon>ProductWebService.asmx</DependentUpon>
       <SubType>Component</SubType>
@@ -553,6 +560,13 @@
     </Compile>
     <Compile Include="Administration\Modules\SystemInformation.ascx.designer.cs">
       <DependentUpon>SystemInformation.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\UpdateSize.aspx.cs">
+      <DependentUpon>UpdateSize.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administration\UpdateSize.aspx.designer.cs">
+      <DependentUpon>UpdateSize.aspx</DependentUpon>
     </Compile>
     <Compile Include="Administration\UpdateSizeToFilterInCategoryPage.aspx.cs">
       <DependentUpon>UpdateSizeToFilterInCategoryPage.aspx</DependentUpon>
@@ -6365,6 +6379,7 @@
     <Content Include="Administration\CategoryTemplateAdd.aspx" />
     <Content Include="Administration\CategoryTemplateDetails.aspx" />
     <Content Include="Administration\CategoryTemplates.aspx" />
+    <Content Include="Administration\Modules\UpdateSize.ascx" />
     <Content Include="Administration\ProductWebService.asmx" />
     <Content Include="Administration\TagsProductAdd.aspx" />
     <Content Include="Administration\Modules\TagsProduct.ascx" />
@@ -6385,6 +6400,7 @@
     <Content Include="Administration\SystemInformation.aspx" />
     <Content Include="Administration\Modules\CategoryACL.ascx" />
     <Content Include="Administration\Modules\SystemInformation.ascx" />
+    <Content Include="Administration\UpdateSize.aspx" />
     <Content Include="Administration\UpdateSizeToFilterInCategoryPage.aspx" />
     <Content Include="Administration\Warnings.aspx" />
     <Content Include="Administration\EmailAccountAdd.aspx" />
