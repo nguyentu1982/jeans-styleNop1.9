@@ -34,6 +34,12 @@
             <asp:Button runat="server" Text="<% $NopResources:Admin.UpdateSize.GoButton.Text %>"
                 CssClass="adminButtonBlue" ID="btnGoDirectlyToOrderNumber" 
                 ValidationGroup="GoDirectly" ToolTip="<% $NopResources:Admin.Orders.GoButton.Tooltip %>" OnClick="btnGoDirectlyToOrderNumber_Click" />
+           
+            <asp:Button runat="server" Text="Expression: Admin.UpdateSize.ViewOutOfStockProduct.Text"
+                CssClass="adminButtonBlue" ID="btnViewOutOfStockProduct" 
+                ValidationGroup="GoDirectly" ToolTip="<% $NopResources:Admin.Orders.GoButton.Tooltip %>" OnClick="btnViewOutOfStockProduct_Click" />
         </td>
     </tr>
 </table>
+<asp:GridView ID="grvOutOfStockProducts" runat="server">
+</asp:GridView>

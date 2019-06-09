@@ -92,5 +92,31 @@ namespace NopSolutions.NopCommerce.Web.Administration.Modules
                 }
             }
         }
+
+        
+
+        protected void btnViewOutOfStockProduct_Click(object sender, EventArgs e)
+        {
+            string connectionString = ConfigurationManager.ConnectionStrings["NopSqlConnection"].ConnectionString;
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    
+                    string sql = "select * from view_GetOutOfStockProduct";                    
+                    SqlCommand cmd = new SqlCommand(sql, connection);
+                    SqlDataAdapter sda = new SqlDataAdapter(cmd);
+                    DataSet ds = new DataSet();
+                    sda.Fill(ds);
+                    grvOutOfStockProducts.DataSource = ds;
+                    grvOutOfStockProducts.DataBind();                    
+                }
+
+            }
+            catch (Exception exc)
+            {
+
+            }
+        }
     }
 }
