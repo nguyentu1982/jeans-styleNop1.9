@@ -242,5 +242,7 @@ namespace NopSolutions.NopCommerce.BusinessLogic.Products.Attributes
         #endregion
 
         ProductVariantAttributeCombination GetProductVariantAttributeCombinationByIdMap(int productId);
+
+        int GetStockQuantity(int productVariantId, string productAttributeName, string productVariantAttributeValueName);
     }
 }

@@ -437,7 +437,10 @@ namespace NopSolutions.NopCommerce.Web.Administration.Modules
 
                         if (isproductSpecificationAttributeExisted && stockQuantity <=0)
                         {
-                            this.SpecificationAttributeService.DeleteProductSpecificationAttribute(productSpecificationAttributeId);
+                            if (this.ProductAttributeService.GetStockQuantity(combination.ProductVariantId, p.ProductAttribute.Name, pv.Name) <= 0)
+                            {
+                                this.SpecificationAttributeService.DeleteProductSpecificationAttribute(productSpecificationAttributeId);
+                            }
                         }
 
                         if (!isproductSpecificationAttributeExisted && stockQuantity > 0)
@@ -457,19 +460,21 @@ namespace NopSolutions.NopCommerce.Web.Administration.Modules
             }
         }
 
-        public void UpdateSize(int productId)
+        public void UpdateSize(int productIdMap)
         {
             int? stockQuantity = 0;            
-            stockQuantity = GetStockQuantityByProductId(productId);
+            stockQuantity = GetStockQuantityByProductId(productIdMap);            
 
             if (stockQuantity != null)
             {
-                var combination = this.ProductAttributeService.GetProductVariantAttributeCombinationByIdMap(productId);
+                var combination = this.ProductAttributeService.GetProductVariantAttributeCombinationByIdMap(productIdMap);
 
                 if (combination != null)
                 {
                     combination.StockQuantity = int.Parse(stockQuantity.ToString());
                     this.ProductAttributeService.UpdateProductVariantAttributeCombination(combination);
+
+                    if (combination.AllowOutOfStockOrders) return;
 
                     ProductVariant productVariant = this.ProductService.GetProductVariantById(combination.ProductVariantId);
                     //var combination = this.ProductAttributeService.GetProductVariantAttributeCombinationById(productVariantAttributeCombinationId);
@@ -503,7 +508,10 @@ namespace NopSolutions.NopCommerce.Web.Administration.Modules
 
                             if (isproductSpecificationAttributeExisted && stockQuantity <= 0)
                             {
-                                this.SpecificationAttributeService.DeleteProductSpecificationAttribute(productSpecificationAttributeId);
+                                if(this.ProductAttributeService.GetStockQuantity(combination.ProductVariantId, p.ProductAttribute.Name, pv.Name)<=0)
+                                {
+                                    this.SpecificationAttributeService.DeleteProductSpecificationAttribute(productSpecificationAttributeId);
+                                }                                
                             }
 
                             if (!isproductSpecificationAttributeExisted && stockQuantity > 0)
@@ -565,6 +573,10 @@ namespace NopSolutions.NopCommerce.Web.Administration.Modules
                     }
                     reader.Close();
                 }
+
+                if (stockQuantity > 0)
+                    stockQuantity += 10;
+
                 return stockQuantity;  
             }
             catch (Exception exc)

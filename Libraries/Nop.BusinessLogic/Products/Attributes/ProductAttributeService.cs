@@ -20,6 +20,7 @@ using NopSolutions.NopCommerce.BusinessLogic.Configuration.Settings;
 using NopSolutions.NopCommerce.BusinessLogic.Data;
 using NopSolutions.NopCommerce.BusinessLogic.Infrastructure;
 using NopSolutions.NopCommerce.Common.Utils;
+using System.Xml;
 
 namespace NopSolutions.NopCommerce.BusinessLogic.Products.Attributes
 {
@@ -876,6 +877,33 @@ namespace NopSolutions.NopCommerce.BusinessLogic.Products.Attributes
             return null;
         }
 
+        public int GetStockQuantity(int productVariantId, string productAttributeName, string productVariantAttributeValueName)
+        {
+            int stockQuantity = 0;
+            List<ProductVariantAttributeCombination> pvaclist = this.GetAllProductVariantAttributeCombinations(productVariantId);
+            foreach(ProductVariantAttributeCombination combination in pvaclist)
+            {
+                string attributes = combination.AttributesXml;
+                XmlDocument doc = new XmlDocument();
+                doc.LoadXml(attributes);
+                XmlNodeList productVariantAttributeNodes = doc.DocumentElement.SelectNodes("/Attributes/ProductVariantAttribute");
+                foreach (XmlNode n in productVariantAttributeNodes)
+                {
+                    string productVariantAttributeId = n.Attributes["ID"].Value;
+                    string productVariantAttributeValueId = n.SelectSingleNode("/Attributes/ProductVariantAttribute/ProductVariantAttributeValue/Value").InnerText;
+                    ProductVariantAttribute p = this.GetProductVariantAttributeById(int.Parse(productVariantAttributeId));
+                    ProductVariantAttributeValue pv = this.GetProductVariantAttributeValueById(int.Parse(productVariantAttributeValueId));
+                    if (p.ProductAttribute.Name.ToLower().Contains(productAttributeName))
+                    { 
+                        if(pv.Name == productVariantAttributeValueName)
+                        {
+                            stockQuantity += combination.StockQuantity;
+                        }
+                    }
+                }
+            }
+            return stockQuantity;
+        }
         #endregion
 
         #endregion
