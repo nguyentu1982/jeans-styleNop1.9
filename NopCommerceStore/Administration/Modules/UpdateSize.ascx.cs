@@ -23,6 +23,7 @@ namespace NopSolutions.NopCommerce.Web.Administration.Modules
             DateTime? endDate = ctrlEndDatePicker.SelectedDate;
             List<int> productIds = new List<int>();
             string strStatus = string.Empty;
+            string idsMap = string.Empty;
             string connectionString = ConfigurationManager.ConnectionStrings["JsSqlConnection"].ConnectionString;
             try
             {
@@ -84,12 +85,47 @@ namespace NopSolutions.NopCommerce.Web.Administration.Modules
             {
                 try
                 {
-                    pv.UpdateSize(i);               
+                    pv.UpdateSize(i);
+                    idsMap += i + ",";
                 }
                 catch (Exception ex)
                 {
                     throw ex;
                 }
+            }
+
+            string nopConnectionString = ConfigurationManager.ConnectionStrings["NopSqlConnection"].ConnectionString;
+            idsMap = idsMap.Remove(idsMap.Length-1);
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(nopConnectionString))
+                {
+
+                    SqlCommand command = new SqlCommand();
+                    command.Connection = connection;
+                    command.CommandText = "GetProductByIdsMap";
+                    command.CommandType = CommandType.StoredProcedure;
+
+                    // Add the input parameter and set its properties.
+                    SqlParameter parameter = new SqlParameter();
+                    parameter.ParameterName = "@idsmap";
+                    parameter.SqlDbType = SqlDbType.NVarChar;
+                    parameter.Direction = ParameterDirection.Input;
+                    parameter.Value = idsMap;
+
+                    command.Parameters.Add(parameter);
+
+                    SqlDataAdapter sda = new SqlDataAdapter(command);
+                    DataSet ds = new DataSet();
+                    sda.Fill(ds);
+                    grvOutOfStockProducts.DataSource = ds;
+                    grvOutOfStockProducts.DataBind();
+                }
+
+            }
+            catch (Exception exc)
+            {
+                throw exc;
             }
         }
 

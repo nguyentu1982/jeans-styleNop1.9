@@ -788,7 +788,7 @@ namespace NopSolutions.NopCommerce.BusinessLogic.Products.Attributes
         /// </summary>
         /// <param name="productVariantAttributeCombinationId">Product variant attribute combination identifier</param>
         /// <returns>Product variant attribute combination</returns>
-        public ProductVariantAttributeCombination GetProductVariantAttributeCombinationByIdMap(int idMap)
+        public List<ProductVariantAttributeCombination> GetProductVariantAttributeCombinationByIdMap(int idMap)
         {
             if (idMap == 0)
                 return null;
@@ -797,7 +797,7 @@ namespace NopSolutions.NopCommerce.BusinessLogic.Products.Attributes
             var query = from pvac in _context.ProductVariantAttributeCombinations
                         where pvac.IdMap == idMap
                         select pvac;
-            var combination = query.SingleOrDefault();
+            var combination = query.ToList();
 
             return combination;
         }
@@ -893,13 +893,16 @@ namespace NopSolutions.NopCommerce.BusinessLogic.Products.Attributes
                     string productVariantAttributeValueId = n.SelectSingleNode("/Attributes/ProductVariantAttribute/ProductVariantAttributeValue/Value").InnerText;
                     ProductVariantAttribute p = this.GetProductVariantAttributeById(int.Parse(productVariantAttributeId));
                     ProductVariantAttributeValue pv = this.GetProductVariantAttributeValueById(int.Parse(productVariantAttributeValueId));
-                    if (p.ProductAttribute.Name.ToLower().Contains(productAttributeName))
-                    { 
-                        if(pv.Name == productVariantAttributeValueName)
+                    if(pv != null && p != null)
+                    {
+                        if (p.ProductAttribute.Name.ToLower().Contains(productAttributeName))
                         {
-                            stockQuantity += combination.StockQuantity;
+                            if (pv.Name == productVariantAttributeValueName)
+                            {
+                                stockQuantity += combination.StockQuantity;
+                            }
                         }
-                    }
+                    }                    
                 }
             }
             return stockQuantity;

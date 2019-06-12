@@ -467,67 +467,70 @@ namespace NopSolutions.NopCommerce.Web.Administration.Modules
 
             if (stockQuantity != null)
             {
-                var combination = this.ProductAttributeService.GetProductVariantAttributeCombinationByIdMap(productIdMap);
+                var combinationList = this.ProductAttributeService.GetProductVariantAttributeCombinationByIdMap(productIdMap);
 
-                if (combination != null)
+                if (combinationList.Count > 0)
                 {
-                    combination.StockQuantity = int.Parse(stockQuantity.ToString());
-                    this.ProductAttributeService.UpdateProductVariantAttributeCombination(combination);
-
-                    if (combination.AllowOutOfStockOrders) return;
-
-                    ProductVariant productVariant = this.ProductService.GetProductVariantById(combination.ProductVariantId);
-                    //var combination = this.ProductAttributeService.GetProductVariantAttributeCombinationById(productVariantAttributeCombinationId);
-                    string attributes = combination.AttributesXml;
-                    XmlDocument doc = new XmlDocument();
-                    doc.LoadXml(attributes);
-
-                    XmlNodeList productVariantAttributeNodes = doc.DocumentElement.SelectNodes("/Attributes/ProductVariantAttribute");
-
-                    foreach (XmlNode n in productVariantAttributeNodes)
+                    foreach (ProductVariantAttributeCombination combination in combinationList)
                     {
-                        string productVariantAttributeId = n.Attributes["ID"].Value;
-                        string productVariantAttributeValueId = n.SelectSingleNode("/Attributes/ProductVariantAttribute/ProductVariantAttributeValue/Value").InnerText;
-                        ProductVariantAttribute p = this.ProductAttributeService.GetProductVariantAttributeById(int.Parse(productVariantAttributeId));
-                        ProductVariantAttributeValue pv = this.ProductAttributeService.GetProductVariantAttributeValueById(int.Parse(productVariantAttributeValueId));
-                        if (p.ProductAttribute.Name.ToLower().Contains("size"))
-                        {
-                            int productSpecificationAttributeOptionId = this.SpecificationAttributeService.GetSpecificationAttributeOption(p.ProductAttribute.Name, pv.Name).SpecificationAttributeOptionId;
+                        combination.StockQuantity = int.Parse(stockQuantity.ToString());
+                        this.ProductAttributeService.UpdateProductVariantAttributeCombination(combination);
 
-                            List<ProductSpecificationAttribute> productSpecificationAttributes = this.SpecificationAttributeService.GetProductSpecificationAttributesByProductId(productVariant.Product.ProductId);
-                            bool isproductSpecificationAttributeExisted = false;
-                            int productSpecificationAttributeId = 0;
-                            foreach (ProductSpecificationAttribute psa in productSpecificationAttributes)
+                        if (combination.AllowOutOfStockOrders) return;
+
+                        ProductVariant productVariant = this.ProductService.GetProductVariantById(combination.ProductVariantId);
+                        //var combination = this.ProductAttributeService.GetProductVariantAttributeCombinationById(productVariantAttributeCombinationId);
+                        string attributes = combination.AttributesXml;
+                        XmlDocument doc = new XmlDocument();
+                        doc.LoadXml(attributes);
+
+                        XmlNodeList productVariantAttributeNodes = doc.DocumentElement.SelectNodes("/Attributes/ProductVariantAttribute");
+
+                        foreach (XmlNode n in productVariantAttributeNodes)
+                        {
+                            string productVariantAttributeId = n.Attributes["ID"].Value;
+                            string productVariantAttributeValueId = n.SelectSingleNode("/Attributes/ProductVariantAttribute/ProductVariantAttributeValue/Value").InnerText;
+                            ProductVariantAttribute p = this.ProductAttributeService.GetProductVariantAttributeById(int.Parse(productVariantAttributeId));
+                            ProductVariantAttributeValue pv = this.ProductAttributeService.GetProductVariantAttributeValueById(int.Parse(productVariantAttributeValueId));
+                            if (p.ProductAttribute.Name.ToLower().Contains("size"))
                             {
-                                if (psa.SpecificationAttributeOptionId == productSpecificationAttributeOptionId)
+                                int productSpecificationAttributeOptionId = this.SpecificationAttributeService.GetSpecificationAttributeOption(p.ProductAttribute.Name, pv.Name).SpecificationAttributeOptionId;
+
+                                List<ProductSpecificationAttribute> productSpecificationAttributes = this.SpecificationAttributeService.GetProductSpecificationAttributesByProductId(productVariant.Product.ProductId);
+                                bool isproductSpecificationAttributeExisted = false;
+                                int productSpecificationAttributeId = 0;
+                                foreach (ProductSpecificationAttribute psa in productSpecificationAttributes)
                                 {
-                                    isproductSpecificationAttributeExisted = true;
-                                    productSpecificationAttributeId = psa.ProductSpecificationAttributeId;
+                                    if (psa.SpecificationAttributeOptionId == productSpecificationAttributeOptionId)
+                                    {
+                                        isproductSpecificationAttributeExisted = true;
+                                        productSpecificationAttributeId = psa.ProductSpecificationAttributeId;
+                                    }
+                                }
+
+                                if (isproductSpecificationAttributeExisted && stockQuantity <= 0)
+                                {
+                                    if (this.ProductAttributeService.GetStockQuantity(combination.ProductVariantId, p.ProductAttribute.Name, pv.Name) <= 0)
+                                    {
+                                        this.SpecificationAttributeService.DeleteProductSpecificationAttribute(productSpecificationAttributeId);
+                                    }
+                                }
+
+                                if (!isproductSpecificationAttributeExisted && stockQuantity > 0)
+                                {
+                                    var productSpecificationAttribute = new NopSolutions.NopCommerce.BusinessLogic.Products.Specs.ProductSpecificationAttribute()
+                                    {
+                                        ProductId = productVariant.Product.ProductId,
+                                        SpecificationAttributeOptionId = productSpecificationAttributeOptionId,
+                                        AllowFiltering = true,
+                                        ShowOnProductPage = false,
+                                        DisplayOrder = 0
+                                    };
+                                    this.SpecificationAttributeService.InsertProductSpecificationAttribute(productSpecificationAttribute);
                                 }
                             }
-
-                            if (isproductSpecificationAttributeExisted && stockQuantity <= 0)
-                            {
-                                if(this.ProductAttributeService.GetStockQuantity(combination.ProductVariantId, p.ProductAttribute.Name, pv.Name)<=0)
-                                {
-                                    this.SpecificationAttributeService.DeleteProductSpecificationAttribute(productSpecificationAttributeId);
-                                }                                
-                            }
-
-                            if (!isproductSpecificationAttributeExisted && stockQuantity > 0)
-                            {
-                                var productSpecificationAttribute = new NopSolutions.NopCommerce.BusinessLogic.Products.Specs.ProductSpecificationAttribute()
-                                {
-                                    ProductId = productVariant.Product.ProductId,
-                                    SpecificationAttributeOptionId = productSpecificationAttributeOptionId,
-                                    AllowFiltering = true,
-                                    ShowOnProductPage = false,
-                                    DisplayOrder = 0
-                                };
-                                this.SpecificationAttributeService.InsertProductSpecificationAttribute(productSpecificationAttribute);
-                            }
                         }
-                    }
+                    }                    
                 }
 
             }
