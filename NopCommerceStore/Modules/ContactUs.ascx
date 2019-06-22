@@ -3,6 +3,7 @@
 <%@ Register TagPrefix="nopCommerce" TagName="SimpleTextBox" Src="~/Modules/SimpleTextBox.ascx" %>
 <%@ Register TagPrefix="nopCommerce" TagName="EmailTextBox" Src="~/Modules/EmailTextBox.ascx" %>
 <%@ Register TagPrefix="nopCommerce" TagName="Topic" Src="~/Modules/Topic.ascx" %>
+<%@ Register TagPrefix="nopCommerce" TagName="Captcha" Src="~/Modules/Captcha.ascx" %>
 <div class="contact-form">
     <div>
         <nopCommerce:Topic ID="topicContactUs" runat="server" TopicName="ContactUs" OverrideSEO="false">
@@ -44,6 +45,13 @@
                     <asp:TextBox runat="server" ID="txtEnquiry" TextMode="MultiLine" SkinID="ContactUsEnquiryText"></asp:TextBox>
                 </td>
             </tr>
+             <tr class="row">
+                 <td class="item-name">
+                </td>
+                <td class="item-name" >
+                    <nopCommerce:Captcha ID="Captcha" runat="server" />
+                </td>
+                
             <tr class="row">
                 <td class="item-name">
                 </td>

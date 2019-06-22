@@ -33,6 +33,7 @@ using NopSolutions.NopCommerce.BusinessLogic.Messages;
 using NopSolutions.NopCommerce.BusinessLogic.Utils.Html;
 using NopSolutions.NopCommerce.Common.Utils;
 using NopSolutions.NopCommerce.BusinessLogic.Infrastructure;
+
  
 
 namespace NopSolutions.NopCommerce.Web.Modules
@@ -60,6 +61,7 @@ namespace NopSolutions.NopCommerce.Web.Modules
             {
                 try
                 {
+                    if (!Captcha.ValidateCaptcha()) return;
                     if (String.IsNullOrEmpty(txtEnquiry.Text))
                         return;
                     string email = txtEmail.Text.Trim();
