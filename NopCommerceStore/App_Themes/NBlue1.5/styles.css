@@ -2422,7 +2422,7 @@ textarea
   	 border-radius: 3px;
    	margin:5px;
 	width:300px;
-    min-height:453px;
+    height:488px;
 }
 
 .product-grid .product-item .picture img
@@ -2483,7 +2483,7 @@ textarea
 
 .product-grid .product-item .attributes label
 {	
-	padding:5px;   
+	padding:3px;   
 }
 
 .add-info .attributes
