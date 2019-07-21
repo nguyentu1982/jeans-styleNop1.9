@@ -193,8 +193,6 @@ img
 .master-wrapper-center-1
 {	
 	background: #FFF;
-    
-    max-width:1266px;
     margin:auto;
 }
 
@@ -950,7 +948,7 @@ td.fieldname
 
 .topicpage, .htmlcontent
 {
-	
+	 padding:5px 5px 5px 15px;
 }
 
 .topicpage-title
@@ -958,6 +956,11 @@ td.fieldname
 	border-bottom: 0 none;
 }
 
+.topicpage-body
+{
+   
+
+}
 
 .user-agreement-page
 {
