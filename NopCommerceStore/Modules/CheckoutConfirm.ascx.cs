@@ -68,7 +68,9 @@ namespace NopSolutions.NopCommerce.Web.Modules
                             return;
                         }
                     }
-                    paymentInfo.BillingAddress = NopContext.Current.User.BillingAddress;
+
+                    //paymentInfo.BillingAddress = NopContext.Current.User.BillingAddress;
+                    paymentInfo.BillingAddress = NopContext.Current.User.ShippingAddress;
                     paymentInfo.ShippingAddress = NopContext.Current.User.ShippingAddress;
                     paymentInfo.CustomerLanguage = NopContext.Current.WorkingLanguage;
                     paymentInfo.CustomerCurrency = NopContext.Current.WorkingCurrency;

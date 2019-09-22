@@ -75,7 +75,7 @@ namespace NopSolutions.NopCommerce.Web.Modules
                 var args1 = new CheckoutStepEventArgs() { ShippingAddressSelected = true };
                 OnCheckoutStepChanged(args1);
                 if (!this.OnePageCheckout)
-                    Response.Redirect("~/checkoutbillingaddress.aspx");
+                    Response.Redirect("~/CheckoutPaymentMethod.aspx");
                 return;
             }
 
@@ -111,7 +111,7 @@ namespace NopSolutions.NopCommerce.Web.Modules
             var args2 = new CheckoutStepEventArgs() { ShippingAddressSelected = true };
             OnCheckoutStepChanged(args2);
             if (!this.OnePageCheckout)
-                Response.Redirect("~/checkoutbillingaddress.aspx");
+                Response.Redirect("~/CheckoutPaymentMethod.aspx");
         }
 
         protected List<Address> GetAllowedShippingAddresses(Customer customer)
