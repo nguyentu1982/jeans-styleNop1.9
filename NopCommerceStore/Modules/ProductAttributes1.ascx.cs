@@ -271,27 +271,37 @@ namespace NopSolutions.NopCommerce.Web.Modules
                                                 selectedAttributes = ProductAttributeHelper.AddProductAttribute(selectedAttributes,
                                                     attribute, pvaValue.ProductVariantAttributeValueId.ToString());
 
-                                                var combination = ProductAttributeService.FindProductVariantAttributeCombinationDisplayOnProductBox(productVariant.ProductVariantId, selectedAttributes);
-                                                if (combination != null)
+                                                var combinations = ProductAttributeService.FindProductVariantAttributeCombinationDisplayOnProductBox(productVariant.ProductVariantId, selectedAttributes);
+                                                var stockQuantity = 0;
+                                                if (combinations != null)
                                                 {
-                                                    if (combination.StockQuantity == 0 && !combination.AllowOutOfStockOrders)
+                                                    foreach (ProductVariantAttributeCombination com in combinations)
+                                                    {
+                                                        if (com.AllowOutOfStockOrders)
+                                                        {
+                                                            stockQuantity = 1;
+                                                        }
+                                                        else
+                                                        {
+                                                            stockQuantity += com.StockQuantity;
+                                                        }
+
+                                                    }
+
+                                                    if (stockQuantity == 0)
                                                     {
                                                         rblAttributes.Items.Remove(pvaValueItem);
-
                                                     }
                                                     else
                                                     {
                                                         isOutOfStock = false;
                                                     }
                                                 }
-                                                if (combination == null)
+                                                if (combinations == null)
                                                 {
                                                     rblAttributes.Items.Remove(pvaValueItem);
                                                 }
                                             }
-
-
-
                                         }
                                     }
                                     break;

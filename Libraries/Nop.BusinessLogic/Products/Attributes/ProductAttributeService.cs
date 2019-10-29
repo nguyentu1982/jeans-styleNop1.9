@@ -858,9 +858,10 @@ namespace NopSolutions.NopCommerce.BusinessLogic.Products.Attributes
             return null;
         }
 
-        public ProductVariantAttributeCombination FindProductVariantAttributeCombinationDisplayOnProductBox(int productVariantId, string attributesXml)
+        public List<ProductVariantAttributeCombination> FindProductVariantAttributeCombinationDisplayOnProductBox(int productVariantId, string attributesXml)
         {
             //existing combinations
+            List<ProductVariantAttributeCombination> result = new List<ProductVariantAttributeCombination>();
             var combinations = this.GetAllProductVariantAttributeCombinations(productVariantId);
             if (combinations.Count == 0)
                 return null;
@@ -870,10 +871,11 @@ namespace NopSolutions.NopCommerce.BusinessLogic.Products.Attributes
                 bool attributesEqual = ProductAttributeHelper.AreProductAttributesEqualDisplayOnProductBox(combination.AttributesXml, attributesXml);
                 if (attributesEqual)
                 {
-                    return combination;
+                    result.Add( combination);
                 }
             }
-
+            if (result.Count > 0)
+                return result;
             return null;
         }
 

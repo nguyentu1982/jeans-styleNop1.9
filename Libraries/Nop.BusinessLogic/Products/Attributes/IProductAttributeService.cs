@@ -238,7 +238,7 @@ namespace NopSolutions.NopCommerce.BusinessLogic.Products.Attributes
         /// <returns>Found product variant attribute combination</returns>
         ProductVariantAttributeCombination FindProductVariantAttributeCombination(int productVariantId, string attributesXml);
 
-        ProductVariantAttributeCombination FindProductVariantAttributeCombinationDisplayOnProductBox(int productVariantId, string attributesXml);
+        List<ProductVariantAttributeCombination> FindProductVariantAttributeCombinationDisplayOnProductBox(int productVariantId, string attributesXml);
         #endregion
 
         List<ProductVariantAttributeCombination> GetProductVariantAttributeCombinationByIdMap(int productId);
