@@ -264,7 +264,7 @@ namespace NopSolutions.NopCommerce.Web.Modules
                                                     
                                                 }
 
-                                                if (stockQuantity == 0)
+                                                if (stockQuantity <= 0)
                                                 {
                                                     rblAttributes.Items.Remove(pvaValueItem);
                                                 }

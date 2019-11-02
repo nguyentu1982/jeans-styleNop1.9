@@ -3399,10 +3399,11 @@ textarea
 }
 .newslist .newsitems .item
 {
-	border-bottom:  dashed 1px #C0C0C0;
-	text-align:left;
-	padding:15px 5px 15px 5px;
-	float:left;
+	border-bottom: dashed 1px #C0C0C0;
+    padding: 10px;
+    height: 103px;
+    width: 100%;
+    max-width: 600px;
 }
 
 .newslist .item-list .item
@@ -4120,7 +4121,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .add-info
 {    
-    padding-top: 10px;
+    
 }
 
 .product-essential
@@ -4456,7 +4457,7 @@ h1, h2, h3, h4, h5, h6 {
 	text-align: center;
 	font-size: 14px;
 	text-decoration: none;
-	margin:10px 5px;
+	margin:5px 5px;
 	color: #3664A5;
 	height:43px;
 }
