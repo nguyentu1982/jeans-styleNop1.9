@@ -17,109 +17,77 @@
     <table class="cart">
         <%if (IsShoppingCart)
           { %>
-        <col width="1" />
-        <%} %>
-        <%if (this.SettingManager.GetSettingValueBoolean("Display.Products.ShowSKU"))
+        <colgroup>
+            <col width="1" />
+            <%} %><%if (this.SettingManager.GetSettingValueBoolean("Display.Products.ShowSKU"))
           {%>
-        <col width="1" />
-        <%} %>
-        <%if (this.SettingManager.GetSettingValueBoolean("Display.ShowProductImagesOnShoppingCart"))
+            <col width="1" />
+            <%} %><%if (this.SettingManager.GetSettingValueBoolean("Display.ShowProductImagesOnShoppingCart"))
           {%>
-        <col width="1" />
-        <%} %>
-        <col />
-        <col width="1" />
-        <col width="1" />
-        <col width="1" />
-        <thead>
-            <tr class="cart-header-row">
-                <%if (IsShoppingCart)
+            <col width="1" />
+            <%} %>
+            <col />
+            <col width="1" />
+            <col width="1" />
+            <col width="1" />
+            <thead>
+                <tr class="cart-header-row">
+                    <%if (IsShoppingCart)
                   { %>
-                <th>
-                    <%=GetLocaleResourceString("ShoppingCart.Remove")%>
-                </th>
-                <%} %>
-                <%if (this.SettingManager.GetSettingValueBoolean("Display.Products.ShowSKU"))
+                    <th><%=GetLocaleResourceString("ShoppingCart.Remove")%></th>
+                    <%} %><%if (this.SettingManager.GetSettingValueBoolean("Display.Products.ShowSKU"))
                   {%>
-                <th>
-                    <%=GetLocaleResourceString("ShoppingCart.SKU")%>
-                </th>
-                <%} %>
-                <%if (this.SettingManager.GetSettingValueBoolean("Display.ShowProductImagesOnShoppingCart"))
+                    <th><%=GetLocaleResourceString("ShoppingCart.SKU")%></th>
+                    <%} %><%if (this.SettingManager.GetSettingValueBoolean("Display.ShowProductImagesOnShoppingCart"))
                   {%>
-                <th class="picture">
-                </th>
-                <%} %>
-                <th>
-                    <%=GetLocaleResourceString("ShoppingCart.Product(s)")%>
-                </th>
-                <th>
-                    <%=GetLocaleResourceString("ShoppingCart.UnitPrice")%>
-                </th>
-                <th>
-                    <%=GetLocaleResourceString("ShoppingCart.Quantity")%>
-                </th>
-                <th class="end">
-                    <%=GetLocaleResourceString("ShoppingCart.ItemTotal")%>
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-            <asp:Repeater ID="rptShoppingCart" runat="server">
-                <ItemTemplate>
-                    <tr class="cart-item-row">
-                        <%if (IsShoppingCart)
-                          { %>
-                        <td>
-                            <asp:CheckBox runat="server" ID="cbRemoveFromCart" onclick="if(!deleteItem(this)) return false" AutoPostBack="true"  OnCheckedChanged="cbRemoveFromCart_CheckedChanged"/>
-                        </td>
-                        <%} %>
-                        <%if (this.SettingManager.GetSettingValueBoolean("Display.Products.ShowSKU"))
-                          {%>
-                        <td style="white-space: nowrap;">
-                            <%#Server.HtmlEncode(((ShoppingCartItem)Container.DataItem).ProductVariant.SKU)%>
-                        </td>
-                        <%} %>
-                        <%if (this.SettingManager.GetSettingValueBoolean("Display.ShowProductImagesOnShoppingCart"))
-                          {%>
-                        <td class="productpicture">
-                            <asp:Image ID="iProductVariantPicture" runat="server" ImageUrl='<%#GetProductVariantImageUrl((ShoppingCartItem)Container.DataItem)%>'
-                                AlternateText="Product picture" />
-                        </td>
-                        <%} %>
-                        <td class="product">
-                            <a href='<%#GetProductUrl((ShoppingCartItem)Container.DataItem)%>' title="View details">
-                                <%#Server.HtmlEncode(GetProductVariantName((ShoppingCartItem)Container.DataItem))%></a>
-                            <%#GetAttributeDescription((ShoppingCartItem)Container.DataItem)%>
-                            <%#GetRecurringDescription((ShoppingCartItem)Container.DataItem)%>
-                            <asp:Panel runat="server" ID="pnlWarnings" CssClass="warning-box" EnableViewState="false"
-                                Visible="false">
-                                <asp:Label runat="server" ID="lblWarning" CssClass="warning-text" EnableViewState="false"
-                                    Visible="false"></asp:Label>
-                            </asp:Panel>
-                        </td>
-                        <td style="white-space: nowrap;">
-                            <%#GetShoppingCartItemUnitPriceString((ShoppingCartItem)Container.DataItem)%>
-                        </td>
-                        <td style="white-space: nowrap;">
+                    <th class="picture"></th>
+                    <%} %>
+                    <th><%=GetLocaleResourceString("ShoppingCart.Product(s)")%></th>
+                    <th><%=GetLocaleResourceString("ShoppingCart.UnitPrice")%></th>
+                    <th><%=GetLocaleResourceString("ShoppingCart.Quantity")%></th>
+                    <th class="end"><%=GetLocaleResourceString("ShoppingCart.ItemTotal")%></th>
+                </tr>
+            </thead>
+            <tbody>
+                <asp:Repeater ID="rptShoppingCart" runat="server">
+                    <ItemTemplate>
+                        <tr class="cart-item-row">
                             <%if (IsShoppingCart)
+                          { %>
+                            <td>
+                                <asp:CheckBox ID="cbRemoveFromCart" runat="server" AutoPostBack="true" Text="Xóa" Font-Underline="true" OnCheckedChanged="cbRemoveFromCart_CheckedChanged" onclick="if(!deleteItem(this)) return false" />
+                            </td>
+                            <%} %><%if (this.SettingManager.GetSettingValueBoolean("Display.Products.ShowSKU"))
+                          {%>
+                            <td style="white-space: nowrap;"><%#Server.HtmlEncode(((ShoppingCartItem)Container.DataItem).ProductVariant.SKU)%></td>
+                            <%} %><%if (this.SettingManager.GetSettingValueBoolean("Display.ShowProductImagesOnShoppingCart"))
+                          {%>
+                            <td class="productpicture">
+                                <asp:Image ID="iProductVariantPicture" runat="server" AlternateText="Product picture" ImageUrl="<%#GetProductVariantImageUrl((ShoppingCartItem)Container.DataItem)%>" />
+                            </td>
+                            <%} %>
+                            <td class="product"><a href="<%#GetProductUrl((ShoppingCartItem)Container.DataItem)%>" title="View details"><%#Server.HtmlEncode(GetProductVariantName((ShoppingCartItem)Container.DataItem))%></a><%#GetAttributeDescription((ShoppingCartItem)Container.DataItem)%><%#GetRecurringDescription((ShoppingCartItem)Container.DataItem)%>
+                                <asp:Panel ID="pnlWarnings" runat="server" CssClass="warning-box" EnableViewState="false" Visible="false">
+                                    <asp:Label ID="lblWarning" runat="server" CssClass="warning-text" EnableViewState="false" Visible="false"></asp:Label>
+                                </asp:Panel>
+                            </td>
+                            <td style="white-space: nowrap;"><%#GetShoppingCartItemUnitPriceString((ShoppingCartItem)Container.DataItem)%></td>
+                            <td style="white-space: nowrap;"><%if (IsShoppingCart)
                               { %>
-                            <asp:TextBox ID="txtQuantity" size="4" runat="server" Text='<%# Eval("Quantity") %>'
-                                SkinID="ShoppingCartQuantityText" />
-                            <%}
+                                <asp:TextBox ID="txtQuantity" runat="server" size="4" SkinID="ShoppingCartQuantityText" Text='<%# Eval("Quantity") %>' />
+                                <%}
                               else
                               { %>
-                            <asp:Label ID="lblQuantity" runat="server" Text='<%# Eval("Quantity") %>' CssClass="Label" />
-                            <%} %>
-                        </td>
-                        <td style="white-space: nowrap;" class="end">
-                            <%#GetShoppingCartItemSubTotalString((ShoppingCartItem)Container.DataItem)%>
-                            <asp:Label ID="lblShoppingCartItemId" runat="server" Visible="false" Text='<%# Eval("ShoppingCartItemId") %>' />
-                        </td>
-                    </tr>
-                </ItemTemplate>
-            </asp:Repeater>
-        </tbody>
+                                <asp:Label ID="lblQuantity" runat="server" CssClass="Label" Text='<%# Eval("Quantity") %>' />
+                                <%} %></td>
+                            <td class="end" style="white-space: nowrap;"><%#GetShoppingCartItemSubTotalString((ShoppingCartItem)Container.DataItem)%>
+                                <asp:Label ID="lblShoppingCartItemId" runat="server" Text='<%# Eval("ShoppingCartItemId") %>' Visible="false" />
+                            </td>
+                        </tr>
+                    </ItemTemplate>
+                </asp:Repeater>
+            </tbody>
+        </colgroup>
     </table>
     <div class="clear">
     </div>
