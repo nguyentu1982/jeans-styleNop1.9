@@ -81,7 +81,7 @@ namespace NopSolutions.NopCommerce.Web.Modules
                         var args1 = new CheckoutStepEventArgs() { PaymentMethodSelected = true };
                         OnCheckoutStepChanged(args1);
                         if (!this.OnePageCheckout)
-                            Response.Redirect("~/checkoutpaymentinfo.aspx");
+                            Response.Redirect("~/checkoutconfirm.aspx");
                     }
                 }
             }
