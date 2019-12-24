@@ -8,10 +8,10 @@
         <li>
             <asp:HyperLink runat="server" ID="hlAddress" Text="<% $NopResources:OrderProgress.Address %>">
             </asp:HyperLink></li>
-        <li>
+        <li style="display:none">
             <asp:HyperLink runat="server" ID="hlShipping" Text="<% $NopResources:OrderProgress.Shipping %>">
             </asp:HyperLink></li>
-        <li>
+        <li style="display:none">
             <asp:HyperLink runat="server" ID="hlPayment" Text="<% $NopResources:OrderProgress.Payment %>">
             </asp:HyperLink></li>
         <li>

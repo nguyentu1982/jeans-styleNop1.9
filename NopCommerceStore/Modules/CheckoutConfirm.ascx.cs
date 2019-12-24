@@ -70,6 +70,7 @@ namespace NopSolutions.NopCommerce.Web.Modules
                     }
 
                     //paymentInfo.BillingAddress = NopContext.Current.User.BillingAddress;
+                    paymentInfo.PaymentMethodId = 15; //hardcode
                     paymentInfo.BillingAddress = NopContext.Current.User.ShippingAddress;
                     paymentInfo.ShippingAddress = NopContext.Current.User.ShippingAddress;
                     paymentInfo.CustomerLanguage = NopContext.Current.WorkingLanguage;
@@ -175,7 +176,7 @@ namespace NopSolutions.NopCommerce.Web.Modules
             {
                 if (this.Session["OrderPaymentInfo"] != null)
                     return (PaymentInfo)(this.Session["OrderPaymentInfo"]);
-                return null;
+                return new PaymentInfo();
             }
             set
             {
