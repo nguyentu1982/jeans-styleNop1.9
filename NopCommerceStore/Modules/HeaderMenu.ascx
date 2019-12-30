@@ -16,7 +16,7 @@
 
         <li><a href="<%=CommonHelper.GetStoreLocation()%>danh-muc-jean/13/quan-jean-nu.aspx" id="megaanchor">JEANS NỮ<i class="angle-down"></i></a></li>
 
-        <li><a href="<%=CommonHelper.GetStoreLocation()%>danh-muc-jean/30/jeans-nam-big-size.aspx" id="megaanchor3"> BIG SIZE NAM <i class="angle-down"></i></a></li>
+        <li><a href="<%=CommonHelper.GetStoreLocation()%>danh-muc-jean/80/big-size-nam.aspx" id="megaanchor3"> BIG SIZE NAM <i class="angle-down"></i></a></li>
 
         <li><a href="<%=CommonHelper.GetStoreLocation()%>danh-muc-jean/26/quan-jean-nu-size-lon-big-size.aspx" id="megaanchor4">BIG SIZE NỮ </a></li>
            

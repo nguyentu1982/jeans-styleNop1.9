@@ -379,7 +379,7 @@
         <div class="column">
             <h3>Big size </h3>
             <ul>                
-                <li><a href="<%=CommonHelper.GetStoreLocation()%>danh-muc-jean/30/jeans-nam-big-size.aspx">Big Size Nam</a></li>
+                <li><a href="<%=CommonHelper.GetStoreLocation()%>danh-muc-jean/80/big-size-nam.aspx">Big Size Nam</a></li>
                 
                 
             </ul>
@@ -391,8 +391,8 @@
         <div class="column">
             <h3>Quần </h3>
             <ul>                
-                <li><a href="<%=CommonHelper.GetStoreLocation()%>danh-muc-jean/64/quan-jeans-dai-nam-big-size.aspx">Jeans nam dài big size</a></li>
-                <li><a href="<%=CommonHelper.GetStoreLocation()%>danh-muc-jean/65/quan-jeans-lung-ngo-nam-big-size.aspx">Jeans nam lửng, ngố big size</a></li>
+                <li><a href="<%=CommonHelper.GetStoreLocation()%>danh-muc-jean/30/quan-jeans-nam-big-size.aspx">Quần Jeans nam big size</a></li>
+                <li><a href="<%=CommonHelper.GetStoreLocation()%>danh-muc-jean/65/quan-jeans-lung-ngo-nam-big-size.aspx">Quần jeans nam big size lửng, ngố</a></li>
                 
             </ul>
         </div>
