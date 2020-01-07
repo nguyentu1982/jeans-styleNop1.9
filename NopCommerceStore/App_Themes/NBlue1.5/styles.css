@@ -4133,6 +4133,7 @@ h1, h2, h3, h4, h5, h6 {
 	float: left;
 	margin-top: 5px;
 	margin-bottom: 15px;
+    max-width:405px;
 }
 
 .product-details-info .overview
