@@ -12,6 +12,11 @@
 <%@ Register TagPrefix="nopCommerce" TagName="ContactInfoHotline" Src="~/Modules/ContactInfoHotline.ascx" %>
 <%@ Register TagPrefix="nopCommerce" TagName="Topic" Src="~/Modules/Topic.ascx" %>
 
+<asp:Content ID="Content0" ContentPlaceHolderID="cph2" runat="server">
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v6.0&appId=531573176905803&autoLogAppEvents=1"></script>
+</asp:Content>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="cph1" runat="server">
 
     <%--<div class="product-master-wrapper-leftside-2" style="display: none">
