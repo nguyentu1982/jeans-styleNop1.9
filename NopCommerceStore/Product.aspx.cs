@@ -59,28 +59,12 @@ namespace NopSolutions.NopCommerce.Web
 
         protected void RenderRemarketingAdwordsScript()
         {
+
             CultureInfo vnCul = CultureInfo.GetCultureInfo("vi-VN");
 
             product = this.ProductService.GetProductById(this.ProductId);
             StringBuilder sb = new StringBuilder();
-            //sb.Append("            <!-- Global site tag (gtag.js) - AdWords: 971689623 -->");
-            // sb.Append(Environment.NewLine);
-            //sb.Append("<script async src='https://www.googletagmanager.com/gtag/js?id=AW-971689623'></script>");
-            // sb.Append(Environment.NewLine);
-            //sb.Append("<script>");
-            //sb.Append(Environment.NewLine);
-            //sb.Append("window.dataLayer = window.dataLayer || [];");
-            //sb.Append(Environment.NewLine);
-            //sb.Append("function gtag(){dataLayer.push(arguments);}");
-            //sb.Append(Environment.NewLine);
-            //sb.Append("gtag('js', new Date());");
-            //sb.Append(Environment.NewLine);
-            //sb.Append("gtag('config', 'AW-971689623');");
-            //sb.Append(Environment.NewLine);
-            //sb.Append("</script>");
-            //sb.Append(Environment.NewLine);
-
-            //
+            //adword
             sb.Append("<script>");
             sb.Append(Environment.NewLine);
             sb.Append("gtag('event', 'page_view', {");
@@ -103,56 +87,41 @@ namespace NopSolutions.NopCommerce.Web
             sb.Append(Environment.NewLine);
             sb.Append("</script>");
             sb.Append(Environment.NewLine);
-            //sb.Append("<script type='text/javascript'>");
-            //sb.Append(Environment.NewLine);
-            //sb.Append("var google_tag_params = {");
-            //sb.Append(Environment.NewLine);
-            //sb.Append("dynx_itemid: '"+product.ProductId+"',");
-            //sb.Append(Environment.NewLine);
-            //sb.Append("dynx_itemid2: '',");
-            //sb.Append(Environment.NewLine);
-            //sb.Append("dynx_pagetype: 'offerdetail',");
-            //sb.Append(Environment.NewLine);
-            //sb.Append("dynx_totalvalue: " + product.ProductVariants[0].Price.ToString("#.##", CultureInfo.InvariantCulture));
-            //sb.Append(Environment.NewLine);
-            //sb.Append("};");
-            //sb.Append(Environment.NewLine);
-            //sb.Append("</script>");
-            
-            //sb.Append(Environment.NewLine);
-            //sb.Append("<script type='text/javascript'>");
-            //sb.Append(Environment.NewLine);
-            //sb.Append("/* <![CDATA[ */");
-            //sb.Append(Environment.NewLine);
-            //sb.Append("var google_conversion_id = 971689623;");
-            //sb.Append(Environment.NewLine);
-            //sb.Append("var google_custom_params = window.google_tag_params;");
-            //sb.Append(Environment.NewLine);
-            //sb.Append("var google_remarketing_only = true;");
-            //sb.Append(Environment.NewLine);
-            //sb.Append("/* ]]> */");
-            //sb.Append(Environment.NewLine);
-            //sb.Append("</script>");
-            
-            //sb.Append(Environment.NewLine);
-            //sb.Append("<script type='text/javascript' src='//www.googleadservices.com/pagead/conversion.js'>");
-            //sb.Append(Environment.NewLine);
-            //sb.Append("</script>");
-            //sb.Append(Environment.NewLine);
-            //sb.Append("<noscript>");
-            //sb.Append(Environment.NewLine);
-            //sb.Append("<div style='display:inline;'>");
-            //sb.Append(Environment.NewLine);
-            //sb.Append("<img height='1' width='1' style='border-style:none;' alt='' src='//googleads.g.doubleclick.net/pagead/viewthroughconversion/971689623/?value=0&amp;guid=ON&amp;script=0'/>");
-            //sb.Append(Environment.NewLine);
-            //sb.Append("</div>");
-            //sb.Append(Environment.NewLine);
-            //sb.Append(" </noscript>");
+           
 
             string remarketingScript = sb.ToString();
             Literal script = new Literal() { Text = remarketingScript };
             PlaceHolder phRemarketingAdwordsBody = this.Controls[0].Controls[0].FindControl("phRemarketingAdwordsBody") as PlaceHolder;
             phRemarketingAdwordsBody.Controls.AddAt(0, script);
+
+            //facebook
+            sb.Clear();
+            sb.Append("<script>");           
+            sb.Append(Environment.NewLine);
+            sb.Append("fbq('track', 'ViewContent',{");
+            sb.Append(Environment.NewLine);
+
+
+
+            sb.Append("content_ids: '" + product.ProductId+"',");
+            
+
+            sb.Append(Environment.NewLine);
+
+            sb.Append("content_type: 'product',");
+            sb.Append(Environment.NewLine);
+
+            sb.Append("});");
+            sb.Append(Environment.NewLine);
+            sb.Append("</script>");
+            sb.Append(Environment.NewLine);
+
+
+            remarketingScript = sb.ToString();
+            script = new Literal() { Text = remarketingScript };
+            PlaceHolder phRemarketingFacebook = Page.Master.Master.FindControl("phRemarketingFacebook") as PlaceHolder;
+
+            phRemarketingFacebook.Controls.AddAt(0, script);
         }
 
         protected override void OnInit(EventArgs e)

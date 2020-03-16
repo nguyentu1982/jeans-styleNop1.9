@@ -200,6 +200,7 @@ namespace NopSolutions.NopCommerce.Web.Modules
                     decimal shoppingCartTotal = this.CurrencyService.ConvertCurrency(shoppingCartTotalBase.Value, this.CurrencyService.PrimaryStoreCurrency, NopContext.Current.WorkingCurrency);
                     lblTotalAmount.Text = PriceHelper.FormatPrice(shoppingCartTotal, true, false);
                     lblTotalAmount.CssClass = "productPrice";
+                    OrderTotal = shoppingCartTotal;                   
                 }
                 else
                 {
@@ -363,6 +364,13 @@ namespace NopSolutions.NopCommerce.Web.Modules
             {
                 this.ViewState["IsShoppingCart"] = value;
             }
+        }
+
+        public decimal OrderTotal
+        {
+            get;
+            set;
+
         }
     }
 }

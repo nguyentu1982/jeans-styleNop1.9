@@ -58,6 +58,15 @@ namespace NopSolutions.NopCommerce.Web.MasterPages {
         protected global::System.Web.UI.WebControls.PlaceHolder phRemarketingAdwordsBody;
         
         /// <summary>
+        /// phRemarketingFacebook control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.PlaceHolder phRemarketingFacebook;
+        
+        /// <summary>
         /// cph2 control.
         /// </summary>
         /// <remarks>

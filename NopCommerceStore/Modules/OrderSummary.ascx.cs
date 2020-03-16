@@ -42,6 +42,7 @@ using NopSolutions.NopCommerce.BusinessLogic.Shipping;
 using NopSolutions.NopCommerce.BusinessLogic.Tax;
 using NopSolutions.NopCommerce.Common.Utils;
 using NopSolutions.NopCommerce.BusinessLogic.Infrastructure;
+using System.Globalization;
 
 namespace NopSolutions.NopCommerce.Web.Modules
 {
@@ -51,6 +52,7 @@ namespace NopSolutions.NopCommerce.Web.Modules
         {
             base.OnInit(e);
             this.BindData();
+            this.RenderRemarketingScript();
         }
 
         protected override void OnPreRender(EventArgs e)
@@ -127,6 +129,59 @@ namespace NopSolutions.NopCommerce.Web.Modules
             }
 
             this.ctrlOrderTotals.BindData(this.IsShoppingCart);
+        }
+
+        public void RenderRemarketingScript()
+        {
+            CultureInfo vnCul = CultureInfo.GetCultureInfo("vi-VN");
+
+            var cart = this.ShoppingCartService.GetCurrentShoppingCart(ShoppingCartTypeEnum.ShoppingCart);
+            
+            StringBuilder sb = new StringBuilder();
+ 
+            sb.Append("<script>");
+            sb.Append(Environment.NewLine);
+            sb.Append("fbq('track', 'AddToCart',{");
+            sb.Append(Environment.NewLine);
+
+
+            sb.Append("value: " + ctrlOrderTotals.OrderTotal.ToString("#####") + ",");
+            sb.Append(Environment.NewLine);
+            sb.Append("currency: 'VND',");
+            sb.Append(Environment.NewLine);
+            sb.Append("contents: [");
+            for (int i = 0; i < cart.Count; i++ )
+            {
+                sb.Append(Environment.NewLine);
+                sb.Append("{");
+                sb.Append("id: '" + cart[i].ProductVariant.ProductId + "'");
+                sb.Append(",quantity:" + cart[i].Quantity);
+                sb.Append("}");
+
+                if(i<cart.Count-1)
+                {
+                    sb.Append(",");
+                }
+            }
+            sb.Append("],");
+
+            sb.Append(Environment.NewLine);
+
+            sb.Append("content_type: 'product',");
+            sb.Append(Environment.NewLine);
+  
+            sb.Append("});");
+            sb.Append(Environment.NewLine);
+            sb.Append("</script>");
+            sb.Append(Environment.NewLine);
+            
+
+            string remarketingScript = sb.ToString();
+            Literal script = new Literal() { Text = remarketingScript };
+            PlaceHolder phRemarketingFacebook = Page.Master.Master.FindControl("phRemarketingFacebook") as PlaceHolder;
+
+            phRemarketingFacebook.Controls.AddAt(0, script);
+            Session["remarketingFacePurchase"] = sb.ToString().Replace("AddToCart", "Purchase");
         }
 
         /// <summary>

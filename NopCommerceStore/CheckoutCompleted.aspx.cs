@@ -29,6 +29,8 @@ using NopSolutions.NopCommerce.BusinessLogic.Localization;
 using NopSolutions.NopCommerce.BusinessLogic.Payment;
 using NopSolutions.NopCommerce.BusinessLogic.SEO;
 using NopSolutions.NopCommerce.Common.Utils;
+using System.Globalization;
+using NopSolutions.NopCommerce.BusinessLogic.Orders;
  
 
 namespace NopSolutions.NopCommerce.Web
@@ -41,6 +43,18 @@ namespace NopSolutions.NopCommerce.Web
 
             string title = GetLocaleResourceString("PageTitle.CheckoutCompleted");
             SEOHelper.RenderTitle(this, title, true);
+
+            RenderRemarketingScript();
+        }
+
+        public void RenderRemarketingScript()
+        {
+
+            string remarketingScript = Session["remarketingFacePurchase"].ToString();
+            Literal script = new Literal() { Text = remarketingScript };
+            PlaceHolder phRemarketingFacebook = Page.Master.Master.FindControl("phRemarketingFacebook") as PlaceHolder;
+
+            phRemarketingFacebook.Controls.AddAt(0, script);
         }
     }
 }
