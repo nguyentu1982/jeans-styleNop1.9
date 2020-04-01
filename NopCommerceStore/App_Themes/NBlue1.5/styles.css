@@ -78,6 +78,17 @@ html, body, li, ul, h2
 	background-color: #777;
 }
 
+#call-to-buy
+{
+    display: inline;
+    background: #0000FF;
+    line-height: 20px;
+    padding: 5px 5px 2px;
+    font-size: 13px;
+    font-weight: bolder;
+    color: white;
+}
+
 .best-product
 {
     background: url("images/photoshop.jpeg") no-repeat scroll 0 0 transparent;
@@ -120,13 +131,13 @@ body
 
 a
 {
-	color: #3664A5;
+	color: #225486;
 	text-decoration: none;
 }
 
 a:hover
 {
-	color: #3664A5;
+	color: #225486;
 	text-decoration: underline;
 }
 
@@ -497,14 +508,14 @@ a.right-logo
 
 .header-links a
 {
-	color: #3664A5;
+	color: #225486;
 	text-decoration: none;
 	font-size:0.9em;
 }
 
 .header-links a:hover
 {
-	color: #3664A5;
+	color: #225486;
 }
 
 #f-login {
@@ -529,7 +540,7 @@ a.f-logout
 
 .headermenu
 {
-  background:none repeat scroll 0 0 #ff3300;
+  background:none repeat scroll 0 0 #0000FF;
   -webkit-border-radius:4px;
   height:auto;
   float:left;
@@ -626,6 +637,7 @@ i.angle-down {
     margin: auto;
     background: #fff; 
     padding-bottom:5px;
+    float:left;
 }
 
 .footer
@@ -633,7 +645,7 @@ i.angle-down {
 	background:none repeat scroll 0 0 #021841;
     margin:0 auto;
     padding-top:5px;
-    position:relative;
+    
 	color:#FFF;
 }
 
@@ -648,7 +660,7 @@ i.angle-down {
 {
     margin:auto;
     background:#fff;
-    color:#3664A5;
+    color:#225486;
 }
 
  .footer-tags .title 
@@ -659,7 +671,7 @@ i.angle-down {
     clear: both;
     border-bottom: solid 1px #C0C0C0;
     border-top: solid 1px #C0C0C0;
-    color: #3664A5;
+    color: #225486;
     text-align:left;
 }
 
@@ -677,6 +689,7 @@ i.angle-down {
 .tags-listbox 
 {
     margin:10px;
+    
 }
 
 .tags-listbox table tr td 
@@ -802,6 +815,17 @@ i.angle-down {
 	vertical-align:top;
 }
 
+.footer-info-face
+{
+    margin-left: 10px;
+	margin-top:5px;
+	padding-left: 0;
+	width:255px;
+	text-align:left;
+	display:inline-block;
+	vertical-align:top;
+}
+
 .footer-info .title
 {
 	color:#0088CC;
@@ -824,7 +848,7 @@ i.angle-down {
 {
 	margin: 0px 0px 0px 0px;
 	padding: 0px 0px 0px 10px;
-	color: #3664A5;
+	color: #225486;
 	background-color: inherit;
 }
 
@@ -982,7 +1006,7 @@ td.fieldname
 
 .linkButton
 {
-	color: #3664A5;
+	color: #225486;
 	background-color: inherit;
 	text-decoration: underline;
 	font-weight: bold;
@@ -1054,7 +1078,7 @@ td.fieldname
 
 .copyright a
 {
-	color: #3664A5;
+	color: #225486;
 	background-color: inherit;
 }
 
@@ -1426,7 +1450,7 @@ textarea
 {
 	margin: 0px 0px 0px 0px;
 	padding: 0px 0px 0px 10px;
-	color: #3664A5;
+	color: #225486;
 	background-color: inherit;
 }
 
@@ -1450,7 +1474,7 @@ textarea
 {
 	margin: 0px 0px 0px 0px;
 	padding: 0px 0px 0px 10px;
-	color: #3664A5;
+	color: #225486;
 	background-color: inherit;
 }
 
@@ -2232,7 +2256,7 @@ textarea
     text-transform: uppercase;
     padding: 5px;
 	margin-left: 5px;
-	color:#3664A5;
+	color:#225486;
 }
 
 .home-page-product-grid .item-box
@@ -2519,19 +2543,20 @@ textarea
 
 .add-info .prices .oldproductPrice
 {
-	color: Green;
+	color: #0000ff;
 	text-decoration: line-through;
    	font-size: 14px;
+    font-weight:bold;
 }
 
 .old-price-label {
-    color: #3664A5;
+    color: #225486;
     font-size: 1em;
     font-weight: bold;
 }
 
 .price-label {
-    color: #3664A5;
+    color: #225486;
     font-size: 1em;
     font-weight: bold;
 }
@@ -2748,7 +2773,7 @@ textarea
 	text-align: center;
 	margin: 3px 3px 0px 0px;
     padding:6px;
-    background-color:#ff3300;
+    background-color:#0000FF;
 }
 
 .sub-category-table {
@@ -3342,7 +3367,7 @@ textarea
 	clear: both;
 	font-size: 1.2em;
 	border-bottom: solid 1px #C0C0C0;
-	color: #3664A5;
+	color: #225486;
 }
 
 .newslist .newsitems
@@ -3418,7 +3443,7 @@ textarea
 
 .newslist .newsitems a.newstitle
 {
-	color: #3664A5;
+	color: #225486;
 	text-decoration: none;
 	font-size: 12px;
 }
@@ -3438,7 +3463,7 @@ textarea
 {
 	font-weight: bold;
 	text-decoration: none;
-	color: #3664A5;
+	color: #225486;
 	background-color: inherit;
 	padding: 10px;
 }
@@ -3641,7 +3666,7 @@ textarea
 {
 	font-weight: bold;
 	text-decoration: none;
-	color: #3664A5;
+	color: #225486;
 	background-color: inherit;
 }
 
@@ -4157,7 +4182,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .product-details-info .overview .productname
 {
-	color: #3664A5;
+	color: #225486;
 	font-size: 1.5em;
 	margin-bottom: 0.3em;
 }
@@ -4272,7 +4297,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .product-variant-line .overview .productname
 {
-	color: #3664A5;
+	color: #225486;
 	font-size: 1.2em;
 	margin-bottom: 0.3em;
 }
@@ -4455,7 +4480,7 @@ h1, h2, h3, h4, h5, h6 {
 	font-size: 14px;
 	text-decoration: none;
 	margin:5px 5px;
-	color: #3664A5;
+	color: #225486;
 	height:43px;
 }
 
@@ -4535,7 +4560,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .product-review-helpfulness  a, .product-review-helpfulness a:hover
 {
-	color: #3664A5;
+	color: #225486;
 	text-decoration: none;
 }
 
@@ -4823,7 +4848,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .privatemessageview table.viewmessage a
 {
-	color: #3664A5;
+	color: #225486;
 	text-decoration: underline;
 }
 
@@ -4988,7 +5013,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .forumbreadcrumb a:hover
 {
-	color: #3664A5;
+	color: #225486;
 	text-decoration: none;
 }
 
@@ -5290,7 +5315,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .forum .pager span
 {
-	color: #3664A5;
+	color: #225486;
 	font-size: 1.2em;
 	font-weight: bold;
 }
@@ -5552,7 +5577,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .postcontent .postbody a
 {
-	color: #3664A5;
+	color: #225486;
 	text-decoration: underline;
 }
 
@@ -6183,8 +6208,8 @@ pre {
 
 .commitment
 {
-    background: #ff3300;
-    border: 1px solid #ff3300;
+    background: #0000FF;
+    border: 1px solid #0000FF;
     margin-right: 5px;
     display: block;
     color: #fff;

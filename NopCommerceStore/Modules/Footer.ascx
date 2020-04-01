@@ -15,8 +15,9 @@
     <div class="footer-tags">
         <nopCommerce:PopularTags ID="ctrlPopularTags" runat="server" />
     </div>
-    <div class="fb-like-box" data-href="https://www.facebook.com/pages/Jeans-Style/488824521136196" data-width="990" data-height="200" data-show-faces="true" data-stream="false" data-header="false"></div>
+    
 </div>
+<div class="clear"></div>
 <div class="footer">        
     <div class="footer-info">
         <div class="listbox">
@@ -43,22 +44,7 @@
         </div>
     </div>
 
-    <div class="footer-info">
-        <div class="listbox">
-            <!-- AddThis Follow BEGIN -->
-			<!-- AddThis Follow BEGIN -->
-			<p>Follow Us</p>
-			<div class="addthis_toolbox addthis_vertical_style">
-			<a class="addthis_button_facebook_follow" addthis:userid="pages/Jeans-Style/488824521136196" rel="nofollow"></a>
-			<a class="addthis_button_twitter_follow" addthis:userid="quanjeandep" rel="nofollow"></a>
-			<a class="addthis_button_google_follow" addthis:userid="100770162889339370650" rel="nofollow"></a>
-			<a class="addthis_button_pinterest_follow" addthis:userid="quanjeandep" rel="nofollow"></a>
-			</div>
-			<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-51a6d4ab1549ecbe"></script>
-			<!-- AddThis Follow END -->
-
-         </div>
-    </div>
+    
 
     <div class="footer-info">
         <div class="listbox">
@@ -76,9 +62,7 @@
                     <%=GetLocaleResourceString("Content.Shipping&Returns")%></a></li>
             </ul>
         </div>
-    </div>
 
-    <div class="footer-info">
         <div class="listbox">
             <b><%=GetLocaleResourceString("Content.CustomerService")%></b>
             <ul>
@@ -102,6 +86,13 @@
         </div>
     </div>
     
+    <div class="footer-info-face">     
+         <div class="listbox">   
+           <div class="fb-like-box" data-href="https://www.facebook.com/pages/Jeans-Style/488824521136196" data-width="250" data-height="200" data-show-faces="true" data-stream="false" data-header="false"></div>
+          </div>
+         
+    </div>
+
     <div class="footer-shops">
         <nopCommerce:ShopsInfo ID="ShopsInfo" runat="server" />
     </div>
