@@ -4,7 +4,7 @@
 <%@ Register TagPrefix="nopCommerce" TagName="ProductTagSeo" Src="ProductTagSeo.ascx" %>
 <%@ Register TagPrefix="nopCommerce" TagName="TagsProduct" Src="TagsProduct.ascx" %>
 
-<asp:Label runat="server" ID="lbProductTagName" CssClass="section-header"> </asp:Label>
+<asp:TextBox runat="server" ID="txtProductTagName" CssClass="adminInput" Width="500px"> </asp:TextBox>
 <ajaxToolkit:TabContainer runat="server" ID="ProductTagTabs" ActiveTabIndex="3">
     <ajaxToolkit:TabPanel runat="server" ID="pnlProductTagInfo" HeaderText="<% $NopResources: Admin.ProductTagDetails.ProductTagDetailsInfo%>">
         <ContentTemplate>

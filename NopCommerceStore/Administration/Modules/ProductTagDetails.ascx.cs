@@ -43,16 +43,18 @@ namespace NopSolutions.NopCommerce.Web.Administration.Modules
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            lbProductTagName.Text = this.ProductService.GetProductTagById(this.ProductTagId).Name;
+            if(!IsPostBack)
+                txtProductTagName.Text = this.ProductService.GetProductTagById(this.ProductTagId).Name;
         }
 
         protected void buttonSave_Click(object sender, EventArgs e)
         {
+            string tagName = txtProductTagName.Text;
             if (Page.IsValid)
             {
                 try
                 {
-                    ProductTag productTag = Save();
+                    ProductTag productTag = Save(tagName);
                     Response.Redirect(string.Format("ProductTagDetails.aspx?ProductTagId={0}&TabID={1}", productTag.ProductTagId, this.GetActiveTabId(this.ProductTagTabs)));
                 }
                 catch (Exception exc)
@@ -62,10 +64,9 @@ namespace NopSolutions.NopCommerce.Web.Administration.Modules
             }
         }
 
-        protected ProductTag Save()
-        {
-
-            ProductTag proTag = ctrlProductTagInfo.SaveInfo();
+        protected ProductTag Save(string tagName)
+        {            
+            ProductTag proTag = ctrlProductTagInfo.SaveInfo(tagName);
             ctrProductTagSeo.SaveInfo();
             ctrTagsProduct.SaveInfo();
 

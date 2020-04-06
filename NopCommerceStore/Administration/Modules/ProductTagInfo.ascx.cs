@@ -29,9 +29,10 @@ namespace NopSolutions.NopCommerce.Web.Administration.Modules
             }
         }
 
-        internal BusinessLogic.Products.ProductTag SaveInfo()
+        internal BusinessLogic.Products.ProductTag SaveInfo(string tagName)
         {
             var proTag = this.ProductService.GetProductTagById(this.ProductTagId);
+            proTag.Name = tagName;
             proTag.Description = txtLocalizedDescription.Value;
             this.ProductService.UpdateProductTag(proTag);
             return proTag;

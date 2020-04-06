@@ -13,13 +13,13 @@ namespace NopSolutions.NopCommerce.Web.Administration.Modules {
     public partial class ProductTagDetailsControl {
         
         /// <summary>
-        /// lbProductTagName control.
+        /// txtProductTagName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbProductTagName;
+        protected global::System.Web.UI.WebControls.TextBox txtProductTagName;
         
         /// <summary>
         /// ProductTagTabs control.
