@@ -16,12 +16,10 @@
             </tr>
         </table>
     </div>
-    <div class="newsitemshomepage">
-        <%--<div class="first-news-home-page">
-            <div class="news-first-picture">
-                    <asp:HyperLink ID="hlImageLink" runat="server"/></div>
-                <h3 class="news-first-title"><asp:HyperLink ID="hlNewsTitle" runat="server"/></h3>
-        </div>--%>
+    
+    <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FJeansNu.JeansStyle%2Fposts%2F799713917189147&width=290" width="290" height="600" style="border:none;overflow:hidden; float:left; padding:10px 5px 0px 10px" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
+
+    <div class="newsitemshomepage">    
         <asp:Repeater ID="rptrNews" runat="server" EnableViewState="false">
             <ItemTemplate>
                 <div class="item">

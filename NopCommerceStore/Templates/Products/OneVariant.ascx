@@ -223,7 +223,7 @@ thanh toán]</a></td>
     <div class="clear">
     </div>
     <div class="product-collateral">
-        <div class="fb-comments" data-href="<%=SEOHelper.GetProductUrl(this.ProductId) %>" data-width="768" data-num-posts="10"></div>
+        
         <div class="product-variant-line">
 
             <div class="clear">
@@ -268,7 +268,7 @@ thanh toán]</a></td>
                     <nopCommerce:Topic ID="BuyGuide" runat="server" TopicName="HuongDanMuaHang" OverrideSEO="false"></nopCommerce:Topic>
                 </ContentTemplate>
             </ajaxToolkit:TabPanel>
-            <ajaxToolkit:TabPanel runat="server" ID="pnlProductReviews" HeaderText="<% $NopResources:Products.ProductReviews %>">
+            <ajaxToolkit:TabPanel runat="server" ID="pnlProductReviews" HeaderText="<% $NopResources:Products.ProductReviews %>" Visible="false">
                 <ContentTemplate>
                 </ContentTemplate>
             </ajaxToolkit:TabPanel>
@@ -310,7 +310,7 @@ thanh toán]</a></td>
 
         </div>
 
-        <ajaxToolkit:TabContainer runat="server" ID="ProductsTabs2" ActiveTabIndex="2" CssClass="grey">
+        <ajaxToolkit:TabContainer runat="server" ID="ProductsTabs2" ActiveTabIndex="2" CssClass="grey" Visible="false">
 
 
 
@@ -331,14 +331,14 @@ thanh toán]</a></td>
             </ajaxToolkit:TabPanel>
         </ajaxToolkit:TabContainer>
 
-        <div style="border: 1px solid #c0c0c0; float: left;">
+        <div style="border: 1px solid #c0c0c0; float: left;display:none">
             <nopCommerce:Topic ID="topicFreeShiping2" runat="server" TopicName="FreeShipping" OverrideSEO="false"></nopCommerce:Topic>
         </div>
         <div class="clear">
         </div>
 
-        <div class="hot-search"><%=GetLocaleResourceString("Product.HotSearch")%> <%=lProductName1.Text %></div>
-        <nopCommerce:ProductTags ID="ProductTags1" runat="server" />
+        <div class="hot-search" style="display:none"><%=GetLocaleResourceString("Product.HotSearch")%> <%=lProductName1.Text %></div>
+        <nopCommerce:ProductTags ID="ProductTags1" runat="server" Visible="false" />
         <div class="what_else">
             <%=GetLocaleResourceString("Product.WhatElse")%>
             <br />
@@ -360,6 +360,8 @@ thanh toán]</a></td>
         <nopCommerce:RelatedProducts ID="ctrlRelatedProducts" runat="server" />
     </div>--%>
     </div>
+
+    <div class="fb-comments" data-href="<%=SEOHelper.GetProductUrl(this.ProductId) %>" data-width="768" data-num-posts="10"></div>
 
 </div>
 <script text="text/javascript">

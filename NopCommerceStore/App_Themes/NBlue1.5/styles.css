@@ -637,7 +637,8 @@ i.angle-down {
     margin: auto;
     background: #fff; 
     padding-bottom:5px;
-    float:left;
+    width:100%;
+    border-top: 1px solid #C0C0C0;
 }
 
 .footer
@@ -661,6 +662,7 @@ i.angle-down {
     margin:auto;
     background:#fff;
     color:#225486;
+    float:left;
 }
 
  .footer-tags .title 
@@ -3965,8 +3967,7 @@ textarea
 	padding: 0px;
 	background: #fff;
 	margin-top: 2px;
-	margin: auto;
-    border-top:1px solid #C0C0C0;	
+	margin: auto;	
     float:left;
 }
 
@@ -4454,6 +4455,8 @@ h1, h2, h3, h4, h5, h6 {
 .related-products-grid {
     float:left;
     border-top: 1px solid #C0c0c0;
+    background: #fff;
+    width: 100%;
 }
 
 .related-products-grid .title {

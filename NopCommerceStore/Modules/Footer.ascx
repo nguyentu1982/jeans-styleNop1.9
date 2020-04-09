@@ -11,10 +11,9 @@
 
 <div class="footer-bf">
     <nopCommerce:RecentlyViewedProducts ID="ctrlRecentlyViewedProducts" runat="server" />
+    <div class="clear"></div>
     <nopCommerce:RelatedProducts ID="ctrlRelatedProducts" runat="server" />
-    <div class="footer-tags">
-        <nopCommerce:PopularTags ID="ctrlPopularTags" runat="server" />
-    </div>
+    
     
 </div>
 <div class="clear"></div>
@@ -42,9 +41,7 @@
                     </li>
             </ul>
         </div>
-    </div>
-
-    
+    </div>    
 
     <div class="footer-info">
         <div class="listbox">
@@ -93,6 +90,7 @@
          
     </div>
 
+    
     <div class="footer-shops">
         <nopCommerce:ShopsInfo ID="ShopsInfo" runat="server" />
     </div>
@@ -117,3 +115,8 @@
     </div>
     
 </div>
+<div class="clear">
+	</div>
+<div class="footer-tags">
+        <nopCommerce:PopularTags ID="ctrlPopularTags" runat="server" />
+    </div>
