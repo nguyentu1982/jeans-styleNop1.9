@@ -17,7 +17,7 @@
         </table>
     </div>
     
-    <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FJeansNu.JeansStyle%2Fposts%2F799713917189147&width=290" width="290" height="600" style="border:none;overflow:hidden; float:left; padding:10px 5px 0px 10px" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
+    <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FJeansNu.JeansStyle%2Fposts%2F799713917189147&width=290" width="290" style="border:none;overflow:hidden; float:left; padding:10px 5px 0px 10px;min-height:584px" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
 
     <div class="newsitemshomepage">    
         <asp:Repeater ID="rptrNews" runat="server" EnableViewState="false">

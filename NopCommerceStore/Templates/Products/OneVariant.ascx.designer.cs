@@ -499,15 +499,6 @@ namespace NopSolutions.NopCommerce.Web.Templates.Products {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divFuffDesc;
         
         /// <summary>
-        /// lProductName1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal lProductName1;
-        
-        /// <summary>
         /// lFullDescription control.
         /// </summary>
         /// <remarks>
@@ -515,15 +506,6 @@ namespace NopSolutions.NopCommerce.Web.Templates.Products {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Literal lFullDescription;
-        
-        /// <summary>
-        /// lProductName2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal lProductName2;
         
         /// <summary>
         /// dlProductPictureDesciption control.

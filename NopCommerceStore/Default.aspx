@@ -32,7 +32,7 @@
     
     <nopCommerce:RelatedProductsOnHomepage runat="server" ID="ctrRelatedRecentlyViewProductsOnHomepage"/>
     <div class="clear"></div>
-    <nopCommerce:RecentlyAddedProductsOnHomepage runat="server" ID="ctrRecentlyAddedProductsOnHomepage"/>
+    <nopCommerce:RecentlyAddedProductsOnHomepage runat="server" Visible="false" ID="ctrRecentlyAddedProductsOnHomepage"/>
     
 
     <div class="shops-holder">

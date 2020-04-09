@@ -184,7 +184,7 @@
                     </asp:Repeater>
                 </div>
                 <div class="clear"></div>
-                <asp:PlaceHolder runat="server" ID="phManufacturers" Visible="true">
+                <asp:PlaceHolder runat="server" ID="phManufacturers" Visible="false">
                     <div class="manufacturers">
                         <asp:Literal ID="lManufacturersTitle" runat="server" Visible="false" />
                         <asp:Repeater runat="server" ID="rptrManufacturers">
@@ -285,8 +285,7 @@ thanh toán]</a></td>
 
         <div class="fulldescription" runat="server" id="divFuffDesc" visible="false">
             <h2 class="productname-description">
-                <%=GetLocaleResourceString("Product.FullDescriptionHeader")%>
-                <asp:Literal ID="lProductName1" runat="server" />
+                <%=GetLocaleResourceString("Product.FullDescriptionHeader")%>                
             </h2>
             <div class="fulldescription-detail">
                 <asp:Literal ID="lFullDescription" runat="server" />
@@ -294,10 +293,7 @@ thanh toán]</a></td>
 
         </div>
 
-        <h2 class="productname-description">
-            <%=GetLocaleResourceString("Product.FullImageDescriptionHeader")%>
-            <asp:Literal ID="lProductName2" runat="server" />
-        </h2>
+        
         <div class="image-description-detail">
 
             <asp:ListView ID="dlProductPictureDesciption" runat="server">
@@ -337,7 +333,7 @@ thanh toán]</a></td>
         <div class="clear">
         </div>
 
-        <div class="hot-search" style="display:none"><%=GetLocaleResourceString("Product.HotSearch")%> <%=lProductName1.Text %></div>
+        <div class="hot-search" style="display:none"><%=GetLocaleResourceString("Product.HotSearch")%> <%=lProductName.Text %></div>
         <nopCommerce:ProductTags ID="ProductTags1" runat="server" Visible="false" />
         <div class="what_else">
             <%=GetLocaleResourceString("Product.WhatElse")%>

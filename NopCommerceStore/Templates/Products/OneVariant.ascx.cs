@@ -48,8 +48,7 @@ namespace NopSolutions.NopCommerce.Web.Templates.Products
         protected void BindProductInfo(Product product)
         {
             lProductName.Text = Server.HtmlEncode(product.LocalizedName);
-            lProductName1.Text = Server.HtmlEncode(product.LocalizedName);
-            lProductName2.Text = Server.HtmlEncode(product.LocalizedName);
+            
             lShortDescription.Text = product.LocalizedShortDescription;
             
             //Warehouse
