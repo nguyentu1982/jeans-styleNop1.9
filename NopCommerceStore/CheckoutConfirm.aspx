@@ -24,7 +24,7 @@
         <div class="clear">
         </div>
         <div class="order-summary-body">
-            <nopCommerce:OrderSummary ID="OrderSummaryControl" runat="server" IsShoppingCart="false">
+            <nopCommerce:OrderSummary ID="OrderSummaryControl" runat="server" IsShoppingCart="false" IsCheckOutConfirm="true">
             </nopCommerce:OrderSummary>
         </div>
     </div>

@@ -1,4 +1,4 @@
-//------------------------------------------------------------------------------
+﻿//------------------------------------------------------------------------------
 // The contents of this file are subject to the nopCommerce Public License Version 1.0 ("License"); you may not use this file except in compliance with the License.
 // You may obtain a copy of the License at  http://www.nopCommerce.com/License.aspx. 
 // 
@@ -52,7 +52,11 @@ namespace NopSolutions.NopCommerce.Web.Modules
         {
             base.OnInit(e);
             this.BindData();
-            this.RenderRemarketingScript();
+            this.RenderFacebookRemarketingScript();
+            if(this.IsCheckOutConfirm)
+            {
+                this.RenderGoogleRemarketingScript();
+            }
         }
 
         protected override void OnPreRender(EventArgs e)
@@ -131,7 +135,7 @@ namespace NopSolutions.NopCommerce.Web.Modules
             this.ctrlOrderTotals.BindData(this.IsShoppingCart);
         }
 
-        public void RenderRemarketingScript()
+        public void RenderFacebookRemarketingScript()
         {
             CultureInfo vnCul = CultureInfo.GetCultureInfo("vi-VN");
 
@@ -182,6 +186,73 @@ namespace NopSolutions.NopCommerce.Web.Modules
 
             phRemarketingFacebook.Controls.AddAt(0, script);
             Session["remarketingFacePurchase"] = sb.ToString().Replace("AddToCart", "Purchase");
+        }
+
+        /// <summary>
+        /// Event snippet for Hoàn thành đặt hàng
+        ///  <script>
+    //    function gtag_report_conversion(url) {
+    //        var callback = function () {
+    //            if (typeof (url) != 'undefined') {
+    //                window.location = url;
+    //            }
+    //        };
+    //        gtag('event', 'conversion', {
+    //            'send_to': 'AW-971689623/0GEYCPia46QBEJedq88D',
+    //            'event_callback': callback
+    //        });
+    //        return false;
+    //    }
+    //</script>
+        /// </summary>
+        public void RenderGoogleRemarketingScript()
+        {
+            CultureInfo vnCul = CultureInfo.GetCultureInfo("vi-VN");
+
+            var cart = this.ShoppingCartService.GetCurrentShoppingCart(ShoppingCartTypeEnum.ShoppingCart);
+
+            StringBuilder sb = new StringBuilder();
+
+            sb.Append("<script>");
+            sb.Append(Environment.NewLine);
+            sb.Append("function gtag_report_conversion(url) {");
+            sb.Append(Environment.NewLine);
+            sb.Append(" var callback = function () {");
+            sb.Append(Environment.NewLine);
+            sb.Append("if (typeof (url) != 'undefined') {");
+            sb.Append(Environment.NewLine);
+            sb.Append("window.location = url;");
+            sb.Append(Environment.NewLine);
+            sb.Append(" }");
+            sb.Append(Environment.NewLine);
+            sb.Append("};");
+            sb.Append(Environment.NewLine);
+            sb.Append("gtag('event', 'conversion', {");
+            sb.Append(Environment.NewLine);
+            sb.Append("'send_to': 'AW-971689623/0GEYCPia46QBEJedq88D',");
+            sb.Append(Environment.NewLine);
+            sb.Append("'event_callback': callback,");
+            sb.Append(Environment.NewLine);            
+            sb.Append("'value': " + ctrlOrderTotals.OrderTotal.ToString("#####") + ",");
+            sb.Append(Environment.NewLine);
+            sb.Append("'currency': 'VND'");
+            sb.Append(Environment.NewLine);
+            sb.Append(" });");
+            sb.Append(Environment.NewLine);
+            sb.Append("return false;");
+            sb.Append(Environment.NewLine);
+            sb.Append(" }");
+            sb.Append(Environment.NewLine);            
+            sb.Append("</script>");
+            sb.Append(Environment.NewLine);
+
+
+            string remarketingScript = sb.ToString();
+            Literal script = new Literal() { Text = remarketingScript };
+            PlaceHolder phRemarketingGoogle = Page.Master.Master.FindControl("phRemarketingAdwordsBody") as PlaceHolder;
+
+            phRemarketingGoogle.Controls.AddAt(0, script);
+            
         }
 
         /// <summary>
@@ -587,6 +658,12 @@ namespace NopSolutions.NopCommerce.Web.Modules
             }
         }
 
+        [DefaultValue(false)]
+        public bool IsCheckOutConfirm
+        {
+            get;
+            set;
+        }
         protected void cbRemoveFromCart_CheckedChanged(object sender, EventArgs e)
         {
             this.UpdateShoppingCart();
