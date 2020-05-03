@@ -166,11 +166,11 @@
     .order-summary-content .coupon-box,.order-summary-content .giftcard-box{padding:3px;}
     .order-summary-content .shipping{margin-right:3px;width:255px;}
     .estimate-shipping{padding:3px;}
-    .order-summary-content .totals{width:295px;padding-top:0;display:table;}
+    .order-summary-content .totals{padding-top:0;display:table;}
     .order-progress{height:auto;}
     .order-progress ul{display:inline-block;width:100%;text-align:center;}
     .order-progress ul li{display:inline-block;float:none;margin:0;width:60px;}
-    .order-progress ul li a{display:block;padding-bottom:30px !important;background-position:50% 70% !important;}
+    .order-progress ul li a{padding-bottom:30px !important;background-position:50% 70% !important;}
     /* CHECKOUT */
     .checkout-data .section input[type="text"],.checkout-data .section select{max-width:100%;}
     /* NAVIGATIONS */
@@ -366,15 +366,15 @@
     .order-summary-content .cart .cart-item-row td.subtotal,.wishlist-content .cart .cart-item-row td.subtotal{border-bottom:none;text-align:center;}
     .order-progress{height:auto;}
     .order-progress ul{display:inline-block;width:100%;text-align:center;}
-    .order-progress ul li{display:inline-block;float:none;margin:0;width:60px;}
-    .order-progress ul li a{display:block;padding-bottom:30px !important;background-position:50% 70% !important;}
+    .order-progress ul li{display:block;float:none;margin:0;width:60px;}
+    .order-progress ul li a{padding-bottom:30px !important;background-position:50% 70% !important;}
     .order-summary-content .cart-collaterals{width:auto;}
     .order-summary-content .deals{margin-right:3px;width:170px;max-width:100%;}
     .order-summary-content .coupon-box,.order-summary-content .giftcard-box{padding:3px;}
     .order-summary-content .shipping{margin-right:3px;width:auto;max-width:100%;}
     .estimate-shipping{padding:3px;}
     .estimate-shipping .shipping-options .estimate-shipping-button{display:block;margin:0 auto;}
-    .order-summary-content .totals{width:295px;display:table;padding-top:15px;display:table;}
+    .order-summary-content .totals{display:table;padding-top:15px;display:table;}
     .order-summary-content .cart .cart-item-row td .td-title,.wishlist-content .cart .cart-item-row td .td-title{display:initial;}
     /* ONE PAGE CHECKOUT */
     .opc .step select{max-width:100%;}

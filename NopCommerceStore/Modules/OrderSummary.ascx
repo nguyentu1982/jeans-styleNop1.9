@@ -99,7 +99,7 @@
     <div class="cart-footer">
         <%if (this.IsShoppingCart)
           { %>
-        <div class="common-buttons">
+        <div class="common-buttons" style="float:right">
             <asp:Button ID="btnUpdate" OnClick="btnUpdate_Click" runat="server" Text="<% $NopResources:ShoppingCart.UpdateCart %>"
                 CssClass="updatecartbutton" />
             <asp:Button ID="btnContinueShopping" OnClick="btnContinueShopping_Click" runat="server"
@@ -119,42 +119,7 @@
           { %>
         <nopCommerce:CheckoutAttributes ID="ctrlCheckoutAttributes" runat="server" />
         <%} %>
-        <div class="totals">
-            <nopCommerce:OrderTotals runat="server" ID="ctrlOrderTotals" />
-            <%if (this.IsShoppingCart)
-              { %>
-            <div class="clear">
-            </div>
-            <%if (this.SettingManager.GetSettingValueBoolean("Checkout.TermsOfServiceEnabled"))
-              { %>
-            <script language="javascript" type="text/javascript">
-                function accepttermsofservice(msg) {
-                    if (!document.getElementById('<%=cbTermsOfService.ClientID%>').checked) {
-                        alert(msg);
-                        return false;
-                    }
-                    else
-                        return true;
-                }
-            </script>
-            <div class="terms-of-service">
-                <asp:CheckBox runat="server" ID="cbTermsOfService" />
-                <asp:Literal runat="server" ID="lTermsOfService" />
-            </div>
-            <%} %>
-            <div class="clear">
-            </div>
-            <div class="checkout-buttons">
-                <asp:Button ID="btnCheckout" OnClick="btnCheckout_Click" runat="server" Text="<% $NopResources:ShoppingCart.Checkout %>"
-                    CssClass="checkoutbutton" />
-            </div>
-            <div class="clear">
-            </div>
-            <div class="addon-buttons">
-                <nopCommerce:GoogleCheckoutButton runat="server" ID="btnGoogleCheckoutButton"></nopCommerce:GoogleCheckoutButton>
-            </div>
-            <%} %>
-        </div>
+        
         <div class="cart-collaterals">
             <%if (this.IsShoppingCart)
               { %>
@@ -205,6 +170,42 @@
                   { %>
             <div class="shipping">
                 <nopCommerce:EstimateShipping ID="ctrlEstimateShipping" runat="server" />
+            </div>
+            <%} %>
+        </div>
+        <div class="totals">
+            <nopCommerce:OrderTotals runat="server" ID="ctrlOrderTotals" />
+            <%if (this.IsShoppingCart)
+              { %>
+            <div class="clear">
+            </div>
+            <%if (this.SettingManager.GetSettingValueBoolean("Checkout.TermsOfServiceEnabled"))
+              { %>
+            <script language="javascript" type="text/javascript">
+                function accepttermsofservice(msg) {
+                    if (!document.getElementById('<%=cbTermsOfService.ClientID%>').checked) {
+                        alert(msg);
+                        return false;
+                    }
+                    else
+                        return true;
+                }
+            </script>
+            <div class="terms-of-service">
+                <asp:CheckBox runat="server" ID="cbTermsOfService" />
+                <asp:Literal runat="server" ID="lTermsOfService" />
+            </div>
+            <%} %>
+            <div class="clear">
+            </div>
+            <div class="checkout-buttons">
+                <asp:Button ID="btnCheckout" OnClick="btnCheckout_Click" runat="server" Text="<% $NopResources:ShoppingCart.Checkout %>"
+                    CssClass="checkoutbutton" />
+            </div>
+            <div class="clear">
+            </div>
+            <div class="addon-buttons">
+                <nopCommerce:GoogleCheckoutButton runat="server" ID="btnGoogleCheckoutButton"></nopCommerce:GoogleCheckoutButton>
             </div>
             <%} %>
         </div>

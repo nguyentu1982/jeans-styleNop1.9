@@ -429,28 +429,28 @@
         <div id="eb951855">
             <div id="cob263512">
                 <div id="coh963846">
-                    <div id="call-to-buy">Hotline: (024) 3722 8396 / 0983 25 4657</div>
+                    <div id="call-to-buy">Hotline: <a href="tel:+842437228396">(024) 3722 8396 </a> / <a href="tel:+84983254657">0983 25 4657</a></div>
                     <ul id="coc67178">
                         <li id="pf204652hide" style="display: inline;"><a title="Hide" href="javascript:pf204652clickhide();" class="min">Hide</a></li>
                         <li id="pf204652show" style="display: none;"><a title="Hiện lại" href="javascript:pf204652clickshow();" class="max">View</a></li>
                         <li style="display: none;" id="pf204652close"><a title="Đóng lại" href="javascript:pf204652clickclose();" class="close">Close</a></li>
                     </ul>
                 </div>
-                <div id="co453569">
+                <%--<div id="co453569">
                     <a href="<%=Page.ResolveUrl("~/topic/11/huong-dan-mua-hang-tai-jeans-style.aspx")%>" target="_blank" title="Hướng dẫn đặt hàng online">
                         <img src="/float-ads-fixed-position/images/online-support.jpg" width="290" alt=""></a>
                     <div style="font-size: 16px; color: blue; font-style: italic; font-weight: bold;">
                         Sẵn sàng phục vụ quý khách!
                     </div>
                     
-                </div>
+                </div>--%>
             </div>
         </div>
     </div>
     <script type="text/javascript">
         pf204652bottomLayer = document.getElementById('fl813691');
         var pf204652IntervalId = 0;
-        var pf204652maxHeight = 198;//Chieu cao khung quang cao
+        var pf204652maxHeight = 20;//Chieu cao khung quang cao
         if (screen.width <= 768) {
             pf204652maxHeight = 20;
             document.getElementById('call-to-buy').style.display = 'inline';

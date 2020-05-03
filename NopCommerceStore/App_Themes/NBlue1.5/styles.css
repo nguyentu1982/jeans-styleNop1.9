@@ -1618,14 +1618,14 @@ textarea
 .cart-collaterals
 {
 	float:left;
-	margin-top: 35px;
+	margin-top: 15px;
 }
 
 .totals
 {
 	float:right;
-	width:300px;
     margin-top:10px;
+    max-width:208px;
 }
 
 .checkout-attributes
@@ -1635,11 +1635,17 @@ textarea
     margin-top:10px;
 }
 
+.checkout-attributes textarea
+{
+	width: 300px;
+	height:60px;
+}
+
 .shoppingcart-page, .wishlist-page
 {
 	margin-bottom: 15px;
 	padding-bottom: 5px;
-	padding-left: 0;
+	padding: 5px;
 }
 
 .shoppingcart-page .page-title, .wishlist-page .page-title
@@ -1673,6 +1679,7 @@ textarea
 
 .order-summary-content .coupon-box
 {
+    float:left;
 	margin: 0px;
 	padding: 10px 10px 10px 10px;
 	font-size: 14px;
@@ -1691,6 +1698,7 @@ textarea
 	background: none repeat scroll 0 0 #F9F9F9;
 	margin-bottom: 10px;
 	border: dotted 1px #d3d3d3;
+    float:left;
 }
 
 .order-summary-content .cart, .wishlist-content .cart
@@ -2196,7 +2204,7 @@ textarea
 {
 	list-style: none;
 	display: inline;
-	padding: 5px 20px 0 20px;
+	padding: 0px 10px 0 0px;
 }
 
 .order-progress ul li .active-step

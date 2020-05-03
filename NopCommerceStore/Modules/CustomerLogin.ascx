@@ -48,9 +48,9 @@
                             </td>
                         </tr>
                         <tr>
-                            <td align="right" style="padding-right: 20px; padding-top: 20px;">
+                            <td align="right" style="padding-right: 20px; padding-top: 20px; text-align:center">
                                 <asp:Button runat="server" ID="btnCheckoutAsGuest" Text="<% $NopResources:Checkout.CheckoutAsGuest %>"
-                                    OnClick="btnCheckoutAsGuest_Click" CssClass="checkoutasguestbutton" />
+                                    OnClick="btnCheckoutAsGuest_Click" CssClass="checkoutasguestbutton" style="margin-bottom:5px"/>
                                 <asp:Button runat="server" ID="btnRegister2" Text="<% $NopResources:Account.Register %>"
                                     OnClick="btnRegister_Click" CssClass="registerbutton" />
                             </td>

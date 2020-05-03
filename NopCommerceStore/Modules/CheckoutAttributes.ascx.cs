@@ -305,8 +305,8 @@ namespace NopSolutions.NopCommerce.Web.Modules
                                 var txtAttribute = new TextBox();
                                 txtAttribute.ID = controlId;
                                 txtAttribute.TextMode = TextBoxMode.MultiLine;
-                                txtAttribute.Width = this.SettingManager.GetSettingValueInteger("CheckoutAttribute.MultiTextbox.Width", 300);
-                                txtAttribute.Height = this.SettingManager.GetSettingValueInteger("CheckoutAttribute.MultiTextbox.Height", 150);
+                                //txtAttribute.Width = this.SettingManager.GetSettingValueInteger("CheckoutAttribute.MultiTextbox.Width", 300);
+                                //txtAttribute.Height = this.SettingManager.GetSettingValueInteger("CheckoutAttribute.MultiTextbox.Height", 150);
 
                                 //set already selected attributes
                                 if (NopContext.Current.User != null)
