@@ -262,7 +262,7 @@ img
 
 .master-wrapper-cph-3 {
     float:left;
-    max-width:792px;
+    max-width:892px;
     background-color:#fff;
     padding:5px;
 }
@@ -1571,8 +1571,7 @@ textarea
 .product-info
 {
 	margin-top:5px; 
-	padding:5px;
-    max-width:350px;
+	padding:5px; 
 }
 
 .newslettersubscribe
@@ -4134,15 +4133,19 @@ h1, h2, h3, h4, h5, h6 {
     
 }
 
+.addthis_sharing_toolbox
+{
+    padding-top:5px;
+}
 .product-collateral
 {
     border-top: 1px solid #c0c0c0;
-    padding-top: 10px;
+    padding: 5px;
 }
 
 .add-info
 {    
-    
+    padding-bottom: 20px;
 }
 
 .product-essential
@@ -4158,13 +4161,15 @@ h1, h2, h3, h4, h5, h6 {
 	float: left;
 	margin-top: 5px;
 	margin-bottom: 15px;
-    max-width:405px;
+    /*max-width:405px;*/
 }
 
 .product-details-info .overview
 {
 	float: left;
-	padding: 5px;
+    border: 1px solid #c0c0c0;
+    margin: 5px;
+    max-width:378px;
 }
 
 .picture-guide {
@@ -4406,9 +4411,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .one-variant-price
-{
-	
-
+{	
+    padding: 20px 0px;
 }
 
 .one-variant-price .productPrice
@@ -4422,6 +4426,7 @@ h1, h2, h3, h4, h5, h6 {
 {
 	color: green;
 	text-decoration: line-through;
+    font-size: 20px;
 }
 
 .one-variant-download-sample

@@ -66,8 +66,7 @@
                     <%--</td>--%>
                 </ItemTemplate>
             </asp:ListView>
-            <!-- Go to www.addthis.com/dashboard to customize your tools -->
-            <div class="addthis_sharing_toolbox"></div>
+            
         </div>
         <div class="overview">
 
@@ -114,9 +113,7 @@
                     <div class="size-guide">
                         <a style="cursor: pointer; text-decoration: underline;" onclick="window.open('<%=CommonHelper.GetStoreLocation()%>topic/29/huong-dan-chon-size-quan-jean.aspx', 'window', 'toolbars=0,width=900,height=600,left=200,top=200,scrollbars=1,resizable=1');"><%=GetLocaleResourceString("Products.SizeGuide")%></a>
                     </div>
-                    <div class="buy-guide">
-                        <a style="cursor: pointer; text-decoration: underline;" onclick="window.open('<%=CommonHelper.GetStoreLocation()%>topic/11/huong-dan-mua-hang-tai-jeans-style.aspx', 'window', 'toolbars=0,width=900,height=600,left=200,top=200,scrollbars=1,resizable=1');"><%=GetLocaleResourceString("Products.BuyGuide")%></a>
-                    </div>
+                    
                     <div class="attributes">
                         <nopCommerce:ProductAttributes ID="ctrlProductAttributes" runat="server" />
                         <asp:Panel ID="pnlStockAvailablity" runat="server" class="stock">
@@ -167,9 +164,10 @@
                 <nopCommerce:ProductEmailAFriendButton ID="ctrlProductEmailAFriendButton" runat="server" />
                 <nopCommerce:ProductAddToCompareList ID="ctrlProductAddToCompareList" runat="server" />
                 <div class="clear"></div>
-                <div style="border: dotted 1px #c0c0c0; padding: 5px; margin-top:10px; font-size: 14px; max-width: 350px;">
+                <!-- Go to www.addthis.com/dashboard to customize your tools -->
+                <div class="addthis_sharing_toolbox"></div>
                     
-                    <asp:Repeater ID="rptStored" runat="server">
+                    <asp:Repeater ID="rptStored" runat="server" Visible="false">
                         <ItemTemplate>
                             <div style="width: 300px; font-weight: bold; margin-top: 5px"><%=GetLocaleResourceString("Products.StoreGuide")%></div>
 
@@ -182,7 +180,7 @@
                             </div>
                         </ItemTemplate>
                     </asp:Repeater>
-                </div>
+                
                 <div class="clear"></div>
                 <asp:PlaceHolder runat="server" ID="phManufacturers" Visible="false">
                     <div class="manufacturers">

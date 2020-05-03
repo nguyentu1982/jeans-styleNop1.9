@@ -2,7 +2,7 @@
     CodeBehind="ShopsInfo.ascx.cs" %>
 <div class="shops">
         <a class="shop-title" href="http://quanjeandep.com/topic/14/he-thong-cua-hang.aspx"><%=GetLocaleResourceString("Content.Shops")%></a>&nbsp;
-		<a class="shop-title" href="http://quanjeandep.com">QUẦN JEAN ĐẸP - JEANS STYLE</a>
+		<a class="shop-title" href="http://quanjeandep.com"> JEANS STYLE</a>
          
         <div class="shop-info">							
 				Địa chỉ: Số 55 Đội Cấn - Ba Đình - Hà Nội<br/>
