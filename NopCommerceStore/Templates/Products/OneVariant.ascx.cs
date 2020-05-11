@@ -464,6 +464,7 @@ namespace NopSolutions.NopCommerce.Web.Templates.Products
                         lblError.Text = errorFull;
                         if (this.SettingManager.GetSettingValueBoolean("Common.ShowAlertForProductAttributes"))
                         {
+                            errorFull = Server.HtmlDecode(errorFull);
                             this.DisplayAlertMessage(errorFull.Replace(sep, "\\n"));
                         }
                     }

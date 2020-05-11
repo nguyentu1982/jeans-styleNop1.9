@@ -1,4 +1,4 @@
-<%@ Page Language="C#" MasterPageFile="~/MasterPages/ThreeColumn.master" AutoEventWireup="true"
+<%@ Page Language="C#" MasterPageFile="~/MasterPages/OneColumn.master" AutoEventWireup="true"
     Inherits="NopSolutions.NopCommerce.Web.ProductEmailAFriendPage" CodeBehind="ProductEmailAFriend.aspx.cs"
      %>
 
