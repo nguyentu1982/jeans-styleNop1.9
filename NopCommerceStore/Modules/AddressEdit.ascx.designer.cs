@@ -49,6 +49,15 @@ namespace NopSolutions.NopCommerce.Web.Modules {
         protected global::NopSolutions.NopCommerce.Web.Modules.SimpleTextBox txtPhoneNumber;
         
         /// <summary>
+        /// EmailRow control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTableRow EmailRow;
+        
+        /// <summary>
         /// txtEmail control.
         /// </summary>
         /// <remarks>

@@ -31,28 +31,28 @@
             </nopCommerce:SimpleTextBox>
         </td>
     </tr>
-    <tr>
+    <tr runat="server" id="EmailRow">
         <td>
             <%=GetLocaleResourceString("Address.Email")%>:
         </td>
-        <td>            
+        <td>
             <nopCommerce:EmailTextBox runat="server" ID="txtEmail"></nopCommerce:EmailTextBox>
         </td>
     </tr>
-    <tr>
+    <tr style="display:none">
         <td>
             <%=GetLocaleResourceString("Address.FaxNumber")%>:
         </td>
         <td>
-            <asp:TextBox ID="txtFaxNumber" runat="server"></asp:TextBox>
+            <asp:TextBox ID="txtFaxNumber" runat="server" Text="04"></asp:TextBox>
         </td>
     </tr>
-    <tr>
+    <tr style="display:none">
         <td>
             <%=GetLocaleResourceString("Address.Company")%>:
         </td>
         <td>
-            <asp:TextBox ID="txtCompany" runat="server"></asp:TextBox>
+            <asp:TextBox ID="txtCompany" runat="server" Text="04"></asp:TextBox>
         </td>
     </tr>
     <tr>
@@ -64,12 +64,12 @@
             </nopCommerce:SimpleTextBox>
         </td>
     </tr>
-    <tr>
+    <tr style="display:none">
         <td>
             <%=GetLocaleResourceString("Address.Address2")%>:
         </td>
         <td>
-            <asp:TextBox ID="txtAddress2" runat="server"></asp:TextBox>
+            <asp:TextBox ID="txtAddress2" runat="server" Text="04"></asp:TextBox>
         </td>
     </tr>
     <tr>
@@ -91,7 +91,7 @@
             </asp:DropDownList>
         </td>
     </tr>
-    <tr>
+    <tr style="display:none">
         <td>
             <%=GetLocaleResourceString("Address.StateProvince")%>:
         </td>
@@ -100,12 +100,12 @@
             </asp:DropDownList>
         </td>
     </tr>
-    <tr>
+    <tr style="display:none">
         <td>
             <%=GetLocaleResourceString("Address.ZipPostalCode")%>:
         </td>
         <td>
-            <nopCommerce:SimpleTextBox runat="server" ID="txtZipPostalCode" ErrorMessage="<% $NopResources:Address.ZipPostalCodeIsRequired %>">
+            <nopCommerce:SimpleTextBox runat="server" ID="txtZipPostalCode" ErrorMessage="<% $NopResources:Address.ZipPostalCodeIsRequired %>" Text="04">
             </nopCommerce:SimpleTextBox>
         </td>
     </tr>

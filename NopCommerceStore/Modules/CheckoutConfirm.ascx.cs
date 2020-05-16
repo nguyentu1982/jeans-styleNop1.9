@@ -71,6 +71,10 @@ namespace NopSolutions.NopCommerce.Web.Modules
 
                     //paymentInfo.BillingAddress = NopContext.Current.User.BillingAddress;
                     paymentInfo.PaymentMethodId = 15; //hardcode
+                    if (NopContext.Current.User.IsGuest)
+                    {
+                        NopContext.Current.User.ShippingAddress.Email = "nanhtu2003@gmail.com";
+                    }
                     paymentInfo.BillingAddress = NopContext.Current.User.ShippingAddress;
                     paymentInfo.ShippingAddress = NopContext.Current.User.ShippingAddress;
                     paymentInfo.CustomerLanguage = NopContext.Current.WorkingLanguage;

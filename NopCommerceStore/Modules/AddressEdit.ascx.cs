@@ -46,6 +46,11 @@ namespace NopSolutions.NopCommerce.Web.Modules
                     txtLastName.Text = string.Empty;
                     txtPhoneNumber.Text = string.Empty;
                     txtEmail.Text = string.Empty;
+                    if (NopContext.Current.User.IsGuest)
+                    {
+                        EmailRow.Visible = false;
+                        txtEmail.Visible = false;
+                    }
                     txtFaxNumber.Text = string.Empty;
                     txtCompany.Text = string.Empty;
                     txtAddress1.Text = string.Empty;
