@@ -121,7 +121,7 @@
                         </asp:Panel>
                     </div>
                     
-                    <%=GetLocaleResourceString("Products.OrderQuantity")%>
+                    <span style="font-weight:bold"><%=GetLocaleResourceString("Products.OrderQuantity")%></span>
                     <nopCommerce:NumericTextBox runat="server" ID="txtQuantity" Value="1" RequiredErrorMessage="<% $NopResources:Products.EnterQuantity %>"
                         RangeErrorMessage="<% $NopResources:Products.QuantityRange %>" MinimumValue="1"
                         MaximumValue="999999" Width="50" />
@@ -163,22 +163,25 @@
                     CommandName="AddToWishlist" CommandArgument='<%#Eval("ProductVariantId")%>' CssClass="productvariantaddtowishlistbutton" />
                 <nopCommerce:ProductEmailAFriendButton ID="ctrlProductEmailAFriendButton" runat="server" />
                 <nopCommerce:ProductAddToCompareList ID="ctrlProductAddToCompareList" runat="server" />
+                    
                 <div class="clear"></div>
                 <!-- Go to www.addthis.com/dashboard to customize your tools -->
                 <div class="addthis_sharing_toolbox"></div>
-                    
-                    <asp:Repeater ID="rptStored" runat="server" Visible="false">
-                        <ItemTemplate>
-                            <div style="width: 300px; font-weight: bold; margin-top: 5px"><%=GetLocaleResourceString("Products.StoreGuide")%></div>
 
-                            <div style="margin-left: 20px"><%=GetLocaleResourceString("Warehouse.StreetAddress")%><%#Eval("Address1") %>- <%#Eval("City") %> </div>
-                             <div style="width: 300px; font-weight: bold; margin-top: 5px"><%=GetLocaleResourceString("Products.SupportGuide")%></div>
-                            <div style="margin-left: 20px">
+                
+
+                <asp:Repeater ID="rptStored" runat="server" Visible="false">
+                    <ItemTemplate>
+                        <div style="width: 300px; font-weight: bold; margin-top: 5px"><%=GetLocaleResourceString("Products.StoreGuide")%></div>
+
+                        <div style="margin-left: 20px"><%=GetLocaleResourceString("Warehouse.StreetAddress")%><%#Eval("Address1") %>- <%#Eval("City") %> </div>
+                            <div style="width: 300px; font-weight: bold; margin-top: 5px"><%=GetLocaleResourceString("Products.SupportGuide")%></div>
+                        <div style="margin-left: 20px">
                                
-                                <%=GetLocaleResourceString("Warehouse.TelephoneNumber")%><%#Eval("PhoneNumber")%><br />
-                                <%#Eval("Email") %>
-                            </div>
-                        </ItemTemplate>
+                            <%=GetLocaleResourceString("Warehouse.TelephoneNumber")%><%#Eval("PhoneNumber")%><br />
+                            <%#Eval("Email") %>
+                        </div>
+                    </ItemTemplate>
                     </asp:Repeater>
                 
                 <div class="clear"></div>
@@ -217,6 +220,8 @@ thanh toán]</a></td>
             </div>
         </div>
 
+        <div class="fb-comments" data-href="<%=SEOHelper.GetProductUrl(this.ProductId) %>" data-width="100%" data-num-posts="10"></div>
+
     </div>
     <div class="clear">
     </div>
@@ -251,7 +256,7 @@ thanh toán]</a></td>
                     <nopCommerce:Topic ID="topicFreeShiping" runat="server" TopicName="FreeShipping" OverrideSEO="false"></nopCommerce:Topic>
                 </ContentTemplate>
             </ajaxToolkit:TabPanel>
-            <ajaxToolkit:TabPanel runat="server" ID="pnlReturnPolicy" HeaderText="<% $NopResources:Products.ReturnPolicy %>">
+            <ajaxToolkit:TabPanel runat="server" ID="pnlReturnPolicy" HeaderText="<% $NopResources:Products.ReturnPolicy %>" Visible="false">
                 <ContentTemplate>
                     <nopCommerce:Topic ID="topicReturnPolicy" runat="server" TopicName="ReturnPolicy" OverrideSEO="false"></nopCommerce:Topic>
                 </ContentTemplate>
@@ -355,7 +360,7 @@ thanh toán]</a></td>
     </div>--%>
     </div>
 
-    <div class="fb-comments" data-href="<%=SEOHelper.GetProductUrl(this.ProductId) %>" data-width="768" data-num-posts="10"></div>
+    
 
 </div>
 <script text="text/javascript">

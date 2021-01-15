@@ -81,7 +81,7 @@ html, body, li, ul, h2
 #call-to-buy
 {
     display: inline;
-    background: #0000FF;
+    background: #fd3800;
     line-height: 20px;
     padding: 5px 5px 2px;
     font-size: 13px;
@@ -4178,6 +4178,7 @@ h1, h2, h3, h4, h5, h6 {
     border: 1px solid #c0c0c0;
     margin: 5px;
     max-width:378px;
+    min-height:499px;
 }
 
 .picture-guide {
