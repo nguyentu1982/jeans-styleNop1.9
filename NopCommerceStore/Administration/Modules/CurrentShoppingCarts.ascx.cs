@@ -85,12 +85,12 @@ namespace NopSolutions.NopCommerce.Web.Administration.Modules
         {
             string customerInfo = string.Empty;
             Customer customer = customerSession.Customer;
-
+            
             if (customer != null)
             {
                 if (customer.IsGuest)
                 {
-                    customerInfo = string.Format("<a href=\"CustomerDetails.aspx?CustomerID={0}\">{1}</a>", customer.CustomerId, GetLocaleResourceString("Admin.CustomerShoppingCart.CustomerColumn.Guest"));
+                    customerInfo = string.Format("<a href=\"CustomerDetails.aspx?CustomerID={0}\">{1}-{2}</a>", customer.CustomerId, GetLocaleResourceString("Admin.CustomerShoppingCart.CustomerColumn.Guest"), customer.ShippingAddress == null?"":customer.ShippingAddress.LastName);
                 }
                 else
                 {
