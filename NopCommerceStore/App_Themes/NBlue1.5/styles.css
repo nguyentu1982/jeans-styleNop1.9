@@ -133,6 +133,7 @@ a
 {
 	color: #225486;
 	text-decoration: none;
+    font-weight:bold;
 }
 
 a:hover
@@ -2845,7 +2846,6 @@ textarea
     width: 100%;
     text-align: center;
     float: left;
-    border-top: solid 1px #C0C0C0
 }
 
 .sub-category-grid a, .manufacturer-grid a
@@ -2964,13 +2964,15 @@ textarea
 }
 
 .product-count {
-    float:left;
+    text-align:center;
     font-weight:bold;
-    margin-top:6px;
+   
 }
 
 .select-filter {
     display:inline-block;
+    background-color: blue;
+    padding: 2px;
     
 }
 .product-spec-filter .title

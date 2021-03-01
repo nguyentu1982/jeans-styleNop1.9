@@ -113,7 +113,7 @@
         <div class="clear">
         </div>
 
-        <asp:Panel runat="server" ID="pnlFilters" CssClass="block product-filters">
+        <asp:Panel runat="server" ID="pnlFilters" CssClass="product-filters">
 
             <asp:Label runat="server" ID="lblProductFilterTitle" Visible="false">
                 <%=GetLocaleResourceString("Products.FilterOptionsTitle")%>
