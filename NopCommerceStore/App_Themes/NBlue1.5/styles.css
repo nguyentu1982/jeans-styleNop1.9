@@ -940,6 +940,7 @@ a.f-logo {
     font-size: 16px;    
     font-weight:bold;
     text-transform:uppercase;
+    text-align:center;
 }
 
 td
@@ -1847,10 +1848,17 @@ textarea
 }
 .checkout-page .page-title, .checkout-one-page .page-title
 {
-    border: 1px solid #C0C0C0;
-    margin-top: 5px;
     padding: 10px;
+    text-align:center;
 }
+
+.checkout-page .page-title, .checkout-one-page .page-title span
+{
+   text-transform:none;
+   font-size:16px;
+   font-weight:bold;
+}
+
 .checkout-page .checkout-data, .checkout-one-page .checkout-data
 {
 	margin-top: 5px;
@@ -1858,7 +1866,7 @@ textarea
     font-size: 14px;
     color: #555;
     /* background-color: inherit; */
-    border: 1px solid #C0C0C0;
+    
 }
 
 .checkout-one-page .checkout-data .progress
@@ -1909,7 +1917,6 @@ textarea
 .order-summary-body
 {
 	text-align: center;	
-	border: 1px solid #C0C0C0;
 	height: auto;
 }
 
@@ -2087,8 +2094,7 @@ textarea
 
 .checkout-data .confirm-order .select-button
 {
-	margin: 10px 10px 10px 10px;
-	text-align: left;
+	text-align: center;
 }
 
 .checkout-data .confirm-order .error-block
@@ -2190,7 +2196,6 @@ textarea
 {
 	margin: 0 auto;
 	text-align: center;
-	border: solid 1px #c0c0c0;
 	min-height: 40px;
 	padding-top:10px;
 }

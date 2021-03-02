@@ -11,7 +11,7 @@
         <div class="clear">
         </div>
         <div class="page-title">
-            <h1><%=GetLocaleResourceString("Checkout.ConfirmYourOrder")%></h1>
+            <span><%=GetLocaleResourceString("Checkout.ConfirmYourOrder")%></span>
         </div>
         <div class="clear">
         </div>
