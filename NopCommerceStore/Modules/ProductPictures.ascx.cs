@@ -18,7 +18,6 @@ namespace NopSolutions.NopCommerce.Web.Modules
             if (!Page.IsPostBack)
             {
                 iProductPicuture.ImageUrl = this.PictureService.GetPictureUrl(productPicture.Picture, 0, false, SEOHelper.GetSEName(productPicture.NpProduct.LocalizedName));
-                iProductPicuture.Width = new Unit("100%");
                 iProductPicuture.AlternateText = string.Format("{0} Giá:{1}", productPicture.NpProduct.LocalizedName, productPicture.NpProduct.ProductVariants[0].Price.ToString("C", new System.Globalization.CultureInfo("vi-VN")));
 
                 lProductPictureDescription.Visible = productPicture.PictureDescription == string.Empty ? false : true;

@@ -4,7 +4,7 @@
 <br/>
 <asp:HyperLink ID="linkProductPictureURL" runat="server" class='fresco'
          data-fresco-group='example'>
-      <asp:Image runat="server" ID="iProductPicuture" />
+      <asp:Image runat="server" ID="iProductPicuture" Width="100%"/>
 </asp:HyperLink>
 
 

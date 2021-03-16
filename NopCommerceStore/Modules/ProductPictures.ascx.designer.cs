@@ -13,6 +13,15 @@ namespace NopSolutions.NopCommerce.Web.Modules {
     public partial class ProductPictures {
         
         /// <summary>
+        /// lProductPictureDescription control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lProductPictureDescription;
+        
+        /// <summary>
         /// linkProductPictureURL control.
         /// </summary>
         /// <remarks>
@@ -29,14 +38,5 @@ namespace NopSolutions.NopCommerce.Web.Modules {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Image iProductPicuture;
-        
-        /// <summary>
-        /// lProductPictureDescription control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lProductPictureDescription;
     }
 }
