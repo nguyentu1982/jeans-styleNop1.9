@@ -91,9 +91,7 @@
     </div>
 
 
-    <div class="footer-shops">
-        <nopCommerce:ShopsInfo ID="ShopsInfo" runat="server" />
-    </div>
+    
 
     <%--<div class="footer-payment">
                         
@@ -107,8 +105,11 @@
 
 <div class="clear">
 </div>
+<div class="footer-shops">
+        <nopCommerce:ShopsInfo ID="ShopsInfo" runat="server" />
+</div>
 
-<div style="text-align:center;background:#fff;padding-top: 5px;border-top: 1px solid #c0c0c0;">
+<div style="text-align:center;background:#fff;padding-top: 5px;">
     <b style="text-transform: uppercase;">Thông tin chủ sở hữu và chịu trách nhiệm</b><br />
     Ông: Nguyễn Anh Tú - Số 55 Đội Cấn, Ba Đình, Hà Nội - ĐT: 0988.084.657
 			<br />
