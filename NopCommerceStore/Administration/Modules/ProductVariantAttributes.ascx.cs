@@ -463,7 +463,7 @@ namespace NopSolutions.NopCommerce.Web.Administration.Modules
         public void UpdateSize(int productIdMap)
         {
             int? stockQuantity = 0;            
-            stockQuantity = GetStockQuantityByProductId(productIdMap);            
+            stockQuantity = GetStockQuantityByProductId(productIdMap);                
 
             if (stockQuantity != null)
             {
@@ -476,7 +476,7 @@ namespace NopSolutions.NopCommerce.Web.Administration.Modules
                         combination.StockQuantity = int.Parse(stockQuantity.ToString());
                         this.ProductAttributeService.UpdateProductVariantAttributeCombination(combination);
 
-                        if (combination.AllowOutOfStockOrders) return;
+                        if (combination.AllowOutOfStockOrders) return ;
 
                         ProductVariant productVariant = this.ProductService.GetProductVariantById(combination.ProductVariantId);
                         //var combination = this.ProductAttributeService.GetProductVariantAttributeCombinationById(productVariantAttributeCombinationId);
@@ -492,7 +492,7 @@ namespace NopSolutions.NopCommerce.Web.Administration.Modules
                             string productVariantAttributeValueId = n.SelectSingleNode("/Attributes/ProductVariantAttribute/ProductVariantAttributeValue/Value").InnerText;
                             ProductVariantAttribute p = this.ProductAttributeService.GetProductVariantAttributeById(int.Parse(productVariantAttributeId));
                             ProductVariantAttributeValue pv = this.ProductAttributeService.GetProductVariantAttributeValueById(int.Parse(productVariantAttributeValueId));
-                            if (p.ProductAttribute.Name.ToLower().Contains("size"))
+                            if (p.ProductAttribute.Name.ToLower().Contains("size") && pv!=null)
                             {
                                 int productSpecificationAttributeOptionId = this.SpecificationAttributeService.GetSpecificationAttributeOption(p.ProductAttribute.Name, pv.Name).SpecificationAttributeOptionId;
 
@@ -531,9 +531,8 @@ namespace NopSolutions.NopCommerce.Web.Administration.Modules
                             }
                         }
                     }                    
-                }
-
-            }
+                }                
+            }            
         }
         public int? GetStockQuantityByProductId(int productId)
         {
@@ -567,7 +566,10 @@ namespace NopSolutions.NopCommerce.Web.Administration.Modules
                     {
                         while (reader.Read())
                         {
-                            stockQuantity = int.Parse(reader[10].ToString());
+                            if (reader[10] != System.DBNull.Value)
+                                stockQuantity = int.Parse(reader[10].ToString());
+                            else
+                                return null;
                         }
                     }
                     else

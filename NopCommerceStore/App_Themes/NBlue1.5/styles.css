@@ -654,9 +654,7 @@ i.angle-down {
 }
 
 .shop-info {
-    margin: 10px;
-    background-color: blue;
-    padding: 10px;
+    padding: 5px;
     font-size: initial;
 }
 
@@ -715,7 +713,6 @@ i.angle-down {
 .footer-disclaimer
 {
 	font-size: 11px;
-	border-top: 1px solid #E6E6E6;
 	text-align: center;
 }
 
@@ -879,9 +876,8 @@ i.angle-down {
 
 .footer-shops
 {
-	border-top: 1px solid #FFF;
-	padding: 10px;
-	background:#4568F5;
+	border-top: 1px solid #C0C0C0;
+	padding: 2px;
 }
 
 .footer-support
@@ -915,7 +911,6 @@ a.f-logo {
 {
 	font-weight: bold;
 	text-transform: uppercase;
-	color: #FFF;
 }
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
 
