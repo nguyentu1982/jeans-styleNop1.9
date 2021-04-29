@@ -24,6 +24,9 @@ namespace NopSolutions.NopCommerce.Web.Administration.Modules
             List<int> productIds = new List<int>();
             string strStatus = string.Empty;
             string idsMap = string.Empty;
+            string idsMapNeedCheck = string.Empty;
+            DataSet ds = new DataSet();
+            DataSet dsNeedCheck = new DataSet();
             string connectionString = ConfigurationManager.ConnectionStrings["JsSqlConnection"].ConnectionString;
             try
             {
@@ -77,7 +80,7 @@ namespace NopSolutions.NopCommerce.Web.Administration.Modules
             }
             catch (Exception exc)
             {
-                
+                throw exc;
             }
 
             ProductVariantAttributesControl pv = new ProductVariantAttributesControl();
@@ -85,17 +88,29 @@ namespace NopSolutions.NopCommerce.Web.Administration.Modules
             {
                 try
                 {
+
                     pv.UpdateSize(i);
                     idsMap += i + ",";
+                    
                 }
                 catch (Exception ex)
                 {
                     throw ex;
                 }
+            }           
+            
+            if(idsMap.Length >=1)
+            {
+                idsMap = idsMap.Remove(idsMap.Length - 1);
+                ds = GetProductByIdsMap(idsMap);
+                grvOutOfStockProducts.DataSource = ds;
+                grvOutOfStockProducts.DataBind();
             }
+        }
 
+        protected DataSet GetProductByIdsMap(string idsMap)
+        {
             string nopConnectionString = ConfigurationManager.ConnectionStrings["NopSqlConnection"].ConnectionString;
-            idsMap = idsMap.Remove(idsMap.Length-1);
             try
             {
                 using (SqlConnection connection = new SqlConnection(nopConnectionString))
@@ -118,10 +133,8 @@ namespace NopSolutions.NopCommerce.Web.Administration.Modules
                     SqlDataAdapter sda = new SqlDataAdapter(command);
                     DataSet ds = new DataSet();
                     sda.Fill(ds);
-                    grvOutOfStockProducts.DataSource = ds;
-                    grvOutOfStockProducts.DataBind();
+                    return ds;
                 }
-
             }
             catch (Exception exc)
             {
@@ -129,7 +142,6 @@ namespace NopSolutions.NopCommerce.Web.Administration.Modules
             }
         }
 
-        
 
         protected void btnViewOutOfStockProduct_Click(object sender, EventArgs e)
         {
