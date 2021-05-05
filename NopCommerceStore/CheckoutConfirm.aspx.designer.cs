@@ -22,15 +22,6 @@ namespace NopSolutions.NopCommerce.Web {
         protected global::NopSolutions.NopCommerce.Web.Modules.OrderProgressControl OrderProgressControl;
         
         /// <summary>
-        /// ctrlCheckoutConfirm control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::NopSolutions.NopCommerce.Web.Modules.CheckoutConfirmControl ctrlCheckoutConfirm;
-        
-        /// <summary>
         /// OrderSummaryControl control.
         /// </summary>
         /// <remarks>
@@ -38,5 +29,14 @@ namespace NopSolutions.NopCommerce.Web {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::NopSolutions.NopCommerce.Web.Modules.OrderSummaryControl OrderSummaryControl;
+        
+        /// <summary>
+        /// ctrlCheckoutConfirm control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::NopSolutions.NopCommerce.Web.Modules.CheckoutConfirmControl ctrlCheckoutConfirm;
     }
 }
