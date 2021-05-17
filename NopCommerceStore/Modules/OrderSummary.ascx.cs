@@ -407,7 +407,8 @@ namespace NopSolutions.NopCommerce.Web.Modules
             if (NopContext.Current.User == null || NopContext.Current.User.IsGuest)
             {
                 string loginURL = SEOHelper.GetLoginPageUrl(true, this.CustomerService.AnonymousCheckoutAllowed);
-                Response.Redirect(loginURL);
+                //Response.Redirect(loginURL); chuyen luon sang checkout
+                Response.Redirect("~/checkout.aspx");
             }
             else
             {

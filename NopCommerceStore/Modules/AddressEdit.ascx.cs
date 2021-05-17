@@ -50,6 +50,7 @@ namespace NopSolutions.NopCommerce.Web.Modules
                     {
                         EmailRow.Visible = false;
                         txtEmail.Visible = false;
+                        txtEmail.Text = "guest@quanjeandep.com";
                     }
                     txtFaxNumber.Text = string.Empty;
                     txtCompany.Text = string.Empty;

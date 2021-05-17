@@ -5,7 +5,7 @@
         <div class="select-button">
             <asp:Label runat="server" ID="lMinOrderTotalAmount" />
             <asp:Button runat="server" ID="btnNextStep" Text="<% $NopResources:Checkout.ConfirmButton %>"
-                OnClick="btnNextStep_Click" CssClass="confirmordernextstepbutton" ValidationGroup="CheckoutConfirm" OnClientClick="gtag_report_conversion('/checkoutcompleted.aspx')" />
+                OnClick="btnNextStep_Click" CssClass="confirmordernextstepbutton" ValidationGroup="CheckoutConfirm" />
         </div>
         <div class="clear">
         </div>
