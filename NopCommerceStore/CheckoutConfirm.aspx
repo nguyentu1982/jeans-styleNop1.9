@@ -13,11 +13,6 @@
         <div class="page-title">
             <span><%=GetLocaleResourceString("Checkout.ConfirmYourOrder")%></span>
         </div>
-        <div class="clear">
-        </div>
-        <nopCommerce:CheckoutConfirm ID="ctrlCheckoutConfirm" runat="server" />
-        <div class="clear">
-        </div>
         <div class="order-summary-title">
             <%=GetLocaleResourceString("Checkout.OrderSummary")%>
         </div>
@@ -27,5 +22,11 @@
             <nopCommerce:OrderSummary ID="OrderSummaryControl" runat="server" IsShoppingCart="false" IsCheckOutConfirm="true">
             </nopCommerce:OrderSummary>
         </div>
+        <div class="clear">
+        </div>
+        <nopCommerce:CheckoutConfirm ID="ctrlCheckoutConfirm" runat="server" />
+        <div class="clear">
+        </div>
+        
     </div>
 </asp:Content>
