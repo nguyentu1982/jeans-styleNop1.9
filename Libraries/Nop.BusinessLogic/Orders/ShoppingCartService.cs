@@ -840,21 +840,29 @@ namespace NopSolutions.NopCommerce.BusinessLogic.Orders
                     break;
                 case ManageInventoryMethodEnum.ManageStockByAttributes:
                     {
-                        var combination = IoC.Resolve<IProductAttributeService>().FindProductVariantAttributeCombination(productVariant.ProductVariantId, selectedAttributes);
-                        if (combination != null)
+                        var combinationList = IoC.Resolve<IProductAttributeService>().FindProductVariantAttributeCombinationDisplayOnProductBox(productVariant.ProductVariantId, selectedAttributes);
+                        int stockQuantity = 0;
+                        foreach(ProductVariantAttributeCombination combination in combinationList)
                         {
-                            if (!combination.AllowOutOfStockOrders)
+                            if (combination != null)
                             {
-                                if (combination.StockQuantity < quantity)
+                                if (!combination.AllowOutOfStockOrders)
                                 {
-                                    int maximumQuantityCanBeAdded = combination.StockQuantity;
-                                    if (maximumQuantityCanBeAdded <= 0)
-                                        warnings.Add(IoC.Resolve<ILocalizationManager>().GetLocaleResourceString("ShoppingCart.OutOfStock"));
-                                    else
-                                        warnings.Add(string.Format(IoC.Resolve<ILocalizationManager>().GetLocaleResourceString("ShoppingCart.QuantityExceedsStock"), maximumQuantityCanBeAdded));
+                                    stockQuantity += combination.StockQuantity;                                    
                                 }
                             }
                         }
+                       
+                        if (stockQuantity < quantity)
+                        {
+                            int maximumQuantityCanBeAdded = stockQuantity;
+                            if (maximumQuantityCanBeAdded <= 0)
+                                warnings.Add(IoC.Resolve<ILocalizationManager>().GetLocaleResourceString("ShoppingCart.OutOfStock"));
+                            else
+                                warnings.Add(string.Format(IoC.Resolve<ILocalizationManager>().GetLocaleResourceString("ShoppingCart.QuantityExceedsStock"), maximumQuantityCanBeAdded));
+                        }
+                            
+                        
                     }
                     break;
                 default:
