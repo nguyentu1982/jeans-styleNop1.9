@@ -96,7 +96,8 @@ namespace NopSolutions.NopCommerce.Web.Modules
                     var args2 = new CheckoutStepEventArgs() { OrderConfirmed = true };
                     OnCheckoutStepChanged(args2);
                     if (!this.OnePageCheckout)
-                        Response.Redirect("~/checkoutcompleted.aspx");
+                        ScriptManager.RegisterStartupScript(this, this.GetType(), "googleConversion", "gtag_report_conversion('/checkoutcompleted.aspx')", true);
+                        Response.Redirect("~/checkoutcompleted.aspx", false);
                 }
                 catch (Exception exc)
                 {
@@ -120,7 +121,7 @@ namespace NopSolutions.NopCommerce.Web.Modules
 
         protected override void OnPreRender(EventArgs e)
         {
-            this.btnNextStep.Attributes.Add("onclick", "gtag_report_conversion('/checkoutcompleted.aspx');" + Page.ClientScript.GetPostBackEventReference(this.btnNextStep, ""));
+            //this.btnNextStep.Attributes.Add("onclick",  Page.ClientScript.GetPostBackEventReference(this.btnNextStep, "") + ";gtag_report_conversion('/checkoutcompleted.aspx')");
 
             //use postback if we're on one-page checkout page
             //we need it to properly process redirects (hosted payment methods)
