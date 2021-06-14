@@ -60,6 +60,7 @@ namespace NopSolutions.NopCommerce.Web
             {
                 ctrlCheckoutConfirm.BindData();
             }
+            AddressDisplayControl.Address = NopContext.Current.User.ShippingAddress;
         }
 
         public override PageSslProtectionEnum SslProtected
