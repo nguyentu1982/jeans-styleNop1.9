@@ -4194,6 +4194,13 @@
     <Compile Include="MasterPages\TwoColumn1.master.designer.cs">
       <DependentUpon>TwoColumn1.master</DependentUpon>
     </Compile>
+    <Compile Include="Modules\AddressDisplayConfirmPage.ascx.cs">
+      <DependentUpon>AddressDisplayConfirmPage.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\AddressDisplayConfirmPage.ascx.designer.cs">
+      <DependentUpon>AddressDisplayConfirmPage.ascx</DependentUpon>
+    </Compile>
     <Compile Include="Modules\ContactInfoHotline.ascx.cs">
       <DependentUpon>ContactInfoHotline.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -7187,6 +7194,7 @@
     <Content Include="images\quan-jean-dep-banner.jpg" />
     <Content Include="MegaDropdownMenu\jkmegamenu.css" />
     <Content Include="MegaDropdownMenu\jkmegamenu.js" />
+    <Content Include="Modules\AddressDisplayConfirmPage.ascx" />
     <Content Include="Modules\ContactInfoHotline.ascx" />
     <Content Include="Modules\RelatedProductsOnHomePage.ascx" />
     <Content Include="Modules\PopularTags1.ascx" />

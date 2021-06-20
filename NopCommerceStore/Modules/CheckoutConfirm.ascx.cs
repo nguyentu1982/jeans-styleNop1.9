@@ -96,8 +96,8 @@ namespace NopSolutions.NopCommerce.Web.Modules
                     var args2 = new CheckoutStepEventArgs() { OrderConfirmed = true };
                     OnCheckoutStepChanged(args2);
                     if (!this.OnePageCheckout)
-                        ScriptManager.RegisterStartupScript(this, this.GetType(), "googleConversion", "gtag_report_conversion('/checkoutcompleted.aspx')", true);
-                        Response.Redirect("~/checkoutcompleted.aspx", false);
+                        ScriptManager.RegisterStartupScript(Page, Page.GetType(), "googleConversion", "gtag_report_conversion('/checkoutcompleted.aspx');", true);
+                        //Response.Redirect("~/checkoutcompleted.aspx", false);
                 }
                 catch (Exception exc)
                 {
