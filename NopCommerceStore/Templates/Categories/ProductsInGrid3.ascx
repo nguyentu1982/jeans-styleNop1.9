@@ -61,26 +61,13 @@
                 <asp:Literal runat="server" ID="lDescription"></asp:Literal>
             </div>
 
-            <div class="sub-category-grid">
-                <asp:ListView ID="dlSubCategories" runat="server" OnItemDataBound="dlSubCategories_ItemDataBound" ItemStyle-CssClass="item-box" Visible="true">
-                    <ItemTemplate>
-                        <div class="sub-category-item">
-                            <h2 class="category-title">
-                                <asp:HyperLink ID="hlCategory" runat="server" />
-                            </h2>
-                            <%--<div class="picture">
-                        <asp:HyperLink ID="hlImageLink" runat="server" />
-                    </div>--%>
-                        </div>
-                    </ItemTemplate>
-                </asp:ListView>
-            </div>
+            
 
             <asp:Panel runat="server" ID="pnlFeaturedProducts" class="">
                 <div class="title">
                     <%=GetLocaleResourceString("Products.FeaturedProducts")%>
                 </div>
-                
+
                 <div class="recently-product-grid">
                     <ul id="flexiselDemo1">
                         <asp:ListView ID="dlFeaturedProducts" runat="server">
@@ -97,64 +84,80 @@
                         </asp:ListView>
                     </ul>
                 </div>
-                   
-        </asp:Panel>
+
+            </asp:Panel>
             <div class="clear">
             </div>
 
-        <asp:Panel runat="server" ID="pnlSorting" CssClass="product-sorting">
-            <%=GetLocaleResourceString("ProductSorting.SortBy")%>
-            <asp:DropDownList ID="ddlSorting" runat="server" OnSelectedIndexChanged="ddlSorting_SelectedIndexChanged"
-                AutoPostBack="true" />
-            <%=GetLocaleResourceString("ProductSorting.SortBySize")%>
-            <asp:DropDownList ID="ddlFillteringBySize" runat="server" OnSelectedIndexChanged="ddlFillteringBySize_SelectedIndexChanged"
-                AutoPostBack="true" />
-        </asp:Panel>
-        <div class="clear">
-        </div>
+            <asp:Panel runat="server" ID="pnlSorting" CssClass="product-sorting">
+                <%=GetLocaleResourceString("ProductSorting.SortBy")%>
+                <asp:DropDownList ID="ddlSorting" runat="server" OnSelectedIndexChanged="ddlSorting_SelectedIndexChanged"
+                    AutoPostBack="true" />
+                <%=GetLocaleResourceString("ProductSorting.SortBySize")%>
+                <asp:DropDownList ID="ddlFillteringBySize" runat="server" OnSelectedIndexChanged="ddlFillteringBySize_SelectedIndexChanged"
+                    AutoPostBack="true" />
+            </asp:Panel>
+            <div class="clear">
+            </div>
 
-        <asp:Panel runat="server" ID="pnlFilters" CssClass="product-filters">
+            <asp:Panel runat="server" ID="pnlFilters" CssClass="product-filters">
 
-            <asp:Label runat="server" ID="lblProductFilterTitle" Visible="false">
+                <asp:Label runat="server" ID="lblProductFilterTitle" Visible="false">
                 <%=GetLocaleResourceString("Products.FilterOptionsTitle")%>
-            </asp:Label>
+                </asp:Label>
 
 
-            <nopCommerce:PriceRangeFilter ID="ctrlPriceRangeFilter" runat="server" />
+                <nopCommerce:PriceRangeFilter ID="ctrlPriceRangeFilter" runat="server" />
 
-            <nopCommerce:ProductSpecificationFilter3 ID="ctrlProductSpecificationFilter" runat="server" />
+                <nopCommerce:ProductSpecificationFilter3 ID="ctrlProductSpecificationFilter" runat="server" />
 
 
-        </asp:Panel>
-        <div class="product-count">
+            </asp:Panel>
+            <div class="product-count">
 
-            <asp:Literal runat="server" ID="litProductCount"></asp:Literal>
-        </div>
-        
-        <div class="clear">
-        </div>
+                <asp:Literal runat="server" ID="litProductCount"></asp:Literal>
+            </div>
 
-        <div class="product-grid">
+            <div class="clear">
+            </div>
 
-            <asp:ListView ID="dlProducts" runat="server">
-                <ItemTemplate>
-                    <div class="item-box">
-                        <nopCommerce:ProductBox1 ID="ctrlProductBox" Product='<%# Container.DataItem %>' runat="server" />
-                    </div>
+            <div class="product-grid">
 
-                </ItemTemplate>
-            </asp:ListView>
-        </div>
-        <div class="clear">
-        </div>
-        <div class="product-pager">
-            <nopCommerce:Pager runat="server" ID="productsPager" FirstButtonText="<% $NopResources:Pager.First %>"
-                LastButtonText="<% $NopResources:Pager.Last %>" NextButtonText="<% $NopResources:Pager.Next %>"
-                PreviousButtonText="<% $NopResources:Pager.Previous %>" CurrentPageText="Pager.CurrentPage" ShowLast="True" ShowFirst="True" />
+                <asp:ListView ID="dlProducts" runat="server">
+                    <ItemTemplate>
+                        <div class="item-box">
+                            <nopCommerce:ProductBox1 ID="ctrlProductBox" Product='<%# Container.DataItem %>' runat="server" />
+                        </div>
+
+                    </ItemTemplate>
+                </asp:ListView>
+            </div>
+            <div class="clear">
+            </div>
+            <div class="product-pager">
+                <nopCommerce:Pager runat="server" ID="productsPager" FirstButtonText="<% $NopResources:Pager.First %>"
+                    LastButtonText="<% $NopResources:Pager.Last %>" NextButtonText="<% $NopResources:Pager.Next %>"
+                    PreviousButtonText="<% $NopResources:Pager.Previous %>" CurrentPageText="Pager.CurrentPage" ShowLast="True" ShowFirst="True" />
+
+            </div>
+
+            <div class="sub-category-grid">
+                <asp:ListView ID="dlSubCategories" runat="server" OnItemDataBound="dlSubCategories_ItemDataBound" ItemStyle-CssClass="item-box" Visible="true">
+                    <ItemTemplate>
+                        <div class="sub-category-item">
+                            <h2 class="category-title">
+                                <asp:HyperLink ID="hlCategory" runat="server" />
+                            </h2>
+                            <%--<div class="picture">
+                        <asp:HyperLink ID="hlImageLink" runat="server" />
+                    </div>--%>
+                        </div>
+                    </ItemTemplate>
+                </asp:ListView>
+            </div>
 
         </div>
     </div>
-</div>
 </div>
 <script type="text/javascript" src="/9bitStudios-flexisel-c787002/js/jquery.flexisel.js"></script>
 <script>

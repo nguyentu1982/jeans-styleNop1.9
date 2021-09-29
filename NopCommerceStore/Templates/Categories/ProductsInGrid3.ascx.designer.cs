@@ -40,15 +40,6 @@ namespace NopSolutions.NopCommerce.Web.Templates.Categories {
         protected global::System.Web.UI.WebControls.Literal lDescription;
         
         /// <summary>
-        /// dlSubCategories control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView dlSubCategories;
-        
-        /// <summary>
         /// pnlFeaturedProducts control.
         /// </summary>
         /// <remarks>
@@ -155,5 +146,14 @@ namespace NopSolutions.NopCommerce.Web.Templates.Categories {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::NopSolutions.NopCommerce.Controls.Pager productsPager;
+        
+        /// <summary>
+        /// dlSubCategories control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListView dlSubCategories;
     }
 }
