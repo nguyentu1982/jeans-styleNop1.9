@@ -881,6 +881,157 @@ namespace NopSolutions.NopCommerce.BusinessLogic.ExportImport
             }
         }
 
+
+        /// <summary>
+        /// Customize - Export products to XLS Remarketing Face
+        /// </summary>
+        /// <param name="filePath">File path to use</param>
+        /// <param name="products">Products</param>
+        public void ExportProductsToXlsRemarketingFace(string filePath, List<Product> products)
+        {
+            using (ExcelHelper excelHelper = new ExcelHelper(filePath))
+            {
+                excelHelper.Hdr = "YES";
+                excelHelper.Imex = "0";
+                Dictionary<string, string> tableDefinition = new Dictionary<string, string>();
+                tableDefinition.Add("ID", "ntext");
+                tableDefinition.Add("title", "ntext");
+                tableDefinition.Add("[description]", "ntext");
+                tableDefinition.Add("[availability]", "ntext");
+                tableDefinition.Add("[condition]", "ntext");
+                tableDefinition.Add("[price]", "ntext");
+                tableDefinition.Add("[link]", "ntext");
+                tableDefinition.Add("[image_link]", "ntext");
+                tableDefinition.Add("brand", "ntext");
+                tableDefinition.Add("[google_product_category]", "ntext");
+                tableDefinition.Add("[quantity_to_sell_on_facebook]", "ntext");
+                tableDefinition.Add("[sale_price]", "ntext");
+                tableDefinition.Add("[sale_price_effective_date]", "ntext");
+                tableDefinition.Add("[item_group_id]", "ntext");
+                tableDefinition.Add("[gender]", "ntext");
+                tableDefinition.Add("[color]", "ntext");
+                tableDefinition.Add("[size]", "ntext");
+                tableDefinition.Add("[age_group]", "ntext");
+                tableDefinition.Add("[material]", "ntext");
+                tableDefinition.Add("[pattern]", "ntext");
+                tableDefinition.Add("[shipping]", "ntext");
+                tableDefinition.Add("[shipping_weight]", "ntext");
+                tableDefinition.Add("[rich_text_description]", "ntext");
+
+                excelHelper.WriteTable("Products", tableDefinition);
+
+                CultureInfo vnCul = CultureInfo.GetCultureInfo("vi-VN");
+                string decimalQuoter = (CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator.Equals(",") ? "\"" : String.Empty);
+
+
+                foreach (var p in products)
+                {
+                    if (p.Published == true)
+                    {
+                        var productVariants = IoC.Resolve<IProductService>().GetProductVariantsByProductId(p.ProductId, true);
+
+                        foreach (var pv in productVariants)
+                        {
+                            var productVariantsCombinations = IoC.Resolve<IProductAttributeService>().GetAllProductVariantAttributeCombinations(pv.ProductVariantId);
+                            foreach (var pvac in productVariantsCombinations)
+                            {
+                                if(pvac.StockQuantity >0)
+                                {
+                                    StringBuilder sb = new StringBuilder();
+                                    sb.Append("INSERT INTO [Products] (ID, title,[description],[availability],[condition],[price],[link],[image_link],[brand],[google_product_category],[quantity_to_sell_on_facebook],[sale_price],  [item_group_id], [color], [size],[rich_text_description]) VALUES (");
+                                    sb.Append('"'); sb.Append(pvac.ProductVariantAttributeCombinationId.ToString().Replace('"', '\'')); sb.Append("\",");
+                                    sb.Append('"'); sb.Append(p.Name.Replace('"', '\'')); sb.Append("\",");
+                                    sb.Append('"'); sb.Append(p.ShortDescription.Replace('"', '\'')); sb.Append("\",");
+                                    sb.Append('"'); sb.Append("instock"); sb.Append("\",");
+                                    sb.Append('"'); sb.Append("new"); sb.Append("\",");
+
+                                    decimal price = pv.Price;
+
+                                    string color = string.Empty;
+                                    string size = string.Empty;
+                                    var pvavs = ProductAttributeHelper.ParseProductVariantAttributeValues(pvac.AttributesXml);
+                                    foreach (var pvav in pvavs)
+                                    {
+                                        price += pvav.PriceAdjustment;
+                                        if (pvavs.Count == 1)
+                                        {
+                                            size = pvav.Name;
+                                        }
+                                        else
+                                        {
+                                            if (pvav.ProductVariantAttribute.TextPrompt.ToLower() == "size")
+                                            {
+                                                size = pvav.Name;
+                                            }
+                                            else
+                                            {
+                                                color = pvav.Name;
+                                            }
+                                        }
+
+                                    }
+                                    string salesPrice = decimal.Parse(price.ToString()).ToString("#,###", CultureInfo.InvariantCulture);
+                                    if (!string.IsNullOrEmpty(salesPrice))
+                                    {
+                                        salesPrice = salesPrice + " VND";
+                                    }
+
+                                    string oldPrice = decimal.Parse(pv.OldPrice.ToString()).ToString("#,###", CultureInfo.InvariantCulture);
+                                    if (!string.IsNullOrEmpty(oldPrice))
+                                    {
+                                        oldPrice = oldPrice + " VND";
+                                    }
+
+                                    sb.Append('"'); sb.Append(pv.OldPrice != 0 ? oldPrice.Replace('"', '\'') : salesPrice.Replace('"', '\'')); sb.Append("\",");
+
+                                    string productURL = SEOHelper.GetProductUrl(p);
+                                    sb.Append('"'); sb.Append(productURL.Replace('"', '\'')); sb.Append("\",");
+
+                                    var picture = p.DefaultPicture;
+                                    var imageURL = string.Empty;
+                                    if (picture != null)
+                                    {
+                                        imageURL = IoC.Resolve<IPictureService>().GetPictureUrl(picture, this.ProductImageSize, true, SEOHelper.GetSEName(p.LocalizedName));
+
+                                    }
+
+                                    sb.Append('"'); sb.Append(imageURL.Replace('"', '\'')); sb.Append("\",");
+
+                                    sb.Append('"'); sb.Append("Jeans Style"); sb.Append("\",");
+                                    sb.Append('"'); sb.Append("1604"); sb.Append("\",");
+                                    sb.Append('"'); sb.Append(pvac.StockQuantity.ToString()); sb.Append("\",");
+
+
+
+                                    if (pv.OldPrice != 0)
+                                    {
+                                        sb.Append('"'); sb.Append(salesPrice.Replace('"', '\'')); sb.Append("\",");
+                                    }
+
+                                    else
+                                    {
+                                        sb.Append('"'); sb.Append("0"); sb.Append("\",");
+                                    }
+
+                                    sb.Append('"'); sb.Append(p.ProductId.ToString().Replace('"', '\'')); sb.Append("\",");
+                                    sb.Append('"'); sb.Append(color.Replace('"', '\'')); sb.Append("\",");
+                                    sb.Append('"'); sb.Append(size.Replace('"', '\'')); sb.Append("\",");
+                                    sb.Append('"'); sb.Append(p.FullDescription.Replace('"', '\'')); sb.Append("\"");
+
+                                    sb.Append(")");
+
+                                    excelHelper.ExecuteCommand(sb.ToString());
+                                }
+                                
+                            }
+                            
+                        }
+
+                    }
+                }
+            }
+        }
+
         /// <summary>
         /// Export order list to xml
         /// </summary>

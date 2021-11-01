@@ -140,6 +140,20 @@ namespace NopSolutions.NopCommerce.Web.Administration.Modules
             return products;
         }
 
+        protected List<Product> GetProductsFace()
+        {
+            string productName = txtProductName.Text;
+            int categoryId = ParentCategory.SelectedCategoryId;
+            int manufacturerId = int.Parse(this.ddlManufacturer.SelectedItem.Value);
+
+            int totalRecords = 0;
+            var products = this.ProductService.GetAllProducts(categoryId,
+                manufacturerId, 0, null, null, null, productName,
+                false, int.MaxValue, 0, null,
+                ProductSortingEnum.Position, out totalRecords);
+            return products;
+        }
+
         protected void BindGrid()
         {
             var products = GetProducts();
@@ -267,6 +281,26 @@ namespace NopSolutions.NopCommerce.Web.Administration.Modules
                     var products = GetProducts();
 
                     this.ExportManager.ExportProductsToXlsRemarketing(filePath, products);
+                    CommonHelper.WriteResponseXls(filePath, fileName);
+                }
+                catch (Exception exc)
+                {
+                    ProcessException(exc);
+                }
+            }
+        }
+
+        protected void btnExportXLSRemarketingFace_Click(object sender, EventArgs e)
+        {
+            if (Page.IsValid)
+            {
+                try
+                {
+                    string fileName = string.Format("productsRemarketingFace_{0}_{1}.xls", DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss"), CommonHelper.GenerateRandomDigitCode(4));
+                    string filePath = string.Format("{0}files\\ExportImport\\{1}", HttpContext.Current.Request.PhysicalApplicationPath, fileName);
+                    var products = GetProductsFace();
+
+                    this.ExportManager.ExportProductsToXlsRemarketingFace(filePath, products);
                     CommonHelper.WriteResponseXls(filePath, fileName);
                 }
                 catch (Exception exc)

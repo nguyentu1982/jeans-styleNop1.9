@@ -550,7 +550,7 @@ namespace NopSolutions.NopCommerce.BusinessLogic.Data
             {
                 orderByParameter = new ObjectParameter("OrderBy", typeof(global::System.Int32));
             }
-    
+            base.CommandTimeout = 600;
             return base.ExecuteFunction<Product>("Sp_ProductLoadAllPaged", categoryIDParameter, manufacturerIDParameter, productTagIDParameter, featuredProductsParameter, priceMinParameter, priceMaxParameter, relatedToProductIDParameter, keywordsParameter, searchDescriptionsParameter, showHiddenParameter, pageIndexParameter, pageSizeParameter, filteredSpecsParameter, languageIDParameter, orderByParameter, totalRecords);
         }
         /// <summary>

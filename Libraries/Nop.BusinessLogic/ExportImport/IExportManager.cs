@@ -90,6 +90,6 @@ namespace NopSolutions.NopCommerce.BusinessLogic.ExportImport
 
         void ExportProductsToXlsRemarketing(string filePath, List<Product> products);
 
-        
+        void ExportProductsToXlsRemarketingFace(string filePath, List<Product> products);
     }
 }
