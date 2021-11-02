@@ -916,7 +916,8 @@ namespace NopSolutions.NopCommerce.BusinessLogic.ExportImport
                 tableDefinition.Add("[pattern]", "ntext");
                 tableDefinition.Add("[shipping]", "ntext");
                 tableDefinition.Add("[shipping_weight]", "ntext");
-                tableDefinition.Add("[rich_text_description]", "ntext");
+                tableDefinition.Add("[additional_image_link]", "ntext");
+                tableDefinition.Add("[rich_text_description]", "ntext");                
 
                 excelHelper.WriteTable("Products", tableDefinition);
 
@@ -938,11 +939,11 @@ namespace NopSolutions.NopCommerce.BusinessLogic.ExportImport
                                 if(pvac.StockQuantity >0)
                                 {
                                     StringBuilder sb = new StringBuilder();
-                                    sb.Append("INSERT INTO [Products] (ID, title,[description],[availability],[condition],[price],[link],[image_link],[brand],[google_product_category],[quantity_to_sell_on_facebook],[sale_price],  [item_group_id], [color], [size],[rich_text_description]) VALUES (");
+                                    sb.Append("INSERT INTO [Products] (ID, title,[description],[availability],[condition],[price],[link],[image_link],[brand],[google_product_category],[quantity_to_sell_on_facebook],[sale_price],  [item_group_id], [color], [size],[additional_image_link],[rich_text_description]) VALUES (");
                                     sb.Append('"'); sb.Append(pvac.ProductVariantAttributeCombinationId.ToString().Replace('"', '\'')); sb.Append("\",");
                                     sb.Append('"'); sb.Append(p.Name.Replace('"', '\'')); sb.Append("\",");
                                     sb.Append('"'); sb.Append(p.ShortDescription.Replace('"', '\'')); sb.Append("\",");
-                                    sb.Append('"'); sb.Append("instock"); sb.Append("\",");
+                                    sb.Append('"'); sb.Append("in stock"); sb.Append("\",");
                                     sb.Append('"'); sb.Append("new"); sb.Append("\",");
 
                                     decimal price = pv.Price;
@@ -1016,6 +1017,26 @@ namespace NopSolutions.NopCommerce.BusinessLogic.ExportImport
                                     sb.Append('"'); sb.Append(p.ProductId.ToString().Replace('"', '\'')); sb.Append("\",");
                                     sb.Append('"'); sb.Append(color.Replace('"', '\'')); sb.Append("\",");
                                     sb.Append('"'); sb.Append(size.Replace('"', '\'')); sb.Append("\",");
+
+                                    //additional_image_link
+                                    var pictures = p.ProductPictures;
+                                    string additionalImageLinks = string.Empty;
+                                    for (int i = 0; i < pictures.Count; i++ )
+                                    {
+                                        if (pictures[i].PictureId != picture.PictureId)
+                                        {
+                                            if(i != pictures.Count - 1)
+                                            {                                                
+                                                additionalImageLinks += IoC.Resolve<IPictureService>().GetPictureUrl(pictures[i].Picture, this.ProductImageSize, true, SEOHelper.GetSEName(p.LocalizedName)) + ",";
+                                            }
+                                            else
+                                            {
+                                                additionalImageLinks += IoC.Resolve<IPictureService>().GetPictureUrl(pictures[i].Picture, this.ProductImageSize, true, SEOHelper.GetSEName(p.LocalizedName));
+                                            }
+                                        }
+                                    }
+                                    sb.Append('"'); sb.Append(additionalImageLinks.Replace('"', '\'')); sb.Append("\",");
+                                    
                                     sb.Append('"'); sb.Append(p.FullDescription.Replace('"', '\'')); sb.Append("\"");
 
                                     sb.Append(")");
