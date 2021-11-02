@@ -108,7 +108,7 @@ namespace NopSolutions.NopCommerce.Web
 
             sb.Append(Environment.NewLine);
 
-            sb.Append("content_type: 'product',");
+            sb.Append("content_type: 'product_group',");
             sb.Append(Environment.NewLine);
 
             sb.Append("});");
