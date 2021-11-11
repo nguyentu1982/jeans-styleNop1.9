@@ -381,15 +381,22 @@ namespace NopSolutions.NopCommerce.Web.Administration.Modules
             return variantName;
         }
 
-        protected void gvProducts_RowCommand(object sender, GridViewCommandEventArgs e)
+        public void gvProducts_RowCommand(object sender, GridViewCommandEventArgs e)
         {
+            int index = Convert.ToInt32(e.CommandArgument);
             if(e.CommandName =="UpTop")
-            {
-                int index = Convert.ToInt32(e.CommandArgument);
+            {                
                 GridViewRow row = gvProducts.Rows[index];
                 HiddenField hdproductId = row.FindControl("hfProductId") as HiddenField;
                 int productId = int.Parse(hdproductId.Value);
                 this.ProductService.UpTop(productId);
+            }
+            if(e.CommandName=="UpdatePic")
+            {                
+                GridViewRow row = gvProducts.Rows[index];
+                HiddenField hdproductId = row.FindControl("hfProductId") as HiddenField;
+                int productId = int.Parse(hdproductId.Value);
+                this.ProductService.UpdatePic(productId);
             }
         }
     }

@@ -1033,5 +1033,7 @@ namespace NopSolutions.NopCommerce.BusinessLogic.Products
         #endregion
 
         void UpTop(int productId);
+
+        void UpdatePic(int productId);
     }
 }

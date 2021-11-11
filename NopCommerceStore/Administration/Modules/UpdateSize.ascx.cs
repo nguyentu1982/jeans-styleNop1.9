@@ -7,10 +7,12 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using NopSolutions.NopCommerce.BusinessLogic;
+
 
 namespace NopSolutions.NopCommerce.Web.Administration.Modules
 {
-    public partial class UpdateSize1 : System.Web.UI.UserControl
+    public partial class UpdateSize1 : BaseNopAdministrationUserControl
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -165,6 +167,39 @@ namespace NopSolutions.NopCommerce.Web.Administration.Modules
             {
 
             }
+        }
+
+        protected void btnUpdateProductUrl_Click(object sender, EventArgs e)
+        {
+            //get all product not deleted
+            DataSet ds = new DataSet();
+            string connectionString = ConfigurationManager.ConnectionStrings["NopSqlConnection"].ConnectionString;
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+
+                    string sql = "select [ProductId] from [dbo].[Nop_Product] where Deleted = 0";
+                    SqlCommand cmd = new SqlCommand(sql, connection);
+                    SqlDataAdapter sda = new SqlDataAdapter(cmd);                    
+                    sda.Fill(ds);
+                    
+                }
+
+            }
+            catch (Exception exc)
+            {
+
+            }
+            //get updat urls
+            
+            for(int i=0; i<ds.Tables[0].Rows.Count;i++)
+            {
+                int productId = int.Parse(ds.Tables[0].Rows[i][0].ToString());
+
+                this.ProductService.UpdatePic(productId);
+            }
+            //lblEndDate.Text = ds.Tables.Count.ToString();
         }
     }
 }

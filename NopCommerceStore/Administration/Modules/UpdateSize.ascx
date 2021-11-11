@@ -38,6 +38,9 @@
             <asp:Button runat="server" Text="Expression: Admin.UpdateSize.ViewOutOfStockProduct.Text"
                 CssClass="adminButtonBlue" ID="btnViewOutOfStockProduct" 
                 ValidationGroup="GoDirectly" ToolTip="<% $NopResources:Admin.Orders.GoButton.Tooltip %>" OnClick="btnViewOutOfStockProduct_Click" />
+             <asp:Button runat="server" Text="Expression: Admin.UpdateSize.UpdateIamgeUrls.Text"
+                CssClass="adminButtonBlue" ID="btUpdateProducturl" 
+                ValidationGroup="GoDirectly" ToolTip="<% $NopResources:Admin.Orders.GoButton.Tooltip %>" OnClick="btnUpdateProductUrl_Click" />
         </td>
     </tr>
 </table>

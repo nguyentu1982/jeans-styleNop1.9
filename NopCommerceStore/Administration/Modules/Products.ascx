@@ -20,7 +20,7 @@
         <asp:Button runat="server" Text="<% $NopResources:Admin.Products.ExportXLSButton.Text %>"
             CssClass="adminButtonBlue" ID="btnExportXLS" OnClick="btnExportXLS_Click" ValidationGroup="ExportXLS"
             ToolTip="<% $NopResources:Admin.Products.ExportXLSButton.Tooltip %>" />
-        
+
         <asp:Button runat="server" Text="<% $NopResources:Admin.Products.ExportXLSButtonRemarketing.Text %>"
             CssClass="adminButtonBlue" ID="btnExportXLSRemarketing" OnClick="btnExportXLSRemarketing_Click" ValidationGroup="ExportXLS"
             ToolTip="<% $NopResources:Admin.Products.ExportXLSButtonRemarketing.Tooltip %>" />
@@ -31,7 +31,7 @@
 
         <asp:Button runat="server" Text="<% $NopResources:Admin.Products.ImportXLSButton.Text %>"
             CssClass="adminButtonBlue" ID="btnImportXLS" OnClick="btnImportXLS_Click" ToolTip="<% $NopResources:Admin.Products.ImportXLSButton.Tooltip %>" />
-        <input type="button" onclick="location.href='ProductAdd.aspx'" value="<%=GetLocaleResourceString("Admin.Products.AddButton.Text")%>"
+        <input type="button" onclick="location.href = 'ProductAdd.aspx'" value="<%=GetLocaleResourceString("Admin.Products.AddButton.Text")%>"
             id="btnAddNew" class="adminButtonBlue" title="<%=GetLocaleResourceString("Admin.Products.AddButton.Tooltip")%>" />
         <asp:Button runat="server" Text="<% $NopResources:Admin.Products.DeleteButton.Text %>"
             CssClass="adminButtonBlue" ID="btnDelete" OnClick="btnDelete_Click" />
@@ -56,8 +56,7 @@
                 ToolTip="<% $NopResources:Admin.Products.Category.Tooltip %>" ToolTipImage="~/Administration/Common/ico-help.gif" />
         </td>
         <td class="adminData">
-            <nopCommerce:SelectCategoryControl ID="ParentCategory" CssClass="adminInput" runat="server">
-            </nopCommerce:SelectCategoryControl>
+            <nopCommerce:SelectCategoryControl ID="ParentCategory" CssClass="adminInput" runat="server"></nopCommerce:SelectCategoryControl>
         </td>
     </tr>
     <tr>
@@ -77,8 +76,7 @@
         </td>
         <td class="adminData">
             <nopCommerce:SimpleTextBox runat="server" CssClass="adminInput" ID="txtSKU" Width="150px"
-                ValidationGroup="GoDirectlySKU" ErrorMessage="<% $NopResources:Admin.Products.GoDirectlySKU.ErrorMessage %>">
-            </nopCommerce:SimpleTextBox>
+                ValidationGroup="GoDirectlySKU" ErrorMessage="<% $NopResources:Admin.Products.GoDirectlySKU.ErrorMessage %>"></nopCommerce:SimpleTextBox>
             <asp:Button runat="server" Text="<% $NopResources:Admin.Products.GoSKUButton.Text %>"
                 CssClass="adminButtonBlue" ID="btnGoDirectlyToSKU" OnClick="btnGoDirectlyToSKU_Click"
                 ValidationGroup="GoDirectlySKU" />
@@ -90,15 +88,15 @@
 
 <script type="text/javascript">
 
-    $(window).bind('load', function() {
+    $(window).bind('load', function () {
         var cbHeader = $(".cbHeader input");
         var cbRowItem = $(".cbRowItem input");
-        cbHeader.bind("click", function() {
-            cbRowItem.each(function() { this.checked = cbHeader[0].checked; })
+        cbHeader.bind("click", function () {
+            cbRowItem.each(function () { this.checked = cbHeader[0].checked; })
         });
-        cbRowItem.bind("click", function() { if ($(this).checked == false) cbHeader[0].checked = false; });
+        cbRowItem.bind("click", function () { if ($(this).checked == false) cbHeader[0].checked = false; });
     });
-    
+
     function ChildBlock(img, obj) {
         if (obj.style.display == 'none') {
             obj.style.display = '';
@@ -125,13 +123,13 @@
         </asp:TemplateField>
         <asp:TemplateField HeaderText="<% $NopResources:Admin.Products.Name %>" ItemStyle-Width="35%">
             <ItemTemplate>
-                <asp:Image runat="server" ID="imgProduct" style="margin-right:10px;" /><%#Server.HtmlEncode(Eval("Name").ToString())%>
+                <asp:Image runat="server" ID="imgProduct" Style="margin-right: 10px;" /><%#Server.HtmlEncode(Eval("Name").ToString())%>
             </ItemTemplate>
         </asp:TemplateField>
         <asp:TemplateField HeaderText="<% $NopResources:Admin.Products.ProductVariants %>"
             HeaderStyle-HorizontalAlign="Center" ItemStyle-Width="40%" ItemStyle-HorizontalAlign="Center">
             <ItemTemplate>
-                <asp:Panel runat="server" ID="pnlVariants" style="text-align:left" >
+                <asp:Panel runat="server" ID="pnlVariants" Style="text-align: left">
                     <img src='<%#Page.ResolveUrl("~/images/expand.png") %>' alt="variants" onclick="ChildBlock(this,document.getElementById('pvGrid<%#Eval("ProductId") %>'));" />
                     <div id='pvGrid<%#Eval("ProductId") %>' style="display: none">
                         <asp:GridView runat="server" ID="gvVariants" DataKeyNames="ProductVariantId" AutoGenerateColumns="false" Width="100%">
@@ -145,16 +143,13 @@
                                     </ItemTemplate>
                                 </asp:TemplateField>
                                 <asp:BoundField DataField="SKU" HeaderText="<% $NopResources:Admin.Products.ProductVariants.SKU %>"
-                                    HeaderStyle-HorizontalAlign="Center" ItemStyle-Width="20%" ItemStyle-HorizontalAlign="Center">
-                                </asp:BoundField>
+                                    HeaderStyle-HorizontalAlign="Center" ItemStyle-Width="20%" ItemStyle-HorizontalAlign="Center"></asp:BoundField>
                                 <asp:BoundField DataField="Price" HeaderText="<% $NopResources:Admin.Products.ProductVariants.Price %>"
-                                    HeaderStyle-HorizontalAlign="Center" ItemStyle-Width="20%" ItemStyle-HorizontalAlign="Center" DataFormatString="{0:G}">
-                                </asp:BoundField>
+                                    HeaderStyle-HorizontalAlign="Center" ItemStyle-Width="20%" ItemStyle-HorizontalAlign="Center" DataFormatString="{0:G}"></asp:BoundField>
                                 <asp:TemplateField HeaderText="<% $NopResources:Admin.Products.ProductVariants.Published %>"
                                     HeaderStyle-HorizontalAlign="Center" ItemStyle-Width="20%" ItemStyle-HorizontalAlign="Center">
                                     <ItemTemplate>
-                                        <nopCommerce:ImageCheckBox runat="server" ID="cbPublished" Checked='<%# Eval("Published") %>'>
-                                        </nopCommerce:ImageCheckBox>
+                                        <nopCommerce:ImageCheckBox runat="server" ID="cbPublished" Checked='<%# Eval("Published") %>'></nopCommerce:ImageCheckBox>
                                     </ItemTemplate>
                                 </asp:TemplateField>
                             </Columns>
@@ -166,8 +161,7 @@
         <asp:TemplateField HeaderText="<% $NopResources:Admin.Products.Published %>" HeaderStyle-HorizontalAlign="Center"
             ItemStyle-Width="10%" ItemStyle-HorizontalAlign="Center">
             <ItemTemplate>
-                <nopCommerce:ImageCheckBox runat="server" ID="cbPublished" Checked='<%# Eval("Published") %>'>
-                </nopCommerce:ImageCheckBox>
+                <nopCommerce:ImageCheckBox runat="server" ID="cbPublished" Checked='<%# Eval("Published") %>'></nopCommerce:ImageCheckBox>
             </ItemTemplate>
         </asp:TemplateField>
         <asp:TemplateField HeaderText="<% $NopResources:Admin.Products.Edit %>" HeaderStyle-HorizontalAlign="Center"
@@ -182,10 +176,22 @@
             ItemStyle-Width="10%" ItemStyle-HorizontalAlign="Center">
             <ItemTemplate>
                 <asp:Button ID="btnUpTop" runat="server" CssClass="adminButton" Text="<% $NopResources:Admin.Products.Up %>"
-                     CommandName="UpTop" commandargument="<%# Container.DataItemIndex %>" />
+                    CommandName="UpTop" CommandArgument="<%# Container.DataItemIndex %>" />
                 <nopCommerce:ConfirmationBox runat="server" ID="ConfirmationBox1" TargetControlID="btnUpTop"
-            YesText="<% $NopResources:Admin.Common.Yes %>" NoText="<% $NopResources:Admin.Common.No %>"
-            ConfirmText="<% $NopResources:Admin.Common.AreYouSure %>" />
+                    YesText="<% $NopResources:Admin.Common.Yes %>" NoText="<% $NopResources:Admin.Common.No %>"
+                    ConfirmText="<% $NopResources:Admin.Common.AreYouSure %>" />
+            </ItemTemplate>
+
+
+        </asp:TemplateField>
+        <asp:TemplateField HeaderText="<% $NopResources:Admin.Products.Up %>" HeaderStyle-HorizontalAlign="Center"
+            ItemStyle-Width="10%" ItemStyle-HorizontalAlign="Center">
+            <ItemTemplate>
+                <asp:Button ID="btnUpdatePic" runat="server" CssClass="adminButton" Text="<% $NopResources:Admin.Products.UpdatePic %>"
+                    CommandName="UpdatePic" CommandArgument="<%# Container.DataItemIndex %>" />
+                <nopCommerce:ConfirmationBox runat="server" ID="ConfirmationBox2" TargetControlID="btnUpdatePic"
+                    YesText="<% $NopResources:Admin.Common.Yes %>" NoText="<% $NopResources:Admin.Common.No %>"
+                    ConfirmText="<% $NopResources:Admin.Common.AreYouSure %>" />
             </ItemTemplate>
         </asp:TemplateField>
     </Columns>
@@ -200,9 +206,7 @@
 <ajaxToolkit:ModalPopupExtender runat="server" ID="mpeImportXLS" TargetControlID="btnImportXLS"
     OkControlID="btnImportXLSOk" CancelControlID="btnImportXLSCancel" PopupControlID="pnlImportXLSPopupPanel"
     BackgroundCssClass="modalBackground" />
-<asp:Panel runat="server" ID="pnlImportXLSPopupPanel" Style="display: none; width: 250px;
-    background-color: White; border-width: 2px; border-color: Black; border-style: solid;
-    padding: 20px;">
+<asp:Panel runat="server" ID="pnlImportXLSPopupPanel" Style="display: none; width: 250px; background-color: White; border-width: 2px; border-color: Black; border-style: solid; padding: 20px;">
     <div style="text-align: center;">
         <%=GetLocaleResourceString("Admin.Products.ImportXLS.ExcelFile")%>
         <asp:FileUpload runat="server" ID="fuXlsFile" />

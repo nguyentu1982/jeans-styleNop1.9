@@ -35,6 +35,10 @@ using NopSolutions.NopCommerce.BusinessLogic.Products.Specs;
 using NopSolutions.NopCommerce.BusinessLogic.Promo.Discounts;
 using NopSolutions.NopCommerce.Common;
 using NopSolutions.NopCommerce.Common.Utils;
+using NopSolutions.NopCommerce.BusinessLogic.SEO;
+using System.Configuration;
+using System.Data.SqlClient;
+using System.Data;
 
 namespace NopSolutions.NopCommerce.BusinessLogic.Products
 {
@@ -562,6 +566,86 @@ namespace NopSolutions.NopCommerce.BusinessLogic.Products
             Product p = this.GetProductById(productId);
             p.CreatedOn = DateTime.Now;
             this.UpdateProduct(p);
+        }
+
+        public void UpdatePic(int productId)
+        {
+            Product p = this.GetProductById(productId);
+            //additional_image_link
+            var pictures = p.ProductPictures;
+            string imageLinks = string.Empty;
+            int productImageSize = 1200;
+            for (int i = 0; i < pictures.Count; i++)
+            {
+                
+                if (i != pictures.Count - 1)
+                {
+                    imageLinks += IoC.Resolve<IPictureService>().GetPictureUrl(pictures[i].Picture, productImageSize, true, SEOHelper.GetSEName(p.LocalizedName)) + ",";
+                }
+                else
+                {
+                    imageLinks += IoC.Resolve<IPictureService>().GetPictureUrl(pictures[i].Picture, productImageSize, true, SEOHelper.GetSEName(p.LocalizedName));
+                }
+                
+            }
+            var productVariants = IoC.Resolve<IProductService>().GetProductVariantsByProductId(p.ProductId, true);
+            var combinations = IoC.Resolve<IProductAttributeService>().GetAllProductVariantAttributeCombinations(productVariants[0].ProductVariantId);
+            foreach(var com in combinations)
+            {
+                var idmap = com.IdMap;
+                //update to js-manage
+                UpdateImageUrls(idmap, imageLinks);
+            }         
+
+        }
+
+        public int? UpdateImageUrls(int idMap, string imageLinks)
+        {
+            int result = 0;
+            string connectionString = ConfigurationManager.ConnectionStrings["JsSqlConnection"].ConnectionString;
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    // Create the command and set its properties.
+                    SqlCommand command = new SqlCommand();
+                    command.Connection = connection;
+                    command.CommandText = "UpdateImageUrls";
+                    command.CommandType = CommandType.StoredProcedure;
+
+                    // Add the input parameter and set its properties.
+                    SqlParameter parameter = new SqlParameter();
+                    parameter.ParameterName = "@idMap";
+                    parameter.SqlDbType = SqlDbType.Int;
+                    parameter.Direction = ParameterDirection.Input;
+                    parameter.Value = idMap;
+
+                    // Add the parameter to the Parameters collection. 
+                    command.Parameters.Add(parameter);
+
+                    // Add the input parameter and set its properties.
+                    SqlParameter imgLinksParameter = new SqlParameter();
+                    imgLinksParameter.ParameterName = "@imageUrls";
+                    imgLinksParameter.SqlDbType = SqlDbType.NVarChar;
+                    imgLinksParameter.Direction = ParameterDirection.Input;
+                    imgLinksParameter.Value = imageLinks;
+
+                    // Add the parameter to the Parameters collection. 
+                    command.Parameters.Add(imgLinksParameter);
+
+                    // Open the connection and execute the reader.
+                    connection.Open();
+                     result = command.ExecuteNonQuery();
+
+                    connection.Close();
+                    return result;
+                }                
+            }
+            catch (Exception exc)
+            {
+                return null;
+            }
+
         }
 
         /// <summary>
