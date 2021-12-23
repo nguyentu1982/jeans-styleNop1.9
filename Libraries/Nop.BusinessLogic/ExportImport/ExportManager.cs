@@ -31,6 +31,7 @@ using NopSolutions.NopCommerce.BusinessLogic.Products.Attributes;
 using NopSolutions.NopCommerce.BusinessLogic.Products.Specs;
 using NopSolutions.NopCommerce.BusinessLogic.SEO;
 using NopSolutions.NopCommerce.BusinessLogic.Media;
+using System.Net;
 
 namespace NopSolutions.NopCommerce.BusinessLogic.ExportImport
 {
@@ -881,6 +882,55 @@ namespace NopSolutions.NopCommerce.BusinessLogic.ExportImport
             }
         }
 
+
+        public void DownLoadImgs(List<Product> products, string path)
+        {
+            int j = 1;
+            foreach (var p in products)
+            {
+                var pictures = p.ProductPictures;
+                string imgLink = string.Empty;
+                
+                
+                    for (int i = 0; i < pictures.Count; i++)
+                    {
+                        imgLink = IoC.Resolve<IPictureService>().GetPictureUrl(pictures[i].Picture, this.ProductImageSize, true, SEOHelper.GetSEName(p.LocalizedName));
+                        System.Drawing.Image image = DownloadImageFromUrl(imgLink);
+
+                        string fileName = System.IO.Path.Combine(path, j+ SEOHelper.GetSEName(p.LocalizedName) + i + ".jpeg");
+                        image.Save(fileName, System.Drawing.Imaging.ImageFormat.Jpeg);
+
+                        j++;
+                }
+                
+            }
+        }
+
+        public System.Drawing.Image DownloadImageFromUrl(string imageUrl)
+        {
+            System.Drawing.Image image = null;
+
+            try
+            {
+                System.Net.HttpWebRequest webRequest = (System.Net.HttpWebRequest)System.Net.HttpWebRequest.Create(imageUrl);
+                webRequest.AllowWriteStreamBuffering = true;
+                webRequest.Timeout = 30000;
+
+                System.Net.WebResponse webResponse = webRequest.GetResponse();
+
+                System.IO.Stream stream = webResponse.GetResponseStream();
+
+                image = System.Drawing.Image.FromStream(stream);
+
+                webResponse.Close();
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+
+            return image;
+        }
 
         /// <summary>
         /// Customize - Export products to XLS Remarketing Face

@@ -67,6 +67,15 @@ namespace NopSolutions.NopCommerce.Web.Administration.Modules {
         protected global::System.Web.UI.WebControls.Button Button1;
         
         /// <summary>
+        /// Button2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Button2;
+        
+        /// <summary>
         /// btnImportXLS control.
         /// </summary>
         /// <remarks>
@@ -92,6 +101,15 @@ namespace NopSolutions.NopCommerce.Web.Administration.Modules {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::NopSolutions.NopCommerce.Web.Administration.Modules.ConfirmationBox cbDelete;
+        
+        /// <summary>
+        /// ConfirmationBox3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::NopSolutions.NopCommerce.Web.Administration.Modules.ConfirmationBox ConfirmationBox3;
         
         /// <summary>
         /// lblProductName control.

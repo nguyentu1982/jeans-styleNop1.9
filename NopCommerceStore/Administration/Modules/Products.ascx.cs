@@ -136,7 +136,7 @@ namespace NopSolutions.NopCommerce.Web.Administration.Modules
             var products = this.ProductService.GetAllProducts(categoryId, 
                 manufacturerId, 0, null, null, null, productName, 
                 false, int.MaxValue, 0, null, 
-                ProductSortingEnum.Position, out totalRecords);
+                ProductSortingEnum.CreatedOn, out totalRecords);
             return products;
         }
 
@@ -290,6 +290,24 @@ namespace NopSolutions.NopCommerce.Web.Administration.Modules
             }
         }
 
+        protected void btnDownLoadImgs_Click(object sender, EventArgs e)
+        {
+            if (Page.IsValid)
+            {
+                try
+                {                   
+                    string folderPath = Server.MapPath(this.GetLocaleResourceString("Download.LocalPath"));
+                    var products = GetProducts();
+                    this.ExportManager.DownLoadImgs(products, folderPath);
+                    
+                    
+                }
+                catch (Exception exc)
+                {
+                    ProcessException(exc);
+                }
+            }
+        }
         protected void btnExportXLSRemarketingFace_Click(object sender, EventArgs e)
         {
             if (Page.IsValid)

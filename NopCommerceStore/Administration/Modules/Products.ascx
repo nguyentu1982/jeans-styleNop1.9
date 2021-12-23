@@ -29,6 +29,10 @@
             CssClass="adminButtonBlue" ID="Button1" OnClick="btnExportXLSRemarketingFace_Click" ValidationGroup="ExportXLS"
             ToolTip="<% $NopResources:Admin.Products.ExportXLSButtonRemarketingFace.Tooltip %>" />
 
+        <asp:Button runat="server" Text="<% $NopResources:Admin.Products.DownLoadImgs.Text %>"
+            CssClass="adminButtonBlue" ID="Button2" OnClick="btnDownLoadImgs_Click" ValidationGroup="ExportXLS"
+            ToolTip="<% $NopResources:Admin.Products.DownLoadImgs.Tooltip %>" />
+
         <asp:Button runat="server" Text="<% $NopResources:Admin.Products.ImportXLSButton.Text %>"
             CssClass="adminButtonBlue" ID="btnImportXLS" OnClick="btnImportXLS_Click" ToolTip="<% $NopResources:Admin.Products.ImportXLSButton.Tooltip %>" />
         <input type="button" onclick="location.href = 'ProductAdd.aspx'" value="<%=GetLocaleResourceString("Admin.Products.AddButton.Text")%>"
@@ -36,6 +40,9 @@
         <asp:Button runat="server" Text="<% $NopResources:Admin.Products.DeleteButton.Text %>"
             CssClass="adminButtonBlue" ID="btnDelete" OnClick="btnDelete_Click" />
         <nopCommerce:ConfirmationBox runat="server" ID="cbDelete" TargetControlID="btnDelete"
+            YesText="<% $NopResources:Admin.Common.Yes %>" NoText="<% $NopResources:Admin.Common.No %>"
+            ConfirmText="<% $NopResources:Admin.Common.AreYouSure %>" />
+        <nopCommerce:ConfirmationBox runat="server" ID="ConfirmationBox3" TargetControlID="Button2"
             YesText="<% $NopResources:Admin.Common.Yes %>" NoText="<% $NopResources:Admin.Common.No %>"
             ConfirmText="<% $NopResources:Admin.Common.AreYouSure %>" />
     </div>
