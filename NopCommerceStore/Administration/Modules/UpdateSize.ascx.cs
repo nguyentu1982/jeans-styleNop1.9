@@ -8,6 +8,8 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using NopSolutions.NopCommerce.BusinessLogic;
+using NopSolutions.NopCommerce.BusinessLogic.Infrastructure;
+using NopSolutions.NopCommerce.BusinessLogic.Media;
 
 
 namespace NopSolutions.NopCommerce.Web.Administration.Modules
@@ -201,5 +203,37 @@ namespace NopSolutions.NopCommerce.Web.Administration.Modules
             }
             //lblEndDate.Text = ds.Tables.Count.ToString();
         }
+
+        protected void btnbtGetDefaultImage_Click(object sender, EventArgs e)
+        {
+            DataSet ds = new DataSet();
+            string connectionString = ConfigurationManager.ConnectionStrings["NopSqlConnection"].ConnectionString;
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+
+                    string sql = "select [ProductId] from [dbo].[Nop_Product] where Deleted = 0";
+                    SqlCommand cmd = new SqlCommand(sql, connection);
+                    SqlDataAdapter sda = new SqlDataAdapter(cmd);
+                    sda.Fill(ds);
+
+                }
+
+            }
+            catch (Exception exc)
+            {
+
+            }
+            //get updat urls
+
+            for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+            {
+                int productId = int.Parse(ds.Tables[0].Rows[i][0].ToString());
+
+                this.ProductService.GetDefaultImage(productId);
+            }
+        }
+
     }
 }

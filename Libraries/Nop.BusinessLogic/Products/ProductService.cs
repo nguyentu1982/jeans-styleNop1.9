@@ -599,6 +599,37 @@ namespace NopSolutions.NopCommerce.BusinessLogic.Products
 
         }
 
+        public void GetDefaultImage(int productId)
+        {
+            Product p = this.GetProductById(productId);
+            //additional_image_link
+            var pictures = p.ProductPictures;
+            string imageLinks = string.Empty;
+            int productImageSize = 1200;
+            for (int i = 0; i < pictures.Count; i++)
+            {
+
+                if (i != pictures.Count - 1)
+                {
+                    imageLinks += IoC.Resolve<IPictureService>().GetPictureUrl(pictures[i].Picture, productImageSize, true, SEOHelper.GetSEName(p.LocalizedName)) + ",";
+                }
+                else
+                {
+                    imageLinks += IoC.Resolve<IPictureService>().GetPictureUrl(pictures[i].Picture, productImageSize, true, SEOHelper.GetSEName(p.LocalizedName));
+                }
+
+            }
+            var productVariants = IoC.Resolve<IProductService>().GetProductVariantsByProductId(p.ProductId, true);
+            var combinations = IoC.Resolve<IProductAttributeService>().GetAllProductVariantAttributeCombinations(productVariants[0].ProductVariantId);
+            foreach (var com in combinations)
+            {
+                var idmap = com.IdMap;
+                //update to js-manage
+                UpdateImageUrls(idmap, imageLinks);
+            }
+
+        }
+
         public int? UpdateImageUrls(int idMap, string imageLinks)
         {
             int result = 0;

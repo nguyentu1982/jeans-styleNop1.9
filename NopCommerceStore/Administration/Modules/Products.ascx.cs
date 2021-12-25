@@ -231,6 +231,32 @@ namespace NopSolutions.NopCommerce.Web.Administration.Modules
                 }
         }
 
+
+        protected void btnUpdatePicURL_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                foreach (GridViewRow row in gvProducts.Rows)
+                {
+                    var cbProduct = row.FindControl("cbProduct") as CheckBox;
+                    var hfProductId = row.FindControl("hfProductId") as HiddenField;
+
+                    bool isChecked = cbProduct.Checked;
+                    int productId = int.Parse(hfProductId.Value);
+                    if (isChecked)
+                    {
+                        this.ProductService.UpdatePic(productId);
+                    }
+                }
+
+                BindGrid();
+            }
+            catch (Exception ex)
+            {
+                ProcessException(ex);
+            }
+        }
+
         protected void btnExportXML_Click(object sender, EventArgs e)
         {
             if (Page.IsValid)
@@ -298,7 +324,8 @@ namespace NopSolutions.NopCommerce.Web.Administration.Modules
                 {                   
                     string folderPath = Server.MapPath(this.GetLocaleResourceString("Download.LocalPath"));
                     var products = GetProducts();
-                    this.ExportManager.DownLoadImgs(products, folderPath);
+
+                    this.ExportManager.DownLoadImgs(products, folderPath, cbOnlyDefault.Checked);
                     
                     
                 }

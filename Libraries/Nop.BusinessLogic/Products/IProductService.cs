@@ -1035,5 +1035,7 @@ namespace NopSolutions.NopCommerce.BusinessLogic.Products
         void UpTop(int productId);
 
         void UpdatePic(int productId);
+
+        void GetDefaultImage(int productId);
     }
 }

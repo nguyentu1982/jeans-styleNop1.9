@@ -883,25 +883,42 @@ namespace NopSolutions.NopCommerce.BusinessLogic.ExportImport
         }
 
 
-        public void DownLoadImgs(List<Product> products, string path)
+        public void DownLoadImgs(List<Product> products, string path, bool isDownOnlyDefault)
         {
             int j = 1;
             foreach (var p in products)
             {
-                var pictures = p.ProductPictures;
-                string imgLink = string.Empty;
-                
-                
-                    for (int i = 0; i < pictures.Count; i++)
+                if(p.Published==true)
+                {
+                    var pictures = p.ProductPictures;
+                    
+                    string imgLink = string.Empty;
+
+                    if(isDownOnlyDefault)
                     {
-                        imgLink = IoC.Resolve<IPictureService>().GetPictureUrl(pictures[i].Picture, this.ProductImageSize, true, SEOHelper.GetSEName(p.LocalizedName));
+                        imgLink = IoC.Resolve<IPictureService>().GetPictureUrl(p.DefaultPicture, this.ProductImageSize, true, SEOHelper.GetSEName(p.LocalizedName));
                         System.Drawing.Image image = DownloadImageFromUrl(imgLink);
 
-                        string fileName = System.IO.Path.Combine(path, j+ SEOHelper.GetSEName(p.LocalizedName) + i + ".jpeg");
+                        string fileName = System.IO.Path.Combine(path, j + SEOHelper.GetSEName(p.LocalizedName) + ".jpeg");
                         image.Save(fileName, System.Drawing.Imaging.ImageFormat.Jpeg);
 
                         j++;
-                }
+                    }
+                    else
+                    {
+                        for (int i = 0; i < pictures.Count; i++)
+                        {
+                            imgLink = IoC.Resolve<IPictureService>().GetPictureUrl(pictures[i].Picture, this.ProductImageSize, true, SEOHelper.GetSEName(p.LocalizedName));
+                            System.Drawing.Image image = DownloadImageFromUrl(imgLink);
+
+                            string fileName = System.IO.Path.Combine(path, j + SEOHelper.GetSEName(p.LocalizedName) + i + ".jpeg");
+                            image.Save(fileName, System.Drawing.Imaging.ImageFormat.Jpeg);
+
+                            j++;
+                        }
+                    }
+                    
+                }            
                 
             }
         }

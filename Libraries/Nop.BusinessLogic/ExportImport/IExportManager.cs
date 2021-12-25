@@ -92,6 +92,6 @@ namespace NopSolutions.NopCommerce.BusinessLogic.ExportImport
 
         void ExportProductsToXlsRemarketingFace(string filePath, List<Product> products);
 
-        void DownLoadImgs(List<Product> products, string path);
+        void DownLoadImgs(List<Product> products, string path, bool IsDownOnlyDefault);
     }
 }

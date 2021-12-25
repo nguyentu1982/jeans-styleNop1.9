@@ -41,6 +41,9 @@
              <asp:Button runat="server" Text="Expression: Admin.UpdateSize.UpdateIamgeUrls.Text"
                 CssClass="adminButtonBlue" ID="btUpdateProducturl" 
                 ValidationGroup="GoDirectly" ToolTip="<% $NopResources:Admin.Orders.GoButton.Tooltip %>" OnClick="btnUpdateProductUrl_Click" />
+            <asp:Button runat="server" Text="Expression: Admin.UpdateSize.GetDefaultImage.Text"
+                CssClass="adminButtonBlue" ID="btGetDefaultImage" 
+                ValidationGroup="GoDirectly" ToolTip="<% $NopResources:Admin.Orders.GoButton.Tooltip %>" OnClick="btnbtGetDefaultImage_Click" />
         </td>
     </tr>
 </table>
