@@ -68,7 +68,7 @@ namespace NopSolutions.NopCommerce.Web.Templates.Categories
 
             //page size
             int totalRecords = 0;
-            int pageSize = 6;
+            int pageSize = SettingManager.GetSettingValueInteger("PageSizeCateOnHomePage");        
 
             //price ranges            
             decimal? minPriceConverted = null;
@@ -106,9 +106,9 @@ namespace NopSolutions.NopCommerce.Web.Templates.Categories
             base.OnPreRender(e);
         }
 
-        protected void dlSubCategories_ItemDataBound(object sender, DataListItemEventArgs e)
+        protected void dlSubCategories_ItemDataBound(object sender, ListViewItemEventArgs e)
         {
-            if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
+            if (e.Item.ItemType == ListViewItemType.DataItem )
             {
                 var category = e.Item.DataItem as Category;
                 string categoryURL = SEOHelper.GetCategoryUrl(category);

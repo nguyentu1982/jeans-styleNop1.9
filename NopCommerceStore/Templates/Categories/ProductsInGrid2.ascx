@@ -10,32 +10,33 @@
     
     <div class="clear">
     </div>
+
     <div class="sub-category-grid">
-        <asp:DataList ID="dlSubCategories" runat="server" RepeatColumns="3" RepeatDirection="Horizontal"
-            RepeatLayout="Table" OnItemDataBound="dlSubCategories_ItemDataBound" ItemStyle-CssClass="item-box">
-            <ItemTemplate>
-                <div class="sub-category-item">
-                    <h2 class="category-title">
-                        <asp:HyperLink ID="hlCategory" runat="server" />
-                    </h2>
-                    <%--<div class="picture">
+                <asp:ListView ID="dlSubCategories" runat="server" OnItemDataBound="dlSubCategories_ItemDataBound"   ItemStyle-CssClass="item-box" Visible="false">
+                    <ItemTemplate>
+                        <div class="sub-category-item">
+                            <h2 class="category-title">
+                                <asp:HyperLink ID="hlCategory" runat="server" />
+                            </h2>
+                            <%--<div class="picture">
                         <asp:HyperLink ID="hlImageLink" runat="server" />
                     </div>--%>
-                </div>
-            </ItemTemplate>
-        </asp:DataList>
-    </div>
-
+                        </div>
+                    </ItemTemplate>
+                </asp:ListView>
+            </div>
      <div class="clear">
     </div>
 
     <div class="product-grid">
-        <asp:DataList ID="dlProducts" runat="server" RepeatColumns="3" RepeatDirection="Horizontal"
-            RepeatLayout="Table" ItemStyle-CssClass="item-box">
-            <ItemTemplate>
-                <nopCommerce:ProductBox1 ID="ctrlProductBox" Product='<%# Container.DataItem %>'
-                    runat="server" />
-            </ItemTemplate>
-        </asp:DataList>
+        <asp:ListView ID="dlProducts" runat="server">
+                    <ItemTemplate>
+                        <div class="item-box">
+                            <nopCommerce:ProductBox1 ID="ctrlProductBox" Product='<%# Container.DataItem %>' runat="server" />
+                        </div>
+
+                    </ItemTemplate>
+                </asp:ListView>
+
     </div>
 </div>

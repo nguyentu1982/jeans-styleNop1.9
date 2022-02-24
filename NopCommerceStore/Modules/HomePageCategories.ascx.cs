@@ -72,11 +72,11 @@ namespace NopSolutions.NopCommerce.Web.Modules
                 }
                
                 HyperLink hlCategory = e.Item.FindControl("hlCategory") as HyperLink;
-                HyperLink hlCategory2 = e.Item.FindControl("hlCategory2") as HyperLink;
+                
                 if (hlCategory != null)
                 {
                     hlCategory.NavigateUrl = categoryURL;
-                    hlCategory2.NavigateUrl = categoryURL;
+                    
                 }
                 var catePlaceHolder = e.Item.FindControl("ProductInGrid") as ProductsInGrid2;
                 catePlaceHolder.CategoryId=category.CategoryId;

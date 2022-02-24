@@ -28,7 +28,7 @@ namespace NopSolutions.NopCommerce.Web.Templates.Categories {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DataList dlSubCategories;
+        protected global::System.Web.UI.WebControls.ListView dlSubCategories;
         
         /// <summary>
         /// dlProducts control.
@@ -37,6 +37,6 @@ namespace NopSolutions.NopCommerce.Web.Templates.Categories {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DataList dlProducts;
+        protected global::System.Web.UI.WebControls.ListView dlProducts;
     }
 }

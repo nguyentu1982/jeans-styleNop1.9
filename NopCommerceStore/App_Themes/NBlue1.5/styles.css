@@ -2321,9 +2321,7 @@ textarea
 
 .home-page-category-grid
 {
-	margin:0px auto 5px auto;
-	width: 800px;
-	border-top:1px solid #C0C0C0;
+	margin:5px;
 }
 
 .home-page-category-grid a
@@ -2335,6 +2333,12 @@ textarea
 {
 	text-align: center;
 	vertical-align: text-top;
+}
+
+.item-box-cate
+{
+    border:1px solid #c0c0c0;
+    margin-top:5px;
 }
 
 .home-page-category-grid .category-item
@@ -2350,7 +2354,6 @@ textarea
 {
 	text-align: center;
 	font-weight: bold;
-	font-size: 0.9em;
 	display: block;
 	height: 1.8em;
 	padding: 8px 0 5px 0;
@@ -2366,8 +2369,6 @@ textarea
 
 .home-page-category-grid .view-all a
 {	
-	color:#FFFFFF;
-	position: relative;
 	top: 6px;
 }
 .home-page-category-grid .category-item .picture
@@ -2447,7 +2448,6 @@ textarea
 .product-grid .product-item
 {
 	text-align: center;
-	border: 1px solid #C0C0C0;
 	-webkit-box-shadow: 0 1px 3px 0 rgba(0,0,0,0.33);
 	-moz-box-shadow: 0 1px 3px 0 rgba(0,0,0,0.33);
 	box-shadow: 0 1px 3px 0 rgba(0,0,0,0.33);

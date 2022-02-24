@@ -35,22 +35,8 @@
     <nopCommerce:RecentlyAddedProductsOnHomepage runat="server" Visible="false" ID="ctrRecentlyAddedProductsOnHomepage"/>
     
 
-    <div class="shops-holder">
-        <div class="shop-men">
-            <a href="<%=Page.ResolveUrl("~/danh-muc-jean/14/quan-jean-nam.aspx") %>"><img src="images/shop-men.jpg" alt="quan-jean-nam" width="326px" height="210px"></a>
-
-        </div>
-        <div class="shop-woman">
-            <a href="<%=Page.ResolveUrl("~/danh-muc-jean/13/quan-jean-nu.aspx") %>"><img src="images/shop-woman.jpg" alt="quan-jean-nu" width="326px" height="210px"></a>
-
-        </div>
-        <div class="shop-sales">
-            <a href="<%=Page.ResolveUrl("~/danh-muc-jean/33/quan-jean-nam-nu-gia-re-tai-ha-noi.aspx") %>"><img src="images/shop-sales.jpg" alt="quan-jean-gia-re" width="326px" height="210px"></a>
-
-        </div>
-    </div>
-    <nopCommerce:Topic ID="topicHomePageText" runat="server" TopicName="HomePageText"
-        OverrideSEO="false"></nopCommerce:Topic>
+   
+    
     <div class="clear">
     </div>
     <nopCommerce:HomePageCategories ID="ctrlHomePageCategories" runat="server" />
@@ -71,5 +57,6 @@
     <nopCommerce:HomePagePoll ID="ctrlPolls" runat="server" />
     <div class="clear">
     </div>
-    
+    <nopCommerce:Topic ID="topicHomePageText" runat="server" TopicName="HomePageText"
+        OverrideSEO="false"></nopCommerce:Topic>
 </asp:Content>
