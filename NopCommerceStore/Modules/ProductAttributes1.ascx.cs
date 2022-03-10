@@ -51,6 +51,9 @@ namespace NopSolutions.NopCommerce.Web.Modules
             ProductBox1Control productBoxControl = Parent as ProductBox1Control;
             Product product = productBoxControl.Product;
 
+            if (this.Visible == false)
+                return;
+
             if (product == null)
             {
                 return;

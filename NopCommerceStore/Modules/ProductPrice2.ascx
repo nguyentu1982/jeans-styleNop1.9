@@ -3,6 +3,6 @@
 <asp:Label ID="lblOldPrice" runat="server" CssClass="oldproductPrice" /> 
 <% if (lblOldPrice.Text != string.Empty)
 { %>
-	<br />
+	
 <% } %>
 <asp:Label ID="lblPrice" runat="server" CssClass="productPrice" />

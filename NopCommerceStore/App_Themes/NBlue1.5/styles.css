@@ -131,14 +131,14 @@ body
 
 a
 {
-	color: #225486;
+	color: #666;
 	text-decoration: none;
     font-weight:bold;
 }
 
 a:hover
 {
-	color: #225486;
+	color: #666;
 	text-decoration: underline;
 }
 
@@ -343,8 +343,8 @@ img
 }
 .header
 {
-	background:url("images/header-background.gif") repeat;
-	min-height:89px;  
+	background-color:#666;
+	min-height:88px;  
     position:relative;
 }
 
@@ -542,11 +542,12 @@ a.f-logout
 
 .headermenu
 {
-  background:none repeat scroll 0 0 #0000FF;
+  background:none repeat scroll 0 0 #666;
   -webkit-border-radius:4px;
   height:auto;
   float:left;
   width:100%;
+  margin-top:1px;
 }
 
 #mob-menu-button {
@@ -2454,7 +2455,7 @@ textarea
   	 border-radius: 3px;
    	margin:5px;
 	width:300px;
-    height:488px;
+    min-height:386px;
 }
 
 .product-grid .product-item .picture img
@@ -2484,7 +2485,6 @@ textarea
 	padding: 5px;
 	text-align: center;
     height:28px;
-
 }
 
 .product-grid .product-item .product-title a
@@ -2503,9 +2503,7 @@ textarea
 }
 .product-grid .product-item .description
 {
-	padding: 5px;
-	border-top: solid 1px #C0C0C0;
-    height:33px;
+	padding: 1px;
 }
 
 .product-grid .product-item .attributes input
@@ -2532,7 +2530,7 @@ textarea
 
 .product-grid .product-item .add-info .prices
 {
-	height:33px;
+	margin:5px;
 }
 
 .product-grid .product-item .add-info .buttons
@@ -2546,17 +2544,16 @@ textarea
 
 .add-info .prices .productPrice
 {
-	color: Red;
+	color: #d01345;
 	font-weight:bold;
-   	font-size: 1.2em;
+   	font-size: 1.5em;
 }
 
 .add-info .prices .oldproductPrice
 {
-	color: #0000ff;
+	color: #666;
 	text-decoration: line-through;
    	font-size: 14px;
-    font-weight:bold;
 }
 
 .old-price-label {
@@ -2646,7 +2643,7 @@ textarea
 
 .product-list-search .product-item .add-info 
 {
-     height:33px;
+     
 }
 
 .product-list-search .item-box
@@ -2783,7 +2780,7 @@ textarea
 	text-align: center;
 	margin: 3px 3px 0px 0px;
     padding:6px;
-    background-color:#0000FF;
+    background-color:#666;
 }
 
 .sub-category-table {
@@ -2972,7 +2969,6 @@ textarea
 
 .select-filter {
     display:inline-block;
-    background-color: blue;
     padding: 2px;
     
 }
@@ -4156,7 +4152,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .add-info
 {    
-    padding-bottom: 20px;
+    
 }
 
 .product-essential
@@ -4199,7 +4195,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .product-details-info .overview .productname
 {
-	color: #225486;
+	color: #666;
 	font-size: 1.5em;
 	margin-bottom: 0.3em;
 }
@@ -4429,14 +4425,14 @@ h1, h2, h3, h4, h5, h6 {
 
 .one-variant-price .productPrice
 {
-	color: red;
+	color: #d01345;
 	font-weight:bold;
     font-size:20px;
 }
 
 .one-variant-price .oldProductPrice
 {
-	color: green;
+	color: #666;
 	text-decoration: line-through;
     font-size: 20px;
 }

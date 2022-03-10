@@ -24,7 +24,7 @@
         <asp:HyperLink ID="hlProduct" runat="server" />
     </h3>
     <div class="description">
-        <asp:Literal runat="server" ID="lShortDescription"></asp:Literal>
+        <asp:Literal runat="server" ID="lShortDescription" Visible="false"></asp:Literal>
 
     </div>
     <div class="add-info">
@@ -39,7 +39,7 @@
     </asp:Panel>
 
     <div class="attributes">
-        <nopCommerce:ProductAttributesOnProductBox ID="ctrlProductAttributes1" runat="server" />
+        <nopCommerce:ProductAttributesOnProductBox ID="ctrlProductAttributes1" runat="server" Visible="false" />
     </div>
 
 
