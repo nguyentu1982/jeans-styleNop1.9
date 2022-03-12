@@ -429,6 +429,8 @@ namespace NopSolutions.NopCommerce.Web.Administration.Modules
         public void gvProducts_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             int index = Convert.ToInt32(e.CommandArgument);
+            if (index  >= gvProducts.PageSize)
+                index = index - gvProducts.PageSize;
             if(e.CommandName =="UpTop")
             {                
                 GridViewRow row = gvProducts.Rows[index];
