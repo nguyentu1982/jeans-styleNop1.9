@@ -850,6 +850,10 @@ namespace NopSolutions.NopCommerce.BusinessLogic.Orders
                                 {
                                     stockQuantity += combination.StockQuantity;                                    
                                 }
+                                else
+                                {
+                                    stockQuantity = productVariant.OrderMaximumQuantity;
+                                }
                             }
                         }
                        
