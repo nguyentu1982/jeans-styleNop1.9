@@ -795,7 +795,8 @@ namespace NopSolutions.NopCommerce.BusinessLogic.Products.Attributes
 
 
             var query = from pvac in _context.ProductVariantAttributeCombinations
-                        where pvac.IdMap == idMap
+                        join pv in _context.ProductVariants on pvac.ProductVariantId equals pv.ProductVariantId
+                        where pvac.IdMap == idMap && pv.Deleted == false
                         select pvac;
             var combination = query.ToList();
 
