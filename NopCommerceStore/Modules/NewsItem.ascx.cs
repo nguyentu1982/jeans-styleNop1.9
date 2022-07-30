@@ -47,7 +47,7 @@ namespace NopSolutions.NopCommerce.Web.Modules
         private void BindData()
         {
             pnlError.Visible = false;
-            SEOHelper.RenderMetaTag(this.Page, "robots", "noindex", true);
+            SEOHelper.RenderMetaTag(this.Page, "robots", "index", true);
             var news = this.NewsService.GetNewsById(this.NewsId);
             if (news != null && news.Published)
             {
