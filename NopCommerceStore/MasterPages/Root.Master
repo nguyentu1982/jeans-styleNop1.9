@@ -95,31 +95,31 @@
 
     <script type="text/javascript">
         jQuery(document).ready(function ($) {
-            //Facebook
-            window.fbAsyncInit = function () {
-                FB.init({
-                    appId: '581973338578143',
-                    xfbml: true,
-                    version: 'v2.1'
-                });
-            };
+            ////Facebook
+            //window.fbAsyncInit = function () {
+            //    FB.init({
+            //        appId: '581973338578143',
+            //        xfbml: true,
+            //        version: 'v2.1'
+            //    });
+            //};
 
-            (function (d, s, id) {
-                var js, fjs = d.getElementsByTagName(s)[0];
-                if (d.getElementById(id)) { return; }
-                js = d.createElement(s); js.id = id;
-                js.src = "//connect.facebook.net/en_US/sdk.js";
-                fjs.parentNode.insertBefore(js, fjs);
-            }(document, 'script', 'facebook-jssdk'));
+            //(function (d, s, id) {
+            //    var js, fjs = d.getElementsByTagName(s)[0];
+            //    if (d.getElementById(id)) { return; }
+            //    js = d.createElement(s); js.id = id;
+            //    js.src = "//connect.facebook.net/en_US/sdk.js";
+            //    fjs.parentNode.insertBefore(js, fjs);
+            //}(document, 'script', 'facebook-jssdk'));
 
-            //Facebook
-            (function (d, s, id) {
-                var js, fjs = d.getElementsByTagName(s)[0];
-                if (d.getElementById(id)) return;
-                js = d.createElement(s); js.id = id;
-                js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1&appId=531573176905803";
-                fjs.parentNode.insertBefore(js, fjs);
-            }(document, 'script', 'facebook-jssdk'));
+            ////Facebook
+            //(function (d, s, id) {
+            //    var js, fjs = d.getElementsByTagName(s)[0];
+            //    if (d.getElementById(id)) return;
+            //    js = d.createElement(s); js.id = id;
+            //    js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1&appId=531573176905803";
+            //    fjs.parentNode.insertBefore(js, fjs);
+            //}(document, 'script', 'facebook-jssdk'));
 
 
 
@@ -214,7 +214,7 @@
                 </asp:ContentPlaceHolder>
 
 
-    <script>
+    <%--<script>
         // This is called with the results from from FB.getLoginStatus().
         function statusChangeCallback(response) {
             console.log('statusChangeCallback');
@@ -316,7 +316,7 @@
                 document.getElementById('status').style.display = "none";
             });
         }
-    </script>
+    </script>--%>
 
     <!--Mega Menu Anchor-->
 
@@ -561,7 +561,7 @@
 
     <div id="spot-im-root"></div>
     <!--Start of Tawk.to Script-->
-    <script type="text/javascript">
+    <%--<script type="text/javascript">
         var $_Tawk_API = {}, $_Tawk_LoadStart = new Date();
         (function () {
             var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
@@ -571,7 +571,7 @@
             s1.setAttribute('crossorigin', '*');
             s0.parentNode.insertBefore(s1, s0);
         })();
-    </script>
+    </script>--%>
     <!--End of Tawk.to Script-->
 </body>
 </html>

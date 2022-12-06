@@ -220,7 +220,7 @@ thanh toán]</a></td>
             </div>
         </div>
 
-        <div class="fb-comments" data-href="<%=SEOHelper.GetProductUrl(this.ProductId) %>" data-width="100%" data-num-posts="10"></div>
+<%--        <div class="fb-comments" data-href="<%=SEOHelper.GetProductUrl(this.ProductId) %>" data-width="100%" data-num-posts="10"></div>--%>
 
     </div>
     <div class="clear">

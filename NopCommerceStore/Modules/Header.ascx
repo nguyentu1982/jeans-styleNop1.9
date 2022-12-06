@@ -26,7 +26,7 @@
     </div>
               
     <div class="header-links-wapper">
-        <div class="f-login-wapper">
+        <%--<div class="f-login-wapper">
             <div id="f-login">
                 <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
         </fb:login-button>
@@ -38,7 +38,7 @@
                 </a>
             </div>
             <a id="f-logout" class="f-logout" onclick="logoutFacebook();"></a>            
-        </div>
+        </div>--%>
         <div class="header-links">
             <ul>
                 <asp:LoginView ID="topLoginView" runat="server">
