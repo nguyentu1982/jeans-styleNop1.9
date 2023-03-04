@@ -10,6 +10,8 @@
 <%@ Register TagPrefix="nopCommerce" TagName="Topic" Src="~/Modules/Topic.ascx" %>
 <%@ Register TagPrefix="nopCommerce" TagName="RecentlyAddedProductsOnHomepage" Src="~/Modules/RecentlyAddedProductsOnHomepage.ascx" %>
 <%@ Register TagPrefix="nopCommerce" TagName="RelatedProductsOnHomepage" Src="~/Modules/RelatedProductsOnHomepage.ascx" %>
+<%@ Register TagPrefix="nopCommerce" TagName="SearchBox" Src="~/Modules/SearchBox.ascx" %>
+
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="cph1" runat="Server">
@@ -36,7 +38,10 @@
     
 
    
-    
+    <div class="searchbox">
+        <nopCommerce:SearchBox runat="server" ID="ctrlSearchBox">
+        </nopCommerce:SearchBox>
+    </div> 
     <div class="clear">
     </div>
     <nopCommerce:HomePageCategories ID="ctrlHomePageCategories" runat="server" />
@@ -46,9 +51,7 @@
     <div class="clear">
     </div>
     <nopCommerce:BestSellers ID="ctrlBestSellers" runat="server" />
-    <%--<div class="clear">
-    </div>
-     <nopCommerce:HomePageCategories ID="HomePageCategories1" runat="server" />--%>
+   
     <div class="clear">
     </div>
     <nopCommerce:HomePageNews ID="ctrlHomePageNews" runat="server" />

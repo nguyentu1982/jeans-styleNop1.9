@@ -22,15 +22,6 @@ namespace NopSolutions.NopCommerce.Web.Modules {
         protected global::System.Web.UI.WebControls.LoginView topLoginView;
         
         /// <summary>
-        /// ctrlSearchBox control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::NopSolutions.NopCommerce.Web.Modules.SearchBoxControl ctrlSearchBox;
-        
-        /// <summary>
         /// ctrlTaxDisplayTypeSelector control.
         /// </summary>
         /// <remarks>

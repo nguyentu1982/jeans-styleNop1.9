@@ -3,7 +3,7 @@
 <%@ Register TagPrefix="nopCommerce" TagName="CurrencySelector" Src="~/Modules/CurrencySelector.ascx" %>
 <%@ Register TagPrefix="nopCommerce" TagName="LanguageSelector" Src="~/Modules/LanguageSelector.ascx" %>
 <%@ Register TagPrefix="nopCommerce" TagName="TaxDisplayTypeSelector" Src="~/Modules/TaxDisplayTypeSelector.ascx" %>
-<%@ Register TagPrefix="nopCommerce" TagName="SearchBox" Src="~/Modules/SearchBox.ascx" %>
+
 
 <%--<div class="header-links-wrapper">
         
@@ -107,10 +107,7 @@
         <a href="/topic/11/huong-dan-mua-hang-tai-jeans-style.aspx" class="free-shiping-logo"></a>
     </div>
      --%> 
-    <div class="searchbox">
-        <nopCommerce:SearchBox runat="server" ID="ctrlSearchBox">
-        </nopCommerce:SearchBox>
-    </div> 
+    
     <div class="header-selectors-wrapper">        
         <div class="header-taxDisplayTypeSelector">
             <nopCommerce:TaxDisplayTypeSelector runat="server" ID="ctrlTaxDisplayTypeSelector">
