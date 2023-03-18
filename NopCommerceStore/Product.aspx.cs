@@ -96,20 +96,61 @@ namespace NopSolutions.NopCommerce.Web
 
             //facebook
             sb.Clear();
-            sb.Append("<script>");           
+            sb.Append("<script type="+"\"application/ld+json\">");           
             sb.Append(Environment.NewLine);
-            sb.Append("fbq('track', 'ViewContent',{");
+            sb.Append("{");
             sb.Append(Environment.NewLine);
-
-
-
-            sb.Append("content_ids: '" + product.ProductId+"',");
-            
-
+            sb.Append("\"@context\":\"https://schema.org\",");
             sb.Append(Environment.NewLine);
 
-            sb.Append("content_type: 'product_group',");
+            sb.Append("\"@type\":\"Product\",");
             sb.Append(Environment.NewLine);
+
+            sb.Append("\"productID\":\""+product.ProductId+"\",");
+            sb.Append(Environment.NewLine);
+
+            sb.Append("\"name\":\""+product.Name+"\",");
+            sb.Append(Environment.NewLine);
+
+            sb.Append("\"description\":\""+product.ShortDescription+"\",");
+            sb.Append(Environment.NewLine);
+
+            sb.Append("\"url\":\""+SEOHelper.GetProductUrl(product)+"\",");
+            sb.Append(Environment.NewLine);
+
+            sb.Append("\"image\":\"" + this.PictureService.GetPictureUrl(product.DefaultPicture, this.SettingManager.GetSettingValueInteger("Media.Product.DetailImageSize", 300), true, SEOHelper.GetSEName(product.LocalizedName)) + "\",");
+            sb.Append(Environment.NewLine);
+
+            sb.Append("\"brand\":\"Jeans Style\",");
+            sb.Append(Environment.NewLine);
+
+            sb.Append("\"offers\": [");
+            sb.Append(Environment.NewLine);
+
+            sb.Append("{");
+            sb.Append(Environment.NewLine);
+
+            sb.Append("\"@type\": \"Offer\",");
+            sb.Append(Environment.NewLine);
+
+            sb.Append("\"price\": \""+product.ProductVariants[0].Price+"\",");
+            sb.Append(Environment.NewLine);
+
+            sb.Append("\"priceCurrency\": \"VND\",");
+            sb.Append(Environment.NewLine);
+
+            sb.Append("\"itemCondition\": \"https://schema.org/NewCondition\",");
+            sb.Append(Environment.NewLine);
+
+            sb.Append("\"availability\": \"https://schema.org/InStock\"");
+            sb.Append(Environment.NewLine);
+
+            sb.Append("}");
+            sb.Append(Environment.NewLine);
+
+            sb.Append("]");
+            sb.Append(Environment.NewLine);
+
 
             sb.Append("});");
             sb.Append(Environment.NewLine);
