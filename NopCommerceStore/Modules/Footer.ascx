@@ -85,7 +85,7 @@
 
     <div class="footer-info-face">
         <div class="listbox">
-            <div class="fb-page" data-href="https://www.facebook.com/JeansPhongCach/" data-tabs="" data-width="" data-height="" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true" show_facepile="true"><blockquote cite="https://www.facebook.com/JeansPhongCach/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/JeansPhongCach/">Jeans Style</a></blockquote></div>
+            <div class="fb-page" data-href="https://www.facebook.com/JeansStyleVN" data-tabs="" data-width="" data-height="" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true" show_facepile="true"><blockquote cite="https://www.facebook.com/JeansPhongCach/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/JeansPhongCach/">Jeans Style</a></blockquote></div>
         </div>
 
     </div>
