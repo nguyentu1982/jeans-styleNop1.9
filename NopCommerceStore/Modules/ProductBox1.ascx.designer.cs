@@ -76,24 +76,6 @@ namespace NopSolutions.NopCommerce.Web.Modules {
         protected global::System.Web.UI.WebControls.Literal lShortDescription;
         
         /// <summary>
-        /// ctrlProductPrice1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::NopSolutions.NopCommerce.Web.Modules.ProductPrice1Control ctrlProductPrice1;
-        
-        /// <summary>
-        /// ctrlProductPrice control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::NopSolutions.NopCommerce.Web.Modules.ProductPrice2Control ctrlProductPrice;
-        
-        /// <summary>
         /// pnlStockAvailablity control.
         /// </summary>
         /// <remarks>
@@ -119,6 +101,24 @@ namespace NopSolutions.NopCommerce.Web.Modules {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::NopSolutions.NopCommerce.Web.Modules.ProductAttributesControl1 ctrlProductAttributes1;
+        
+        /// <summary>
+        /// ctrlProductPrice1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::NopSolutions.NopCommerce.Web.Modules.ProductPrice1Control ctrlProductPrice1;
+        
+        /// <summary>
+        /// ctrlProductPrice control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::NopSolutions.NopCommerce.Web.Modules.ProductPrice2Control ctrlProductPrice;
         
         /// <summary>
         /// btProductBox control.

@@ -2454,7 +2454,7 @@ textarea
   	 border-radius: 3px;
    	margin:5px;
 	width:300px;
-    min-height:386px;
+    min-height:406px;
 }
 
 .product-grid .product-item .picture img
@@ -2530,6 +2530,7 @@ textarea
 .product-grid .product-item .add-info .prices
 {
 	margin:5px;
+    min-height:26px;
 }
 
 .product-grid .product-item .add-info .buttons

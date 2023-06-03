@@ -392,8 +392,12 @@ namespace NopSolutions.NopCommerce.Web.Modules
                         
 
                         Label attributeTitle = this.FindControl(attributeTitleID) as Label;
-                        attributeTitle.Text = GetLocaleResourceString("Products.OutOfStock");
-                        attributeTitle.CssClass = "stock";
+                        if(attributeTitle!= null)
+                        {
+                            attributeTitle.Text = this.GetLocaleResourceString("Products.OutOfStock");
+                            attributeTitle.CssClass = "stock";
+                        }
+                            
                         //Button addtoCard = Parent.FindControl("btnAddToCart") as Button;
                         //addtoCard.Enabled = false;
                     }

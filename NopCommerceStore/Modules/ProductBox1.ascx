@@ -27,6 +27,15 @@
         <asp:Literal runat="server" ID="lShortDescription" Visible="false"></asp:Literal>
 
     </div>
+
+     <asp:Panel ID="pnlStockAvailablity" runat="server" class="stock">
+        <asp:Label ID="lblStockAvailablity" runat="server" />
+    </asp:Panel>
+
+    <div class="attributes">
+        <nopCommerce:ProductAttributesOnProductBox ID="ctrlProductAttributes1" runat="server" Visible="true" />
+    </div>
+
     <div class="add-info">
         <div class="prices">
             <nopCommerce:ProductPrice1 ID="ctrlProductPrice1" runat="server" ProductID='<%#Eval("ProductId") %>' />
@@ -34,13 +43,7 @@
 
         </div>
     </div>
-    <asp:Panel ID="pnlStockAvailablity" runat="server" class="stock">
-        <asp:Label ID="lblStockAvailablity" runat="server" />
-    </asp:Panel>
-
-    <div class="attributes">
-        <nopCommerce:ProductAttributesOnProductBox ID="ctrlProductAttributes1" runat="server" Visible="false" />
-    </div>
+   
 
 
 
