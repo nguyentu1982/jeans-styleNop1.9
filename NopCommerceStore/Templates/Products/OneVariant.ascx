@@ -336,8 +336,8 @@ thanh toán]</a></td>
         <div class="clear">
         </div>
 
-        <div class="hot-search" style="display:none"><%=GetLocaleResourceString("Product.HotSearch")%> <%=lProductName.Text %></div>
-        <nopCommerce:ProductTags ID="ProductTags1" runat="server" Visible="false" />
+        <div class="hot-search"><%=GetLocaleResourceString("Product.HotSearch")%> <%=lProductName.Text %></div>
+        <nopCommerce:ProductTags ID="ProductTags1" runat="server" Visible="true" />
         <div class="what_else">
             <%=GetLocaleResourceString("Product.WhatElse")%>
             <br />
