@@ -21,6 +21,7 @@
 <%@ Register TagPrefix="nopCommerce" TagName="Topic" Src="~/Modules/Topic.ascx" %>
 <%@ Register TagPrefix="nopCommerce" TagName="StyleNote" Src="~/Modules/StyleNote.ascx" %>
 <%@ Register TagPrefix="nopCommerce" TagName="ProductPictures" Src="~/Modules/ProductPictures.ascx" %>
+<%@ OutputCache Duration="60" VaryByParam="ProductId" %>
 
 <ajaxToolkit:ToolkitScriptManager runat="Server" EnableScriptGlobalization="true"
     EnableScriptLocalization="true" ID="sm1" ScriptMode="Release" CompositeScript-ScriptMode="Release" />
