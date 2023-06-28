@@ -11,7 +11,7 @@
 <%@ Register TagPrefix="nopCommerce" TagName="LiveChatBlock" Src="~/Modules/LiveChatBlock.ascx" %>
 <%@ Register TagPrefix="nopCommerce" TagName="ContactInfoHotline" Src="~/Modules/ContactInfoHotline.ascx" %>
 <%@ Register TagPrefix="nopCommerce" TagName="ProductBoxRelatedProduct" Src="~/Modules/ProductBoxRelatedProduct.ascx" %>
-<%@ OutputCache Duration="60" VaryByParam="CategoryId" %>
+
 
 <div class="master-wrapper-center-2">
     <div class="master-wrapper-cph-2">
