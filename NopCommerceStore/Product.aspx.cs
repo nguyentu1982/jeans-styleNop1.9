@@ -96,7 +96,7 @@ namespace NopSolutions.NopCommerce.Web
 
             //facebook
             sb.Clear();
-            sb.Append("<script type="+"\"application/ld+json\">");           
+            sb.Append("<script type=" + "\"application/ld+json\">");
             sb.Append(Environment.NewLine);
             sb.Append("{");
             sb.Append(Environment.NewLine);
@@ -106,16 +106,16 @@ namespace NopSolutions.NopCommerce.Web
             sb.Append("\"@type\":\"Product\",");
             sb.Append(Environment.NewLine);
 
-            sb.Append("\"productID\":\""+product.ProductId+"\",");
+            sb.Append("\"productID\":\"" + product.ProductId + "\",");
             sb.Append(Environment.NewLine);
 
-            sb.Append("\"name\":\""+product.Name+"\",");
+            sb.Append("\"name\":\"" + product.Name + "\",");
             sb.Append(Environment.NewLine);
 
-            sb.Append("\"description\":\""+product.ShortDescription+"\",");
+            sb.Append("\"description\":\"" + product.ShortDescription.Replace(System.Environment.NewLine," ") + "\",");
             sb.Append(Environment.NewLine);
 
-            sb.Append("\"url\":\""+SEOHelper.GetProductUrl(product)+"\",");
+            sb.Append("\"url\":\"" + SEOHelper.GetProductUrl(product) + "\",");
             sb.Append(Environment.NewLine);
 
             sb.Append("\"image\":\"" + this.PictureService.GetPictureUrl(product.DefaultPicture, this.SettingManager.GetSettingValueInteger("Media.Product.DetailImageSize", 300), true, SEOHelper.GetSEName(product.LocalizedName)) + "\",");
@@ -133,7 +133,7 @@ namespace NopSolutions.NopCommerce.Web
             sb.Append("\"@type\": \"Offer\",");
             sb.Append(Environment.NewLine);
 
-            sb.Append("\"price\": \""+product.ProductVariants[0].Price+"\",");
+            sb.Append("\"price\": \"" + product.ProductVariants[0].Price + "\",");
             sb.Append(Environment.NewLine);
 
             sb.Append("\"priceCurrency\": \"VND\",");
@@ -152,7 +152,7 @@ namespace NopSolutions.NopCommerce.Web
             sb.Append(Environment.NewLine);
 
 
-            sb.Append("});");
+            sb.Append("}");
             sb.Append(Environment.NewLine);
             sb.Append("</script>");
             sb.Append(Environment.NewLine);

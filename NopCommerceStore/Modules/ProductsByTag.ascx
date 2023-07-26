@@ -1,7 +1,7 @@
 <%@ Control Language="C#" AutoEventWireup="true" Inherits="NopSolutions.NopCommerce.Web.Modules.ProductsByTagControl"
     CodeBehind="ProductsByTag.ascx.cs" %>
 <%@ Register TagPrefix="nopCommerce" TagName="ProductBox1" Src="~/Modules/ProductBox1.ascx" %>
-<%@ OutputCache Duration="60" VaryByParam="ProductTagId" %>
+
 <div class="producttag-page">
     <div class="page-title">
         <h1><asp:Literal runat="server" ID="lTitle"></asp:Literal></h1>

@@ -326,7 +326,7 @@ namespace NopSolutions.NopCommerce.Web.Templates.Products
             //string slimBox = CommonHelper.GetStoreLocation() + "Scripts/slimbox2.js";
             string slimBox = CommonHelper.GetStoreLocation() + "Scripts/fresco.js";
             string cloudRoom = CommonHelper.GetStoreLocation() + "Scripts/cloud-zoom.1.0.2.js";
-            Page.ClientScript.RegisterClientScriptInclude(slimBox, slimBox);
+            //Page.ClientScript.RegisterClientScriptInclude(slimBox, slimBox);
             Page.ClientScript.RegisterClientScriptInclude(cloudRoom, cloudRoom);
 
             base.OnPreRender(e);

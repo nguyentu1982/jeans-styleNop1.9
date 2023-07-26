@@ -7254,6 +7254,7 @@
     <Content Include="Scripts\cloud-zoom.1.0.2.min.js" />
     <Content Include="Scripts\cloud-zoom.1.0.2_2.min.js" />
     <Content Include="Scripts\fresco.js" />
+    <Content Include="Scripts\jquery-1.11.2.min.js" />
     <Content Include="Scripts\jquery-1.9.0.min.js" />
     <Content Include="Scripts\jquery.nivo.slider.js" />
     <Content Include="Scripts\jquery.nivo.slider.pack.js" />

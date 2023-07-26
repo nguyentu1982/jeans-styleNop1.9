@@ -21,10 +21,9 @@
 <%@ Register TagPrefix="nopCommerce" TagName="Topic" Src="~/Modules/Topic.ascx" %>
 <%@ Register TagPrefix="nopCommerce" TagName="StyleNote" Src="~/Modules/StyleNote.ascx" %>
 <%@ Register TagPrefix="nopCommerce" TagName="ProductPictures" Src="~/Modules/ProductPictures.ascx" %>
-<%@ OutputCache Duration="60" VaryByParam="ProductId" %>
 
-<ajaxToolkit:ToolkitScriptManager runat="Server" EnableScriptGlobalization="true"
-    EnableScriptLocalization="true" ID="sm1" ScriptMode="Release" CompositeScript-ScriptMode="Release" />
+
+
 <div class="product-details-page">
     <% if (this.SettingManager.GetSettingValueBoolean("Media.CategoryBreadcrumbEnabled"))
        { %>
@@ -241,8 +240,8 @@ thanh toán]</a></td>
             </div>
 
         </div>
-        <ajaxToolkit:TabContainer runat="server" ID="ProductsTabs" ActiveTabIndex="0" CssClass="grey">
-            <ajaxToolkit:TabPanel runat="server" ID="pnlStyleNote" HeaderText="<% $NopResources:Products.StyleNote %>" Visible="false">
+        <ajaxToolkit:TabContainer runat="server" ID="ProductsTabs" ActiveTabIndex="0" CssClass="grey" Enabled="false">
+            <ajaxToolkit:TabPanel runat="server" ID="pnlStyleNote" HeaderText="<% $NopResources:Products.StyleNote %>" Visible="true">
                 <ContentTemplate>
                     <nopCommerce:StyleNote ID="ctrlStyleNote" runat="server" />
                 </ContentTemplate>
@@ -257,7 +256,7 @@ thanh toán]</a></td>
                     <nopCommerce:Topic ID="topicFreeShiping" runat="server" TopicName="FreeShipping" OverrideSEO="false"></nopCommerce:Topic>
                 </ContentTemplate>
             </ajaxToolkit:TabPanel>
-            <ajaxToolkit:TabPanel runat="server" ID="pnlReturnPolicy" HeaderText="<% $NopResources:Products.ReturnPolicy %>" Visible="false">
+            <ajaxToolkit:TabPanel runat="server" ID="pnlReturnPolicy" HeaderText="<% $NopResources:Products.ReturnPolicy %>" Visible="true">
                 <ContentTemplate>
                     <nopCommerce:Topic ID="topicReturnPolicy" runat="server" TopicName="ReturnPolicy" OverrideSEO="false"></nopCommerce:Topic>
                 </ContentTemplate>
@@ -272,13 +271,13 @@ thanh toán]</a></td>
                     <nopCommerce:Topic ID="BuyGuide" runat="server" TopicName="HuongDanMuaHang" OverrideSEO="false"></nopCommerce:Topic>
                 </ContentTemplate>
             </ajaxToolkit:TabPanel>
-            <ajaxToolkit:TabPanel runat="server" ID="pnlProductReviews" HeaderText="<% $NopResources:Products.ProductReviews %>" Visible="false">
+            <ajaxToolkit:TabPanel runat="server" ID="pnlProductReviews" HeaderText="<% $NopResources:Products.ProductReviews %>" Visible="true">
                 <ContentTemplate>
                 </ContentTemplate>
             </ajaxToolkit:TabPanel>
-            <ajaxToolkit:TabPanel runat="server" ID="pnlProductTags" HeaderText="<% $NopResources:Products.ProductTags %>" Visible="false">
+            <ajaxToolkit:TabPanel runat="server" ID="pnlProductTags" HeaderText="<% $NopResources:Products.ProductTags %>" Visible="true">
                 <ContentTemplate>
-                    <nopCommerce:ProductTags ID="ctrlProductTags" runat="server" Visible="false" />
+                    <nopCommerce:ProductTags ID="ctrlProductTags" runat="server" Visible="true" />
                 </ContentTemplate>
             </ajaxToolkit:TabPanel>
         </ajaxToolkit:TabContainer>
@@ -310,26 +309,7 @@ thanh toán]</a></td>
 
         </div>
 
-        <ajaxToolkit:TabContainer runat="server" ID="ProductsTabs2" ActiveTabIndex="2" CssClass="grey" Visible="false">
-
-
-
-            <ajaxToolkit:TabPanel runat="server" ID="pnlReturnPolicy2" HeaderText="<% $NopResources:Products.ReturnPolicy %>">
-                <ContentTemplate>
-                    <nopCommerce:Topic ID="topicReturnPolicy2" runat="server" TopicName="ReturnPolicy" OverrideSEO="false"></nopCommerce:Topic>
-                </ContentTemplate>
-            </ajaxToolkit:TabPanel>
-            <ajaxToolkit:TabPanel runat="server" ID="pnlSizeGuide2" HeaderText="<% $NopResources:Products.SizeGuide %>">
-                <ContentTemplate>
-                    <nopCommerce:Topic ID="SizeGuide2" runat="server" TopicName="SizeGuide" OverrideSEO="false"></nopCommerce:Topic>
-                </ContentTemplate>
-            </ajaxToolkit:TabPanel>
-            <ajaxToolkit:TabPanel runat="server" ID="pnlProductReviews2" HeaderText="<% $NopResources:Products.ProductReviews %>">
-                <ContentTemplate>
-                    <nopCommerce:ProductReviews ID="ctrlProductReviews2" runat="server" ShowWriteReview="true" Visible="true" />
-                </ContentTemplate>
-            </ajaxToolkit:TabPanel>
-        </ajaxToolkit:TabContainer>
+      
 
         <div style="border: 1px solid #c0c0c0; float: left;display:none">
             <nopCommerce:Topic ID="topicFreeShiping2" runat="server" TopicName="FreeShipping" OverrideSEO="false"></nopCommerce:Topic>
@@ -364,11 +344,7 @@ thanh toán]</a></td>
     
 
 </div>
-<script text="text/javascript">
-    $("#__tab_ctl00_ctl00_cph1_cph1_ctl00_ProductsTabs_pnlProductReviews").click(function () {
-        $('html, body').animate({
-            scrollTop: $("#__tab_ctl00_ctl00_cph1_cph1_ctl00_ProductsTabs2_pnlProductReviews2").offset().top
-        }, 2000);
-    });
 
-</script>
+<asp:ScriptManager runat="server" EnableScriptGlobalization="true" EnableScriptLocalization="true" ID="sm" ScriptMode="Release" CompositeScript-ScriptMode="Release"></asp:ScriptManager>
+<%--<ajaxToolkit:ToolkitScriptManager runat="Server" EnableScriptGlobalization="true"
+    EnableScriptLocalization="true" ID="sm1" ScriptMode="Release" CompositeScript-ScriptMode="Release" />--%>

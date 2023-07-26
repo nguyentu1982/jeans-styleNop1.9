@@ -148,8 +148,11 @@ namespace NopSolutions.NopCommerce.Web.Modules
             sb.Append("fbq('track', 'AddToCart',{");
             sb.Append(Environment.NewLine);
 
+            if (ctrlOrderTotals.OrderTotal == 0)
+                sb.Append("value: " + "0,");
+            else                
+                sb.Append("value: " + ctrlOrderTotals.OrderTotal.ToString("#####") + ",");
 
-            sb.Append("value: " + ctrlOrderTotals.OrderTotal.ToString("#####") + ",");
             sb.Append(Environment.NewLine);
             sb.Append("currency: 'VND',");
             sb.Append(Environment.NewLine);
@@ -379,6 +382,8 @@ namespace NopSolutions.NopCommerce.Web.Modules
                         if (cbRemoveFromCart.Checked)
                         {
                             this.ShoppingCartService.DeleteShoppingCartItem(shoppingCartItemId, true);
+                            System.Threading.Thread.Sleep(1000);
+
                         }
                         else
                         {
@@ -387,7 +392,7 @@ namespace NopSolutions.NopCommerce.Web.Modules
                         }
                     }
                 }
-
+                
                 Response.Redirect(SEOHelper.GetShoppingCartUrl());
             }
         }
