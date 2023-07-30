@@ -463,6 +463,15 @@ namespace NopSolutions.NopCommerce.Web.Templates.Products {
         protected global::AjaxControlToolkit.TabPanel pnlProductReviews;
         
         /// <summary>
+        /// ctrlProductReviews control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::NopSolutions.NopCommerce.Web.Modules.ProductReviews ctrlProductReviews;
+        
+        /// <summary>
         /// pnlProductTags control.
         /// </summary>
         /// <remarks>
@@ -553,12 +562,12 @@ namespace NopSolutions.NopCommerce.Web.Templates.Products {
         protected global::NopSolutions.NopCommerce.Web.Modules.ProductOthersControl ProductOthers;
         
         /// <summary>
-        /// sm1 control.
+        /// sm control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::AjaxControlToolkit.ToolkitScriptManager sm1;
+        protected global::System.Web.UI.ScriptManager sm;
     }
 }

@@ -240,7 +240,7 @@ thanh toán]</a></td>
             </div>
 
         </div>
-        <ajaxToolkit:TabContainer runat="server" ID="ProductsTabs" ActiveTabIndex="0" CssClass="grey" Enabled="false">
+        <ajaxToolkit:TabContainer runat="server" ID="ProductsTabs" ActiveTabIndex="0" CssClass="grey" Enabled="true">
             <ajaxToolkit:TabPanel runat="server" ID="pnlStyleNote" HeaderText="<% $NopResources:Products.StyleNote %>" Visible="true">
                 <ContentTemplate>
                     <nopCommerce:StyleNote ID="ctrlStyleNote" runat="server" />
@@ -273,6 +273,9 @@ thanh toán]</a></td>
             </ajaxToolkit:TabPanel>
             <ajaxToolkit:TabPanel runat="server" ID="pnlProductReviews" HeaderText="<% $NopResources:Products.ProductReviews %>" Visible="true">
                 <ContentTemplate>
+                    <ContentTemplate>
+                    <nopCommerce:ProductReviews ID="ctrlProductReviews" runat="server" ShowWriteReview="true" Visible="true" />
+                </ContentTemplate>
                 </ContentTemplate>
             </ajaxToolkit:TabPanel>
             <ajaxToolkit:TabPanel runat="server" ID="pnlProductTags" HeaderText="<% $NopResources:Products.ProductTags %>" Visible="true">
