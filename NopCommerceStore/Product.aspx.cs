@@ -194,6 +194,11 @@ namespace NopSolutions.NopCommerce.Web
             else
                 title = product.LocalizedName;
 
+            if(title!=string.Empty)
+            {
+                title = title + " | " + this.GetLocaleResourceString("storename");
+            }
+
             if (!string.IsNullOrEmpty(product.LocalizedMetaDescription))
                 metaDescription = product.LocalizedMetaDescription;
             else
