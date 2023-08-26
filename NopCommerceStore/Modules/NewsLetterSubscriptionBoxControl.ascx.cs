@@ -19,7 +19,7 @@ namespace NopSolutions.NopCommerce.Web.Modules
             base.OnInit(e);
         }
 
-        protected void BtnSubscribe_OnClick(object sender, EventArgs e)
+        protected void BtnSubscribe_OnClick1a(object sender, EventArgs e)
         {
             try
             {
