@@ -22,7 +22,7 @@
             </div>
             <div class="buttons">
                 <asp:Button runat="server" ID="btnSubscribe" Text="<% $NopResources:NewsLetterSubscriptionBox.BtnSubscribe.Text %>"
-                    ValidationGroup="NewsLetterSubscriptionValidation" OnClick="BtnSubscribe_OnClick" CssClass="newsletterbox-subscribebutton"  />
+                    ValidationGroup="NewsLetterSubscriptionValidation" OnClick="BtnSubscribe_OnClick1a" CssClass="newsletterbox-subscribebutton"  />
             </div>
         </div>
         <div runat="server" id="pnlResult" visible="false">

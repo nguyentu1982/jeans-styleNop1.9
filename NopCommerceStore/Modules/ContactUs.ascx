@@ -57,7 +57,7 @@
                 </td>
                 <td class="button">
                     <asp:Button runat="server" ID="btnContactUs" Text="<% $NopResources:ContactUs.ContactUsButton %>"
-                        ValidationGroup="ContactUs" OnClick="btnContactUs_Click" CssClass="contactusbutton">
+                        ValidationGroup="ContactUs" OnClick="btnContactUs_Click1a" CssClass="contactusbutton">
                     </asp:Button>
                 </td>
             </tr>

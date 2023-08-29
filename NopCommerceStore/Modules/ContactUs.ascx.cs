@@ -55,7 +55,7 @@ namespace NopSolutions.NopCommerce.Web.Modules
             }
         }
 
-        protected void btnContactUs_Click(object sender, EventArgs e)
+        protected void btnContactUs_Click1a(object sender, EventArgs e)
         {
             if (Page.IsValid)
             {
