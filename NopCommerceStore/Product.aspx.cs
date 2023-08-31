@@ -133,7 +133,7 @@ namespace NopSolutions.NopCommerce.Web
             sb.Append("\"@type\": \"Offer\",");
             sb.Append(Environment.NewLine);
 
-            sb.Append("\"price\": \"" + product.ProductVariants[0].Price + "\",");
+            sb.Append("\"price\": \"" + product.ProductVariants[0].Price.ToString("#.#") + "\",");
             sb.Append(Environment.NewLine);
 
             sb.Append("\"priceCurrency\": \"VND\",");
