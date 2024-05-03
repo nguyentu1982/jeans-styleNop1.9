@@ -61,7 +61,20 @@
                 <asp:Literal runat="server" ID="lDescription"></asp:Literal>
             </div>
 
-            
+            <div class="sub-category-grid">
+                <asp:ListView ID="dlSubCategories" runat="server" OnItemDataBound="dlSubCategories_ItemDataBound" ItemStyle-CssClass="item-box" Visible="true">
+                    <ItemTemplate>
+                        <div class="sub-category-item">
+                            <h2 class="category-title">
+                                <asp:HyperLink ID="hlCategory" runat="server" />
+                            </h2>
+                            <%--<div class="picture">
+                        <asp:HyperLink ID="hlImageLink" runat="server" />
+                    </div>--%>
+                        </div>
+                    </ItemTemplate>
+                </asp:ListView>
+            </div>
 
             <asp:Panel runat="server" ID="pnlFeaturedProducts" class="">
                 <div class="title">
@@ -141,20 +154,7 @@
 
             </div>
 
-            <div class="sub-category-grid">
-                <asp:ListView ID="dlSubCategories" runat="server" OnItemDataBound="dlSubCategories_ItemDataBound" ItemStyle-CssClass="item-box" Visible="true">
-                    <ItemTemplate>
-                        <div class="sub-category-item">
-                            <h2 class="category-title">
-                                <asp:HyperLink ID="hlCategory" runat="server" />
-                            </h2>
-                            <%--<div class="picture">
-                        <asp:HyperLink ID="hlImageLink" runat="server" />
-                    </div>--%>
-                        </div>
-                    </ItemTemplate>
-                </asp:ListView>
-            </div>
+            
 
         </div>
     </div>
