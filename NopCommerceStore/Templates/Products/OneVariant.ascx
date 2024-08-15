@@ -170,8 +170,9 @@
 
                 
 
-                <asp:Repeater ID="rptStored" runat="server" Visible="false">
+                <asp:Repeater ID="rptStored" runat="server" Visible="true">
                     <ItemTemplate>
+<div style="font-size:14px">
                         <div style="width: 300px; font-weight: bold; margin-top: 5px"><%=GetLocaleResourceString("Products.StoreGuide")%></div>
 
                         <div style="margin-left: 20px"><%=GetLocaleResourceString("Warehouse.StreetAddress")%><%#Eval("Address1") %>- <%#Eval("City") %> </div>
@@ -181,6 +182,7 @@
                             <%=GetLocaleResourceString("Warehouse.TelephoneNumber")%><%#Eval("PhoneNumber")%><br />
                             <%#Eval("Email") %>
                         </div>
+</div>
                     </ItemTemplate>
                     </asp:Repeater>
                 
