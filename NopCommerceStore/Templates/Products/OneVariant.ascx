@@ -168,9 +168,9 @@
                 <!-- Go to www.addthis.com/dashboard to customize your tools -->
                 <div class="addthis_sharing_toolbox"></div>
 
-                
+                <nopCommerce:Topic ID="StoreInfo" runat="server" TopicName="StoreInfo" OverrideSEO="false"></nopCommerce:Topic>
 
-                <asp:Repeater ID="rptStored" runat="server" Visible="true">
+                <asp:Repeater ID="rptStored" runat="server" Visible="false">
                     <ItemTemplate>
 <div style="font-size:14px">
                         <div style="width: 300px; font-weight: bold; margin-top: 5px"><%=GetLocaleResourceString("Products.StoreGuide")%></div>

@@ -11,6 +11,7 @@
 <%@ Register TagPrefix="nopCommerce" TagName="LiveChatBlock" Src="~/Modules/LiveChatBlock.ascx" %>
 <%@ Register TagPrefix="nopCommerce" TagName="ContactInfoHotline" Src="~/Modules/ContactInfoHotline.ascx" %>
 <%@ Register TagPrefix="nopCommerce" TagName="ProductBoxRelatedProduct" Src="~/Modules/ProductBoxRelatedProduct.ascx" %>
+<%@ Register TagPrefix="nopCommerce" TagName="Topic" Src="~/Modules/Topic.ascx" %>
 
 
 <div class="master-wrapper-center-2">
@@ -133,7 +134,9 @@
 
             <div class="clear">
             </div>
-
+	    <nopCommerce:Topic ID="StoreInfo" runat="server" TopicName="StoreInfo" OverrideSEO="false"></nopCommerce:Topic>
+<div class="clear">
+            </div>
             <div class="product-grid">
 
                 <asp:ListView ID="dlProducts" runat="server">
@@ -153,7 +156,9 @@
                     PreviousButtonText="<% $NopResources:Pager.Previous %>" CurrentPageText="Pager.CurrentPage" ShowLast="True" ShowFirst="True" />
 
             </div>
-
+	<nopCommerce:Topic ID="StoreInfo2" runat="server" TopicName="StoreInfo" OverrideSEO="false"></nopCommerce:Topic>
+<div class="clear">
+            </div>
             
 
         </div>

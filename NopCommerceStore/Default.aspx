@@ -15,6 +15,44 @@
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="cph1" runat="Server">
+	<script type="text/javascript">
+        function displayImageNavigation(imgClientId) {
+            document.getElementById(imgClientId.id + 'picture-previous').style.display = 'block';
+            document.getElementById(imgClientId.id + 'picture-next').style.display = 'block';
+        }
+
+        function hideImageNavigation(imgClientId) {
+            document.getElementById(imgClientId.id + 'picture-previous').style.display = 'none';
+            document.getElementById(imgClientId.id + 'picture-next').style.display = 'none';
+        }
+
+        function getNextProductPicture(currentImageUrl, productimageUrls, imgId) {
+            var urls = productimageUrls.split(";");
+            var imgIndex = urls.indexOf(document.getElementById(imgId).firstChild.src);
+
+            if (parseInt(imgIndex) == parseInt(urls.length - 1)) {
+                imgIndex = -1;
+            }
+
+            document.getElementById(imgId).firstChild.src = urls[imgIndex + 1];
+            document.getElementById(imgId).firstChild.width = 200;
+            document.getElementById(imgId).firstChild.height = 200;
+
+        }
+
+        function getPreviosProductPicture(productimageUrls, imgId) {
+            var urls = productimageUrls.split(";");
+            var imgIndex = urls.indexOf(document.getElementById(imgId).firstChild.src);
+
+            if (parseInt(imgIndex) == 0) {
+                imgIndex = urls.length;
+            }
+
+            document.getElementById(imgId).firstChild.src = urls[imgIndex - 1];
+            document.getElementById(imgId).firstChild.width = 200;
+            document.getElementById(imgId).firstChild.height = 200;
+        }
+    </script>
    
        <div id="wrapper">
 

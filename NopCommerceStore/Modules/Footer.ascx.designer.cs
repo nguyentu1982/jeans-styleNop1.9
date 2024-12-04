@@ -40,15 +40,6 @@ namespace NopSolutions.NopCommerce.Web.Modules {
         protected global::NopSolutions.NopCommerce.Web.Modules.NewsLetterSubscriptionBoxControl ctrlNewsLetterSubscriptionBoxControl;
         
         /// <summary>
-        /// ShopsInfo control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::NopSolutions.NopCommerce.Web.Modules.InfoBlockControl ShopsInfo;
-        
-        /// <summary>
         /// ctrlPopularTags control.
         /// </summary>
         /// <remarks>
@@ -56,6 +47,15 @@ namespace NopSolutions.NopCommerce.Web.Modules {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::NopSolutions.NopCommerce.Web.Modules.PopularTags1Control ctrlPopularTags;
+        
+        /// <summary>
+        /// ShopsInfo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::NopSolutions.NopCommerce.Web.Modules.InfoBlockControl ShopsInfo;
         
         /// <summary>
         /// ctrlStoreTheme control.

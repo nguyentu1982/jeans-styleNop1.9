@@ -65,6 +65,43 @@
         ga('send', 'pageview');
 
     </script>--%>
+<!-- Event snippet for liên hệ điện thoại và zalo conversion page
+In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
+<script>
+function gtag_report_conversion(url) {
+  var callback = function () {
+    if (typeof(url) != 'undefined') {
+      window.open(url,'_blank');
+    }
+  };
+  gtag('event', 'conversion', {
+      'send_to': 'AW-971689623/C47cCI3QyfEZEJedq88D',
+      'event_callback': callback
+  });
+  return false;
+}
+</script>
+
+<!-- Event snippet for Nhấp vào tìm đường conversion page
+In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
+<script>
+function gtag_report_conversionMap(url) {
+  var callback = function () {
+    if (typeof(url) != 'undefined') {
+      window.open(url,'_blank');
+    }
+  };
+  gtag('event', 'conversion', {
+      'send_to': 'AW-971689623/iqgTCNzT2_EZEJedq88D',
+      'value': 20000.0,
+      'currency': 'VND',
+      'event_callback': callback
+  });
+  return false;
+}
+</script>
+
+
     <!-- Global site tag (gtag.js) - AdWords: 971689623 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=AW-971689623"></script>
     <script>
@@ -185,7 +222,8 @@
         })
     </script>
 
-
+	<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v21.0&appId=531573176905803"></script>
     <meta property="fb:app_id" content="531573176905803" />
 </head>
 <body>
@@ -473,7 +511,21 @@
         jkmegamenu.definemenu("megaanchor3", "megamenu3", "mouseover")
     </script>
 
-   <div class="chowordpress-nav"><ul><li><a href="https://maps.app.goo.gl/cfQBF5e8m8SZbb9m8" rel="nofollow" target="_blank"><i class="ticon-heart"></i>Tìm đường</a></li><li><a href="https://zalo.me/0983254657" rel="nofollow" target="_blank"><i class="ticon-zalo-circle2"></i>Chat Zalo</a></li><li class="phone-mobile"> <a href="tel:0983254657" rel="nofollow" class="button"> <span class="phone_animation animation-shadow"> <i class="icon-phone-w" aria-hidden="true"></i> </span> <span class="btn_phone_txt">Gọi điện</span> </a> </li><li><a href="https://m.me/JeansStyleVN" rel="nofollow" target="_blank"><i class="ticon-messenger"></i>Messenger</a></li><li><a style="display:none" href="sms:0983254657" class="chat_animation"> <i class="ticon-chat-sms" aria-hidden="true" title="Nhắn tin sms"></i> Nhắn tin SMS</a> </li><li class="phone-desktop"><a href="tel:0983254657" rel="nofollow"><i class="icon-phone-w"></i>Gọi điện</a></li></ul> </div>
+   <div class="chowordpress-nav">
+	<ul>
+		<li><a class="mapjs" href="https://maps.app.goo.gl/cfQBF5e8m8SZbb9m8" rel="nofollow" target="_blank"><i class="ticon-heart"></i>Tìm đường</a></li>
+
+		<li><a class="zalo" href="https://zalo.me/0983254657" rel="nofollow" target="_blank"><i class="ticon-zalo-circle2"></i>Chat Zalo</a></li>
+
+<li class="phone-mobile"> <a href="tel:0983254657" rel="nofollow" class="button 0983254657"> <span class="phone_animation animation-shadow"> <i class="icon-phone-w" aria-hidden="true"></i> </span> <span class="btn_phone_txt">Gọi điện</span> </a> </li>
+
+<li class="phone-desktop"><a class="0983254657" href="tel:0983254657" rel="nofollow"><i class="icon-phone-w"></i>0983.25.4657</a></li>
+
+<li><a class="chat_animation 0983254657" href="sms:0983254657"> <i class="ticon-chat-sms" aria-hidden="true" title="Nhắn tin sms"></i> Nhắn tin SMS</a> </li>
+
+<li><a class="mesenger" href="https://m.me/JeansStyleVN" rel="nofollow" target="_blank"><i class="ticon-messenger"></i>Messenger</a></li>
+
+</ul> </div>
 
 
     <%--<div id="fl813691">
@@ -584,5 +636,14 @@
         })();
     </script>--%>
     <!--End of Tawk.to Script-->
+<script type="text/javascript">
+$(document).ready(function () {
+	$(".zalo").on('click', function () { return gtag_report_conversion('https://zalo.me/0983254657') });
+  	$(".0983254657").on('click', function () { return gtag_report_conversion('tel:0983254657') });
+	$(".mapjs").on('click', function () { return gtag_report_conversionMap('https://maps.app.goo.gl/cfQBF5e8m8SZbb9m8') });
+	$(".mesenger").on('click', function () { return gtag_report_conversion('https://m.me/JeansStyleVN') });
+	$(".02437228396").on('click', function () { return gtag_report_conversion('tel:02437228396') });
+})
+</script>
 </body>
 </html>

@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/MasterPages/TwoColumn.master"
+﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/MasterPages/OneColumn.master"
     CodeBehind="Manufacturers.aspx.cs" Inherits="NopSolutions.NopCommerce.Web.ManufacturersPage"
      %>
 

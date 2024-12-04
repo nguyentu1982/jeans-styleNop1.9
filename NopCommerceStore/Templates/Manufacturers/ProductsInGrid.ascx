@@ -23,8 +23,7 @@
             <asp:DataList ID="dlFeaturedProducts" runat="server" RepeatColumns="5" RepeatDirection="Horizontal"
                 RepeatLayout="Table" ItemStyle-CssClass="item-box">
                 <ItemTemplate>
-                    <nopCommerce:ProductBoxRecentlyAddedProductOnHomepage ID="ctrlProductBox" Product='<%# Container.DataItem %>'
-                        runat="server" />
+                    
                 </ItemTemplate>
             </asp:DataList>
         </div>
@@ -56,13 +55,21 @@
     <div class="clear">
     </div>
     <div class="product-grid">
-        <asp:DataList ID="dlProducts" runat="server" RepeatColumns="3" RepeatDirection="Horizontal"
+        <%--<asp:DataList ID="dlProducts" runat="server" RepeatColumns="3" RepeatDirection="Horizontal"
             RepeatLayout="Table" ItemStyle-CssClass="item-box">
             <ItemTemplate>
                 <nopCommerce:ProductBox1 ID="ctrlProductBox" Product='<%# Container.DataItem %>'
                     runat="server" />
             </ItemTemplate>
-        </asp:DataList>
+        </asp:DataList>--%>
+        <asp:ListView ID="dlProducts" runat="server">
+                    <ItemTemplate>
+                        <div class="item-box">
+                            <nopCommerce:ProductBox1 ID="ctrlProductBox" Product='<%# Container.DataItem %>' runat="server" />
+                        </div>
+
+                    </ItemTemplate>
+                </asp:ListView>
     </div>
     <div class="clear">
     </div>

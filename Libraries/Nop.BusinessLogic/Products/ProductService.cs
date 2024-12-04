@@ -574,17 +574,17 @@ namespace NopSolutions.NopCommerce.BusinessLogic.Products
             //additional_image_link
             var pictures = p.ProductPictures;
             string imageLinks = string.Empty;
-            int productImageSize = 1200;
+            int productImageSize = 0;
             for (int i = 0; i < pictures.Count; i++)
             {
                 
                 if (i != pictures.Count - 1)
                 {
-                    imageLinks += IoC.Resolve<IPictureService>().GetPictureUrl(pictures[i].Picture, productImageSize, true, SEOHelper.GetSEName(p.LocalizedName)) + ",";
+                    imageLinks += IoC.Resolve<IPictureService>().GetPictureUrl(pictures[i].Picture, productImageSize, false, SEOHelper.GetSEName(p.LocalizedName)) + ",";
                 }
                 else
                 {
-                    imageLinks += IoC.Resolve<IPictureService>().GetPictureUrl(pictures[i].Picture, productImageSize, true, SEOHelper.GetSEName(p.LocalizedName));
+                    imageLinks += IoC.Resolve<IPictureService>().GetPictureUrl(pictures[i].Picture, productImageSize, false, SEOHelper.GetSEName(p.LocalizedName));
                 }
                 
             }

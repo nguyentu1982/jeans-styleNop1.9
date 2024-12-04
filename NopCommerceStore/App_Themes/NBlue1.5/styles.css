@@ -30,12 +30,36 @@ html, body, li, ul, h2
 	vertical-align:baseline;
 }
 
+.aboutus {
+	overflow: auto;
+	padding: 0.8125rem;
+	margin: 0.3125rem 0;
+	line-height: 1.5;
+	border: 1px solid #a9acaa;
+	border-radius: 0 0 4px 4px;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.26), 0 2px 5px 0 rgba(0, 0, 0, 0.258824),
+		0 2px 10px 0 rgba(0, 0, 0, 0.156863);
+}
+
+.box {
+  border: 2px solid #000;
+  margin: 0 auto 0px;
+  text-align: left;
+  padding: 20px;
+  font-weight: bold;
+  border-radius: 10px;
+}
+
+.info {
+  background-color: #ddd;
+  border-color: #aaa; 
+}
 
 .fb-comments, .fb-comments iframe[style], .fb-like-box, .fb-like-box iframe[style] {width:  100% !important;display:block;z-index:2000;position:relative}
 .fb-comments span, .fb-comments iframe span[style], .fb-like-box span, .fb-like-box iframe  span[style] {width: 100% !important;display:block;z-index:2000;position:relative}
 #back-top {
 	position: fixed;
-	bottom: 0px;
+	bottom: 38px;
 	margin-left: -150px;
 	right:-80px;
 	z-index:10;
@@ -419,7 +443,6 @@ img
 
 a.logo
 {
-	background:url("images/logo.png") repeat scroll 0 0 transparent;
     display:block;
     height:78px;
     text-decoration:none;
@@ -706,6 +729,7 @@ i.angle-down {
 .footer a
 {
 	text-decoration: none;
+	color:#fff;
 }
 
 .block-popular-tags
@@ -974,7 +998,7 @@ td.fieldname
 
 .topicpage, .htmlcontent
 {
-	 padding:5px 5px 5px 15px;
+	 padding:5px;
 }
 
 .topicpage-title
@@ -2329,7 +2353,7 @@ textarea
 
 .home-page-category-grid a
 {
-
+	
 }
 
 .home-page-category-grid .item-box
@@ -2360,6 +2384,7 @@ textarea
 	display: block;
 	height: 1.8em;
 	padding: 8px 0 5px 0;
+	text-transform: uppercase;
 }
 
 .home-page-category-grid .view-all
@@ -2444,7 +2469,7 @@ textarea
 
 .product-grid .item-box
 {
-    float:left;
+    display:inline-table;
     position:relative;
 }
 
@@ -2966,7 +2991,6 @@ textarea
 
 .product-count {
     text-align:center;
-    font-weight:bold;
    
 }
 
@@ -4497,7 +4521,8 @@ h1, h2, h3, h4, h5, h6 {
  .item-box .recentlyproduct-item .product-title
 {
 	text-align: center;
-	font-size: 14px;
+	font-size: 12px;
+	line-height: initial;
 	text-decoration: none;
 	margin:5px 5px;
 	color: #225486;

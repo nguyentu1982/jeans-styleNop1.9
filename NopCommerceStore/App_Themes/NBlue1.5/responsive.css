@@ -188,6 +188,7 @@
 
 =====================================================*/
 @media screen and (max-width:480px)     {
+	.shop-info img {max-width:100%}
     .ad-image-desktop {display: none;}
     /* MASTER PAGE WRAPPERS */
     .master-wrapper-page, .master-wrapper-content {width: 100% !important;}
@@ -301,7 +302,7 @@
     .product-details-info .overview {float:left !important; margin:0px !important;   }
     .product-details-page .gallery{max-width:100%;width:auto;margin:0 auto;float:none;display:table;}
     .product-details-page .gallery .picture img{max-width:100%;}
-    .product-details-page .overview{max-width:100%;width:auto;margin:20px 0;float:none;}
+    .product-details-page .overview{max-width:96% !important;width:auto;margin:20px 0;float:none;}
     .related-products-grid,.also-purchased-products-grid{text-align:center;display:inline-block;width:100%;}
     .related-products-grid .title,.also-purchased-products-grid .title{margin-bottom:15px;}
     .related-products-grid .item-box,.also-purchased-products-grid .item-box{display:inline-block;float:left;}
