@@ -7,14 +7,12 @@
     <div class="page-title">
         <h1><asp:Literal runat="server" ID="lTitle"></asp:Literal></h1>
     </div>
-    <div class="tag-description">
+    <div class="tag-description boxshadow">
         <asp:Literal runat="server" ID="lDescription"></asp:Literal>
     </div>
     <div class="clear">
     </div>
-   <nopCommerce:Topic ID="StoreInfo" runat="server" TopicName="StoreInfo" OverrideSEO="false"></nopCommerce:Topic>
-<div class="clear">
-            </div>
+
     <div class="product-grid">
         <asp:ListView ID="dlProducts" runat="server">
             <ItemTemplate>

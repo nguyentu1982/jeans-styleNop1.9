@@ -7,19 +7,28 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace NopSolutions.NopCommerce.Web.Templates.Manufacturers {
+namespace NopSolutions.NopCommerce.Web.Templates.Categories {
     
     
-    public partial class ProductsInGrid {
+    public partial class ProductsInGrid3 {
         
         /// <summary>
-        /// lName control.
+        /// rptrCategoryBreadcrumb control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal lName;
+        protected global::System.Web.UI.WebControls.Repeater rptrCategoryBreadcrumb;
+        
+        /// <summary>
+        /// ProductSpecificationFilter1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::NopSolutions.NopCommerce.Web.Modules.ProductSpecificationFilterControl1 ProductSpecificationFilter1;
         
         /// <summary>
         /// lDescription control.
@@ -29,6 +38,15 @@ namespace NopSolutions.NopCommerce.Web.Templates.Manufacturers {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Literal lDescription;
+        
+        /// <summary>
+        /// dlSubCategories control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListView dlSubCategories;
         
         /// <summary>
         /// pnlFeaturedProducts control.
@@ -46,7 +64,7 @@ namespace NopSolutions.NopCommerce.Web.Templates.Manufacturers {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DataList dlFeaturedProducts;
+        protected global::System.Web.UI.WebControls.ListView dlFeaturedProducts;
         
         /// <summary>
         /// pnlSorting control.
@@ -65,6 +83,15 @@ namespace NopSolutions.NopCommerce.Web.Templates.Manufacturers {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlSorting;
+        
+        /// <summary>
+        /// ddlFillteringBySize control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlFillteringBySize;
         
         /// <summary>
         /// pnlFilters control.
@@ -94,13 +121,22 @@ namespace NopSolutions.NopCommerce.Web.Templates.Manufacturers {
         protected global::NopSolutions.NopCommerce.Web.Modules.PriceRangeFilterControl ctrlPriceRangeFilter;
         
         /// <summary>
-        /// ctrlProductSpecificationFilter1 control.
+        /// ctrlProductSpecificationFilter control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::NopSolutions.NopCommerce.Web.Modules.ProductSpecificationFilterControl1 ctrlProductSpecificationFilter1;
+        protected global::NopSolutions.NopCommerce.Web.Modules.ProductSpecificationFilterControl3 ctrlProductSpecificationFilter;
+        
+        /// <summary>
+        /// litProductCount control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal litProductCount;
         
         /// <summary>
         /// dlProducts control.
@@ -119,14 +155,5 @@ namespace NopSolutions.NopCommerce.Web.Templates.Manufacturers {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::NopSolutions.NopCommerce.Controls.Pager productsPager;
-        
-        /// <summary>
-        /// StoreInfo2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::NopSolutions.NopCommerce.Web.Modules.TopicControl StoreInfo2;
     }
 }

@@ -279,3 +279,11 @@
 <asp:Panel runat="server" ID="pnlMessage">
     <%=GetLocaleResourceString("Admin.ProductVariantAttributes.AvailableAfterSaving")%>
 </asp:Panel>
+<script type="text/javascript" language="javascript">
+    Sys.WebForms.PageRequestManager.getInstance().add_endRequest(EndRequestHandler);
+    function EndRequestHandler(sender, args) {
+        if (args.get_error() != undefined) {
+            args.set_errorHandled(true);
+        }
+    }
+</script>

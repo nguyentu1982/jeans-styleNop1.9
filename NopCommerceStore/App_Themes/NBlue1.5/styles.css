@@ -41,6 +41,18 @@ html, body, li, ul, h2
 		0 2px 10px 0 rgba(0, 0, 0, 0.156863);
 }
 
+.boxshadow
+{
+	box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+
+
+.tag-description
+{
+	margin: 10px;
+	padding:15px;
+}
+
 .box {
   border: 2px solid #000;
   margin: 0 auto 0px;
@@ -53,6 +65,13 @@ html, body, li, ul, h2
 .info {
   background-color: #ddd;
   border-color: #aaa; 
+}
+
+.htmlcontent-title
+{
+	text-align: center;
+    text-transform: uppercase;
+    padding: 10px;
 }
 
 .fb-comments, .fb-comments iframe[style], .fb-like-box, .fb-like-box iframe[style] {width:  100% !important;display:block;z-index:2000;position:relative}
@@ -674,7 +693,7 @@ i.angle-down {
 {
 	background:none repeat scroll 0 0 #021841;
     margin:0 auto;
-    padding-top:5px;
+    padding:35px 5px 35px 5px;
     
 	color:#FFF;
 }
@@ -903,7 +922,7 @@ i.angle-down {
 
 .footer-shops
 {
-	border: 1px solid;
+	border: 1px solid #C0C0C0;
 	margin: 5px;
 }
 
@@ -954,8 +973,7 @@ a.f-logo {
 {   
     color:#3A4045;
     text-transform:uppercase;
-    padding:10px 0px;
-    border-top:1px solid #c0c0c0;
+    padding-top: 26px;
 }
 
 .page-title h1, .page-title h2 
@@ -2804,10 +2822,11 @@ textarea
 
 .category-page .product-pager, .manufacturer-page .product-pager, .producttag-page .product-pager
 {
-	font-size:11px;
+	font-size:14px;
 	text-align: center;
-	margin: 3px 3px 0px 0px;
-    padding:6px;
+	margin: auto;
+	width:96%;
+    padding:10px;
     background-color:#666;
 }
 
@@ -2832,7 +2851,7 @@ textarea
 
 .producttag-page
 {
-	border:1px solid #c0c0c0;
+	
 	padding: 5px;
 	margin-bottom:5px;
     float:left;
@@ -2865,6 +2884,7 @@ textarea
 	color: #0A263C;
 	font-size: 14px;
     margin:10px;
+	padding:10px;
 }
 
 .sub-category-grid, .manufacturer-grid
@@ -2990,8 +3010,10 @@ textarea
 }
 
 .product-count {
-    text-align:center;
-   
+        text-align: center;
+    padding: 10px;
+    font-size: 14px;
+    width: 96%;   
 }
 
 .select-filter {

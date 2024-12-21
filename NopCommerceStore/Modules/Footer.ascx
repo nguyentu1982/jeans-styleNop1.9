@@ -7,6 +7,7 @@
 <%@ Register TagPrefix="nopCommerce" TagName="RecentlyViewedProducts" Src="~/Modules/RecentlyViewedProducts.ascx" %>
 <%@ Register TagPrefix="nopCommerce" TagName="NewsLetterSubscriptionBoxControl" Src="~/Modules/NewsLetterSubscriptionBoxControl.ascx" %>
 <%@ Register TagPrefix="nopCommerce" TagName="RelatedProducts" Src="~/Modules/RelatedProducts.ascx" %>
+<%@ Register TagPrefix="nopCommerce" TagName="Topic" Src="~/Modules/Topic.ascx" %>
 
 
 <div class="footer-bf">
@@ -16,6 +17,8 @@
 
 
 </div>
+<nopCommerce:Topic ID="topicHomePageText" runat="server" TopicName="HomePageText"
+        OverrideSEO="false"></nopCommerce:Topic>
 <div class="clear"></div>
 <div class="footer">
     <div class="footer-info">

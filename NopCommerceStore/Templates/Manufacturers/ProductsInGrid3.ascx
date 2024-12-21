@@ -58,7 +58,7 @@
 
             </div>
             <% } %>
-            <div class="category-description boxshadow">
+            <div class="category-description">
                 <asp:Literal runat="server" ID="lDescription"></asp:Literal>
             </div>
 
@@ -134,7 +134,9 @@
 
             <div class="clear">
             </div>
-	    
+	    <nopCommerce:Topic ID="StoreInfo" runat="server" TopicName="StoreInfo" OverrideSEO="false"></nopCommerce:Topic>
+<div class="clear">
+            </div>
             <div class="product-grid">
 
                 <asp:ListView ID="dlProducts" runat="server">

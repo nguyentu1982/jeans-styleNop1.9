@@ -98,6 +98,5 @@
     <nopCommerce:HomePagePoll ID="ctrlPolls" runat="server" />
     <div class="clear">
     </div>
-    <nopCommerce:Topic ID="topicHomePageText" runat="server" TopicName="HomePageText"
-        OverrideSEO="false"></nopCommerce:Topic>
+    
 </asp:Content>

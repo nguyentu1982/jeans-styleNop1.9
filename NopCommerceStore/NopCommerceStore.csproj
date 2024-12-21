@@ -4404,6 +4404,13 @@
     <Compile Include="NewsList.aspx.designer.cs">
       <DependentUpon>NewsList.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Templates\Categories\ProductsInGrid4.ascx.cs">
+      <DependentUpon>ProductsInGrid4.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Templates\Categories\ProductsInGrid4.ascx.designer.cs">
+      <DependentUpon>ProductsInGrid4.ascx</DependentUpon>
+    </Compile>
     <Compile Include="Templates\Categories\ProductsInGrid3.ascx.cs">
       <DependentUpon>ProductsInGrid3.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -7263,6 +7270,7 @@
     <Content Include="ServiceList.aspx" />
     <Content Include="Customers.aspx" />
     <Content Include="NewsList.aspx" />
+    <Content Include="Templates\Categories\ProductsInGrid4.ascx" />
     <Content Include="Templates\Categories\ProductsInGrid3.ascx" />
     <Content Include="Templates\Categories\ProductsInGrid2.ascx" />
     <Content Include="WishlistEmailAFriend.aspx" />

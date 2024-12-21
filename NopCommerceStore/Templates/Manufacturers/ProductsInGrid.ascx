@@ -4,13 +4,14 @@
 <%@ Register TagPrefix="nopCommerce" TagName="PriceRangeFilter" Src="~/Modules/PriceRangeFilter.ascx" %>
 <%@ Register TagPrefix="nopCommerce" TagName="ProductSpecificationFilter1" Src="~/Modules/ProductSpecificationFilter1.ascx" %>
 <%@ Register TagPrefix="nopCommerce" TagName="ProductBoxRecentlyAddedProductOnHomepage" Src="~/Modules/ProductBoxRecentlyAddedProductOnHomepage.ascx" %>
+<%@ Register TagPrefix="nopCommerce" TagName="Topic" Src="~/Modules/Topic.ascx" %>
 <div class="manufacturer-page">
     <div class="page-title">
         <h1><asp:Literal runat="server" ID="lName"></asp:Literal></h1>
     </div>
     <div class="clear">
     </div>
-    <div class="manufacturer-description">
+    <div class="manufacturer-description boxshadow">
         <asp:Literal runat="server" ID="lDescription"></asp:Literal>
     </div>
     <div class="clear">
@@ -78,4 +79,5 @@
             LastButtonText="<% $NopResources:Pager.Last %>" NextButtonText="<% $NopResources:Pager.Next %>"
             PreviousButtonText="<% $NopResources:Pager.Previous %>" CurrentPageText="Pager.CurrentPage" />
     </div>
+    <nopCommerce:Topic ID="StoreInfo2" runat="server" TopicName="StoreInfo" OverrideSEO="false"></nopCommerce:Topic>
 </div>
